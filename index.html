@@ -293,6 +293,8 @@ svg.i { width: 1em; height: 1em; flex: none; stroke: currentColor; fill: none; s
 .statement .st-h { font: 700 1rem/1.3 var(--sans); color: var(--ink); margin-top: 1.1em; letter-spacing: .01em; }
 .statement code { font: .88em/1.4 var(--mono); background: #eef1f3; border: 1px solid var(--line); border-radius: 3px; padding: .05em .3em; overflow-wrap: anywhere; }
 .statement .code { margin: .7em 0; max-width: 100%; }
+.statement .lv2 { margin-left: 1.4em; }
+.statement .lv3 { margin-left: 2.8em; }
 .statement .code-lbl { font: 600 .74rem/1 var(--sans); text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: 4px; }
 .statement pre { margin: 0; padding: 10px 14px; background: #f6f8fa; border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 3px; font: .9rem/1.45 var(--mono); color: var(--text); overflow-x: auto; white-space: pre; tab-size: 4; }
 .p-lim { display: inline-flex; flex-wrap: wrap; gap: 4px 6px; font: 500 .8rem/1.2 var(--mono); color: var(--muted); }
@@ -632,7 +634,7 @@ const BASE = './';
 // Figures are linked inside the statements with their published raw URL; a local copy shows its own images/.
 const RAW = 'https://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/';
 // Bump on every data change so browsers never mix old and new files.
-const DATA_VERSION = '20261017-ioi2025';
+const DATA_VERSION = '20261017-ioi2026';
 const FIRST = 1989, LAST = 2026;
 const REGIONS = [['europe', 'Europe'], ['asia', 'Asia'], ['americas', 'Americas'], ['africa', 'Africa'], ['oceania', 'Oceania'], ['world', 'World'], ['other', 'Other']];
 const REGION_OF = { ioi: 'world' };
@@ -815,7 +817,8 @@ function bodyHtml(text, record) {
         if (/^#{2,3} /.test(raw) && !raw.includes('\n')) return `<h4 class="st-h">${inlineCode(esc(raw.replace(/^#+ /, '')))}</h4>`;
         const x = inlineCode(esc(raw).replace(IMG_RE, (m, url, ext) => { figs.push(`${url}.${ext}`); return ''; }).trim());
         if (!x) return '';
-        return `<div class="para">${x.replace(/\n(?=\s*•)/g, '<br>')}</div>`;
+        // List items start with • ; nested items with ◦ (second level) and ▪ (third level), each on its own line.
+        return `<div class="para">${x.replace(/\n(?=\s*[•◦▪])/g, '<br>').replace(/(^|<br>)\s*([◦▪]) /g, (m, br, k) => `${br}<span class="lv${k === '◦' ? 2 : 3}">${k}</span> `)}</div>`;
     }).join('');
     figs.forEach(u => { html += fig(u.replace(/&amp;/g, '&')); });
     return html;
