@@ -2,6 +2,59 @@
  "competition": "International Olympiad in Informatics (IOI)",
  "years": [
   {
+   "year": 1994,
+   "problems": [
+    {
+     "day": 1,
+     "number": 1,
+     "paper_label": "Day 1",
+     "title": "The Triangle",
+     "task_type": "batch",
+     "problem": "https://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/ioi-1994-1-1-fig1.png\n\n(Figure 1)\n\nFigure 1 shows a number triangle. Write a program that calculates the highest sum of numbers passed on a route that starts at the top and ends somewhere on the base.\n\n• Each step can go either diagonally down to the left or diagonally down to the right.\n• The number of rows in the triangle is $>1$ but $\\le 100$.\n• The numbers in the triangle, all integers, are between $0$ and $99$.\n\n## Input Data\n\nData about the number of rows in the triangle are first read from the `INPUT.TXT` file. In our example, `INPUT.TXT` appears as follows:\n\n```INPUT.TXT\n5\n7\n3 8\n8 1 0\n2 7 4 4\n4 5 2 6 5\n```\n\n## Output Data\n\nThe highest sum is written as an integer in the `OUTPUT.TXT` file. In our example:\n\n```OUTPUT.TXT\n30\n```"
+    },
+    {
+     "day": 1,
+     "number": 2,
+     "paper_label": "Day 1",
+     "title": "The Castle",
+     "task_type": "batch",
+     "problem": "https://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/ioi-1994-1-2-fig1.png\n\n(Figure 1)\n\n```legend\n#  = Wall\n|  = No wall\n-  = No wall\n-> = It points to the wall to remove according to the example output.\n```\n\nFigure 1 shows the map of a castle. Write a program that calculates\n\n• 1. how many rooms the castle has\n• 2. how big the largest room is\n• 3. which wall to remove from the castle to make as large a room as possible.\n\nThe castle is divided into $m * n$ ($m \\le 50$, $n \\le 50$) square modules. Each such module can have between zero and four walls.\n\n## Input Data\n\nThe map is stored in the `INPUT.TXT` file in the form of numbers, one for each module.\n\n• The file starts with the number of modules in the north-south direction and the number of modules in the east-west direction.\n• In the following lines each module is described by a number ($0 \\le p \\le 15$). This number is the sum of: $1$ (= wall to the west), $2$ (= wall to the north), $4$ (= wall to the east), $8$ (= wall to the south). Inner walls are defined twice; a wall to the south in module 1,1 is also indicated as a wall to the north in module 2,1.\n• The castle always has at least two rooms.\n\n`INPUT.TXT` for our example:\n\n```INPUT.TXT\n4\n7\n11 6 11 6 3 10 6\n7 9 6 13 5 15 5\n1 10 12 7 13 7 5\n13 11 10 8 10 12 13\n```\n\n## Output Data\n\nIn the `OUTPUT.TXT` file, the following are written on three lines: First the number of rooms, then the area of the largest room (counted in modules) and a suggestion of which wall to remove (first the row and then the column of the module next to the wall and finally the compass direction that points to the wall). In our example (\"4 1 E\" is one of several possibilities, you need only produce one):\n\n```OUTPUT.TXT\n5\n9\n4 1 E\n```"
+    },
+    {
+     "day": 1,
+     "number": 3,
+     "paper_label": "Day 1",
+     "title": "The Primes",
+     "task_type": "batch",
+     "problem": "https://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/ioi-1994-1-3-fig1.png\n\n(Figure 1)\n\nFigure 1 shows a square. Each row, each column and the two diagonals can be read as a five digit prime number. The rows are read from left to right. The columns are read from top to bottom. Both diagonals are read from left to right. Using the data in the `INPUT.TXT` file, write a program that constructs such squares.\n\n• The prime numbers must have the same digit sum ($11$ in the example).\n• The digit in the top left-hand corner of the square is pre-determined ($1$ in the example).\n• A prime number may be used more than once in the same square.\n• If there are several solutions, all must be presented.\n• A five digit prime number cannot begin with zeros, ie $00003$ is NOT a five digit prime number.\n\n## Input Data\n\nThe program reads data from the `INPUT.TXT` file. First the digit sum of prime numbers and then the digit in the top left-hand corner of the square. The file contains two lines. There will always be a solution to the given test data. In our example:\n\n```INPUT.TXT\n11\n1\n```\n\n## Output Data\n\nIn the `OUTPUT.TXT` file, write five lines for each solution found, where each line in turn consists of a five digit prime number. The above example has $3$ solutions which means that the `OUTPUT.TXT` file contains the following (the empty lines are optional):\n\n```OUTPUT.TXT\n11351\n14033\n30323\n53201\n13313\n\n11351\n33203\n30323\n14033\n33311\n\n13313\n13043\n32303\n50231\n13331\n```"
+    },
+    {
+     "day": 2,
+     "number": 1,
+     "paper_label": "Day 2",
+     "title": "The Clocks",
+     "task_type": "batch",
+     "problem": "https://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/ioi-1994-2-1-fig1.png\n\n(Figure 1)\n\nThere are nine clocks in a $3*3$ array (figure 1). The goal is to return all the dials to 12 o'clock with as few moves as possible. There are nine different allowed ways to turn the dials on the clocks. Each such way is called a move. Select for each move a number $1$ to $9$. That number will turn the dials 90' (degrees) clockwise on those clocks which are affected according to figure 2 below.\n\n## Input Data\n\nRead nine numbers from the `INPUT.TXT` file. These numbers give the start positions of the dials. 0=12 o'clock, 1=3 o'clock, 2=6 o'clock, 3=9 o'clock. The example in figure 1 gives the following input data file:\n\n```INPUT.TXT\n3 3 0\n2 2 2\n2 1 2\n```\n\n## Output Data\n\nWrite to the `OUTPUT.TXT` file a shortest sequence of moves (numbers), which returns all the dials to 12 o'clock. In case there are many solutions, only one is required. In our example the `OUTPUT.TXT` file could look as follows:\n\n```OUTPUT.TXT\n5849\n```\n\n```Figure 2\nMove   Affected clocks\n\n 1        ABDE\n 2        ABC\n 3        BCEF\n 4        ADG\n 5        BDEFH\n 6        CFI\n 7        DEGH\n 8        GHI\n 9        EFHI\n```\n\n(Figure 2)\n\n## Example of Method\n\nEach number represents a time accoring to following table:\n\n```table\n0 = 12 o'clock\n1 = 3 o'clock\n2 = 6 o'clock\n3 = 9 o'clock\n```\n\n```method\n3 3 0         3 0 0         3 0 0          0 0 0         0 0 0\n2 2 2   5->   3 3 3   8->   3 3 3   4 ->   0 3 3   9->   0 0 0\n2 1 2         2 2 2         3 3 3          0 3 3         0 0 0\n```"
+    },
+    {
+     "day": 2,
+     "number": 2,
+     "paper_label": "Day 2",
+     "title": "The Buses",
+     "task_type": "batch",
+     "problem": "A man arrives at a bus stop at 12:00. He remains there during 12:00-12:59. The bus stop is used by a number of bus routes. The man notes the times of arriving buses. The times when buses arrive are given.\n\n• Buses on the same route arrive at regular intervals from 12:00 to 12:59 throughout the entire hour.\n• Times are given in whole minutes from $0$ to $59$.\n• Each bus route stops at least $2$ times.\n• The number of bus routes in the test examples will be $\\le 17$.\n• Buses from different routes may arrive at the same time.\n• Several bus routes can have the same time of first arrival and/or time interval. If two bus routes have the same starting time and interval, they are distinct and are both to be presented.\n\nFind the schedule with the fewest number of bus routes that must stop at the bus stop to satisfy the input data. For each bus route, output the starting time and the interval.\n\n## Input Data\n\nThe input file, `INPUT.TXT`, contains a number $n$ ($n \\le 300$) telling how many arriving buses have been noted, followed by the arrival times in ascending order. Our example:\n\n```INPUT.TXT\n17\n0 3 5 13 13 15 21 26 27 29 37 39 39 45 51 52 53\n```\n\n## Output Data\n\nWrite a table to the `OUTPUT.TXT` file with one line for each bus route. Each line in the file gives the time of arrival for the first bus and the time interval in minutes. The order of the bus routes does not matter. If there are several solutions, only one is required. Our example gives:\n\n```OUTPUT.TXT\n0 13\n3 12\n5 8\n```"
+    },
+    {
+     "day": 2,
+     "number": 3,
+     "paper_label": "Day 2",
+     "title": "The Circle",
+     "task_type": "batch",
+     "problem": "You have a circle, divided into sectors. You are given three positive numbers: $n$ ($n \\le 6$), $m$ ($m \\le 20$) and $k$ ($k \\le 20$). $n$ is the number of sectors. Choose integers to place in each sector. All integers have to be greater or equal to $k$. When the circle is filled you can use the integer in a single sector or add the integers in two or more adjacent sectors to make a new number. Using these new numbers you can create an unbroken sequence of all integers between $m$ and $i$ ($m, m+1, m+2 \\ldots i$).\n\nYour task is to choose integers for the sectors such that the largest number ($i$) in the sequence is as high as possible. Figure 1 below shows how to generate all numbers from $2$ to $21$ (for $n=5$, $m=2$, $k=1$). The ^-sign below the sectors shows which sectors to add together to make numbers in the sequence.\n\n## Input Data\n\nThe `INPUT.TXT` file contains three integers ($n$, $m$ and $k$). Example:\n\n```INPUT.TXT\n5\n2\n1\n```\n\n## Output Data\n\nThe file `OUTPUT.TXT` must contain:\n\n• The highest number ($i$) that can be generated with the list of numbers.\n• All arrangements of numbers in a circle that produce a sequence from $m$ to $i$. (One per line.) Each arrangement is a list of numbers starting with the smallest number (which is not necessarily unique).\n\n(2 10 3 1 5) is NOT a valid solution, since it does not start with the smallest number. (1 3 10 2 5) and (1 5 2 10 3) must both be included in the output. Note that (1 1 2 3), (1 3 2 1), (1 2 3 1) and (1 1 3 2) should all be output.\n\nThe output for the example above might be:\n\n```OUTPUT.TXT\n21\n1 3 10 2 5\n1 5 2 10 3\n2 4 9 3 5\n2 5 3 9 4\n```\n\nFIGURE 1 (all circles have been cut open as indicated by arrow):\n\nhttps://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/ioi-1994-2-3-fig1.png\n\nhttps://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/ioi-1994-2-3-fig2.png"
+    }
+   ]
+  },
+  {
    "year": 1996,
    "problems": [
     {
