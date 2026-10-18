@@ -72,6 +72,7 @@
     --ceoi: #b45309; --ceoi-ink: #7a3906; --ceoi-tint: #fbecd9;
     --usaco: #be123c; --usaco-ink: #7f0c28; --usaco-tint: #fde3e9;
     --joi: #a21caf; --joi-ink: #6b1374; --joi-tint: #f7e2f9;
+    --joisc: #7e22ce; --joisc-ink: #561795; --joisc-tint: #f1e5fc;
     --coci: #0f766e; --coci-ink: #0a4d48; --coci-tint: #dbf1ee;
     --poi: #c2410c; --poi-ink: #832b08; --poi-tint: #fde6da;
     --gr: #1f5fbf; --gr-ink: #163f82; --gr-tint: #e6eefb;
@@ -84,6 +85,7 @@
 .f-ceoi { --f: var(--ceoi); --f-ink: var(--ceoi-ink); --f-tint: var(--ceoi-tint); }
 .f-usaco { --f: var(--usaco); --f-ink: var(--usaco-ink); --f-tint: var(--usaco-tint); }
 .f-joi { --f: var(--joi); --f-ink: var(--joi-ink); --f-tint: var(--joi-tint); }
+.f-joisc { --f: var(--joisc); --f-ink: var(--joisc-ink); --f-tint: var(--joisc-tint); }
 .f-coci { --f: var(--coci); --f-ink: var(--coci-ink); --f-tint: var(--coci-tint); }
 .f-poi { --f: var(--poi); --f-ink: var(--poi-ink); --f-tint: var(--poi-tint); }
 .f-gr { --f: var(--gr); --f-ink: var(--gr-ink); --f-tint: var(--gr-tint); }
@@ -634,10 +636,10 @@ const BASE = './';
 // Figures are linked inside the statements with their published raw URL; a local copy shows its own images/.
 const RAW = 'https://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/';
 // Bump on every data change so browsers never mix old and new files.
-const DATA_VERSION = '20261018-coci2006-r4-6';
+const DATA_VERSION = '20261018-joi2022-2025';
 const FIRST = 1989, LAST = 2026;
 const REGIONS = [['europe', 'Europe'], ['asia', 'Asia'], ['americas', 'Americas'], ['africa', 'Africa'], ['oceania', 'Oceania'], ['world', 'World'], ['other', 'Other']];
-const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', coci: 'europe' };
+const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', coci: 'europe', joi: 'asia', joisc: 'asia' };
 const regionOf = key => REGION_OF[key] || 'other';
 const PAGE = 20;
 const STORAGE_KEY = 'eisatopon-informatics:set:v1';  // same origin as the other banks: keep the keys apart
@@ -646,6 +648,7 @@ const COUNTRIES = [
     { key: 'ioi', name: 'IOI', flag: '🌐', file: 'IOI-problems.json', kind: 'years', scope: 'international', full: 'International Olympiad in Informatics' },
     { key: 'boi', name: 'BOI', flag: '🌊', file: 'BOI-problems.json', kind: 'years', scope: 'regional', full: 'Baltic Olympiad in Informatics' },
     { key: 'coci', name: 'Croatia — COCI', flag: '🇭🇷', file: 'COCI-problems.json', kind: 'years', scope: 'national', full: 'Croatian Open Competition in Informatics (the year is the start of the season, e.g. 2025 = season 2025/2026)' },
+    { key: 'joi', name: 'Japan — JOI Final Round', flag: '🇯🇵', file: 'JOI-problems.json', kind: 'years', scope: 'national', full: 'Japanese Olympiad in Informatics, Final Round (the year is the year of the contest, e.g. 2025 = JOI 2024/2025)' },
     { key: 'egoi', name: 'EGOI', flag: '🇪🇺', file: 'EGOI-problems.json', kind: 'years', scope: 'international', full: "European Girls' Olympiad in Informatics" },
 ];
 COUNTRIES.sort((a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' }));
