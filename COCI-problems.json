@@ -183,6 +183,186 @@
      "time_limit": "3 seconds",
      "memory_limit": "64 MB",
      "problem": "Luka is not paying attention in class again, while the teacher is explaining redox reactions. Instead of paying attention, he is playing with analog dials.\n\nAn analog dial is a small device which always shows one digit between 0 and 9. It also contains a small button which increases the number by 1 (unless it is 9, in which case it is changed to 0).\n\nLuka has $N$ such dials on his desk, numbered 1 to $N$ left to right, and two sheets of paper for him to write on.\n\nLuka's game starts with him setting the dials in some starting configuration, which he then writes onto the first sheet. Luka then does the following $M$ times:\n\n• Choose two integers $A$ and $B$ ($1 \\le A \\le B \\le N$) and write them down on the first sheet.\n• Calculate the sum of numbers on dials numbered between $A$ and $B$ (inclusive), and write the sum down on the second sheet.\n• Press the button once on all dials numbered between $A$ and $B$.\n\nJust as he had finished his game, the teacher noticed him, and took away all his dials and the **second** sheet of paper.\n\nGiven the contents of the first sheet, help him calculate the numbers on the second sheet.\n\n## Input\n\nThe first line contains two integers $N$ and $M$ ($1 \\le N \\le 250\\,000$, $1 \\le M \\le 100\\,000$).\n\nThe second line contains the initial configuration of the dials, $N$ decimal digits with no spaces. The first digit is the number initially on dial 1, the second digit the number on dial 2 and so on.\n\nEach of the following $M$ lines contains two integers $A$ and $B$ ($1 \\le A \\le B \\le N$).\n\n## Output\n\nOutput $M$ lines, the sums calculated by Luka, in order in which he calculated them.\n\n## Scoring\n\nIn 30% of all test cases, the numbers $N$ and $M$ will be less than 1000.\n\n## Examples\n\n### Example 1\n\n```input\n4 3\n1234\n1 4\n1 4\n1 4\n```\n\n```output\n10\n14\n18\n```\n\n### Example 2\n\n```input\n4 4\n1234\n1 1\n1 2\n1 3\n1 4\n```\n\n```output\n1\n4\n9\n16\n```\n\n### Example 3\n\n```input\n7 5\n9081337\n1 3\n3 7\n1 3\n3 7\n1 3\n```\n\n```output\n17\n23\n1\n19\n5\n```"
+    },
+    {
+     "day": 4,
+     "number": 1,
+     "paper_label": "Round 4",
+     "title": "Vauvau",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "In a nearby village, the postman, milkman and garbage man face the same problem morning after morning: house 18. House 18 is guarded by two dogs that often cause problems. What they don't know is that the dogs' behaviour is completely predictable.\n\nWhen the day starts, one dog is aggressive for $A$ minutes and is then calm for $B$ minutes. Similarly, the other dog is aggressive for $C$ minutes, then calm for $D$ minutes. Both dogs repeat their behaviours indefinitely, starting a new aggressive period after the calm period, then another calm period etc.\n\nGiven the arrival times of the postman, milkman and garbage man, determine how many dogs (none, one or both) attack each of them.\n\n## Input\n\nThe first line of input contains the integers $A$, $B$, $C$ and $D$.\n\nThe second line contains the integer $P$, $M$ and $G$, the minute in the day during which the postman, milkman and garbage man arrive at house 18. For example, if $P$ is 3, it should be interpreted as \"the postman arrived sometime during the third minute in the day\".\n\nAll numbers in the input will be between 1 and 999.\n\n## Output\n\nOutput should consist of three lines; each containing 'both', 'one' or 'none', depending on how many dogs attack each of our heroes.\n\n## Examples\n\n### Example 1\n\n```input\n2 2 3 3\n1 3 4\n```\n\n```output\nboth\none\nnone\n```\n\n### Example 2\n\n```input\n2 3 4 5\n4 9 5\n```\n\n```output\none\nnone\nnone\n```"
+    },
+    {
+     "day": 4,
+     "number": 2,
+     "paper_label": "Round 4",
+     "title": "Veci",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Your program will be given an integer $X$. Find the smallest number larger than $X$ consisting of the same digits as $X$.\n\n## Input\n\nThe first line of input contains the integer $X$ ($1 \\le X \\le 999\\,999$).\n\nThe first digit in $X$ will not be a zero.\n\n## Output\n\nOutput the result on a single line. If there is no such number, output 0.\n\n## Examples\n\n### Example 1\n\n```input\n156\n```\n\n```output\n165\n```\n\n### Example 2\n\n```input\n330\n```\n\n```output\n0\n```\n\n### Example 3\n\n```input\n27711\n```\n\n```output\n71127\n```"
+    },
+    {
+     "day": 4,
+     "number": 3,
+     "paper_label": "Round 4",
+     "title": "Lektira",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Mario is making up silly games again instead of reading Dostoevsky for school. The rules of his newest game follow.\n\nFirst he chooses a random word from the book. Then he splits the word in two arbitrary places to get three separate words.\n\nAfter that he reverses the order of the letters in each of those three words (exchanges the first and last letters, the second and second last and so on).\n\nFinally, he puts the three words back together in the same order in which they were before splitting.\n\nThe goal of the game is to obtain the lexicographically smallest word possible. In other words, of all words that can be obtained by the above procedure, find one which would be earliest in a dictionary.\n\nWrite a program that plays Mario's game perfectly.\n\n## Input\n\nThe first and only line of input contains Mario's chosen word, a string of lowercase letters of the English alphabet with no spaces.\n\nThe input word will be between 3 and 50 characters long (inclusive).\n\n## Output\n\nOutput the best word on a single line.\n\n## Examples\n\n### Example 1\n\n```input\ndcbagfekjih\n```\n\n```output\nabcdefghijk\n```\n\n### Example 2\n\n```input\nmobitel\n```\n\n```output\nbometil\n```\n\n### Example 3\n\n```input\nanakonda\n```\n\n```output\naanadnok\n```"
+    },
+    {
+     "day": 4,
+     "number": 4,
+     "paper_label": "Round 4",
+     "title": "Muzicari",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "\"The Drinking Musicians\", a widely known and popular folk group, are coming to your town. The musicians are known not only by their playing skills, but also their rough character. They never arrive on time, don't know which town they're in, and frequently have trouble finding the stage.\n\nAdditionally, during the concert, each of the musicians at one point takes a break. If **three or more** of them are on a break at the same time, they start stirring trouble in town and the rest of the group start panicking and playing the wrong chords.\n\nThe concert will be $T$ minutes long, during which each of the $N$ members will take a break. The length of the break is known for each member.\n\nHelp the organizer of the concert by writing a program that determines how to schedule the breaks of the member so that, at any given moment, at most two are absent from the stage. All breaks must be **entirely** during the concert.\n\n## Input\n\nThe first line of input contains the integers $T$ and $N$ ($1 \\le T \\le 5000$, $1 \\le N \\le 500$), the length of the concert in minutes and the number of musicians in the group.\n\nThe next line contains $N$ integers separated by single spaces, the length of the break in minutes for each member.\n\n**Note:** The input data will be such that a solution, although not necessarily unique, will always exist.\n\n## Output\n\nFor each musician output one integer, the number of minutes the musician will spend on stage before going on the break.\n\nOutput the musicians in the same order they were given in the input.\n\n## Examples\n\n### Example 1\n\n```input\n8 3\n4 4 4\n```\n\n```output\n0 2 4\n```\n\n### Example 2\n\n```input\n10 5\n7 5 1 2 3\n```\n\n```output\n3 3 9 0 0\n```"
+    },
+    {
+     "day": 4,
+     "number": 5,
+     "paper_label": "Round 4",
+     "title": "Poklon",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Mirko got a set of intervals for his birthday. There are many games he can play with them. In one of them, Mirko must find the **longest** sequence of **distinct** intervals such that each interval in the sequence is in the set and that each interval **contains** the one that **follows** in the sequence.\n\nWrite a program which finds one such longest sequence.\n\n## Input\n\nThe first line of input contains the integer $N$ ($1 \\le N \\le 100\\,000$), the number of intervals in the set.\n\nEach of the following $N$ lines contains two integers $A$ and $B$ describing one interval ($1 \\le A < B \\le 1\\,000\\,000$).\n\n## Output\n\nOutput the length $K$ of the longest sequence on the first line.\n\nEach of the following $K$ lines should contain one element of the sequence, an interval in the same format it was given in the input.\n\n## Examples\n\n### Example 1\n\n```input\n3\n3 4\n2 5\n1 6\n```\n\n```output\n3\n1 6\n2 5\n3 4\n```\n\n### Example 2\n\n```input\n5\n10 30\n20 40\n30 50\n10 60\n30 40\n```\n\n```output\n3\n10 60\n30 50\n30 40\n```\n\n### Example 3\n\n```input\n6\n1 4\n1 5\n1 6\n1 7\n2 5\n3 5\n```\n\n```output\n5\n1 7\n1 6\n1 5\n2 5\n3 5\n```"
+    },
+    {
+     "day": 4,
+     "number": 6,
+     "paper_label": "Round 4",
+     "title": "Kocke",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "A robot and five cubes are placed on an infinite board composed of unit squares. The robot and the cubes occupy one square each.\n\nThe robot can be moved in each of four directions: up, down, left and right. If the square the robot would enter contains a cube, then the robot pushes it in the direction of movement.\n\nThe cubes possess curious magnetic properties. When two cubes are in neighbouring squares (squares that share a side), they join and become one object. If the robot pushes a cube that is joined with one or more other cubes, all cubes in the group move together.\n\nWrite a program that controls the robot so that it joins all cubes into a single group which (when viewed from above) forms the letter T in the upright position (it may not be rotated).\n\n## Input\n\nThe input consists of five lines. Each line contains two integers $X$ and $Y$ ($-5 \\le X, Y \\le 5$), the starting coordinates of one cube.\n\nThe robot is initially in square $(0, 0)$. No cubes will be located at those coordinates.\n\nNo pair of cubes will initially be at the same or neighbouring coordinates. More precisely, no cubes will initially share a side (they may share corners).\n\n## Output\n\nOutput a string of characters representing the robot's moves on a single line. Each character must be one of 'U' (up), 'D' (down), 'L' (left), 'R' (right).\n\nThe sequence must be at most 9999 characters long.\n\n## Examples\n\n### Example 1\n\n```input\n0 1\n-1 0\n1 0\n0 -1\n0 -3\n```\n\n```output\nDRRUUULLDD\n```\n\n### Example 2\n\n```input\n-2 0\n-1 -1\n0 -2\n1 0\n0 1\n```\n\n```output\nURRDLLURUULDDLLLDR\n```"
+    },
+    {
+     "day": 5,
+     "number": 1,
+     "paper_label": "Round 5",
+     "title": "Tri",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Little Mirko wrote into his math notebook an equation containing three positive integers, the equals sign and one of the four basic arithmetic operations (addition, subtraction, multiplication and division).\n\nDuring another class, his friend Slavko erased the equals sign and the operations from Mirko's notebook.\n\nHelp Mirko by reconstructing the equation from the three integers.\n\n## Input\n\nThe first line of input contains three integers less than 100, separated by spaces.\n\n**Note:** The input data will guarantee that a solution, although not necessarily unique, will always exist.\n\n## Output\n\nOn a single line, output a valid equation containing the three integers (in the same order), an equals sign and one of the four operations. If there are multiple solutions, output any of them.\n\n## Examples\n\n### Example 1\n\n```input\n5 3 8\n```\n\n```output\n5+3=8\n```\n\n### Example 2\n\n```input\n5 15 3\n```\n\n```output\n5=15/3\n```"
+    },
+    {
+     "day": 5,
+     "number": 2,
+     "paper_label": "Round 5",
+     "title": "Pascal",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Little Frane is already in tenth grade, but is still struggling with Pascal in computer class. For homework, his teacher wrote the following program into his notebook, and he needs to determine the output, given the integer $N$.\n\n```Pascal\nreadln(N);\ncounter := 0;\nfor i := N-1 downto 1 do begin\n     counter := counter + 1;\n     if N mod i = 0 then break;\nend;\nwriteln(counter);\n```\n\nWrite a program which solves Frane's problem.\n\n## Input\n\nThe first line of input contains the integer $N$ ($1 \\le N \\le 10^{9}$).\n\n## Output\n\nOutput the result on a single line.\n\n## Examples\n\n### Example 1\n\n```input\n1\n```\n\n```output\n0\n```\n\n### Example 2\n\n```input\n10\n```\n\n```output\n5\n```\n\n### Example 3\n\n```input\n27\n```\n\n```output\n18\n```"
+    },
+    {
+     "day": 5,
+     "number": 3,
+     "paper_label": "Round 5",
+     "title": "Jabuke",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Ante bought a piece of land. The land contains $N$ apple trees, but his piece is triangular and it is not easy for him to determine which apple trees belong to him.\n\nYour program will be given the coordinates of the vertices of the triangle forming Ante's piece, and the coordinates of all apple trees. Determine the area of land belonging to Ante, and the number of trees belonging to him. We consider apple trees on the very border of his piece to belong to him.\n\nThe area of a triangle with vertices $(x_A, y_A)$, $(x_B, y_B)$ and $(x_C, y_C)$ is given by the following formula:\n\n$$\\frac{\\left| x_A (y_B - y_C) + x_B (y_C - y_A) + x_C (y_A - y_B) \\right|}{2}$$\n\n## Input\n\nThe first three lines contain the coordinates of the vertices of the triangle.\n\nThe following line contains the integer $N$ ($1 \\le N \\le 100$), the number of apple trees.\n\nEach of the following $N$ lines contains the coordinates of one apple tree.\n\nAll coordinates are pairs of positive integers less than 1000, separated by a space.\n\n## Output\n\nOutput the area of land belonging to Ante on the first line, with one digit after the decimal point.\n\nOutput the number of tree belonging to Ante on the second line.\n\n## Examples\n\n### Example 1\n\n```input\n1 1\n5 1\n3 3\n4\n3 1\n3 2\n3 3\n3 4\n```\n\n```output\n4.0\n3\n```\n\n### Example 2\n\n```input\n3 2\n5 4\n1 6\n3\n2 4\n3 5\n4 3\n```\n\n```output\n6.0\n3\n```\n\n### Example 3\n\n```input\n2 6\n5 1\n7 8\n5\n1 4\n3 5\n6 4\n6 5\n4 7\n```\n\n```output\n15.5\n2\n```"
+    },
+    {
+     "day": 5,
+     "number": 4,
+     "paper_label": "Round 5",
+     "title": "Avogadro",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Luka is slacking again during chemistry class, while the teacher is explaining Avogadro's law.\n\nLuka first drew a table consisting of 3 rows and $N$ columns. Then he wrote the numbers 1 to $N$ into the first row in arbitrary order, each number appearing exactly once. In the other two rows he also wrote integers between 1 and $N$, but didn't care how many times a number appeared.\n\nLuka can now delete any set of columns from the table. After doing so, he sorts the numbers in each row in ascending order.\n\nHe wants to obtain a table in which all three rows are identical after sorting. Write a program that determines the smallest number of columns he must delete.\n\n## Input\n\nThe first line of input contains the integer $N$ ($1 \\le N \\le 100\\,000$), the number of columns in the table.\n\nThe following three lines contain $N$ integers each, separated by single spaces. The numbers will be between 1 and $N$, and there will be no duplicates in the first row.\n\n## Output\n\nOutput the smallest number of columns Luka must delete.\n\n## Scoring\n\nIn test cases worth 40% of points, $N$ will be less than 100.\n\nIn test cases worth 70% of points, $N$ will be less than $10\\,000$.\n\n## Examples\n\n### Example 1\n\n```input\n7\n5 4 3 2 1 6 7\n5 5 1 1 3 4 7\n3 7 1 4 5 6 2\n```\n\n```output\n4\n```\n\n### Example 2\n\n```input\n9\n1 3 5 9 8 6 2 4 7\n2 1 5 6 4 9 3 4 7\n3 5 1 9 8 6 2 8 7\n```\n\n```output\n2\n```\n\nIn the first example, Luka needs to delete the second, fourth, sixth and seventh columns. After deleting the columns and sorting each row, all three rows contain the numbers 1, 3 and 5."
+    },
+    {
+     "day": 5,
+     "number": 5,
+     "paper_label": "Round 5",
+     "title": "Barica",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Barica is an unusual frog. She lives in a pond where $N$ plants float on the surface of the water. The plants are numbered 1 through $N$. When viewing from above, the location of each plant is given by a pair of coordinates. What makes Barica unusual is her fear of jumping diagonally and in the negative direction. More precisely, she can jump from a plant at coordinates $(x_1, y_1)$ to another at coordinates $(x_2, y_2)$ only if:\n\n• $x_2 > x_1$ and $y_2 = y_1$, or\n• $y_2 > y_1$ and $x_2 = x_1$\n\nFor each plant, we know the number of flies in its immediate vicinity. Barica can use her swift tongue to eat all flies near the plant she is at.\n\nBarica absorbs one energy unit for each fly she eats, and uses $K$ energy units for each jump she makes. Barica can not make a jump if she doesn't have enough energy units beforehand.\n\nBarica wants to go from plant 1 to plant $N$ and have the **largest amount of energy** possible after arriving. Barica initially has no energy and must gather energy for her first jump from the flies around plant 1.\n\nFind the sequence of plants Barica should travel to achieve her goal.\n\n## Input\n\nThe first line of input contains two integers $N$ and $K$ ($2 \\le N \\le 300\\,000$, $1 \\le K \\le 1000$) separated by a space.\n\nEach of the following $N$ lines contains three integers $X$, $Y$ and $F$ ($0 \\le X, Y \\le 100\\,000$, $0 \\le F \\le 1000$) separated by spaces, meaning that there is a plant at coordinates $(X, Y)$ with $F$ flies around it.\n\nThe first plant in the input is plant 1, the second is plant 2 etc.\n\nNo two plants will share the same pair of coordinates.\n\n**Note:** The input data will guarantee that a sequence of jumps, although not necessarily unique, will always exist.\n\n## Output\n\nOutput the final energy level on the first line.\n\nOutput an integer $L$, the number of plants Barica should travel, including plants 1 and $N$.\n\nOn the following $L$ lines, output the sequence of plants Barica should travel.\n\n## Examples\n\n### Example 1\n\n```input\n6 5\n1 1 5\n2 1 5\n1 2 4\n2 3 5\n3 2 30\n3 3 5\n```\n\n```output\n5\n4\n1 1\n2 1\n2 3\n3 3\n```\n\n### Example 2\n\n```input\n8 10\n1 1 15\n2 2 30\n1 2 8\n2 1 7\n3 2 8\n2 3 7\n4 2 100\n3 3 15\n```\n\n```output\n36\n5\n1 1\n1 2\n2 2\n3 2\n3 3\n```\n\n### Example 3\n\n```input\n9 5\n5 5 10\n6 5 2\n7 5 1\n5 6 2\n6 6 6\n7 6 2\n5 7 1\n6 7 2\n7 7 1\n```\n\n```output\n2\n3\n5 5\n7 5\n7 7\n```"
+    },
+    {
+     "day": 5,
+     "number": 6,
+     "paper_label": "Round 5",
+     "title": "Baza",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "32 MB",
+     "problem": "The longest common prefix of two words is the longest word that both words start with. For example, the longest common prefix of the words \"identity\" and \"idealistic\" is the word \"ide\".\n\nA database contains $N$ words.\n\nThe algorithm to search for a query word $W$ in the database is primitive. It compares the word $W$ one by one with each word in the database. Two words are compared letter by letter until a letter in which they differ is found or until the end of one of the words is reached (it is then established either that the words are equal or that one is longer than the other). When the algorithm finds the word $W$ in the database, it terminates.\n\nAnalysing the algorithm shows that the number of steps needed to find a word $W$ is equal to the number of words $W$ is compared to, plus the sum of the lengths of the longest common prefixes of $W$ and each of the words it was compared to.\n\nWrite a program that calculates the number of steps the algorithm uses to find each of the $Q$ query words.\n\n## Input\n\nThe first line contains an integer $N$ ($1 \\le N \\le 30\\,000$), the number of words in the database.\n\nEach of the following $N$ lines contains a single word from the database. The words are given in the order the algorithm compares them to a query word. All words in the database will be distinct.\n\nThe following line contains an integer $Q$ ($1 \\le Q \\le 30\\,000$), the number of words searched for.\n\nEach of the following $Q$ lines contains a single query word.\n\nAll words in the input will be strings of less than 30 lowercase letters of the English alphabet.\n\n## Output\n\nOutput one integer per line for each query word, the number of steps the algorithm uses when searching for the word.\n\n## Examples\n\n### Example 1\n\n```input\n5\nhobotnica\nrobot\nhobi\nhobit\nrobi\n4\nrobi\nhobi\nhobit\nrakija\n```\n\n```output\n12\n10\n16\n7\n```\n\n### Example 2\n\n```input\n8\nmajmunica\nmajmun\nmajka\nmalina\nmalinska\nmalo\nmaleni\nmalesnica\n3\nkrampus\nmalnar\nmajmun\n```\n\n```output\n8\n29\n14\n```\n\nIn the second example, the number of steps to search for the word \"krampus\" is 8 because the algorithm only needs to compare its first letter to each word in the database.\n\nWhen searching for the word \"malnar\", we need three steps for each of the first three words, and four steps for each of the remaining five words, for a total of 29 steps.\n\nTo find the word \"majmun\" we use a total of 14 steps. For the first word in the database, we have six successful comparisons and one step in which we determine that the word \"majmunica\" is longer than the query word. For the second word, we also have six successful comparisons and a final step in which it is established that the words are equal. After finding the word, the algorithm terminates with great joy."
+    },
+    {
+     "day": 6,
+     "number": 1,
+     "paper_label": "Round 6",
+     "title": "Parking",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Having dropped out of school because of chemistry, Luka got a job driving trucks. One evening he parked his three trucks in a rest area which charges for parking in an unusual way – they give a discount on quantity.\n\nWhen only one truck is parked, the driver pays $A$ kuna per minute. When two trucks are parked, the drivers each pay $B$ kuna per minute. When three trucks are parked, the drivers each pay $C$ kuna per minute.\n\nGiven the numbers $A$, $B$ and $C$, as well as the intervals in which Luka's three trucks are parked, determines how much Luka needs to pay the owner of the rest area.\n\n## Input\n\nThe first line contains three integers $A$, $B$ and $C$ ($1 \\le C \\le B \\le A \\le 100$), the prices of parking as defined above.\n\nEach of the following three lines contains two integers each. These are the arrival and departure times (in minutes) of one of Luka's trucks. The arrival time will always be earlier than the departure time. All time indexes will be between 1 and 100.\n\n## Output\n\nOutput the overall cost of Luka's parking his three trucks.\n\n## Examples\n\n### Example 1\n\n```input\n5 3 1\n1 6\n3 5\n2 8\n```\n\n```output\n33\n```\n\n### Example 2\n\n```input\n10 8 6\n15 30\n25 50\n70 80\n```\n\n```output\n480\n```"
+    },
+    {
+     "day": 6,
+     "number": 2,
+     "paper_label": "Round 6",
+     "title": "Semafori",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Luka is driving his truck along a long straight road with many traffic lights. For each traffic light he knows how long the red and green lights will be on (the cycle repeating endlessly).\n\nWhen Luka starts his journey, all traffic lights are red and just started their cycle. Luka moves one distance unit per second. When a traffic light is red, he stops and waits until it turns green.\n\nWrite a program that determines how much time Luka needs to reach the end of the road. The start of the road is at distance zero, the end at distance $L$.\n\n## Input\n\nThe first line contains two integers $N$ and $L$ ($1 \\le N \\le 100$, $1 \\le L \\le 1000$), the number of traffic lights on the road and the length of the road.\n\nEach of the next $N$ lines contains three integers $D$, $R$ and $G$, describing one traffic light ($1 \\le D < L$, $1 \\le R \\le 100$, $1 \\le G \\le 100$). $D$ is the distance of the traffic light from the start of the road. $R$ and $G$ denote how long the red and green lights are on, respectively.\n\nThe traffic lights will be ordered in increasing order of $D$. No two traffic lights will share the same position.\n\n## Output\n\nOutput the time (in seconds) Luka needs to reach the end of the road.\n\n## Examples\n\n### Example 1\n\n```input\n2 10\n3 5 5\n5 2 2\n```\n\n```output\n12\n```\n\n### Example 2\n\n```input\n4 30\n7 13 5\n14 4 4\n15 3 10\n25 1 1\n```\n\n```output\n36\n```\n\nIn the first example, Luka will wait 2 seconds at the first traffic light. After that he will reach the second traffic light while it is green and be able to pass through immediately."
+    },
+    {
+     "day": 6,
+     "number": 3,
+     "paper_label": "Round 6",
+     "title": "Granica",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Luka started driving international routes with his truck. His biggest problem is the border with Slovenia. The border is a point of entrance into the European Union, so every truck is thoroughly examined. Because of this, Luka always has to wait several hours there. To kill the time, he comes up with various logic and math games.\n\nIn one of them, Luka first reads the numbers off of $N$ license plates and writes them down on a piece of paper. Then he tries to find an integer $M$ greater than 1 such that all integers on the paper give the same remainder when divided by $M$. Luka tries to find as many such integers $M$ as possible.\n\nWrite a program that, given Luka's $N$ integers, determines all such integers $M$.\n\n## Input\n\nThe first line contains the integer $N$ ($2 \\le N \\le 100$), the number of integers on paper.\n\nEach of the following $N$ lines contains one integer between 1 and $1\\,000\\,000\\,000$ (one billion). All these integers will be distinct.\n\nThe input data will guarantee that at least one integer $M$ will always exist.\n\n## Output\n\nOutput all integers $M$ separated by spaces, in any order.\n\n## Scoring\n\nIn test cases worth 60% points, each of the $N$ numbers will be at most $10\\,000$.\n\n## Examples\n\n### Example 1\n\n```input\n3\n6\n34\n38\n```\n\n```output\n2 4\n```\n\n### Example 2\n\n```input\n5\n5\n17\n23\n14\n83\n```\n\n```output\n3\n```\n\nIn the first example, all integers give a remainder of 0 when divided by 2 and the remainder 2 when divided by 4."
+    },
+    {
+     "day": 6,
+     "number": 4,
+     "paper_label": "Round 6",
+     "title": "George",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Last week Mister George visited Croatia. Since Mister George is a very important person, while he was in a street, the police **disallowed entry** to that street, but vehicles that entered the street before Mister George could continue driving.\n\nWhile Mister George was visiting, Luka drove his truck around town. But because of some of the streets being closed off, he couldn't make his delivery in time and almost lost his job. Although it is late now, he is wondering how he could have planned his delivery better i.e. what would have been the least time needed to make his delivery while Mister George was visiting. He knows the route mister George took.\n\nThe city is modeled with intersections and two-way streets connecting them. For each street, Luka knows how much time he needs to traverse it (mister George needs the same amount of time).\n\nFor example, if Mister George starts traversing a street during minute 10 and needs 5 minutes to exit it, this street will be blocked during minutes 10, 11, 12, 13 and 14. Luka can enter the street during minutes 9 and earlier, or 15 and later.\n\nWrite a program that calculates the least amount of time Luka needs to make his delivery, if he starts driving $K$ minutes after the arrival of Mister George.\n\n## Input\n\nThe first line contains two integers $N$ and $M$ ($2 \\le N \\le 1000$, $2 \\le M \\le 10\\,000$), the number of intersections and the number of streets. The intersections are numbered 1 to $N$.\n\nThe second line contains four integers $A$, $B$, $K$ and $G$ ($1 \\le A, B \\le N$, $0 \\le K \\le 1000$, $0 \\le G \\le 1000$). These are, in order:\n\n• The intersection where Luka starts;\n• The intersection Luka must get to;\n• The difference in starting times between mister George and Luka (Luka starts at intersection $A$ exactly $K$ minutes after mister George starts his route);\n• The number of intersections on Mister George's route.\n\nThe third line contains $G$ integers, the labels of intersections mister George will visit. Every pair of adjacent integers denotes a street he will traverse. That street will exist and Mister George will traverse every street at most once.\n\nEach of the following $M$ lines contains three integers $A$, $B$ and $L$, meaning that there is a street between intersection $A$ and $B$, and it takes $L$ minutes to traverse. $L$ will be between 1 and 1000.\n\n## Output\n\nOutput the least amount of time (in minutes) Luka needs to make his delivery.\n\n## Examples\n\n### Example 1\n\n```input\n6 5\n1 6 20 4\n5 3 2 4\n1 2 2\n2 3 8\n2 4 3\n3 6 10\n3 5 15\n```\n\n```output\n21\n```\n\n### Example 2\n\n```input\n8 9\n1 5 5 5\n1 2 3 4 5\n1 2 8\n2 7 4\n2 3 10\n6 7 40\n3 6 5\n6 8 3\n4 8 4\n4 5 5\n3 4 23\n```\n\n```output\n40\n```"
+    },
+    {
+     "day": 6,
+     "number": 5,
+     "paper_label": "Round 6",
+     "title": "Princeza",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Luka parked his truck near the lake. The lake is inhabited by the frog Barica, who jumps across $N$ plants floating on the lake's surface. Knowing a fair number of folk tales, Luka knows that if he kisses Barica, she will turn into a beautiful princess. However, he needs to catch her first!\n\nAssuming an aerial view, the position of a plant on the lake's surface can be defined with a pair of coordinates. From plant $(x, y)$ Barica can jump:\n\n• To plant $(x+P, y+P)$, for any positive integer $P$. Call this direction A.\n• To plant $(x+P, y-P)$, for any positive integer $P$. Call this direction B.\n• To plant $(x-P, y+P)$, for any positive integer $P$. Call this direction C.\n• To plant $(x-P, y-P)$, for any positive integer $P$. Call this direction D.\n\nBarica selects one of the four directions and jumps onto the first plant in the chosen direction. If there is no plant in the selected direction, Barica stays where she is. After Barica jumps, **the plant she jumped from sinks** and disappears.\n\nKnowing the locations of the plants and the sequence of directions Barica chooses, Luka wants to determine coordinates of the plant Barica will end up on. Luka will wait for her at that plant, ambush her and kiss her.\n\nWrite a program that solves Luka's problem and helps him turn Barica into a beautiful princess.\n\n## Input\n\nThe first line contains two integers $N$ and $K$ ($1 \\le N, K \\le 100\\,000$), the number of plants and the number of attempted jump.\n\nThe second line contains $K$ letters each of which is 'A', 'B', 'C' or 'D'. These letters represent in order the directions in which Barica attempts to jump.\n\nEach of the following $N$ lines contains two integers $X$ and $Y$ ($0 \\le X \\le 1\\,000\\,000\\,000$, $0 \\le Y \\le 1\\,000\\,000\\,000$), the coordinates of one plant. Barica is initially located on the first plant.\n\n## Output\n\nOutput Barica's final coordinates.\n\n## Examples\n\n### Example 1\n\n```input\n7 5\nACDBB\n5 6\n8 9\n4 13\n1 10\n7 4\n10 9\n3 7\n```\n\n```output\n7 4\n```\n\n### Example 2\n\n```input\n6 12\nAAAAAABCCCDD\n1 1\n2 2\n3 3\n4 4\n5 3\n6 2\n```\n\n```output\n5 3\n```"
+    },
+    {
+     "day": 6,
+     "number": 6,
+     "paper_label": "Round 6",
+     "title": "Cestarine",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "In a single day, $N$ of Luka's trucks travel a specific highway. The highway has a number of exits and entrances. An exit with a particular number is in the same location as the entrance with that number.\n\nUpon entering the highway, a truck driver receives a ticket which indicates the entrance he used. When exiting, the driver pays a toll equal to the absolute difference of the entrance and exit numbers. For example, if a ticket says he used entrance 30, then exiting at exit 12 will cost him 18.\n\nLuka has figured out a way to save toll money that his company daily spends. Any two drivers can meet on the highway and exchange tickets, even if their routes don't overlap. Tickets can be exchanged an arbitrary number of times.\n\nHowever, **a driver cannot use an exit if his ticket says he used the same entrance**, since that would be suspicious.\n\nWrite a program that calculates the least total amount of tolls that the drivers can achieve by exchanging tickets.\n\n## Input\n\nThe first line contains the integer $N$ ($1 \\le N \\le 100\\,000$), the number of trucks.\n\nEach of the following $N$ lines contains two distinct integers between 1 and $1\\,000\\,000$. These are in order the entrance and exit numbers of one truck.\n\n**No two trucks will use the same highway entrance or the same exit.**\n\n## Output\n\nOutput the least total amount of tolls Luka's company must pay.\n\n**Note**: use 64-bit integer types (`long long` in C/C++, `int64` in Pascal).\n\n## Examples\n\n### Example 1\n\n```input\n3\n3 65\n45 10\n60 25\n```\n\n```output\n32\n```\n\n### Example 2\n\n```input\n3\n5 5\n6 7\n8 8\n```\n\n```output\n5\n```\n\nIn the first example, the first and third drivers will exchange tickets. After this, the second and third drivers exchange tickets. After this, the drivers will have the tickets 60, 3, 45, respectively. The total amount in tolls is $|65-60| + |10-3| + |25-45| = 32$."
     }
    ]
   },
