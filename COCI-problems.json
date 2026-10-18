@@ -2,6 +2,131 @@
  "competition": "Croatian Open Competition in Informatics (COCI)",
  "years": [
   {
+   "year": 2010,
+   "problems": [
+    {
+     "day": 1,
+     "number": 1,
+     "paper_label": "Round 1",
+     "title": "Timsko",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Every year, the University of Zagreb organizes a student team competition in informatics. Each team consists of **three** students.\n\nTraditionally, the best competitors from the university are girls, and they outnumber boys significantly. This year, boys have raised their voice and a rule was made that each team must consist of **exactly** one boy and two girls.\n\nTo make competitors' lives a little more difficult, the dean of the university has decided to send $K$ of the competitors on an internship in a distant country. Those competitors will not be able to compete.\n\nGiven the number of female competitors $M$, the number of male competitors $N$, and the number of competitors which have to be sent on an internship $K$, the dean has to create the maximum number of teams which will be able to attend the competition.\n\nFor example, if $M$ is 6, $N$ is 3 and $K$ is 2, the dean can send one girl and one boy on an internship, which leaves him with 5 girls and 2 boys. He can then create two teams from them (one girl is left without a team).\n\n## Input\n\nThe first and only line of input contains three integers separated by single spaces: $M$ ($0 \\le M \\le 100$), the number of girls, $N$ ($0 \\le N \\le 100$), the number of boys, and $K$ ($0 \\le K \\le M+N$), the number of competitors which have to be sent on an internship.\n\n## Output\n\nThe first and only line of output must contain only one number: the maximum number of teams which can be formed.\n\n## Examples\n\n### Example 1\n\n```input\n6 3 2\n```\n\n```output\n2\n```\n\n### Example 2\n\n```input\n2 1 1\n```\n\n```output\n0\n```\n\n### Example 3\n\n```input\n6 10 3\n```\n\n```output\n3\n```"
+    },
+    {
+     "day": 1,
+     "number": 2,
+     "paper_label": "Round 1",
+     "title": "Profesor",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "In a long classroom, $N$ desks are arranged in a single row, with two students sitting at each desk. Students are cranky because they are about to have an art class, and their professor is planning to examine them.\n\nEach student has studied art, but only to a certain level. The old professor can tell by the looks on their faces just how much they have studied. The professor, being an artist, uses a different coloured pencil for each grade. Unfortunately, today he brought only one pencil.\n\nIn order to make the examination seem fair, he wants to choose two desks and question one student from **each desk** positioned between the two desks he has chosen (including the chosen desks). It is important that **all examined students deserve the same grades**, so he can write them down using his only pencil.\n\nThe professor wants to know the maximum number of students he can examine this way, as well as which grade the students will get.\n\n## Input\n\nThe first line of input contains a single integer $N$ ($1 \\le N \\le 100\\,000$).\n\nEach of the following $N$ rows contains two integers: $A_i$ and $B_i$, grades deserved by students sitting at desk $i$ ($1 \\le A_i, B_i \\le 5$).\n\n## Output\n\nThe first and only line of output must contain two numbers separated by a single space: the maximum number of students the professor can examine and the grade those students will get.\n\nIf there are multiple solutions possible, output the one with the smallest grade.\n\n## Scoring\n\nTest cases worth 70% of total points have $N \\le 100$.\n\n## Examples\n\n### Example 1\n\n```input\n1\n1 5\n```\n\n```output\n1 1\n```\n\n### Example 2\n\n```input\n3\n3 5\n4 5\n1 3\n```\n\n```output\n2 5\n```\n\n### Example 3\n\n```input\n4\n2 1\n3 2\n5 3\n2 5\n```\n\n```output\n2 2\n```"
+    },
+    {
+     "day": 1,
+     "number": 3,
+     "paper_label": "Round 1",
+     "title": "Sretan",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Digits 4 and 7 are lucky, while all others are unlucky. An integer is lucky if it contains only lucky digits in decimal notation. We would like to know the $K$-th lucky positive integer.\n\n## Input\n\nThe first and only line of input contains a positive integer $K$ ($1 \\le K \\le 10^{9}$).\n\n## Output\n\nThe first and only line of output must contain the $K$-th lucky positive integer.\n\n## Examples\n\n### Example 1\n\n```input\n1\n```\n\n```output\n4\n```\n\n### Example 2\n\n```input\n2\n```\n\n```output\n7\n```\n\n### Example 3\n\n```input\n3\n```\n\n```output\n44\n```"
+    },
+    {
+     "day": 1,
+     "number": 4,
+     "paper_label": "Round 1",
+     "title": "Ljutnja",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Children in a kindergarten have received a large sack containing $M$ candies. It has been decided that the candies are to be distributed among $N$ children.\n\nEach child has stated the number of candies that it wants. If a child isn't given the amount of candy it wants, it will get angry. In fact it'll get angrier for each candy it is deprived of. Some speculate that it's anger will be equal to the square of the number of candy it is deprived of. For instance, if Mirko states that he wants 32 candies but receives only 29, he would be missing 3 candies, so his anger would be equal to 9.\n\nUnfortunately, there is an insufficient amount of candy to satisfy all children. Therefore, the candies should be distributed in such a way that the sum of the children's anger is minimal.\n\n## Input\n\nThe first line contains two integers, $M$ ($1 \\le M \\le 2 \\cdot 10^{9}$) and $N$ ($1 \\le N \\le 100\\,000$).\n\nThe following $N$ lines contain integers (one per line) which represent the wishes of the children. Those numbers are all strictly less than $2 \\cdot 10^{9}$, and their sum always exceeds $M$.\n\n## Output\n\nThe first and only line of output must contain the minimum sum of the children's anger.\n\n**Note**: The test cases will ensure that the result fits in a 64-bit unsigned integer: *int64* in Pascal, *long long* in C/C++, *long* in Java.\n\n## Scoring\n\nTest cases worth 40% of total points have $M$ not greater than $200\\,000$.\n\nTest cases worth 70% of total points have no child state that it wants more than $100\\,000$ candies.\n\nTest cases worth 80% of total points have at least one of the above stated constraints will be met.\n\n## Examples\n\n### Example 1\n\n```input\n5 3\n1\n3\n2\n```\n\n```output\n1\n```\n\n### Example 2\n\n```input\n10 4\n4\n5\n2\n3\n```\n\n```output\n4\n```"
+    },
+    {
+     "day": 1,
+     "number": 5,
+     "paper_label": "Round 1",
+     "title": "Tabovi",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Zvonkec is yet another programmer employed in a small company. Every day he has to refactor one file of source code. Much to his dismay, the source is usually far from being clear and tidy. He is especially bothered by uneven indentation, i.e. the number of tabulators (tabs) indenting each line. Fortunately, his editor has a command to select a group of consecutive lines and add or delete a character from the start of each one. Help Zvonkec tidy up the code as quickly as possible.\n\nYou are given the number of lines $N$, a sequence specifying the current number of tabs at the start of each line, and a sequence specifying the required number of tabs at the start of each line.\n\nZvonkec can execute any number of commands consisting of:\n\n• selecting any number of consecutive lines\n• adding or deleting a **single** tab to/from the front of each of the selected lines\n\nThe two actions above comprise **a single command**, regardless of the number of selected lines.\n\nIt should be noted that it is forbidden to delete more tabs from a line than are actually present at the start of a line, as the editor would start deleting characters other than tabs.\n\nYou are asked to calculate the **minimum number of commands** required to tidy up the code.\n\n## Input\n\nThe first line of input contains a positive integer $N$ ($N \\le 1000$).\n\nThe second line contains a sequence of $N$ integers $P_i$ ($0 \\le P_i \\le 80$), specifying the number of tabs at the start of $i$-th line before any editing.\n\nThe third line contains a sequence of $N$ integers $K_i$ ($0 \\le K_i \\le 80$), specifying the number of tabs that Zvonkec would like at the start of $i$-th line.\n\n## Output\n\nThe first and only line of output must contain the required number, as specified in the problem statement.\n\n## Scoring\n\nTest cases worth 70% of total points have $N$ not greater than 100.\n\n## Examples\n\n### Example 1\n\n```input\n3\n3 4 5\n6 7 8\n```\n\n```output\n3\n```\n\n### Example 2\n\n```input\n4\n1 2 3 4\n3 1 1 0\n```\n\n```output\n6\n```\n\n### Example 3\n\n```input\n4\n5 4 5 5\n1 5 0 1\n```\n\n```output\n10\n```"
+    },
+    {
+     "day": 1,
+     "number": 6,
+     "paper_label": "Round 1",
+     "title": "Žabe",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "64 MB",
+     "problem": "The Frog Regent has arranged his $N$ frog servants in a circle, with each frog facing the back of the next one. Each frog is assigned a unique integer identifier (ID) from the set of 1 to $N$. The frog arrangement is specified as a sequence of IDs. The sequence **always starts** with the frog with the **ID 1**. It is followed by the ID of the frog in front of it, then the ID of the next one, and so on until the ID of the last frog - the one *behind* the frog with ID 1.\n\nA frog is considered to have made a single leap if it has jumped over the frog in front of it, swapping places with it in the process. For example, if the frogs are sequenced as \"1 5 4 3 2 6\" and the frog with ID 2 makes two leaps, the resulting sequence will be \"1 2 5 4 3 6\" (the frog has shifted two places forward). When the Frog Regent proclaims the number $B$, the frog with ID $B$ makes $B$ leaps.\n\nThe Frog Regent wishes, using some number of proclamations, to rearrange the frogs from the starting sequence to his favourite resulting sequence. Given the starting and resulting frog sequences, write a program that will compute a sequence of proclamations needed for the Regent to rearrange the frogs into the resulting sequence. Naturally, the starting and resulting sequences will not be equal.\n\n## Input\n\nThe first line of input contains a positive integer $N$, the number of frogs ($3 \\le N \\le 100$).\n\nThe second line of input contains a permutation of the first $N$ positive integers, the starting frog sequence.\n\nThe third line of input contains another permutation of the first $N$ positive integers, the resulting frog sequence.\n\n## Output\n\nOutput any sequence of integers (one integer per line) that the Frog Regent can proclaim in order to rearrange the frogs into the resulting sequence.\n\nThe number of proclamations must not exceed **100 000**.\n\n**Note:** The test data will ensure that a solution will always exist.\n\n## Scoring\n\nTest cases worth 40% of total points have $N$ not greater than 8.\n\n## Examples\n\n### Example 1\n\n```input\n6\n1 5 4 3 2 6\n1 2 5 4 3 6\n```\n\n```output\n2\n```\n\n### Example 2\n\n```input\n5\n1 5 3 2 4\n1 5 4 2 3\n```\n\n```output\n5\n3\n5\n2\n```"
+    },
+    {
+     "day": 2,
+     "number": 1,
+     "paper_label": "Round 2",
+     "title": "Puž",
+     "task_type": "batch",
+     "time_limit": "0.1 second",
+     "memory_limit": "32 MB",
+     "problem": "There is a snail on the ground. It wants to climb to the top of a wooden pole with the height of $V$ meters, measuring from the ground level. In one day it can climb $A$ meters upwards, however during each night it sleeps, sliding $B$ meters back down. Determine the number of days it needs to climb to the top.\n\n## Input\n\nThe first and only line of input contains three integers separated by a single space: $A$, $B$, and $V$ ($1 \\le B < A \\le V \\le 1\\,000\\,000\\,000$), with meanings described above.\n\n## Output\n\nThe first and only line of output must contain the number of days that the snail needs to reach the top.\n\n## Examples\n\n### Example 1\n\n```input\n2 1 5\n```\n\n```output\n4\n```\n\n### Example 2\n\n```input\n5 1 6\n```\n\n```output\n2\n```\n\n### Example 3\n\n```input\n100 99 1000000000\n```\n\n```output\n999999901\n```"
+    },
+    {
+     "day": 2,
+     "number": 2,
+     "paper_label": "Round 2",
+     "title": "Napor",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Little Mirko wasn't paying attention in math class, so the teacher has decided to give him a tedious assignment to solve during the weekend.\n\nThe teacher has given him a text consisting of $N$ lines, containing only digits and lower case letters of the English alphabet. Mirko has to find all numbers in the text and print them out in a **nondecreasing sequence**. He also has to **omit** any **leading zeros** that the numbers may have in the text.\n\nThe numbers can be uniquely determined by scanning through the text and always taking the largest possible number, i.e. delimited only by letters or line beginnings/ends. For example, the solution of **01a2b3456cde478** is **1**, **2**, **478**, **3456**.\n\nSince Mirko is as slow as the snail from the previous task, he has asked you to write him a program to quickly solve his assignment, so that he can go play with Slavko as soon as possible.\n\n## Input\n\nThe first line of input contains the integer $N$ ($1 \\le N \\le 100$), the number of lines of the text.\n\nThe next $N$ lines contain the text, consisting exclusively of lowercase English letters and decimal digits. Each line of the text is at most 100 characters long.\n\n## Output\n\nThe output must contain $M$ lines, where $M$ is the number of numbers found in the provided text. Each line must contain a single number from the text. The numbers must be arranged in a nondecreasing sequence.\n\n***Note:*** The test data will ensure that $M$ will never exceed 500.\n\n## Examples\n\n### Example 1\n\n```input\n2\nlo3za4\n01\n```\n\n```output\n1\n3\n4\n```\n\n### Example 2\n\n```input\n4\n43silos0\nzita002\nle2sim\n231233\n```\n\n```output\n0\n2\n2\n43\n231233\n```\n\n### Example 3\n\n```input\n4\n01bond\n02james007\n03bond\n04austinpowers000\n```\n\n```output\n0\n1\n2\n3\n4\n7\n```"
+    },
+    {
+     "day": 2,
+     "number": 3,
+     "paper_label": "Round 2",
+     "title": "Igra",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Having solved the tedious assignment, Mirko decided to play a game with his good friend Slavko.\n\nThey have written a sequence of $N$ letters on a piece of paper. Each one of them is trying to put together a word using letters from the sequence. They alternate taking turns consisting of removing a single letter from the sequence and appending it to the end of their word. Mirko has the first turn. The game ends when no letters are remaining in the sequence.\n\nWe define a word to be more beautiful than another word if it comes first alphabetically. The player who has the more beautiful word at the end of the game wins. If both players have equal words, they both lose.\n\nMirko is a much better player than Slavko, so he has decided to make it easier for Slavko by always selecting the rightmost remaining letter in the sequence. Knowing this, Slavko wants to find out if it is possible for him to win and which is the most beautiful word he can end the game with.\n\n## Input\n\nThe first line of input contains an **even** positive integer $N$ ($2 \\le N \\le 100\\,000$).\n\nThe second line of input contains $N$ characters, the starting letter sequence. All characters are lower case letters from the English alphabet.\n\n## Output\n\nThe first line of output must contain \"DA\" if it is possible for Slavko to win, and \"NE\" otherwise.\n\nThe second line of output must contain the most beautiful word that Slavko can have at the end of the game.\n\n## Scoring\n\nIn test cases worth 50% of total points the number $N$ will not exceed 1000.\n\n## Examples\n\n### Example 1\n\n```input\n2\nne\n```\n\n```output\nNE\nn\n```\n\n### Example 2\n\n```input\n4\nkava\n```\n\n```output\nDA\nak\n```\n\n### Example 3\n\n```input\n8\ncokolada\n```\n\n```output\nDA\nacko\n```"
+    },
+    {
+     "day": 2,
+     "number": 4,
+     "paper_label": "Round 2",
+     "title": "Knjige",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Mirko has a home library consisting of $N$ books arranged one on top of the other in a narrow cabinet. Since being well trained in the secrets of alphabet in the previous task, he now wishes to arrange the books alphabetically, so that the book whose title comes first alphabetically ends up on top, and the alphabetically last one at the bottom of the pile.\n\nMirko can easily **pull** a book **out** of the cabinet, but it is difficult to push it back into the pile, so the book can only be returned to the **top** of the pile. Thus, the only available method of sorting the books is repeatedly pulling a book out of the pile and placing it on top of the pile.\n\nThe books are labelled with integers from 1 to $N$, in alphabetical order. Therefore, Mirko wants them to be ordered as $(1, 2, \\ldots, N)$, counting from the top. For example, if $N = 3$ and the starting order is $(3, 2, 1)$, two moves are sufficient. First, he pulls out the book number 2 and places it on top, so the pile becomes $(2, 3, 1)$. After that, he does the same with book number 1, thus the pile becomes $(1, 2, 3)$.\n\nHelp Mirko by calculating the minimum number of moves needed to sort a given starting order.\n\n## Input\n\nThe first line of input contains the integer $N$ ($N \\le 300\\,000$).\n\nEach of the next $N$ lines contains a single positive integer. These $N$ integers represent the order of Mirko's books from top to bottom of the cabinet. Each of the integers $1, 2, \\ldots, N$ appears exactly once.\n\n## Output\n\nThe first and only line of output must contain the required minimum number of moves.\n\n## Examples\n\n### Example 1\n\n```input\n3\n3\n2\n1\n```\n\n```output\n2\n```\n\n### Example 2\n\n```input\n4\n1\n3\n4\n2\n```\n\n```output\n2\n```"
+    },
+    {
+     "day": 2,
+     "number": 5,
+     "paper_label": "Round 2",
+     "title": "Lunapark",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "64 MB",
+     "problem": "Mirko has grown tired of all the books, so he decided to go to the amusement park with his friends, despite not liking roller coasters. While his friends are having the time of their lives riding the coasters, Mirko is sitting on a bench, waiting and thinking about the possible paths of the coasters.\n\nThe amusement park's area can be represented as a table of $R$ rows by $C$ columns. A roller coaster has to start from the upper left corner and end at the lower right corner of the table. Each cell can be visited at most once, but not all cells need to be visited. It can continue its path from the current cell to the adjacent one above, below, to the left, or to the right of it.\n\nEach cell has a positive integer value associated with it, specifying how amusing that cell is to visitors. The total amusement value of the coaster is the sum of amusement values of all cells that the coaster visits. Help Mirko determine any one of the most amusing coasters (ones with the maximum sum).\n\n## Input\n\nThe first line of input contains two integers $R$ and $C$ ($2 \\le R, C \\le 1000$), the dimensions of the table.\n\nEach of the next $R$ lines contains $C$ positive integers smaller than 1000, specifying the amusement values of the respective table cells.\n\n## Output\n\nThe first and only line of output must contain a sequence of letters with no blanks. The letters specify the sequence of directions that the coaster follows, starting from the upper left and ending at the lower right corner. The directions up, right, down, left are marked by letters 'U', 'R', 'D', 'L', respectively.\n\n***Note:*** The solution isn't guaranteed to be unique.\n\n## Scoring\n\nTest cases worth 70% of total points the numbers $R$ and $C$ will not exceed 30.\n\n## Examples\n\n### Example 1\n\n```input\n3 3\n5 1 3\n2 4 8\n1 1 2\n```\n\n```output\nRRDLLDRR\n```\n\n### Example 2\n\n```input\n2 2\n2 1\n3 4\n```\n\n```output\nDR\n```"
+    },
+    {
+     "day": 2,
+     "number": 6,
+     "paper_label": "Round 2",
+     "title": "Crni",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "128 MB",
+     "problem": "Even though he has found all the most amusing rides, Mirko's enthusiasm still isn't fading. He opened his graph paper notebook and started colouring squares, and a new, even harder problem dawned on him.\n\nYou are given a square table consisting of $N$ rows by $N$ columns. Each cell is either black or white.\n\nA set of cells forming a rectangle, with horizontal and vertical edges following cell borders, shall be called a **black rectangle** if all cells inside the rectangle are black and it consists of **at least two** cells.\n\nhttps://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/coci-2010-2-6-fig1.png\n\nThe left image shows two rectangles which **are not** black rectangles. The rectangle labelled 1 is not a black rectangle because it contains a white cell, and the rectangle labelled 2 is not a black rectangle because it consists of only one cell. On the other hand, the right image shows three valid black rectangles.\n\nCalculate the number of possible selections of two black rectangles that have **no common cells**. As the required number can be extremely large, you should output the remainder of dividing that number by $10\\,007$.\n\n## Input\n\nThe first line of input contains the integer $N$ ($2 \\le N \\le 1000$).\n\nEach of the next $N$ lines contains a single row of the table, consisting of $N$ symbols. The symbol 'C' represents a black cell, while 'B' represents a white cell.\n\n## Output\n\nThe first and only line of output must contain the remainder of dividing the required number by $10007$.\n\n## Examples\n\n### Example 1\n\n```input\n2\nCC\nCC\n```\n\n```output\n2\n```\n\n### Example 2\n\n```input\n3\nCCB\nCCB\nCBB\n```\n\n```output\n5\n```\n\n### Example 3\n\n```input\n5\nBCCBB\nBBCBB\nBCCBB\nBBBBB\nCCBBB\n```\n\n```output\n8\n```"
+    }
+   ]
+  },
+  {
    "year": 2011,
    "problems": [
     {
