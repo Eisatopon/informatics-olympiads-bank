@@ -2,6 +2,19 @@
  "competition": "International Olympiad in Informatics (IOI)",
  "years": [
   {
+   "year": 1989,
+   "problems": [
+    {
+     "day": 1,
+     "number": 1,
+     "paper_label": "Day 1",
+     "title": "Boxes",
+     "task_type": "batch",
+     "problem": "Given $2 \\cdot N$ boxes in line side by side ($N \\le 5$). Two adjacent boxes are empty, and the other boxes contain $N-1$ symbols \"A\" and $N-1$ symbols \"B\".\n\nExample for $N=5$:\n\n```example\n| A | B | B | A |   |   | A | B | A | B |\n```\n\n## Exchanging rule\n\nThe content of any two adjacent non-empty boxes can be moved into the two empty ones, preserving their order.\n\n## Aim\n\nObtain a configuration where all A's are placed to the left of all B's, no matter where the empty boxes are.\n\n## Problem\n\nWrite a program that:\n\n• 1. Models the exchanging of boxes, where the number of boxes and the initial state are to be input from the keyboard. Each exchange is input by the number (from $1$ to $N-1$) of the first of the two neighboring boxes which are to be exchanged with the empty ones. The program must find the state of the boxes after the exchange and display it.\n• 2. Given an initial state finds at least one exchanging plan, which reaches the aim (if there is such a plan). A plan includes the initial state and the intermediate states for each step.\n• 3. Finds the minimal exchanging plan which reaches the aim."
+    }
+   ]
+  },
+  {
    "year": 1990,
    "problems": [
     {
