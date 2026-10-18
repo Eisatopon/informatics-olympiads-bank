@@ -123,6 +123,246 @@
      "time_limit": "1 second",
      "memory_limit": "128 MB",
      "problem": "Even though he has found all the most amusing rides, Mirko's enthusiasm still isn't fading. He opened his graph paper notebook and started colouring squares, and a new, even harder problem dawned on him.\n\nYou are given a square table consisting of $N$ rows by $N$ columns. Each cell is either black or white.\n\nA set of cells forming a rectangle, with horizontal and vertical edges following cell borders, shall be called a **black rectangle** if all cells inside the rectangle are black and it consists of **at least two** cells.\n\nhttps://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/coci-2010-2-6-fig1.png\n\nThe left image shows two rectangles which **are not** black rectangles. The rectangle labelled 1 is not a black rectangle because it contains a white cell, and the rectangle labelled 2 is not a black rectangle because it consists of only one cell. On the other hand, the right image shows three valid black rectangles.\n\nCalculate the number of possible selections of two black rectangles that have **no common cells**. As the required number can be extremely large, you should output the remainder of dividing that number by $10\\,007$.\n\n## Input\n\nThe first line of input contains the integer $N$ ($2 \\le N \\le 1000$).\n\nEach of the next $N$ lines contains a single row of the table, consisting of $N$ symbols. The symbol 'C' represents a black cell, while 'B' represents a white cell.\n\n## Output\n\nThe first and only line of output must contain the remainder of dividing the required number by $10007$.\n\n## Examples\n\n### Example 1\n\n```input\n2\nCC\nCC\n```\n\n```output\n2\n```\n\n### Example 2\n\n```input\n3\nCCB\nCCB\nCBB\n```\n\n```output\n5\n```\n\n### Example 3\n\n```input\n5\nBCCBB\nBBCBB\nBCCBB\nBBBBB\nCCBBB\n```\n\n```output\n8\n```"
+    },
+    {
+     "day": 3,
+     "number": 1,
+     "paper_label": "Round 3",
+     "title": "Tablica",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Perica was always very good at math. His only weak points were addition and division. To help him with that, his teacher presented him with the following problem.\n\nShe gave him a 2 by 2 table, containing **positive** integers $A$, $B$, $C$ and $D$.\n\n$$\\begin{array}{|c|c|} \\hline A & B \\\\ \\hline C & D \\\\ \\hline \\end{array}$$\n\nWe say that the **value** of a table is equal to:\n\n$$\\frac{A}{C} + \\frac{B}{D}$$\n\nPerica’s task is to find the **minimum** number of 90 degrees clockwise rotations required to maximize the value of a given table.\n\nResult of a single clockwise rotation is shown below.\n\nhttps://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/coci-2010-3-1-fig1.png\n\n## Input\n\nThe first line of input contains two space separated integers, $A$ and $B$.\n\nThe second line of input contains two space separated integers, $C$ and $D$.\n\nAll integers are **positive** and not greater than 100.\n\n## Output\n\nThe first and only line of output must contain a single integer, minimum number of clockwise rotations required to maximize the table’s value.\n\n## Examples\n\n### Example 1\n\n```input\n1 2\n3 4\n```\n\n```output\n2\n```\n\n### Example 2\n\n```input\n5 9\n7 2\n```\n\n```output\n0\n```\n\n### Example 3\n\n```input\n41 99\n100 13\n```\n\n```output\n1\n```"
+    },
+    {
+     "day": 3,
+     "number": 2,
+     "paper_label": "Round 3",
+     "title": "Zbroj",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "After he got tired of rotating tables, the teacher gave Perica another problem. She wrote two integers, $A$ and $B$, on the blackboard and asked him to add them.\n\nPerica is never wrong with his calculation, but sometimes he doesn’t copy the numbers correctly. The only mistake he ever makes is copying a ‘5’ as a ‘6’, and viceversa.\n\nGiven two numbers, $A$ and $B$, calculate the minimum and the maximum sum Perica could possibly get.\n\n## Input\n\nThe first and only line of input contains positive integers $A$ and $B$ ($1 \\le A, B \\le 1\\,000\\,000$).\n\n## Output\n\nIn single line of output, print two space separated integers, minimum and maximum sum Perica could get.\n\n## Examples\n\n### Example 1\n\n```input\n11 25\n```\n\n```output\n36 37\n```\n\n### Example 2\n\n```input\n1430 4862\n```\n\n```output\n6282 6292\n```\n\n### Example 3\n\n```input\n16796 58786\n```\n\n```output\n74580 85582\n```"
+    },
+    {
+     "day": 3,
+     "number": 3,
+     "paper_label": "Round 3",
+     "title": "Ekipa",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "In a galaxy far, far away, a programming contest is taking place. Your task is to choose the participants!\n\n$N$ students have applied, and each one of them has some **knowledge** in each of $M$ different categories. Knowledge can be represented as a real number. You can send at most $K$ students to the contest, but no student can compete in **more than one** category. Multiple students can compete in a single category.\n\nFor each student, their knowledge of each category is given.\n\nChoose participants for a contest and categories they will compete in, so that the sum of knowledge is maximal.\n\n## Input\n\nThe first line of input contains integers $N$, $M$ and $K$ ($1 \\le M \\le 100$, $1 \\le K \\le N \\le 100$).\n\nEach of the next $M$ lines describes knowledge for one category.\n\nIn each line, there are $N$ pairs ($i$, $s$), where $i$ is the index of the student, and $s$ is a positive real number representing their knowledge of corresponding category ($0 \\le s \\le 10$). Pairs are given in order of **decreasing** knowledge. Students are numbered from 1 to $N$.\n\nIn each line, every student will apear exactly once.\n\n## Output\n\nThe first and the only output line should contain maximum sum of knowledge chosen students can have, with exactly one digit in decimal part.\n\n## Examples\n\n### Example 1\n\n```input\n3 2 2\n2 3.0 1 0.2 3 0.1\n3 1.0 2 0.5 1 0.2\n```\n\n```output\n4.0\n```\n\n### Example 2\n\n```input\n4 4 3\n4 5.0 2 4.0 3 2.0 1 1.0\n2 2.0 3 1.0 1 0.5 4 0.3\n4 6.0 3 5.0 2 2.0 1 0.0\n1 4.0 2 3.0 4 0.6 3 0.3\n```\n\n```output\n15.0\n```\n\n**Description of the first test case:** There are two categories. In the first category, best student is the second one, with knowledge 3.0. He is followed by student numbered 1, with knowledge 0.2, and then number 3, with knowledge 0.1.\n\nBest solution is to choose students 2 and 3, in categories 1 and 2, respectively."
+    },
+    {
+     "day": 3,
+     "number": 4,
+     "paper_label": "Round 3",
+     "title": "Znanstvenik",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "In this economy, we all know how hard it is to get a job. Mirko, a recent college graduate, however, got lucky - he is now employed as a runeologist by the Language Institute of Croatia. His friend Slavko believes runeology isn’t a science and is hence angry at Mirko for believing the opposite. One foggy Christmas day, Mirko’s laptop broke. Since he isn’t great with computers, he gave it to Slavko to repair it. Slavko, felling a little naughty, decided to mess up a particular file Mirko was working on.\n\nThis file contains a **matrix** of $R$ rows and $C$ columns. Each element of the matrix is a single letter. **No two columns of the matrix are equal**. To have some fun with pseudo-scientist Mirko, Slavko decided he will **delete as much rows as possible** from the top of the table, without breaking the no-equal-column rule.\n\n## Input\n\nThe first line of input contains two integers $R$ and $C$ ($2 \\le R, C \\le 1000$), the number of rows and the number of columns, respectively.\n\nIn each of the next $R$ lines there are $C$ small letters of the English alphabet. These $R \\times C$ letters represent Mirko’s table (which does not have two same columns).\n\n## Output\n\nOutput a single integer, the maximum number of rows which can be deleted from the top of the table so that no two columns are equal.\n\n## Examples\n\n### Example 1\n\n```input\n2 6\ndobarz\nadatak\n```\n\n```output\n0\n```\n\n### Example 2\n\n```input\n3 4\nalfa\nbeta\nzeta\n```\n\n```output\n2\n```\n\n### Example 3\n\n```input\n4 6\nmrvica\nmrvica\nmarica\nmateja\n```\n\n```output\n1\n```"
+    },
+    {
+     "day": 3,
+     "number": 5,
+     "paper_label": "Round 3",
+     "title": "Diferencija",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "64 MB",
+     "problem": "Mirko discovered what Slavko did in previous task, and decided to deal with something completely opposite to tables of letters: sequences of numbers.\n\nLet’s define a **value** of a sequence as the difference between the largest and the smallest number within that sequence. For example, value of sequence (3, 1, 7, 2) is 6, and value of (42, 42) is 0.\n\nFind the **sum** of values of all subsequences of **consecutive elements** of a given sequence.\n\n## Input\n\nThe first line of input contains a single integer $N$ ($2 \\le N \\le 300\\,000$), number of elements of the sequence.\n\nNext $N$ lines contain elements of the sequence. Each element is a positive integer not greater than $100\\,000\\,000$.\n\n## Output\n\nThe first and only line of output must contain the requested sum.\n\n## Examples\n\n### Example 1\n\n```input\n3\n1\n2\n3\n```\n\n```output\n4\n```\n\n### Example 2\n\n```input\n4\n7\n5\n7\n5\n```\n\n```output\n12\n```\n\n### Example 3\n\n```input\n4\n3\n1\n7\n2\n```\n\n```output\n31\n```"
+    },
+    {
+     "day": 3,
+     "number": 6,
+     "paper_label": "Round 3",
+     "title": "Mono",
+     "task_type": "batch",
+     "time_limit": "5 seconds",
+     "memory_limit": "64 MB",
+     "problem": "Mirko soon realised that number sequences are not the best career choice, and went right back to letter-table business.\n\nMirko’s table has $R$ rows and $C$ columns and consists of lowercase letters.\n\nEach cell of the table is a square of equal size. We assign coordinates to vertices of those squares, so that upper-left corner of the table has coordinates $(0, 0)$, upper-right $(C, 0)$, lower-left $(0, R)$, and lower-right $(C, R)$.\n\nWe say that **polygon** within the table is **monoliteral** if the following holds:\n\n• 1. its vertices are from the described set of cell-square vertices,\n• 2. its edges are parallel to coordinate axes,\n• 3. all letters inside the polygon are equal.\n\nA simple polygon for which first two conditions are true (third one may or may not be true) is given. Mirko would like to know the number of **monoliteral** polygons that can be obtained by **moving** the given one up, down, left, or right or any combination thereof, but **not rotating**.\n\n## Input\n\nThe first line of input contains two space seperated integers $R$ and $C$ ($1 \\le R, C \\le 500$).\n\nEach of the next $R$ lines contains exactly $C$ lowercase letters, this is Mirko’s table.\n\nThe following line contains integer $V$ ($4 \\le V \\le 500$), number of vertices of given polygon.\n\nEach of the next $V$ lines contains two integers $X$, $Y$ ($0 \\le X \\le C$, $0 \\le Y \\le R$). These are the coordinates of the vertices of the given polygon. Vertices are given in clockwise order.\n\nThe given polygon will satisfy conditions 1 and 2 from above.\n\n## Output\n\nIn the first and only line of output, print expected number of polygons.\n\n## Scoring\n\nIn test cases worth 40% of total points, $R$, $C$ and $V$ will not exceed 20.\n\nIn test cases worth 70% of total points, $V$ will not exceed 20.\n\n## Examples\n\n### Example 1\n\n```input\n3 3\naaa\naaa\naaa\n4\n2 0\n2 2\n0 2\n0 0\n```\n\n```output\n4\n```\n\n### Example 2\n\n```input\n3 3\naaa\naba\naaa\n4\n2 0\n2 2\n0 2\n0 0\n```\n\n```output\n0\n```\n\n### Example 3\n\n```input\n5 4\nxyyx\nxyyy\nxxyy\nxxxx\nxxxx\n8\n1 3\n1 2\n0 2\n0 0\n2 0\n2 1\n3 1\n3 3\n```\n\n```output\n2\n```"
+    },
+    {
+     "day": 4,
+     "number": 1,
+     "paper_label": "Round 4",
+     "title": "Avion",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Mirko and Slavko are USKOK agents tracking the movements of an unnamed corrupt government official. Anonymous sources have tipped them about his upcoming escape attempt. They now know he plans to use his diplomatic liaisons to try and hitch a ride on a CIA blimp leaving from Severin na Kupi blimp port.\n\nIt’s common knowledge that all CIA blimps have the string “**FBI**” somewhere in their registration codes. They obtained a list of all blimps scheduled for the designated day. There are **exactly** 5 blimps on the list. Write a program that will point out all CIA blimps.\n\n## Input\n\nThere are exactly 5 rows of input, each row representing one blimp registration code from the list. A registration code is a sequence of **at most 10** uppercase letters of the English alphabet, digits ‘0’ to ‘9’, or dashes ‘-’.\n\n## Output\n\nThe first and only line of output must contain a space separated list of integers, sorted in increasing order, indicating the corresponding input rows containing registrations of CIA blimps.\n\nIf there are no CIA blimps, output the string “HE GOT AWAY!”.\n\n## Examples\n\n### Example 1\n\n```input\nN-FBI1\n9A-USKOK\nI-NTERPOL\nG-MI6\nRF-KGB1\n```\n\n```output\n1\n```\n\n### Example 2\n\n```input\nN321-CIA\nF3-B12I\nF-BI-12\nOVO-JE-CIA\nKRIJUMCAR1\n```\n\n```output\nHE GOT AWAY!\n```\n\n### Example 3\n\n```input\n47-FBI\nBOND-007\nRF-FBI18\nMARICA-13\n13A-FBILL\n```\n\n```output\n1 3 5\n```"
+    },
+    {
+     "day": 4,
+     "number": 2,
+     "paper_label": "Round 4",
+     "title": "Parket",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Ivica has set up a new parquet flooring in his room. The room is $L$ decimeters long and $W$ decimeters wide.\n\nThe blocks are of quadratic shape and each has an area of one quadratic decimeter. Once Ivica had set up the flooring, which consists of **brown**-colored blocks, he decided to paint the blocks **on the edge** of the room **red**.\n\nThe picture below illustrates the scenario from the test case #2 – outer blocks are red, while the remaining two inner blocks are brown:\n\nhttps://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/coci-2010-4-2-fig1.png\n\nMarica has come to visit Ivica. While Ivica was serving her cookies, she counted the number of blocks of each color. When she returned home, she recalled of the two numbers and wished to calculate the dimensions of Ivica’s room. Help her!\n\n## Input\n\nThe first and only line of input contains two integers separated by a space, $R$ (the number of red blocks) and $B$ (the number of brown blocks). The following constraints will apply: $8 \\le R \\le 5000$, $1 \\le B \\le 2\\,000\\,000$.\n\n## Output\n\nThe first and only line of output must contain the dimensions of the room, $L$ and $W$, respectively. If the numbers differ, output the greater one first. The test data will ensure that a unique solution always exists.\n\n## Scoring\n\nIn test cases worth 30% of total points, the dimensions of Ivica’s room, $L$ and $W$, will be equal.\n\n## Examples\n\n### Example 1\n\n```input\n8 1\n```\n\n```output\n3 3\n```\n\n### Example 2\n\n```input\n10 2\n```\n\n```output\n4 3\n```\n\n### Example 3\n\n```input\n24 24\n```\n\n```output\n8 6\n```"
+    },
+    {
+     "day": 4,
+     "number": 3,
+     "paper_label": "Round 4",
+     "title": "Astro",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Ivica and Marica are attending astronomy classes and are observing two unusual stars. They noted the time when each of them flashed. They further noticed that each of the stars flashes periodically, at regular intervals, and now they are wondering: on what day, at what hour will the stars flash at the **same** minute for the **first time**?\n\nFor example, if the first star flashed today (Saturday) at 02:20 and the second one at 13:00, with the first star flashing every 05:50 (every 5 hours and 50 minutes) and the second every 01:00 (each hour), then the first one will flash again at 08:10 and 14:00, and the second one at 14:00. Therefore, both stars will have flashed at the same minute today at 14:00.\n\nNote that the time 00:00 (midnight) is the first minute of a day.\n\n## Input\n\nFour lines containing four timestamps in HH:MM format (hours:minutes), with $00 \\le \\mathrm{HH} \\le 23$, $00 \\le \\mathrm{MM} \\le 59$.\n\nThe timestamps are, respectively: the time of the first star’s flash, the time of the second star’s flash, the time between consecutive flashes of the first star, the time between consecutive flashes of the second star.\n\nThe first two timestamps will differ, and both fall on the same day - **Saturday**. Flash intervals will not be 00:00.\n\n## Output\n\nIf the stars will never flash at the same minute, output “Never” in a single line.\n\nOtherwise, output in the first line (all lowercase) the name of the weekday of the first same-minute flash. A reminder on the correct spelling of weekdays: “Sunday”, “Monday”, “Tuesday”, “Wednesday”, “Thursday”, “Friday” and “Saturday” (note the capital letter).\n\nIn the second line, output the timestamp of the first same-minute flash, in HH:MM format (with a leading zero if $\\mathrm{HH} < 10$).\n\n## Scoring\n\nIn test cases worth 40% of total points, both flash intervals will be hours-only (MM will equal 00), for example 13:00.\n\n## Examples\n\n### Example 1\n\n```input\n02:20\n13:00\n05:50\n01:00\n```\n\n```output\nSaturday\n14:00\n```\n\n### Example 2\n\n```input\n02:20\n23:28\n00:40\n23:50\n```\n\n```output\nNever\n```\n\n### Example 3\n\n```input\n23:19\n10:19\n02:42\n09:11\n```\n\n```output\nThursday\n00:31\n```"
+    },
+    {
+     "day": 4,
+     "number": 4,
+     "paper_label": "Round 4",
+     "title": "Prosjek",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Slavko decided to challenge Mirko! He gave him a real number $P$ and a bag full of pieces of paper with exactly one number 1-5 written on each paper. There is an unlimited quantity of each type of paper.\n\nMirko’s task is to pick **the minimum number of papers** in a way that the average of the numbers written on them equals exactly $P$.\n\n## Input\n\nFirst and only line of input contains real number $P$.\n\n$P$ will have between 1 and 9 decimal places, inclusive ($1 \\le P \\le 5$).\n\n## Output\n\nFirst and only line of output should contain five nonnegative integers - numbers of ones, twos, threes, fours and fives used, respectively. **If there are multiple solutions, output any one of them.**\n\n## Examples\n\n### Example 1\n\n```input\n5.0\n```\n\n```output\n0 0 0 0 1\n```\n\n### Example 2\n\n```input\n4.5\n```\n\n```output\n0 0 0 1 1\n```\n\n### Example 3\n\n```input\n3.20\n```\n\n```output\n0 0 4 1 0\n```"
+    },
+    {
+     "day": 4,
+     "number": 5,
+     "paper_label": "Round 4",
+     "title": "Dugovi",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "In a little town called Križ live $N$ people. Each of them has borrowed some money from **exactly one** other inhabitant. Now the time has come to pay back all the debts, but the problem is that everybody has spent all of their money!\n\nThe major of Križ has decided to solve this problem. The town will give money to a few people so that they can pay back their debts. When some people get their money back, a chain reaction is started - for example: person A gets money from the city. Person A uses that money to pay the debt toward person B. Person B then uses that money to pay the debt towards person C etc. If person B didn’t have enough money to pay back the debt, they wait until they get enough. If they have more than enough money, person B will keep what is left after payback.\n\nAnother example: if two people live in Križ, and they owe \\$100 to each other, the town will give \\$100 to one of them so they can pay back the debt to the other one.\n\nYour task is to calculate the **minimum total amount of money** the town has to give to some subset of the inhabitants so that after the payback protocol described above all debts are payed.\n\n## Input\n\nFirst line of input contains one integer $N$ ($2 \\le N \\le 200\\,000$), number of inhabitants of Križ. They are numbered from 1 to $N$.\n\nThe following $N$ lines contain two integers, separated by space. In $i$-th of those lines, first number - $A_i$ represents the id of the person $i$-th person owes money to ($1 \\le A_i \\le N$, $A_i \\ne i$), and second $B_i$ represents the ammount of the debt in \\$ ($1 \\le B_i \\le 10\\,000$).\n\n## Output\n\nFirst and only line of output should contain one integer - the minimum total ammount of money town has to give to its inhabitants so all debts are returned.\n\n## Examples\n\n### Example 1\n\n```input\n4\n2 100\n1 100\n4 70\n3 70\n```\n\n```output\n170\n```\n\n### Example 2\n\n```input\n3\n2 120\n3 50\n2 80\n```\n\n```output\n150\n```\n\n### Example 3\n\n```input\n5\n3 30\n3 20\n4 100\n5 40\n3 60\n```\n\n```output\n110\n```"
+    },
+    {
+     "day": 4,
+     "number": 6,
+     "paper_label": "Round 4",
+     "title": "Hrpa",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "128 MB",
+     "problem": "Mirko and Slavko’s favourite pastime is competing against each other in mathematical games. This time they took a heap of $N$ pebbles and settled on the following rules:\n\n• 1. Mirko is the first to play, then Slavko, then Mirko again, then Slavko and so on;\n• 2. Mirko can take any number of pebbles (between 1 and $N$, inclusive) from the heap during his first move;\n• 3. In each of the following turns the current player must take at least 1 pebble and is allowed to take **at most double the amount of pebbles taken during the previous turn** by the other player; naturally, one cannot take more pebbles than the remaining amount in the heap;\n• 4. The player who takes the last pebble is the winner.\n\nBoth Mirko and Slavko play optimally (if it is possible for one player to beat the other, that player will always win). We need to find the **minimum** number of pebbles that Mirko must take during his first turn such that he is guaranteed to win the game.\n\n## Input\n\nThe first and only line of input contains the positive integer $N$ ($2 \\le N \\le 10^{15}$), the number of pebbles in the starting heap.\n\n## Output\n\nThe first and only line of output must contain the required minimum number of pebbles that Mirko needs to remove during his first turn.\n\n## Examples\n\n### Example 1\n\n```input\n4\n```\n\n```output\n1\n```\n\n### Example 2\n\n```input\n7\n```\n\n```output\n2\n```\n\n### Example 3\n\n```input\n8\n```\n\n```output\n8\n```\n\n**First sample description:** Mirko has 4 possibilities to choose from: he can take 1, 2, 3, or 4 pebbles from the heap. If he takes all 4 pebbles he will naturally win, but that is not the minimum solution. We need to check the remaining alternatives. If Mirko takes only one pebble, Slavko is left with a heap of 3, but he can take at most 2. Slavko cannot take all pebbles, but Mirko will be able to take all remaining pebbles during his next turn, winning the game. We conclude that 1 is the minimum solution for this test case."
+    },
+    {
+     "day": 5,
+     "number": 1,
+     "paper_label": "Round 5",
+     "title": "Gljive",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "In front of Super Mario there are **10 mushrooms**, arranged in a row. A certain amount of points is awarded for picking each of the mushrooms. Super Mario must pick mushrooms **in order** they appear, but is not required to pick them all – his goal is to score a number of points **as close as possible to 100**.\n\nIn case there exist two such numbers which are equally close to 100 (e.g. 98 and 102), Mario will pick the **greater** one (in this case 102).\n\nHelp Super Mario and tell him how many points he will score.\n\n## Input\n\nInput consists of 10 lines, each of which contains one positive integer less than or equal to 100, denoting the scores awarded for picking each mushroom, in the order that Mario can pick them in.\n\n## Output\n\nThe first and only line of output must contain the required number of points.\n\n## Examples\n\n### Example 1\n\n```input\n10\n20\n30\n40\n50\n60\n70\n80\n90\n100\n```\n\n```output\n100\n```\n\n### Example 2\n\n```input\n1\n2\n3\n5\n8\n13\n21\n34\n55\n89\n```\n\n```output\n87\n```\n\n### Example 3\n\n```input\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n```\n\n```output\n120\n```"
+    },
+    {
+     "day": 5,
+     "number": 2,
+     "paper_label": "Round 5",
+     "title": "Košarka",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Slavko has started to follow the NBA league. The game duration is exactly **48 minutes**. When a game ends, the statistics are shown. Slavko has written down whenever a team scored. He is curious about how long each team was in the lead.\n\n## Input\n\nThe first line of input contains one integer $N$ ($1 \\le N \\le 100$). The following $N$ lines describe events when a team scored.\n\nEach description consists of a team that scored, which is either **1** or **2**, and a timestamp in format **MM:SS** (minutes:seconds), the time when a team scored. Minutes and seconds are zero padded and from ranges [00, 47] and [00, 59] (inclusive). The given timestamps are unique.\n\n## Output\n\nThe first line of output must contain the duration that the first team was in the lead.\n\nThe second line of output must contain the duration that the second team was in the lead.\n\nAll durations should be in MM:SS format, with leading zeros.\n\n## Examples\n\n### Example 1\n\n```input\n1\n1 20:00\n```\n\n```output\n28:00\n00:00\n```\n\n### Example 2\n\n```input\n3\n1 01:10\n2 21:10\n2 31:30\n```\n\n```output\n20:00\n16:30\n```\n\n### Example 3\n\n```input\n5\n1 01:10\n1 02:20\n2 45:30\n2 46:40\n2 47:50\n```\n\n```output\n45:30\n00:10\n```"
+    },
+    {
+     "day": 5,
+     "number": 3,
+     "paper_label": "Round 5",
+     "title": "Brodovi",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Mirko lives in a small town with a harbour: once in a blue moon a ship passes by. However, to this day Mirko remembers the day when **all the ships** who had ever visited the harbour showed up. He denoted this day by index **1**.\n\nMany days have passed since, but Mirko noted each day when **at least one** ship visited the harbour, naming these days **entertaining**.\n\nAdditionally, Mirko has noticed that each ship visits the harbour periodically, at regular intervals. For instance, an interval of length 3 implies that some ship visited the harbour on days 1, 4, 7, 10 etc.\n\nGiven Mirko’s list of entertaining days (including today which is considered to be an entertaining day as well), compute the **minimum** possible number of ships visiting his harbour.\n\n**Notes**: All entertaining days appear on Mirko’s list. It is guaranteed that the given data is consistent - in other words, a solution will always exist.\n\n## Input\n\nThe first line of input contains an integer $N$ ($2 \\le N \\le 5000$), the number of entertaining days.\n\nThe following $N$ lines contain indices of entertaining days, one per line, in ascending order. The first and the last indices, representing the day from which Mirko started monitoring harbour traffic and today, respectively, will always appear on the list. The first index will always be 1, and the last one (index of today) will be less than $10^{9}$.\n\n## Output\n\nThe first and only line of output must contain the required minimum number of ships.\n\n## Scoring\n\nIn test cases worth 70% of total points, day indices will be less than $5\\,000\\,000$.\n\n## Examples\n\n### Example 1\n\n```input\n3\n1\n3\n4\n```\n\n```output\n2\n```\n\n### Example 2\n\n```input\n5\n1\n7\n10\n13\n19\n```\n\n```output\n2\n```\n\n### Example 3\n\n```input\n3\n1\n500000000\n999999999\n```\n\n```output\n1\n```"
+    },
+    {
+     "day": 5,
+     "number": 4,
+     "paper_label": "Round 5",
+     "title": "Honi",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "64 MB",
+     "problem": "From a pile of suggested tasks, authors of COCI must choose ones that will appear in the next round.\n\nDifficulty of a task is described with an integer in range 1 to $N$. For some tasks, however, it’s not easy to exactly determine their difficulty. Authors of COCI decided that these tasks can be considered as having either one of two consecutive difficulties. For example, some task can be considered as having difficulty of either 3 or 4.\n\nThe next round of COCI will contain exactly $N$ tasks. For each difficulty, there will be exactly one task with that difficulty. Of course, no task will appear twice.\n\nFind the number of different ways authors can choose tasks for the next round. We say that two ways are different if for some difficulty, a different task is assigned to that difficulty.\n\nSince the expected result can be very large, output the number of ways modulo $1\\,000\\,000\\,007$.\n\n## Input\n\nThe first line of input contains the integer $N$ ($2 \\le N \\le 100\\,000$).\n\nThe second line of input contains $N$ integers not greater than $10^{9}$. $i$-th number in this line is equal to the number of tasks in a pile having difficulty exactly $i$.\n\nThe third line of input contains $N-1$ integers not greater than $10^{9}$. $i$-th number in this line is equal to the number of tasks in a pile having difficulty either $i$ or $i+1$.\n\n## Output\n\nThe first and only line of output must contain the required number of ways modulo $1\\,000\\,000\\,007$.\n\n## Examples\n\n### Example 1\n\n```input\n3\n3 0 1\n0 1\n```\n\n```output\n3\n```\n\n### Example 2\n\n```input\n4\n1 5 3 0\n0 2 1\n```\n\n```output\n33\n```"
+    },
+    {
+     "day": 5,
+     "number": 5,
+     "paper_label": "Round 5",
+     "title": "Dvoniz",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "64 MB",
+     "problem": "We say that a sequence of $2 \\cdot K$ elements is **interesting** if neither the sum of the first $K$ elements, nor the sum of the last $K$ elements, is greater than $S$.\n\nA sequence $A$ of length $N$ is given. For every element, output the length of the longest interesting subsequence starting with that element.\n\n## Input\n\nThe first line contains integers $N$ and $S$ ($2 \\le N \\le 100\\,000$, $1 \\le S \\le 2 \\cdot 10^{9}$).\n\nThe following $N$ lines contain the sequence $A$, one integer per line. The integers are positive and their sum does not exceed $2 \\cdot 10^{9}$.\n\n## Output\n\nOutput must consist of $N$ lines. $i$-th line must contain one integer, the length of the longest interesting subsequence starting with the $i$-th element. If an interesting subsequence at that position doesn’t exist, output 0 (zero).\n\n## Examples\n\n### Example 1\n\n```input\n5 10000\n1\n1\n1\n1\n1\n```\n\n```output\n4\n4\n2\n2\n0\n```\n\n### Example 2\n\n```input\n5 9\n1\n1\n10\n1\n9\n```\n\n```output\n2\n0\n0\n2\n0\n```\n\n### Example 3\n\n```input\n8 3\n1\n1\n1\n1\n1\n1\n1\n1\n```\n\n```output\n6\n6\n6\n4\n4\n2\n2\n0\n```"
+    },
+    {
+     "day": 5,
+     "number": 6,
+     "paper_label": "Round 5",
+     "title": "Slika",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "128 MB",
+     "problem": "Mirko has just installed a brand new drawing program. The program supports $K$ different colours, denoted by integers from 1 to $K$. All drawing is performed on a canvas with dimensions $N \\times N$. In the beginning, all cells are white (denoted by 1).\n\nThe upper left cell of the canvas has coordinates (0, 0). The first coordinate, $x$, increases iterating over rows, and the second, $y$, increases iterating over columns.\n\nMirko’s favourite pastime is drawing rectangular checkerboard patterns using the command **PAINT c x1 y1 x2 y2**, where **c** denotes the chosen colour, and (**x1**, **y1**) and (**x2**, **y2**) are coordinates of the upper left and lower right cells, respectively, of the rectangle being painted.\n\nThe upper left cell of the rectangle will be painted in the chosen colour, while the rest are determined by the checkerboard pattern. Cells that are not painted over by the chosen colour will **retain their previous colour**. For example, a white canvas painted over by a red checkerboard pattern will look like this:\n\nhttps://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/coci-2010-5-6-fig1.png\n\nMirko has recently discovered two additional commands. He can save his painting at any time using the creatively named command **SAVE**, and load it again later using the command **LOAD x**, where **x** is a positive integer representing the ordinal number of the save.\n\nUnfortunately, the program has crashed and Mirko’s painting is lost forever. Luckily, Mirko has saved a log of all used commands. Can you help Mirko by reconstructing the lost painting?\n\n## Input\n\nThe first line of input contains three positive integers, $N$ ($1 \\le N \\le 1000$), $K$ ($2 \\le K \\le 100\\,000$), and $M$ ($1 \\le M \\le 100\\,000$, $M$ is the number of commands).\n\nEach of the following $M$ lines contains one of the three described commands. Input will not contain any illegal commands.\n\n## Output\n\nOutput must consist of $N$ lines, each containing $N$ integers representing the colours of cells in the corresponding row of the painting.\n\n## Examples\n\n### Example 1\n\n```input\n4 3 2\nPAINT 2 0 0 3 3\nPAINT 3 0 3 3 3\n```\n\n```output\n2 1 2 3\n1 2 1 2\n2 1 2 3\n1 2 1 2\n```\n\n### Example 2\n\n```input\n3 3 4\nPAINT 3 0 0 1 1\nSAVE\nPAINT 2 1 1 2 2\nLOAD 1\n```\n\n```output\n3 1 1\n1 3 1\n1 1 1\n```\n\n### Example 3\n\n```input\n3 4 7\nPAINT 2 0 0 1 1\nSAVE\nPAINT 3 1 1 2 2\nSAVE\nPAINT 4 0 2 0 2\nLOAD 2\nPAINT 4 2 0 2 0\n```\n\n```output\n2 1 1\n1 3 1\n4 1 3\n```"
+    },
+    {
+     "day": 6,
+     "number": 1,
+     "paper_label": "Round 6",
+     "title": "Okupljanje",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "The day after a giant party everybody wants to know a couple of things - who was at the party and how many people were there? Since parties are usually pretty big, nobody actually knows the correct number of people who were there. Your friend Krešo was on a party last Saturday and he knows how many people there were per 1 m$^{2}$.\n\nWhile reading 5 newspaper articles about that party, you have written down 5 numbers, specifying how many people were present at the party according to each of the articles. You believe Krešo’s information and you’d like to know how much each of the articles was wrong.\n\n## Input\n\nThe first line of input contains two positive integers, $Lj$ ($1 \\le Lj \\le 10$), the number of people per m$^{2}$, and $P$ ($1 \\le P \\le 1000$), the area of the room the party was held in.\n\nThe second line of input contains 5 positive integers less than $10^{6}$, the number of people present at the party according to each of the articles.\n\n## Output\n\nThe first and only line of output must contain 5 numbers, the difference between the number of people written in an article and Krešo’s (correct) number.\n\n## Examples\n\n### Example 1\n\n```input\n1 10\n10 10 10 10 10\n```\n\n```output\n0 0 0 0 0\n```\n\n### Example 2\n\n```input\n5 20\n99 101 1000 0 97\n```\n\n```output\n-1 1 900 -100 -3\n```"
+    },
+    {
+     "day": 6,
+     "number": 2,
+     "paper_label": "Round 6",
+     "title": "Uspon",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Tomislav has recently discovered that he’s completely out of shape. He actually becomes tired while walking down the stairs! One morning he woke up and decided to come in good shape. His favourite sport is cycling, so he decided to ride a tour on the local hills.\n\nThe route he is taking is described as a sequence of $N$ numbers which represent the height of the road at evenly spaced points of the route, from the beginning to the end of it. Tomislav is interested in the **largest segment of the route which goes up the hill** he has to ride, according to the information he has. Let’s call such a segment a **‘climb’**. Tomislav is too tired to bother about details, so he will only take into account the height difference of a climb, not its length.\n\nA climb is more strictly defined as a consecutive increasing subsequence of at least two numbers describing the road. The size of the climb is the difference between the last and first number in the subsequence.\n\nFor example, let’s consider a route described by the following sequence of heights: $12\\ \\ \\underline{3\\ \\ 5\\ \\ 7\\ \\ 10}\\ \\ 6\\ \\ \\underline{1\\ \\ 11}$. Underlined numbers represent two different climbs. The size of the first climb is 7. The second climb is larger, with size 10. Points with heights 12 and 6 are not parts of any climb.\n\nHelp Tomislav and calculate the largest climb!\n\n## Input\n\nThe first line of input contains a positive integer $N$ ($1 \\le N \\le 1000$), the number of measured points on the route.\n\nThe second line of input contains $N$ positive integers $P_i$ ($1 \\le P_i \\le 1000$), the heights of measured points on the route.\n\n## Output\n\nThe first and only line of output should contain the size of the largest climb. If the route in the input does not contain any climbs, output 0.\n\n## Examples\n\n### Example 1\n\n```input\n5\n1 2 1 4 6\n```\n\n```output\n5\n```\n\n### Example 2\n\n```input\n8\n12 20 1 3 4 4 11 1\n```\n\n```output\n8\n```\n\n### Example 3\n\n```input\n6\n10 8 8 6 4 3\n```\n\n```output\n0\n```\n\n**Second sample description:** climbs are 12-20, 1-3-4, and 4-11. 1-3-4-4-11 is not a climb because sequence of numbers describing a climb has to be strictly increasing."
+    },
+    {
+     "day": 6,
+     "number": 3,
+     "paper_label": "Round 6",
+     "title": "Razine",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Mirko has developed his own video game. The game has $N$ levels and each successfully completed level is worth a certain number of points, which add up to the player’s total score on an online rank list of all players. Mirko has ordered his levels **by difficulty** from the easiest to the most difficult, but he has made a mistake and made some difficult levels worth less points than some of the easier ones.\n\nTo overcome this problem, Mirko has decided to **reduce** the number of points for certain levels with the goal of making the point sequence **strictly increasing** (so in the end easier levels are worth less points than the difficult ones).\n\nHelp Mirko fix his video game in such a way that the **total number of points reduced is minimal**. Final points have to be positive. You can assume that a solution exists for each test case.\n\n## Input\n\nThe first line of input contains one positive integer $N$ ($1 \\le N \\le 100$), the number of levels.\n\nThe next $N$ lines contain positive integers less than $20\\,000$, the number of points that Mirko has associated with each level, from the first to the last level.\n\n## Output\n\nThe first and and only line of output should contain one number - the minimum total number of points Mirko has to subtract to fulfill requirements given in the task statement above.\n\n## Examples\n\n### Example 1\n\n```input\n3\n5\n5\n5\n```\n\n```output\n3\n```\n\n### Example 2\n\n```input\n4\n5\n3\n7\n5\n```\n\n```output\n6\n```"
+    },
+    {
+     "day": 6,
+     "number": 4,
+     "paper_label": "Round 6",
+     "title": "Abeceda",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "A list of words written in some unknown alphabet was found. It is known, however, that these words are in alphabetic order.\n\nWrite a program that will find the unique alphabetic ordering of used letters, or determine that no such ordering exists or that there is more than one possible solution.\n\n## Input\n\nThe first line of input contains a positive integer $N$ ($N \\le 100$), the number of words.\n\nThe following $N$ lines contain the list of words found, one word per line. Each word consists of at most 10 lowercase letters.\n\n## Output\n\nThe first and only line of output should contain all letters in alphabetic order. If no such ordering exists, output ‘!’. If there is more than one solution, output ‘?’.\n\n## Examples\n\n### Example 1\n\n```input\n5\nula\nuka\nklua\nkula\nal\n```\n\n```output\nluka\n```\n\n### Example 2\n\n```input\n4\njaja\nbaba\nbaja\nbeba\n```\n\n```output\n!\n```\n\n### Example 3\n\n```input\n3\nmarko\ndarko\nzarko\n```\n\n```output\n?\n```"
+    },
+    {
+     "day": 6,
+     "number": 5,
+     "paper_label": "Round 6",
+     "title": "Step",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Mirko and Slavko started taking tap dance lessons. This dance consists mostly of tapping the floor with a special kind of shoe. Since Mirko and Slavko are fast learners, they decided to come up with their own choreography.\n\nTap dance choreography can be described as a sequence consisting of two letters, ‘L’ and ‘R’. ‘L’ means that you should tap the floor with your left foot, and ‘R’ with your right foot. Mirko realised that the most exciting parts of tap dancing are the ones in which you don’t use the same leg twice in a row. He defined the **value** of a choreography as the longest subsequence of consecutive elements that doesn’t contain two consecutive ‘L’s or ‘R’s.\n\nAs we all know, designing a choreography can be very challenging, with lots of small changes until it’s done. For every alteration that Slavko does, he would like to know the current choreography value. One alteration is changing one ‘L’ to ‘R’, and vice versa.\n\nBefore any alterations are made, the choreography consists only of letters ‘L’.\n\n## Input\n\nThe first line of input contains two integers, the choreography length $N$ ($1 \\le N \\le 200\\,000$), and the number of alterations $Q$ ($1 \\le Q \\le 200\\,000$).\n\nEach of the next $Q$ lines contains an integer specifying the position that Mirko and Slavko are altering, in order of alteration.\n\n## Output\n\nThe output must contain $Q$ integers, one per line - the current values of the choreography after each alteration.\n\n## Examples\n\n### Example 1\n\n```input\n6 2\n2\n4\n```\n\n```output\n3\n5\n```\n\n### Example 2\n\n```input\n6 5\n4\n1\n1\n2\n6\n```\n\n```output\n3\n3\n3\n5\n6\n```\n\n**First sample description:** choreographies are: LLLLLL → L**R**LLLL → LRL**R**LL"
+    },
+    {
+     "day": 6,
+     "number": 6,
+     "paper_label": "Round 6",
+     "title": "Voda",
+     "task_type": "batch",
+     "time_limit": "5 seconds",
+     "memory_limit": "128 MB",
+     "problem": "Mirko, the mad plumber, was hired to construct a water supply network between two locations in a city. The city map can be represented as a $R \\times S$ grid. Some cells are **not suitable** for placing water pipes. Locations Mirko needs to connect are placed **directly above** the top left cell of the grid, and **directly below** the bottom right cell.\n\nEach suitable cell Mirko can either **leave empty** or use it for placing **one of the following 6 pipe types**:\n\nhttps://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/coci-2010-6-6-fig1.png\n\nFind the number of ways that pipes can be placed to connect the two locations with a continuous pipe (water must not be spilled). All placed pipe parts **must be in use**.\n\nOutput the solution **modulo 10007**.\n\n## Input\n\nThe first line of input contains the integers $R$ and $S$ ($2 \\le R, S \\le 10$), the number of rows and columns of the city grid, respectively. Each of the next $R$ lines contains exactly $S$ characters: ‘.’ if the cell is suitable for placing pipes, and ‘#’ if not.\n\n## Output\n\nThe first and only line of output must contain the required number of ways modulo 10007..\n\n## Examples\n\n### Example 1\n\n```input\n2 3\n...\n.#.\n```\n\n```output\n1\n```\n\n### Example 2\n\n```input\n3 3\n...\n...\n...\n```\n\n```output\n12\n```\n\n**First sample description:** this is the only possible solution:\n\nhttps://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/coci-2010-6-6-fig2.png"
     }
    ]
   },
