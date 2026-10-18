@@ -243,6 +243,126 @@
      "time_limit": "1 second",
      "memory_limit": "64 MB",
      "problem": "Mirko intercepted an encrypted message. Mirko knows only that specific sentence was **part of the original message**. Find **the first occurence** of this sentence **inside the encrypted message**.\n\nMessage is encrypted by substituting **every word** from the original message with some (possibly the same one) word. If some word appears more than once in the original message, it will be substituted using the same word on each appearance. No two different words will have the same substitute word.\n\nWords are space seperated sequences of lowercase letters. Sentence is a sequence of consecutive words.\n\n## Input\n\nThe first line of input contains the encrypted message. This message will not contain more than $10^{6}$ characters. There will be exactly one whitespace between adjacent words, and end of the line will be marked with \\$. Trailing \\$ is not considered to be a part of message.\n\nThe following line contains the sentence that appears in the original message, and which we must find in the encrpyted message. This sentence won't be longer than $10^{6}$ characters, and will follow the same format as described above.\n\n## Output\n\nThe first and only line of output should contain the index in the encrypted message of the first word in the first occurence of given original message sentence.\n\nSolution will always exist.\n\n## Examples\n\n### Example 1\n\n```input\na a a b c d a b c $\nx y $\n```\n\n```output\n3\n```\n\n### Example 2\n\n```input\nxyz abc abc xyz $\nabc abc $\n```\n\n```output\n2\n```\n\n### Example 3\n\n```input\na b c x c z z a b c $\nprvi dr prvi tr tr x $\n```\n\n```output\n3\n```"
+    },
+    {
+     "day": 5,
+     "number": 1,
+     "paper_label": "Round 5",
+     "title": "Križaljka",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Since ACTA has entered into force, Slavko has been spending his time offline, solving crosswords. Having solved almost all that he could get his hands on, he wants to make a few crosswords of his own. However, he is too sloppy for such fine work, so he has asked you to help him generate the crosswords.\n\nYou are given two words, $A$ and $B$. The word $A$ must be output **horizontally**, and the word $B$ **vertically**, so that the two words cross (i.e. share exactly one letter). The shared letter must be the first letter in $A$ that is also contained in $B$, more specifically the first occurrence of that letter in each word.\n\nFor example, given the words $A$ = “ABBA” and $B$ = “CCBB”, you need to output 4 lines as shown below:\n\n```grid\n.C..\n.C..\nABBA\n.B..\n```\n\n## Input\n\nThe first and only line of input contains two words, $A$ and $B$, not more than 30 characters long, separated by a single space. Both words will contain only uppercase English letters. There will be at least one letter contained in both words.\n\n## Output\n\nLet $N$ be the length of word $A$, and $M$ the length of word $B$. The output must contain $M$ lines, each containing $N$ characters. The character grid must contain the two words crossed as described above. All other characters in the grid must be periods (the character ‘.’, without quotes), thus padding all lines to the length of $N$ characters.\n\n## Examples\n\n### Example 1\n\n```input\nBANANA PIDZAMA\n```\n\n```output\n.P....\n.I....\n.D....\n.Z....\nBANANA\n.M....\n.A....\n```\n\n### Example 2\n\n```input\nMAMA TATA\n```\n\n```output\n.T..\nMAMA\n.T..\n.A..\n```\n\n### Example 3\n\n```input\nREPUBLIKA HRVATSKA\n```\n\n```output\nH........\nREPUBLIKA\nV........\nA........\nT........\nS........\nK........\nA........\n```"
+    },
+    {
+     "day": 5,
+     "number": 2,
+     "paper_label": "Round 5",
+     "title": "Eko",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Lumberjack Mirko needs to chop down $M$ metres of wood. It is an easy job for him since he has a nifty new woodcutting machine that can take down forests like wildfire. However, Mirko is only allowed to cut a single row of trees.\n\nMirko’s machine works as follows: Mirko sets a height parameter $H$ (in metres), and the machine raises a giant sawblade to that height and cuts off all tree parts higher than $H$ (of course, trees not higher than $H$ meters remain intact). Mirko then takes the parts that were cut off. For example, if the tree row contains trees with heights of 20, 15, 10, and 17 metres, and Mirko raises his sawblade to 15 metres, the remaining tree heights after cutting will be 15, 15, 10, and 15 metres, respectively, while Mirko will take 5 metres off the first tree and 2 metres off the fourth tree (7 metres of wood in total).\n\nMirko is **ecologically** minded, so he doesn’t want to cut off more wood than necessary. That’s why he wants to set his sawblade as high as possible. Help Mirko find the **maximum integer height** of the sawblade that still allows him to cut off **at least $M$** metres of wood.\n\n## Input\n\nThe first line of input contains two space-separated positive integers, $N$ (the number of trees, $1 \\le N \\le 1\\,000\\,000$) and $M$ (Mirko’s required wood amount, $1 \\le M \\le 2\\,000\\,000\\,000$).\n\nThe second line of input contains $N$ space-separated positive integers less than $1\\,000\\,000\\,000$, the heights of each tree (in metres). The sum of all heights will exceed $M$, thus Mirko will always be able to obtain the required amount of wood.\n\n## Output\n\nThe first and only line of output must contain the required height setting.\n\n## Examples\n\n### Example 1\n\n```input\n4 7\n20 15 10 17\n```\n\n```output\n15\n```\n\n### Example 2\n\n```input\n5 20\n4 42 40 26 46\n```\n\n```output\n36\n```"
+    },
+    {
+     "day": 5,
+     "number": 3,
+     "paper_label": "Round 5",
+     "title": "DNA",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Biologists have discovered a strange DNA molecule, best described as a sequence of $N$ characters from the set {A, B}. An unlikely sequence of mutations has resulted in a DNA strand consisting only of A’s. Biologists found that very odd, so they began studying the mutations in greater detail.\n\nThey discovered two types of mutations. One type results in changing a single character of the sequence (A → B or B → A). The second type changes a whole **prefix** of the sequence, specifically replacing all characters in positions from 1 to $K$ (for some $K$ between 1 and $N$, inclusive) with the other character (A with B, B with A).\n\nCompute the least possible number of mutations that could convert the starting molecule to its end state (containing only A characters). Mutations can occur in any order.\n\n## Input\n\nThe first line of input contains the positive integer $N$ ($1 \\le N \\le 1\\,000\\,000$), the length of the molecule.\n\nThe second line of input contains a string with $N$ characters, with each character being either A or B. This string represents the starting state of the molecule.\n\n## Output\n\nThe first and only line of output must contain the required minimum number of mutations.\n\n## Examples\n\n### Example 1\n\n```input\n4\nABBA\n```\n\n```output\n2\n```\n\n### Example 2\n\n```input\n5\nBBABB\n```\n\n```output\n2\n```\n\n### Example 3\n\n```input\n12\nAAABBBAAABBB\n```\n\n```output\n4\n```"
+    },
+    {
+     "day": 5,
+     "number": 4,
+     "paper_label": "Round 5",
+     "title": "Razbibriga",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Mirko has already solved all crosswords available in daily newspapers, and he is too intimidated by ACTA to download new ones from the Internet. Now he has asked Frane to challenge him with a programming problem. Frane has eagerly responded with a brand new task, and was kind enough not to lock the task under copyright protection, so you are allowed to attempt it too!\n\nFour words with equal lengths can be put together in a square such that two words mark horizontal edges, while the other two mark vertical edges. Horizontal words are read left to right, and vertical ones from top to bottom. Corner letters are shared by the two neighbouring edges. The figure below shows one possible square created from words “HLAD”, “NIVA”, “HSIN”, “DEDA”.\n\nhttps://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/coci-2011-5-4-fig1.png\n\nYour task is, given a list of equal-length words, to compute the number of different squares that can be put together from a subset of these words. You are **not allowed to repeat a word in the same square**. Two squares are different if they differ in at least one character.\n\n## Input\n\nThe first line of input contains the positive integer $N$ ($4 \\le N \\le 100\\,000$), the number of words in the list.\n\nEach of the next $N$ lines contains a single word consisting only of uppercase English letters.\n\nEach word will contain at most 10 characters. All words will be distinct and have equal length.\n\n## Output\n\nThe first and only line of output must contain the required number of distinct squares. **Note:** Test data will ensure that the solution fits in a 64-bit integer data type (`int64` in Pascal, `long long` in C/C++).\n\n## Examples\n\n### Example 1\n\n```input\n4\nNIVA\nHLAD\nHSIN\nDEDA\n```\n\n```output\n2\n```\n\n### Example 2\n\n```input\n6\nBAKA\nBARA\nBALC\nCALC\nARHC\nBLIC\n```\n\n```output\n8\n```"
+    },
+    {
+     "day": 5,
+     "number": 5,
+     "paper_label": "Round 5",
+     "title": "Blokovi",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "$N$ rectangles with given masses ($m_i$) and equal lengths ($2$) and heights ($h$) are arranged in a Cartesian plane such that:\n\n• rectangle edges are parallel to the coordinate axes;\n• the y-coordinates of lower horizontal edges are distinct and assume the following values: $0, h, 2h, 3h, \\ldots, (N - 1)h$;\n• the lowest rectangle’s lower left corner has coordinates $(-2, 0)$, while the lower right corner coincides with the origin.\n\nhttps://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/coci-2011-5-5-fig1.png\n\nThe **X-centre of a rectangle** is the x-coordinate of the midpoint of its lower edge.\n\nThe **X-barycentre** of one or more rectangles is the weighted average of their X-centres. It is computed as\n\n$$\\mathit{Xbarycentre} = \\frac{\\sum_i m_i \\cdot \\mathit{Xcentre}(i)}{\\sum_i m_i}$$\n\nIn other words, the mass of each rectangle is multiplied by its X-centre and the sum of these products is then divided by the total mass of the rectangles.\n\nAn arrangement is **stable** if, for each rectangle A:\n\n• the X-barycentre of rectangles above A has distance of at most 1 from the X-centre of A (i.e. is contained in the x-interval that covers A).\n\nIntuitively, stability of an arrangement can be understood as the precondition for the arrangement to **not fall apart**. The arrangement in the figure on the left is unstable since the X-barycentre of the top two rectangles falls outside the rectangle underneath (the distance of the X-barycentre to the X-centre of the underlying rectangle is greater than 1). The arrangement in the figure on the right is stable.\n\nGiven the masses of all rectangles, find the **largest** (“rightmost”) **possible x-coordinate** of **any** rectangle corner in a stable arrangement. You are not allowed to change the order of rectangles (they are given from the lowest to the highest one).\n\n## Input\n\nThe first line of input contains the positive integer $N$ ($2 \\le N \\le 300\\,000$), the number of rectangles.\n\nEach of the next $N$ lines contains a single positive integer less than $10\\,000$, the mass of a rectangle. The masses are given in order **from the lowest to the highest** rectangle.\n\n## Output\n\nThe first and only line of output must contain the required rightmost x-coordinate. The given result must be within $0.000001$ of the official solution.\n\n## Scoring\n\nIn test cases worth 30% of points, the rectangles will be ordered from the heaviest to the lightest one.\n\n## Examples\n\n### Example 1\n\n```input\n2\n1\n1\n```\n\n```output\n1.000000\n```\n\n### Example 2\n\n```input\n3\n1\n1\n1\n```\n\n```output\n1.500000\n```\n\n### Example 3\n\n```input\n3\n1\n1\n9\n```\n\n```output\n1.900000\n```"
+    },
+    {
+     "day": 5,
+     "number": 6,
+     "paper_label": "Round 5",
+     "title": "Popločavanje",
+     "task_type": "batch",
+     "time_limit": "4 seconds",
+     "memory_limit": "512 MB",
+     "problem": "Mirko’s ASCII street is made of $N$ lowercase letters of the English alphabet. The city government occasionally replaces the tiles in the street. However, the letter tiles are in high demand, so the government has only $M$ different tile patterns available.\n\nThe $i$-th tile pattern consists of $L_i$ letters. A tile cannot be rotated or broken into pieces, and it can only be placed such that the **tile letters coincide with the contiguous letter subsequence in the street**. Tiles can overlap and we can use multiple tiles of the same pattern.\n\nA street cell is **untileable** if it cannot be covered by any tile. Compute the number of untileable cells.\n\n## Input\n\nThe first line of input contains the positive integer $N$ ($1 \\le N \\le 300\\,000$), the length of the street.\n\nThe second line of input contains $N$ lowercase English letters, the letter sequence in the street.\n\nThe third line of input contains the positive integer $M$ ($1 \\le M \\le 5000$), the number of tile patterns.\n\nEach of the next $M$ lines contains a description of a tile pattern with length $L_i$ ($1 \\le L_i \\le 5000$). The tile pattern descriptions consist of lowercase English letters.\n\n## Output\n\nThe first and only line of output must contain the required number of untileable cells.\n\n## Examples\n\n### Example 1\n\n```input\n6\nabcbab\n2\ncb\ncbab\n```\n\n```output\n2\n```\n\n### Example 2\n\n```input\n4\nabab\n2\nbac\nbaba\n```\n\n```output\n4\n```\n\n### Example 3\n\n```input\n6\nabcabc\n2\nabca\ncab\n```\n\n```output\n1\n```"
+    },
+    {
+     "day": 6,
+     "number": 1,
+     "paper_label": "Round 6",
+     "title": "Jack",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "In “Blackjack”, a popular card game, the goal is to have cards which sum up to largest number not exceeding 21. Mirko came up with his own version of this game.\n\nIn Mirko’s game, cards have positive integers written on them. The player is given a set of cards and an integer $M$. He must choose **three** cards from this set so that their sum comes as close as possible to $M$ without exceeding it. This is not always easy since there can be a hundred of cards in the given set.\n\nHelp Mirko by writing a program that finds the best possible outcome of given game.\n\n## Input\n\nThe first line of input contains an integer $N$ ($3 \\le N \\le 100$), the number of cards, and $M$ ($10 \\le M \\le 300\\,000$), the number that we must not exceed.\n\nThe following line contains numbers written on Mirko’s cards: $N$ distinct space-separated positive integers less than $100\\,000$.\n\nThere will always exist some three cards whose sum is not greater than $M$.\n\n## Output\n\nThe first and only line of output should contain the largest possible sum we can obtain.\n\n## Examples\n\n### Example 1\n\n```input\n5 21\n5 6 7 8 9\n```\n\n```output\n21\n```\n\n### Example 2\n\n```input\n10 500\n93 181 245 214 315 36 185 138 216 295\n```\n\n```output\n497\n```"
+    },
+    {
+     "day": 6,
+     "number": 2,
+     "paper_label": "Round 6",
+     "title": "Prozori",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Now that spring is here and the sun is shining bright, people are starting to lower their blinds. Štefica is an elderly woman who likes to keep track of what other people in the neighbourhood are doing and then talk about it behind their backs. This year, she is particularly interested in who is lowering blinds in the building across the street, and how low are they lowering them.\n\nWe will represent each window with a 4 x 4 grid, with asteriskes representing lowered blinds. Štefica can see a window in one of the following 5 states:\n\n```grid\n....   ****   ****   ****   ****\n....   ....   ****   ****   ****\n....   ....   ....   ****   ****\n....   ....   ....   ....   ****\n```\n\nThe building across the street has $N$ windows at each of the $M$ floors. Given the current building state, find out how many windows are in each of the 5 states shown above.\n\n## Input\n\nThe first line of input contains space separated integers $M$ and $N$ ($1 \\le M, N \\le 100$).\n\nThe following lines describe the current building state. Each window is represented with one of the 4 x 4 grids shown above, and windows are separated using character ‘#’. See the example input for clarification. Building description will have exactly $5M + 1$ lines each having $5N + 1$ characters.\n\n## Output\n\nOutput should contain 5 space separated integers, number of windows for each type in order shown above. Sum of these numbers is $M*N$.\n\n## Examples\n\n### Example 1\n\n```input\n1 2\n###########\n#....#****#\n#....#****#\n#....#....#\n#....#....#\n###########\n```\n\n```output\n1 0 1 0 0\n```\n\n### Example 2\n\n```input\n2 3\n################\n#****#****#****#\n#****#****#****#\n#****#....#****#\n#....#....#****#\n################\n#....#****#****#\n#....#****#....#\n#....#....#....#\n#....#....#....#\n################\n```\n\n```output\n1 1 2 1 1\n```"
+    },
+    {
+     "day": 6,
+     "number": 3,
+     "paper_label": "Round 6",
+     "title": "Zagrade",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Mirko was bored at his chemistry class, so he played Bomb Switcher on his cell phone. Unfortunately, he was spotted and was given a ridiculously heavy assignment for homework. For a given valid math expression with brackets, he must find all **different** expressions that can be obtained by removing valid pairs of brackets from the original expression. Two expressions are different if there is a character at which they differ.\n\nFor example, given `(2+(2*2)+2)`, one can get `(2+2*2+2)`, `2+(2*2)+2`, and `2+2*2+2`. `(2+2*2)+2` and `2+(2*2+2)` can’t be reached, since we would have to remove pairs of brackets that are not valid. More than one pairs of brackets can surround the same part of the expression.\n\n## Input\n\nThe first and only line of input contains one valid mathematical expression composed of nonnegative integers, basic arithmetic operations denoted with characters ‘+’, ‘*’, ‘-’ and ‘/’, and brackets ‘(’ and ‘)’.\n\nGiven expression won’t have more than 200 characters, and will have at least one, and no more than 10 pairs of brackets. Each expression is guaranteed to have at least one pair of brackets.\n\n## Output\n\nOutput all different expressions that can be obtained by removing valid pairs of brackets, sorted lexicographically.\n\n## Examples\n\n### Example 1\n\n```input\n(0/(0))\n```\n\n```output\n(0/0)\n0/(0)\n0/0\n```\n\n### Example 2\n\n```input\n(2+(2*2)+2)\n```\n\n```output\n(2+2*2+2)\n2+(2*2)+2\n2+2*2+2\n```\n\n### Example 3\n\n```input\n(1+(2*(3+4)))\n```\n\n```output\n(1+(2*3+4))\n(1+2*(3+4))\n(1+2*3+4)\n1+(2*(3+4))\n1+(2*3+4)\n1+2*(3+4)\n1+2*3+4\n```"
+    },
+    {
+     "day": 6,
+     "number": 4,
+     "paper_label": "Round 6",
+     "title": "Rez",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Let’s say that there exists a huge cake made from blueberries, strawberries and chocolate. It’s shaped like a square, and has area of 100 square meters. Proffesionals strongly advise that cake is being cut with wet knife and eaten with dry spoon. Also:\n\n• Every cut begins and ends on the cake’s perimeter\n• A cut cannot lie completely on one of the sides\n• No two cuts have the same starting and ending points, i.e. all cuts are different\n\nParts obtained by these cuts are separated and counted only after last cut has been made. During cutting, the cake keeps its square form.\n\nAt least how many cuts need to be made in order to obtain **at least $K$** parts? Exactly what cuts to make?\n\n## Input\n\nThe first and only line of input contains an integer $K$ ($1 \\le K \\le 1\\,000\\,000$), minimum number of parts that we must have after cutting is done.\n\n## Output\n\nThe first line of output should contain the requested number of cuts, $N$.\n\nThe following $N$ lines should have four integers each, coordinates of starting and ending point for each cut made. Coordinates are represented in millimeters, and opposing corners of the cake have coordinates $(-5000, -5000)$ and $(5000, 5000)$. So for each point $(x, y)$ lying on the side of the square, the following will hold:\n\n$$\\max(\\,|x|, |y|\\,) = 5000.$$\n\n## Scoring\n\nIf only the number of cuts $N$ is correct, you will get 50% of the points for that test case.\n\n## Examples\n\n### Example 1\n\n```input\n1\n```\n\n```output\n0\n```\n\n### Example 2\n\n```input\n4\n```\n\n```output\n2\n-5000 -5000 5000 5000\n5000 -5000 -5000 5000\n```\n\n### Example 3\n\n```input\n7\n```\n\n```output\n3\n-5000 5000 0 -5000\n-2000 -5000 5000 5000\n-5000 0 5000 0\n```"
+    },
+    {
+     "day": 6,
+     "number": 5,
+     "paper_label": "Round 6",
+     "title": "Pastele",
+     "task_type": "batch",
+     "time_limit": "5 seconds",
+     "memory_limit": "256 MB",
+     "problem": "Mirko recently got $N$ crayons as a gift. The color of each crayon is a combination of three primary colors: red, green and blue. The color of the $i$-th crayon is represented with three integers: $R_i$ for the red, $G_i$ for the green and $B_i$ for the blue component.\n\nThe **difference** between the $i$-th and the $j$-th crayon is $\\max(|R_i - R_j|, |G_i - G_j|, |B_i - B_j|)$. The **colorfulness** of a subsequence of crayons is equal to the largest difference between any two crayons in the subsequence.\n\nMirko needs a subsequence with $K$ crayons with the smallest colorfulness for his drawing. The subsequence does not have to be consecutive. Find it!\n\n## Input\n\nThe first line of input contains integers $N$ and $K$ ($2 \\le K \\le N \\le 100\\,000$).\n\nThe $i$-th of the folowing $N$ lines contains three integers $R_i$, $G_i$ and $B_i$ ($0 \\le R_i, G_i, B_i \\le 255$).\n\n## Output\n\nThe first line of output should contain the smallest colorfulness of a subsequence with $K$ crayons.\n\nThe following $K$ lines should contain the $R$, $G$ and $B$ values of the colors of the crayons in the subsequence, in any order. Any subsequence that yields the smallest colorfulness will be accepted.\n\n## Scoring\n\nIn test cases worth 50% of total points, $0 \\le R_i, G_i, B_i \\le 20$ will hold.\n\nIn test cases worth additional 30% of total points, $0 \\le R_i, G_i, B_i \\le 50$ will hold.\n\n## Examples\n\n### Example 1\n\n```input\n2 2\n1 3 2\n2 6 4\n```\n\n```output\n3\n1 3 2\n2 6 4\n```\n\n### Example 2\n\n```input\n3 2\n3 3 4\n1 6 4\n1 1 2\n```\n\n```output\n2\n3 3 4\n1 1 2\n```\n\n### Example 3\n\n```input\n5 3\n6 6 4\n6 2 7\n3 1 3\n4 1 5\n6 2 6\n```\n\n```output\n2\n6 2 7\n4 1 5\n6 2 6\n```"
+    },
+    {
+     "day": 6,
+     "number": 6,
+     "paper_label": "Round 6",
+     "title": "Košare",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "256 MB",
+     "problem": "Mirko found $N$ boxes with various forgotten toys at his attic. There are $M$ different toys, numbered 1 through $M$, but each of those can appear multiple times across various boxes.\n\nMirko decided that he will **choose some boxes** in a way that there is **at least one toy of each kind** present, and throw the rest of the boxes away.\n\nDetermine the number of ways in which Mirko can do this.\n\n## Input\n\nThe first line of input contains two integers $N$ and $M$ ($1 \\le N \\le 1\\,000\\,000$, $1 \\le M \\le 20$).\n\nEach of the following $N$ lines contains an integer $K_i$ ($0 \\le K_i \\le M$) followed by $K_i$ distinct integers from interval $[1, M]$, representing the toys in that box.\n\n## Output\n\nThe first and only line of output should contain the requested number of ways modulo $1\\,000\\,000\\,007$.\n\n## Scoring\n\nIn test cases worth 50% of total points, $N \\le 100$ and $M \\le 15$ will hold.\n\nIn test cases worth 70% of total points, $N \\le 1\\,000\\,000$ and $M \\le 15$ will hold.\n\n## Examples\n\n### Example 1\n\n```input\n3 3\n3 1 2 3\n3 1 2 3\n3 1 2 3\n```\n\n```output\n7\n```\n\n### Example 2\n\n```input\n3 3\n1 1\n1 2\n1 3\n```\n\n```output\n1\n```\n\n### Example 3\n\n```input\n4 5\n2 2 3\n2 1 2\n4 1 2 3 5\n4 1 2 4 5\n```\n\n```output\n6\n```"
     }
    ]
   },
