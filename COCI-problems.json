@@ -2,6 +2,191 @@
  "competition": "Croatian Open Competition in Informatics (COCI)",
  "years": [
   {
+   "year": 2007,
+   "problems": [
+    {
+     "day": 1,
+     "number": 1,
+     "paper_label": "Round 1",
+     "title": "Cetvrta",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Mirko needs to choose four points in the plane so that they form a rectangle with sides parallel to the axes. He has already chosen three points and is confident that he hasn't made a mistake, but is having trouble locating the last point. Help him.\n\n## Input\n\nEach of the three points already chosen will be given on a separate line. All coordinates will be integers between 1 and 1000.\n\n## Output\n\nOutput the coordinates of the fourth vertex of the rectangle.\n\n## Examples\n\n### Example 1\n\n```input\n5 5\n5 7\n7 5\n```\n\n```output\n7 7\n```\n\n### Example 2\n\n```input\n30 20\n10 10\n10 20\n```\n\n```output\n30 10\n```"
+    },
+    {
+     "day": 1,
+     "number": 2,
+     "paper_label": "Round 1",
+     "title": "Peg",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "In the famous logic game Peg, pieces jump over other pieces to remove them from the game, until only one piece is left.\n\nHere is the initial layout of the board:\n\n```grid\n  ooo\n  ooo\nooooooo\nooo.ooo\nooooooo\n  ooo\n  ooo\n```\n\nThe lowercase letter 'o' represents a piece, while the character '.' is an empty square. In one move, a player may choose one piece and one of the four main directions (up, down, left, right), if there is another piece in that direction, and an empty square behind it. The chosen piece jumps over the other piece and settles in the empty square behind it, while the piece being jumped over is removed from the game.\n\nWrite a program that calculates the number of legal moves, given the state of the board.\n\n## Input\n\nThe board is represented by seven lines containing seven characters each. The first two and last two characters on the first two and last two lines are always spaces, and all remaining characters are either 'o' (lowercase letter) or '.' (period character).\n\n## Output\n\nOutput the number of legal moves.\n\n## Examples\n\n### Example 1\n\n```input\n  ooo\n  ooo\nooooooo\nooo.ooo\nooooooo\n  ooo\n  ooo\n```\n\n```output\n4\n```\n\n### Example 2\n\n```input\n  ooo\n  ooo\n..ooo..\noo...oo\n..ooo..\n  ooo\n  ooo\n```\n\n```output\n12\n```"
+    },
+    {
+     "day": 1,
+     "number": 3,
+     "paper_label": "Round 1",
+     "title": "Prinova",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Brojko and Brojana are happily married with $N$ little boys. The boys are named with distinct **even** integers $P_1, P_2, \\ldots, P_N$.\n\nBrojko and Brojana are expecting an addition to their family and have to come up with a nice name for the little girl. They have decided that the name will be an **odd** integer in the range $[A, B]$. Because they find all integers in that range equally beautiful, they have decided to choose the number which maximizes the distance to the name of the closest of the $N$ boys.\n\nMore precisely, they seek an odd integer $X \\in [A, B]$ such that the expression\n\n$$\\min\\{\\, |X - P_i|,\\ i \\in [1, N] \\,\\}$$\n\nis as large as possible.\n\nWrite a program that determines the name for the little girl. If there are multiple solutions, output any of them.\n\n## Input\n\nThe first line contains an integer $N$ ($1 \\le N \\le 100$), the number of boys.\n\nThe second line contains $N$ distinct even integers, the names of the boys. The integers will be less than $10^{9}$.\n\nThe third line contains the integers $A$ and $B$ ($1 \\le A < B \\le 10^{9}$), the range of names they are considering for the girl.\n\n## Output\n\nOutput an integer, the name for the little girl.\n\n## Examples\n\n### Example 1\n\n```input\n3\n2 6 16\n20 50\n```\n\n```output\n49\n```\n\n### Example 2\n\n```input\n3\n2 6 16\n3 15\n```\n\n```output\n11\n```\n\n### Example 3\n\n```input\n3\n2 6 16\n1 7\n```\n\n```output\n5\n```"
+    },
+    {
+     "day": 1,
+     "number": 4,
+     "paper_label": "Round 1",
+     "title": "Zapis",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "A regular bracket-sequence is a string of characters consisting only of opening and closing brackets, and satisfying the following conditions:\n\n• An empty string is a regular bracket-sequence.\n• If `A` is a regular bracket-sequence, then `(A)`, `[A]` and `{A}` are also regular bracket-sequences.\n• If `A` and `B` are regular bracket-sequences, then `AB` is also a regular bracket-sequence.\n\nFor example, the sequences `[({})]`, `[](){}` i `[{}]()[{}]` are regular, but the sequences `[({{([`, `[]({)}` and `[{}])([{}]` are not.\n\nIvica has found a string which looks like it could be a regular bracket-sequence. Some of the characters have become smudged and illegible, and could have been any character.\n\nWrite a program that calculates how many ways the illegible characters in the string can be replaced by brackets so that the result is a regular bracket-sequence. This number can be very large, so output only its **last 5 digits**.\n\n## Input\n\nThe first line contains an even integer $N$ ($2 \\le N \\le 200$), the length of the string.\n\nThe second line contains the string. Illegible characters are represented by the '?' character.\n\n## Output\n\nOutput the number of regular bracket-sequences the string could have read.\n\n## Examples\n\n### Example 1\n\n```input\n6\n()()()\n```\n\n```output\n1\n```\n\n### Example 2\n\n```input\n10\n(?([?)]?}?\n```\n\n```output\n3\n```\n\n### Example 3\n\n```input\n16\n???[???????]????\n```\n\n```output\n92202\n```\n\nIn the second example, the three matching regular bracket-sequences are `({([()])})`, `()([()]{})` and `([([])]{})`."
+    },
+    {
+     "day": 1,
+     "number": 5,
+     "paper_label": "Round 1",
+     "title": "Srednji",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Consider a sequence $A$ of integers, containing $N$ integers between 1 and $N$. Each integer appears exactly once in the sequence.\n\nA subsequence of $A$ is a sequence obtained by removing some (possibly none) numbers from the beginning of $A$, and then from the end of $A$.\n\nCalculate how many different subsequences of $A$ of **odd** length have their median equal to $B$. The median of a sequence is the element in the middle of the sequence after it is sorted. For example, the median of the sequence $\\{5, 1, 3\\}$ is 3.\n\n## Input\n\nThe first line contains two integers, $N$ ($1 \\le N \\le 100\\,000$) and $B$ ($1 \\le B \\le N$).\n\nThe second line contains $N$ integers separated by spaces, the elements of sequence $A$.\n\n## Output\n\nOutput the number of subsequences of $A$ whose median is $B$.\n\n## Examples\n\n### Example 1\n\n```input\n5 4\n1 2 3 4 5\n```\n\n```output\n2\n```\n\n### Example 2\n\n```input\n6 3\n1 2 4 5 6 3\n```\n\n```output\n1\n```\n\n### Example 3\n\n```input\n7 4\n5 7 2 4 3 1 6\n```\n\n```output\n4\n```\n\nIn the fourth example, the four subsequences of $A$ with median 4 are $\\{4\\}$, $\\{7, 2, 4\\}$, $\\{5, 7, 2, 4, 3\\}$ and $\\{5, 7, 2, 4, 3, 1, 6\\}$."
+    },
+    {
+     "day": 1,
+     "number": 6,
+     "paper_label": "Round 1",
+     "title": "Staza",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "A bicycle race is being organized in a country. The transport network of the country consists of $N$ cities numbered 1 through $N$, with $M$ bidirectional roads connecting them. We will use the following terms:\n\n• A **path** is a sequence of roads in which each road starts in the city the preceding road ended in.\n• A **simple path** is a path which never visits a city more than once.\n• A **ring** is a **simple** path ending in the same city it started in.\n\nThe network is such that there is **at least one path** between every pair of cities. Additionally, every **road** in the network is part of **at most one ring**.\n\nYour task is to find the longest path for the race satisfying two constraints:\n\n• The path may begin in any city, but must end in city 1.\n• The path may visit a city more than once, but it must not contain any road more than once.\n\n## Input\n\nThe first line of input contains two integers $N$ and $M$ ($2 \\le N \\le 10\\,000$, $1 \\le M \\le 2N-2$) – the numbers of cities and roads in the network.\n\nEach of the following $M$ lines contains two different integers $A$ and $B$ ($1 \\le A, B \\le N$). These numbers indicate that there is a bidirectional road between cities $A$ and $B$. No two cities will be directly connected by more than one road.\n\n## Output\n\nOutput the length of the longest race path on a single line.\n\n## Examples\n\n### Example 1\n\n```input\n4 3\n1 2\n1 3\n2 4\n```\n\n```output\n2\n```\n\n### Example 2\n\n```input\n6 6\n1 2\n1 3\n2 4\n3 4\n3 5\n5 6\n```\n\n```output\n5\n```\n\n### Example 3\n\n```input\n5 6\n1 2\n2 3\n3 4\n4 5\n5 3\n3 1\n```\n\n```output\n6\n```"
+    },
+    {
+     "day": 2,
+     "number": 1,
+     "paper_label": "Round 2",
+     "title": "Bijele",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Mirko has found an old chessboard and a set of pieces in his attic. Unfortunately, the set contains only white pieces, and apparently an incorrect number of them. A set of pieces **should** contain:\n\n• One king\n• One queen\n• Two rooks\n• Two bishops\n• Two knights\n• Eight pawns\n\nMirko would like to know how many pieces of each type he should **add or remove** to make a valid set.\n\n## Input\n\nThe input consists of 6 integers on a single line, each between 0 and 10 (inclusive). The numbers are, in order, the numbers of kings, queens, rooks, bishops, knights and pawns in the set Mirko found.\n\n## Output\n\nOutput should consist of 6 integers on a single line; the number of pieces of each type Mirko should add or remove. If a number is positive, Mirko needs to add that many pieces. If a number is negative, Mirko needs to remove pieces.\n\n## Examples\n\n### Example 1\n\n```input\n0 1 2 2 2 7\n```\n\n```output\n1 0 0 0 0 1\n```\n\n### Example 2\n\n```input\n2 1 2 1 2 1\n```\n\n```output\n-1 0 0 1 0 7\n```"
+    },
+    {
+     "day": 2,
+     "number": 2,
+     "paper_label": "Round 2",
+     "title": "Crne",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Thrilled about his new valid set of pieces, Mirko rushed over to Slavko's, to find that Slavko too found a set of chess pieces in his attic. Slavko's set, miraculously, contains only black pieces. But since neither of them can play chess, they settled on smashing one another senseless with their chessboards.\n\nWhile Slavko is warming up with a series of stretches, Mirko decided to sabotage Slavko's chessboard. An expert in carving wood, he decided to cut Slavko's chessboard so that it shatters into **as many pieces as possible** when Slavko attempts to hit Mirko.\n\nMirko can only make **horizontal and vertical cuts** (parallel to the sides to the board), edge to edge, and has time to make **at most $N$ cuts**.\n\n## Input\n\nThe first line of input contains an integer $N$ ($1 \\le N \\le 100$), the number of cuts Mirko can make.\n\n## Output\n\nOutput the largest number of pieces Slavko's chessboard can crash into.\n\n## Examples\n\n### Example 1\n\n```input\n1\n```\n\n```output\n2\n```\n\n### Example 2\n\n```input\n3\n```\n\n```output\n6\n```"
+    },
+    {
+     "day": 2,
+     "number": 3,
+     "paper_label": "Round 2",
+     "title": "Prva",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Little Ivica solves crossword puzzles every day. In case you haven't seen one, a crossword puzzle starts on a grid of $R \\times C$ squares, each of which is either empty or blocked. The player's task is to write words in consecutive empty squares vertically (top down) or horizontally (left to right).\n\nIvica's sister has a strange habit of looking at crosswords Ivica has finished solving, and finding the **lexicographically smallest word** in it. She only considers words at least 2 characters long.\n\nWrite a program that, given a crossword puzzle, finds that word.\n\n## Input\n\nThe first line contains two integers $R$ and $C$ ($2 \\le R, C \\le 20$), the number of rows and columns in the crossword.\n\nEach of the following $R$ lines contains a string of $C$ characters. Each of those characters is either a lowercase letter of the English alphabet, or the character '#' representing a blocked square.\n\nThe input will be such that a solution will always exist.\n\n## Output\n\nOutput the lexicographically smallest word in the crossword.\n\n## Examples\n\n### Example 1\n\n```input\n4 4\nluka\no#a#\nkula\ni#a#\n```\n\n```output\nkala\n```\n\n### Example 2\n\n```input\n4 4\nluka\no#a#\nkula\ni#as\n```\n\n```output\nas\n```\n\n### Example 3\n\n```input\n4 5\nadaca\nda##b\nabb#b\nabbac\n```\n\n```output\nabb\n```"
+    },
+    {
+     "day": 2,
+     "number": 4,
+     "paper_label": "Round 2",
+     "title": "Turbo",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Frane has been given the task of sorting an array of numbers. The array consists of $N$ integers, each between 1 and $N$ (inclusive), with each of those appearing exactly once in the array. Frane has come up with the following sorting algorithm which operates in $N$ phases, and named it turbosort:\n\n• In the first phase, the number 1 is moved to position 1 by repeatedly swapping consecutive elements.\n• In the second phase, the number $N$ is moved to position $N$ in the same manner.\n• In the third phase, the number 2 is moved to position 2.\n• In the fourth phase, the number $N-1$ is moved to position $N-1$.\n• And so on.\n\nIn other words, when the number of the phase is odd, Frane will choose the smallest number not yet chosen, and move it to its final position. In even phases he chooses the largest number not yet chosen.\n\nWrite a program which, given the initial array, output the **number of swaps in each phase** of the algorithm.\n\n## Input\n\nThe first line contains an integer $N$ ($1 \\le N \\le 100\\,000$), the number of elements in the array.\n\nEach of the following $N$ lines contains an integer between 1 and $N$ (inclusive), the array to be sorted. The array will contain no duplicates.\n\n## Output\n\nFor each of the $N$ phases, output the number of swaps on a single line.\n\n## Scoring\n\nIn test cases worth 70% of points, $N$ will be less than 100.\n\n## Examples\n\n### Example 1\n\n```input\n3\n2\n1\n3\n```\n\n```output\n1\n0\n0\n```\n\n### Example 2\n\n```input\n5\n5\n4\n3\n2\n1\n```\n\n```output\n4\n3\n2\n1\n0\n```\n\n### Example 3\n\n```input\n7\n5\n4\n3\n7\n1\n2\n6\n```\n\n```output\n4\n2\n3\n0\n2\n1\n0\n```"
+    },
+    {
+     "day": 2,
+     "number": 5,
+     "paper_label": "Round 2",
+     "title": "Kemija",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Instead of paying attention in chemistry class, Luka is killing time playing with numbers again. This time, he wrote $N$ **positive integers** so that they form a ring (circle). After that he formed a new ring by **adding to each number its two neighbours**.\n\nThe teacher noticed this and took away the first piece of paper, with the original ring. This did not trouble Luka much because he knows he can use the other ring to reconstruct the original.\n\nWrite a program that solves Luka's problem.\n\n## Input\n\nThe first line contains the integer $N$ ($3 \\le N \\le 10\\,000$), the number of integers in the rings.\n\nEach of the following $N$ lines contains an integer less than $10^{9}$ (one billion). These numbers, in order, form the **second** ring.\n\nThe input will be such that a solution, although not necessarily unique, will always exist.\n\n## Output\n\nOutput the original ring on $N$ lines. The numbers must be positive.\n\nRotating the ring is not allowed. For example, the sum of the first three output numbers must be equal to the second number in the input ring.\n\n**Note:** The solution need not be unique.\n\n## Scoring\n\nIn test cases worth 70% of points, $N$ will be less than 100.\n\n## Examples\n\n### Example 1\n\n```input\n3\n5\n5\n5\n```\n\n```output\n2\n1\n2\n```\n\n### Example 2\n\n```input\n4\n20\n15\n17\n14\n```\n\n```output\n5\n8\n2\n7\n```\n\n### Example 3\n\n```input\n5\n7\n8\n9\n10\n11\n```\n\n```output\n4\n1\n3\n5\n2\n```"
+    },
+    {
+     "day": 2,
+     "number": 6,
+     "paper_label": "Round 2",
+     "title": "Pravokutni",
+     "task_type": "batch",
+     "time_limit": "4 seconds",
+     "memory_limit": "32 MB",
+     "problem": "$N$ points are placed in the coordinate plane.\n\nWrite a program which calculates in how many ways a **right triangle** can be formed by three of the given points. A right triangle is one in which one of the angles is 90 degrees.\n\n## Input\n\nThe first line of input contains an integer $N$ ($3 \\le N \\le 1500$), the number of points.\n\nEach of the following $N$ lines contains the coordinates of one point, two integers separated by a space. The coordinates will be between $-10^{9}$ and $10^{9}$.\n\nNo two points will be located at the same coordinates.\n\n## Output\n\nOutput the number of right triangles.\n\n## Examples\n\n### Example 1\n\n```input\n3\n4 2\n2 1\n1 3\n```\n\n```output\n1\n```\n\n### Example 2\n\n```input\n4\n5 0\n2 6\n8 6\n5 7\n```\n\n```output\n0\n```\n\n### Example 3\n\n```input\n5\n-1 1\n-1 0\n0 0\n1 0\n1 1\n```\n\n```output\n7\n```"
+    },
+    {
+     "day": 3,
+     "number": 1,
+     "paper_label": "Round 3",
+     "title": "Cetiri",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Mirko has chosen four integers which form an arithmetic progression. In other words, when the four numbers are sorted, then the difference between each pair of **adjacent** elements is **constant**.\n\nAs has become usual, Mirko **lost** one of the numbers and also is not sure whether the remaining three are in the correct (sorted) order.\n\nWrite a program that, given the three remaining numbers, finds the fourth number.\n\n## Input\n\nThe input contains 3 integers between $-100$ and 100 on a single line, separated by single spaces.\n\n**Note:** the input data will guarantee that a solution, although not necessarily unique, will always exist.\n\n## Output\n\nOutput any number which could have been the fourth number in the sequence.\n\n## Examples\n\n### Example 1\n\n```input\n4 6 8\n```\n\n```output\n10\n```\n\n### Example 2\n\n```input\n10 1 4\n```\n\n```output\n7\n```"
+    },
+    {
+     "day": 3,
+     "number": 2,
+     "paper_label": "Round 3",
+     "title": "Oktalni",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Slavko is learning about different numeral systems. Slavko is not the brightest when it comes to math, so he is starting out converting binary numerals to octal. The algorithm Slavko uses is this:\n\n• Pad the binary numeral with zeros on the left until the number of digits is divisible by three.\n• Group adjacent binary digits into groups of 3 digits.\n• Replace each group of binary digits with the corresponding octal digit (as in the table on the right).\n\nWrite a program that converts a binary numeral to octal so that Slavko can verify his results.\n\n$$\\begin{array}{|l|l|} \\hline 000 & 0 \\\\ \\hline 001 & 1 \\\\ \\hline 010 & 2 \\\\ \\hline 011 & 3 \\\\ \\hline 100 & 4 \\\\ \\hline 101 & 5 \\\\ \\hline 110 & 6 \\\\ \\hline 111 & 7 \\\\ \\hline \\end{array}$$\n\n## Input\n\nThe input contains a binary numeral. The number of digits will be less than 100, and the first digit will be 1.\n\n## Output\n\nOutput the number in octal.\n\n## Examples\n\n### Example 1\n\n```input\n1010\n```\n\n```output\n12\n```\n\n### Example 2\n\n```input\n11001100\n```\n\n```output\n314\n```"
+    },
+    {
+     "day": 3,
+     "number": 3,
+     "paper_label": "Round 3",
+     "title": "Tajna",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Every evening, little Ivica sends secret messages to little Marica through e-mail. Knowing Ivica's e-letter travels unguarded through the network on its way to Marica's e-mailbox, they have decided to encrypt every message using the following algorithm:\n\n• Suppose Ivica's message consists of $N$ characters.\n• Ivica must first find a matrix consisting of $R$ rows and $C$ columns **such that $R \\le C$** and $R \\cdot C = N$. If there is more than one such matrix, Ivica chooses the one with the most rows.\n• Ivica writes his message into the matrix in row-major order. In other words, he writes the first segment of the message into the first row, the second segment into the second row and so on.\n• The message he sends to Marica is the matrix read in column-major order.\n\nMarica has grown tired of spending her precious time deciphering Ivica's messages, so you must write a program to do it for her.\n\n## Input\n\nThe input contains the received message, a string of lowercase letters of the English alphabet (with no spaces).\n\nThe number of letters will be between 1 and 100.\n\n## Output\n\nOutput the original (decrypted) message.\n\n## Examples\n\n### Example 1\n\n```input\nbok\n```\n\n```output\nbok\n```\n\n### Example 2\n\n```input\nkoaski\n```\n\n```output\nkakosi\n```\n\n### Example 3\n\n```input\nboudonuimilcbsai\n```\n\n```output\nbombonisuuladici\n```\n\n**Third sample test:**\n\nIvica wants to send the message \"bombonisuuladici\" containing 16 letters. He can use a $1 \\times 16$, $2 \\times 8$ or $4 \\times 4$ matrix. Of these, the $4 \\times 4$ has the most rows. When the message is written into it, the matrix looks like this:\n\n$$\\begin{array}{|c|c|c|c|} \\hline \\mathtt{b} & \\mathtt{o} & \\mathtt{m} & \\mathtt{b} \\\\ \\hline \\mathtt{o} & \\mathtt{n} & \\mathtt{i} & \\mathtt{s} \\\\ \\hline \\mathtt{u} & \\mathtt{u} & \\mathtt{l} & \\mathtt{a} \\\\ \\hline \\mathtt{d} & \\mathtt{i} & \\mathtt{c} & \\mathtt{i} \\\\ \\hline \\end{array}$$"
+    },
+    {
+     "day": 3,
+     "number": 4,
+     "paper_label": "Round 3",
+     "title": "Dejavu",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "$N$ points are placed in the coordinate plane.\n\nWrite a program that calculates how many ways we can choose three points so that they form a **right** triangle with **legs** parallel to the coordinate axes.\n\nA right triangle has one 90-degree internal angle. The legs of a right triangle are its two shorter sides.\n\n## Input\n\nThe first line of input contains the integer $N$ ($3 \\le N \\le 100\\,000$), the number of points.\n\nEach of the following $N$ lines contains two integers $X$ and $Y$ ($1 \\le X, Y \\le 100\\,000$), the coordinates of one point.\n\nNo pair of points will share the same pair of coordinates.\n\n## Output\n\nOutput the number of triangles.\n\n## Scoring\n\nIn 40% of all test cases, $N$ will be less than 100.\n\nIn 70% of all test cases, $N$ will be less than 10 000.\n\n## Examples\n\n### Example 1\n\n```input\n3\n4 2\n2 1\n1 3\n```\n\n```output\n0\n```\n\n### Example 2\n\n```input\n5\n1 2\n2 1\n2 2\n2 3\n3 2\n```\n\n```output\n4\n```\n\n### Example 3\n\n```input\n6\n10 10\n20 10\n10 20\n20 20\n30 20\n30 30\n```\n\n```output\n8\n```"
+    },
+    {
+     "day": 3,
+     "number": 5,
+     "paper_label": "Round 3",
+     "title": "Cudak",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Božo is a strange little boy. Every day he tires his friends with strange questions. Today's question is: how many integers in the interval $[A, B]$ are there such that the sum of their digits is $S$, and which is the smallest such number?\n\nWrite a program that answers Božo's question so that he can get some sleep.\n\n## Input\n\nThe input contains three integers $A$, $B$ and $S$ ($1 \\le A \\le B < 10^{15}$, $1 \\le S \\le 135$).\n\n## Output\n\nThe first line should contain the number of integers in the interval with the digit sum equal to $S$.\n\nThe second line should contain the smallest such integer.\n\nThe input data will guarantee that the first number is at least 1.\n\n## Scoring\n\nFor correctly outputting one of the two numbers you will receive 50% of the score.\n\n**Note:** if you want to receive credit for just the second number, be sure to output something (0, for example) as the first number so the judge can interpret your output correctly.\n\n## Examples\n\n### Example 1\n\n```input\n1 9 5\n```\n\n```output\n1\n5\n```\n\n### Example 2\n\n```input\n1 100 10\n```\n\n```output\n9\n19\n```\n\n### Example 3\n\n```input\n11111 99999 24\n```\n\n```output\n5445\n11499\n```"
+    },
+    {
+     "day": 3,
+     "number": 6,
+     "paper_label": "Round 3",
+     "title": "Redoks",
+     "task_type": "batch",
+     "time_limit": "3 seconds",
+     "memory_limit": "64 MB",
+     "problem": "Luka is not paying attention in class again, while the teacher is explaining redox reactions. Instead of paying attention, he is playing with analog dials.\n\nAn analog dial is a small device which always shows one digit between 0 and 9. It also contains a small button which increases the number by 1 (unless it is 9, in which case it is changed to 0).\n\nLuka has $N$ such dials on his desk, numbered 1 to $N$ left to right, and two sheets of paper for him to write on.\n\nLuka's game starts with him setting the dials in some starting configuration, which he then writes onto the first sheet. Luka then does the following $M$ times:\n\n• Choose two integers $A$ and $B$ ($1 \\le A \\le B \\le N$) and write them down on the first sheet.\n• Calculate the sum of numbers on dials numbered between $A$ and $B$ (inclusive), and write the sum down on the second sheet.\n• Press the button once on all dials numbered between $A$ and $B$.\n\nJust as he had finished his game, the teacher noticed him, and took away all his dials and the **second** sheet of paper.\n\nGiven the contents of the first sheet, help him calculate the numbers on the second sheet.\n\n## Input\n\nThe first line contains two integers $N$ and $M$ ($1 \\le N \\le 250\\,000$, $1 \\le M \\le 100\\,000$).\n\nThe second line contains the initial configuration of the dials, $N$ decimal digits with no spaces. The first digit is the number initially on dial 1, the second digit the number on dial 2 and so on.\n\nEach of the following $M$ lines contains two integers $A$ and $B$ ($1 \\le A \\le B \\le N$).\n\n## Output\n\nOutput $M$ lines, the sums calculated by Luka, in order in which he calculated them.\n\n## Scoring\n\nIn 30% of all test cases, the numbers $N$ and $M$ will be less than 1000.\n\n## Examples\n\n### Example 1\n\n```input\n4 3\n1234\n1 4\n1 4\n1 4\n```\n\n```output\n10\n14\n18\n```\n\n### Example 2\n\n```input\n4 4\n1234\n1 1\n1 2\n1 3\n1 4\n```\n\n```output\n1\n4\n9\n16\n```\n\n### Example 3\n\n```input\n7 5\n9081337\n1 3\n3 7\n1 3\n3 7\n1 3\n```\n\n```output\n17\n23\n1\n19\n5\n```"
+    }
+   ]
+  },
+  {
    "year": 2008,
    "problems": [
     {
