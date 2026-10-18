@@ -2,6 +2,65 @@
  "competition": "Baltic Olympiad in Informatics (BOI)",
  "years": [
   {
+   "year": 1995,
+   "problems": [
+    {
+     "day": 1,
+     "number": 1,
+     "paper_label": "Day 1",
+     "title": "A Currency Table",
+     "task_type": "batch",
+     "time_limit": "10 seconds",
+     "problem": "*The input data for each problem should to be read from the text file and the answer should to be written to the fixed file OUTPUT.TXT. The program has to ask the user for the name of the input file. All the programs will be tested on IBM PC 486 DX2, 65 MHz computers.*\n\nA table of currency ratios can be presented in the following way:\n\n$$\\begin{array}{lccccc} & 1 & 2 & 3 & \\ldots & n \\\\ 1 & 1.00 & 0.50 & 2.50 & \\ldots & 0.10 \\\\ 2 & 2.00 & 1.00 & 5.00 & \\ldots & 0.20 \\\\ 3 & 0.40 & 0.20 & 1.00 & \\ldots & 0.04 \\\\ & \\ldots & \\ldots & \\ldots & 1.00 & \\ldots \\\\ n & 10.00 & 5.00 & 25.00 & \\ldots & 1.00 \\end{array}$$\n\nThe presented numbers $1, 2, 3, \\ldots, n$ denote currency codes.\n\nThe ratio $m$ written in the row $r$ and the column $c$ of the table shows that one unit of the currency $r$ is worth $m$ units of the currency $c$. For example, the number $0.50$ in the table above means that one unit of currency $1$ costs half of the unit of currency $2$, while the number $2.00$ shows a reverse ratio, i.e. that one unit of currency $2$ is equal to two units of currency $1$.\n\nThere is redundancy of information in the table. For example, it is possible to develop the whole table having only one row or column.\n\nWrite a program to complete the partly filled in currency ratio table. Assume that the input data are correct and not contradictory.\n\n## Input Data\n\nThe input file contains a partly filled in currency ratio table. The integer number $n$ ($n \\le 20$) which denotes the size of the table is written in the first line, followed by the table containing $n$ rows. Each row contains $n$ real numbers. Zeros are written instead of the missing numbers.\n\n*Examples*\n\nThe file CURRENCY1.DAT contains the table\n\n```CURRENCY1.DAT\n3\n1.00   0.50   0.00\n0.00   0.00   8.00\n0.00   0.00   0.00\n```\n\nand CURRENCY2.DAT contains the table\n\n```CURRENCY2.DAT\n3\n1.00   0.00   4.00\n0.00   1.00   0.00\n0.00   0.00   0.00\n```\n\n## Output Data\n\nComplete the currency table as much as possible and write to the OUTPUT.TXT file. Each row of the table must be written on one line of the file. Write the values with two digits after a decimal point (as it is shown in the examples). Mark zeros for the elements of the table that can not be restored.\n\nThe results for sample files:\n\n```output\n1.00   0.50   4.00\n2.00   1.00   8.00\n0.25   0.12   1.00\n```\n\n```output\n1.00   0.00   4.00\n0.00   1.00   0.00\n0.25   0.00   1.00\n```"
+    },
+    {
+     "day": 1,
+     "number": 2,
+     "paper_label": "Day 1",
+     "title": "An Expression",
+     "task_type": "batch",
+     "time_limit": "10 seconds",
+     "problem": "*The input data for each problem should to be read from the text file and the answer should to be written to the fixed file OUTPUT.TXT. The program has to ask the user for the name of the input file. All the programs will be tested on IBM PC 486 DX2, 65 MHz computers.*\n\nAn arithmetic expression is on the first line of the input file. It may contain the characters\n\n`0..9, a..h, +, -`\n\nwhere $a, b, c, \\ldots, h$ are variables.\n\nSome values of the variables occurring in the expression are given on the remaining lines in the form\n\n`<variable>=<integer>`\n\nIf the file contains enough information, then find the value of the expression, otherwise, write in the output file: `UNDEFINED`.\n\nThe length of the expression does not exceed $40$ characters. The program will be tested with examples where the values of sub-expressions are not too large for a long integer type.\n\n*Examples*\n\nThe files EXPR1.DAT, EXPR2.DAT and EXPR3.DAT contain the lines\n\n```EXPR1.DAT\n235ahah+c-12bb\nb=1\nc=-7\na=10\nh=2\n```\n\n```EXPR2.DAT\nabc\na=1\nb=2\n```\n\n```EXPR3.DAT\n23b\nb=2\n```\n\nThe answers: `93981, UNDEFINED, 46.`"
+    },
+    {
+     "day": 1,
+     "number": 3,
+     "paper_label": "Day 1",
+     "title": "Double Prime Numbers",
+     "task_type": "batch",
+     "time_limit": "2 minutes",
+     "problem": "*The input data for each problem should to be read from the text file and the answer should to be written to the fixed file OUTPUT.TXT. The program has to ask the user for the name of the input file. All the programs will be tested on IBM PC 486 DX2, 65 MHz computers.*\n\n$\\{a_i\\}$ is the sequence of prime numbers:\n\n$$2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, \\ldots$$\n\nThe elements of the sequence $\\{b_i\\}$ are built from the elements of the sequence $\\{a_i\\}$ by *gluing together* elements in pairs:\n\n$$23, 57, 1113, 1719, 2329, 3137, \\ldots$$\n\n$\\{c_i\\}$ is a sub-sequence of $\\{b_i\\}$, which contains only prime numbers:\n\n$$c_1 = 23;\\ c_2 = 3137;\\ \\ldots$$\n\nWrite a program that finds for the given $j$ ($1 \\le j \\le 150$) the value of the member $c_j$.\n\n## Input Data\n\nThe input file contains only one integer $j$.\n\n## Output\n\nThe output file OUTPUT.TXT must contain only the value $c_j$.\n\n## Examples\n\n(files PRIM1.DAT, PRIM2.DAT, PRIM3.DAT)\n\n```PRIM1.DAT\n2\n```\n\n```output\n3137\n```\n\n```PRIM2.DAT\n1\n```\n\n```output\n23\n```\n\n```PRIM3.DAT\n5\n```\n\n```output\n167173\n```"
+    },
+    {
+     "day": 2,
+     "number": 1,
+     "paper_label": "Day 2",
+     "title": "Rectangles",
+     "task_type": "batch",
+     "time_limit": "10 seconds",
+     "problem": "*The input data for each problem should to be read from the text file and the answer should to be written to the fixed file OUTPUT.TXT. The program has to ask the user for the name of the input file. All the programs will be tested on IBM PC 486 DX2, 65 MHz computers.*\n\nLet $ABCD$ be a rectangle with the following vertices: $A(0; 0)$, $B(0; 1)$, $C(k; 1)$, $D(k; 0)$. Let us say that this rectangle has index $1$. The proportion of the lengths of the edges is $1 : k$, see Fig. 1.\n\nThe second rectangle (with index $2$) is built on the \"*North*\" edge of the first rectangle ($BC$) with the same proportion of the lengths of the edges ($1 : k$). This rectangle is $BEFC$. $|BC| : |BE| = 1 : k$.\n\nThe \"*West*\" edge of the common rectangle $AEFD$ is $AE$.\n\nhttps://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/boi-1995-2-1-fig1.png\n\n*Fig.* 1\n\nThe third rectangle is built on this edge $AE$ with the same proportion of the lengths of the edges ($1 : k$). This rectangle is $AGHE$. $|AE| : |AG| = 1 : k$.\n\nIn the same way next rectangles are built on the edges of the previous common rectangles with the same proportion of the edges and sequence of directions of the base edge (\"*South*\", \"*East*\", \"*North*\", \"*West*\", \"*South*\", ...).\n\nWrite a program that finds out for the given whole numbers $k, x, y$ ($1 < k < 100$, $-10^{9} < x, y < 10^{9}$) the index of the rectangle which covers the point $P(x; y)$.\n\nIf the point $P$ is on the edge or at the vertex, assume that it is covered by the rectangle of a minimal index.\n\n## Input Data\n\nThe input data will come from the ASCII file containing only one line with the values of $k$, $x$, $y$, separated by a single space character.\n\n## Output\n\nYour answer must be written to the ASCII file OUTPUT.TXT containing only one integer.\n\n## Examples\n\n(files REC1.DAT, REC2.DAT, REC3.DAT)\n\n```REC1.DAT\n3 0 1\n```\n\n```output\n1\n```\n\n```REC2.DAT\n2 7 -2\n```\n\n```output\n5\n```\n\n```REC3.DAT\n4 1 17\n```\n\n```output\n2\n```"
+    },
+    {
+     "day": 2,
+     "number": 2,
+     "paper_label": "Day 2",
+     "title": "An Express Taxi",
+     "task_type": "batch",
+     "time_limit": "30 seconds",
+     "problem": "*The input data for each problem should to be read from the text file and the answer should to be written to the fixed file OUTPUT.TXT. The program has to ask the user for the name of the input file. All the programs will be tested on IBM PC 486 DX2, 65 MHz computers.*\n\nIn a long street the traffic of express taxies is organised in the following way. There is a taxi stop every one kilometer. An express taxi drives along the street from each stop $1, 2, 3, \\ldots$ or $10$ kilometers without a stop.\n\nFor each of the ten distances a separate price is fixed and marked in the table, e.g.\n\n$$\\begin{array}{rr} 1 & 12 \\\\ 2 & 21 \\\\ 3 & 31 \\\\ 4 & 40 \\\\ 5 & 49 \\\\ 6 & 58 \\\\ 7 & 69 \\\\ 8 & 79 \\\\ 9 & 90 \\\\ 10 & 101 \\end{array}$$\n\nA passenger wants to go $n$ ($1 \\le n \\le 100$) kilometers. Which driving distances does the passenger have to choose so that the journey would be the cheapest, and what is the total price of the journey?\n\nWrite a program to solve the problem.\n\n## Input Data\n\nThe input file has two lines. The first line contains ten integer numbers which are prices for driving $1, 2, 3, \\ldots, 10$ kilometers. The second line contains the number $n$.\n\n## Output\n\nWrite the results to the file OUTPUT.TXT. Each line but the last one should contain two numbers which are the length of the route and the price of the ticket. The total price of the journey is written in the last line of the output file.\n\n## Example\n\n```input\n12 21 31 40 49 58 69 79 90 101\n15\n```\n\n```output\n3 31\n6 58\n6 58\n147\n```\n\nIf several solutions are possible, choose one of them."
+    },
+    {
+     "day": 2,
+     "number": 3,
+     "paper_label": "Day 2",
+     "title": "IFTHENELSE",
+     "task_type": "batch",
+     "time_limit": "3 minutes",
+     "problem": "*The input data for each problem should to be read from the text file and the answer should to be written to the fixed file OUTPUT.TXT. The program has to ask the user for the name of the input file. All the programs will be tested on IBM PC 486 DX2, 65 MHz computers.*\n\nAny line of the program in the programming language IFTHENELSE begins with the line number and contains only one command. The variables are of an integer type, the lower-case letters are used as their identificators.\n\nThe input file presents a subprogram (*number of lines* $\\le 20$) that computes one integer value and contains only the lines of the following syntax:\n\n```syntax\n<line number> IF <ident>=<ident> THEN <line number> ELSE <line number>\n<line number> RETURN(<integer>)\n```\n\nwhere the command RETURN finishes the execution of the subprogram and returns the integer as a value.\n\nFind all the possible results of the execution of the subprogram. Write each of them only once together with such values of all the variables of the subprogram that bring to this result.\n\n## Example\n\nThe file ITE.DAT contains the subprogram\n\n```ITE.DAT\n11 IF a=b THEN 12 ELSE 15\n12 IF b=c THEN 13 ELSE 15\n13 IF a=c THEN 14 ELSE 16\n14 RETURN(14)\n15 RETURN(15)\n16 RETURN(77)\n```\n\nThe answer:\n\n```output\n14:\na=1,b=1,c=1\n15:\na=1,b=2,c=3\n```"
+    }
+   ]
+  },
+  {
    "year": 1996,
    "problems": [
     {
