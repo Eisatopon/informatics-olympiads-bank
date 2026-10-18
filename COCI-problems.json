@@ -183,6 +183,186 @@
      "time_limit": "1 second",
      "memory_limit": "32 MB",
      "problem": "Mirko received a birthday present from his aunt in the US – a brand-new doubly-linked list (an example of which is shown in the figure below). The list contains $N$ nodes numbered 1 through $N$. Two types of moves can be done on the list:\n\n• A) Move node $X$ **in front of** node $Y$.\n• B) Move node $X$ **after** node $Y$.\n\nhttps://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/coci-2006-3-6-fig1.png\n\n*An example of a list with 6 nodes.*\n\nhttps://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/coci-2006-3-6-fig2.png\n\n*The list after the move \"A 1 4\".*\n\nhttps://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/coci-2006-3-6-fig3.png\n\n*The list after another move, \"B 3 5\".*\n\nMirko played with his new toy for hours, writing down each move on a piece of paper so that he can reconstruct the list's initial state (nodes 1 through $N$ in order from left to right).\n\nWhen he decided to reconstruct the list, Mirko was astonished to find that there is no easy way to invert the moves and restore the list's initial state. Mirko cannot know where node $X$ was prior to each move, only where it ended up.\n\nSeeing how Mirko is still recovering from the shock, write a program that finds a minimal sequence of moves that restored the list's initial state from Mirko's logs.\n\n## Input\n\nThe first line of input contains two integers $N$ and $K$ ($2 \\le N \\le 500\\,000$, $0 \\le M \\le 100\\,000$), the number of nodes and the number of moves made by Mirko.\n\nEach of the next $M$ rows contains a description of a single move made by Mirko – the type of move ('A' or 'B') and two integers $X$ and $Y$.\n\n## Output\n\nOutput the minimum number of moves (call this number $K$) on the first line.\n\nEach of the next $K$ lines should contain a description of a single move in the same format as in the input.\n\n**Note:** The sequence need not be unique.\n\n## Scoring\n\nIf both the number $K$ and the sequence of moves are correct, your program will score full points on the test case.\n\nIf your program outputs the correct number $K$ and does not output the sequence of moves, or the sequence of moves is incorrect, you will get 60% of the points for that test case.\n\n## Examples\n\n### Example 1\n\n```input\n2 1\nA 2 1\n```\n\n```output\n1\nA 1 2\n```\n\n### Example 2\n\n```input\n4 3\nB 1 2\nA 4 3\nB 1 4\n```\n\n```output\n2\nA 1 2\nB 4 3\n```\n\n### Example 3\n\n```input\n6 5\nA 1 4\nB 2 5\nB 4 2\nB 6 3\nA 3 5\n```\n\n```output\n3\nA 4 5\nB 6 5\nA 2 3\n```"
+    },
+    {
+     "day": 4,
+     "number": 1,
+     "paper_label": "Round 4",
+     "title": "Sibice",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Young Mirko threw matches all over the floor of his room.\n\nHis mom did not like that and ordered him to put all the matches in a box. Mirko soon noticed that not all of the matches on the floor fit in the box, so he decided to take the matches that don't fit and throw them in the neighbour's garbage, where his mom (hopefully) won't find them.\n\nHelp Mirko determine which of the matches fit in the box his mom gave him. A match fits in the box if its entire length can lie on the bottom of the box. Mirko examines the matches one by one.\n\n## Input\n\nThe first line of input contains an integer $N$ ($1 \\le N \\le 50$), the number of matches on the floor, and two integers $W$ and $H$, the dimensions of the box ($1 \\le W \\le 100$, $1 \\le H \\le 100$).\n\nEach of the following $N$ lines contains a single integer between 1 and 1000 (inclusive), the length of one match.\n\n## Output\n\nFor each match, in the order they were given in the input, output on a separate line \"DA\" if the match fits in the box or \"NE\" if it does not.\n\n## Examples\n\n### Example 1\n\n```input\n5 3 4\n3\n4\n5\n6\n7\n```\n\n```output\nDA\nDA\nDA\nNE\nNE\n```\n\n### Example 2\n\n```input\n2 12 17\n21\n20\n```\n\n```output\nNE\nDA\n```"
+    },
+    {
+     "day": 4,
+     "number": 2,
+     "paper_label": "Round 4",
+     "title": "Skener",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Having solved the match issue, Mirko faced another challenging problem. His mom ordered him to read an article about the newest couples on the Croatian show-biz scene in the \"Moja Tajna\" magazine. The article is written in a very small font size which Mirko cannot read. Luckily, Mirko has a scanner in the closet which will enlarge the article for him.\n\nThe article is a matrix of characters with $R$ rows and $C$ columns. The characters are letters of the English alphabet, digits and the character '.' (period). Mirko's scanner supports two parameters, $ZR$ and $ZC$. It **substitutes each character** it scans with a **matrix of $ZR$ rows and $ZC$ columns**, where all entries are equal to the scanned character.\n\nMirko realized his scanner's software no longer works so he needs your help.\n\n## Input\n\nThe first row contains four integers, $R$, $C$, $ZR$ and $ZC$. $R$ and $C$ are between 1 and 50, while $ZR$ and $ZC$ are between 1 and 5.\n\nEach of the following $R$ rows contains $C$ characters each, representing the article from \"Moja Tajna\".\n\n## Output\n\nThe output should be a matrix of characters with $R \\cdot ZR$ rows and $C \\cdot ZC$ columns, the enlarged article.\n\n## Examples\n\n### Example 1\n\n```input\n3 3 1 2\n.x.\nx.x\n.x.\n```\n\n```output\n..xx..\nxx..xx\n..xx..\n```\n\n### Example 2\n\n```input\n3 3 2 1\n.x.\nx.x\n.x.\n```\n\n```output\n.x.\n.x.\nx.x\nx.x\n.x.\n.x.\n```"
+    },
+    {
+     "day": 4,
+     "number": 3,
+     "paper_label": "Round 4",
+     "title": "Prsteni",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "After an exhausting morning, Mirko fell asleep. His brother Stanko, however, just awoke and, like his brother, is all about excitement. Stanko found $N$ rings of varying radiuses in the garage. He arranged them on the floor so that each ring (except the first and last) touches the ones before and after it.\n\nhttps://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/coci-2006-4-3-fig1.png\n\nHe started turning the first ring and noticed that the other rings turned as well; some faster, some slower!\n\nThrilled with his discovery, he decided to count how many times the other rings turn while the first ring turns once. He gave up after noticing that this number is not always an integer and not knowing what to do.\n\nWrite a program that determines how many times each ring turns while the first turns once.\n\n## Input\n\nThe first line of input contains an integer $N$ ($3 \\le N \\le 100$), the number of rings.\n\nThe next line contains $N$ integers between 1 and 1000, the radiuses of Stanko's rings, in the order they are laid out on the floor.\n\n## Output\n\nThe output must contain $N-1$ lines. For every ring other than the first, in the order they are given in the input, output a fraction $A/B$, meaning that the respective ring turns $A/B$ times while the first ring turns once.\n\nThe fractions must be in reduced form (the numerator and denominator must not have a common divisor larger than 1).\n\n## Examples\n\n### Example 1\n\n```input\n3\n8 4 2\n```\n\n```output\n2/1\n4/1\n```\n\n### Example 2\n\n```input\n4\n12 3 8 4\n```\n\n```output\n4/1\n3/2\n3/1\n```\n\n### Example 3\n\n```input\n4\n300 1 1 300\n```\n\n```output\n300/1\n300/1\n1/1\n```"
+    },
+    {
+     "day": 4,
+     "number": 4,
+     "paper_label": "Round 4",
+     "title": "Zbrka",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "64 MB",
+     "problem": "Consider a sequence of $N$ integers where each integer between 1 and $N$ appears exactly once.\n\nA pair of numbers in the sequence is **confused** if the number that comes earlier in the sequence is larger than the later number.\n\nThe **confusion** of the sequence is the number of confused pairs in it. For example, the confusion of the sequence (1, 4, 3, 2) is 3 because there are 3 confused pairs: (4, 3), (4, 2) and (3, 2).\n\nWrite a program that calculates the number of sequences of length $N$ whose confusion is exactly $C$.\n\n## Input\n\nThe first and only line of input contains two integers, $N$ ($1 \\le N \\le 1000$) and $C$ ($0 \\le C \\le 10000$).\n\n## Output\n\nOutput the number of sequences modulo $1\\,000\\,000\\,007$.\n\n## Examples\n\n### Example 1\n\n```input\n10 1\n```\n\n```output\n9\n```\n\n### Example 2\n\n```input\n4 3\n```\n\n```output\n6\n```\n\n### Example 3\n\n```input\n9 13\n```\n\n```output\n17957\n```"
+    },
+    {
+     "day": 4,
+     "number": 5,
+     "paper_label": "Round 4",
+     "title": "Jogurt",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "A complete binary tree is made of nodes arranged in a hierarchic structure. One of the nodes is the root node, said to be at level 0. The root node has two child nodes, which are at level 1. Each of those has two children at level 2 etc.\n\nIn general, a complete binary tree with $N$ levels has $2^{N}-1$ nodes, each of which has two child nodes, except those at level $L-1$.\n\nA number can be written into each node. Write the numbers 1 to $2^{N}-1$ into a complete binary tree with $N$ levels so that, for each node at level $D$, the absolute value of the difference of the sum of all numbers in the left subtree and the sum of all numbers in the right subtree is $2^{D}$.\n\nFor example, the sum of the left subtree of the root node must differ from the sum of the right subtree by 1. The sums of the left and right subtrees of a node at level 1 must differ by 2.\n\nEach number must be used exactly once. The solution need not be unique.\n\n## Input\n\nThe first and only line of input contains the integer $N$ ($1 \\le N \\le 15$), the number of levels in the tree.\n\n## Output\n\nOutput the $2^{N}-1$ separated by spaces on a single line, the binary tree in the preorder traversal. The preorder traversal first outputs the number in the root node, then outputs the left subtree (again in the preorder traversal), then the right subtree.\n\n## Examples\n\n### Example 1\n\n```input\n2\n```\n\n```output\n3 1 2\n```\n\n### Example 2\n\n```input\n3\n```\n\n```output\n3 1 7 5 6 2 4\n```"
+    },
+    {
+     "day": 4,
+     "number": 6,
+     "paper_label": "Round 4",
+     "title": "Ispiti",
+     "task_type": "batch",
+     "time_limit": "3 seconds",
+     "memory_limit": "32 MB",
+     "problem": "It's exam time in Mirko's village. Everyone wants to pass the exam with as little effort as possible, which is not easy. Mirko realized that it would be best for him to find someone who knows more than him and learn from them. Everyone followed and now everyone is looking for someone to learn from.\n\nWe can model how well a student is prepared for the exam with two integers, $A$ and $B$. The number $A$ represents how well a student understands the subject, while the number $B$ is proportional to the quantity of their knowledge.\n\nAs the head of the village, Mirko decided that a student will ask another student for help only if that student has **both numbers greater than or equal to** the first student's numbers (no student will ask someone who doesn't understand the subject as well as themselves or who knows less).\n\nAdditionally, students will try to minimize the difference in knowledge quantity (so that students don't bother those that are way better). If this choice is not unique, they will try to minimize the difference in understanding.\n\nMirko's village has recently become a very popular suburb and new students keep moving in (in time for the exam). With Mirko's strict rules, they get confused about Mirko's rules and don't know where to go). They decided to ask a programmer from a neighbouring village for help.\n\n## Input\n\nThe first line of input contains an integer $N$ ($1 \\le N \\le 200\\,000$), the number of queries and arrivals in the village. Each of the following $N$ lines contains either:\n\n• \"D A B\", a student has moved in whose knowledge is $A$ and $B$\n• \"P i\", the $i$-th student to move in wants to know whom to ask for help\n\nThe numbers $A$ and $B$ are between 1 and $2 \\cdot 10^{9}$. No two students have both numbers equal.\n\n## Output\n\nFor each query (\"P i\" line), output which student the $i$-th student should ask for help. The students are numbered in the order they moved into the village (starting from 1). If a student cannot be helped, output \"NE\".\n\n## Examples\n\n### Example 1\n\n```input\n6\nD 3 1\nD 2 2\nD 1 3\nP 1\nP 2\nP 3\n```\n\n```output\nNE\nNE\nNE\n```\n\n### Example 2\n\n```input\n6\nD 8 8\nD 2 4\nD 5 6\nP 2\nD 6 2\nP 4\n```\n\n```output\n3\n1\n```\n\n### Example 3\n\n```input\n7\nD 5 2\nD 5 3\nP 1\nD 7 1\nD 8 7\nP 3\nP 2\n```\n\n```output\n2\n4\n4\n```"
+    },
+    {
+     "day": 5,
+     "number": 1,
+     "paper_label": "Round 5",
+     "title": "Trik",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Jealous of Mirko's position as head of the village, Borko stormed into his tent and tried to demonstrate Mirko's incompetence for leadership with a trick.\n\nBorko puts three opaque cups onto the table next to each other (opening facing down) and a small ball under the leftmost cup. He then swaps two cups in one of three possible ways a number of times. Mirko has to tell which cup the ball ends up under.\n\nhttps://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/coci-2006-5-1-fig1.png\n\nWise Mirko grins with his arms crossed while Borko struggles to move the cups faster and faster. What Borko does not know is that programmers in the back are recording all his moves and will use a simple program to determine where the ball is. Write that program.\n\n## Input\n\nThe first and only line contains a string of at most 50 characters, Borko's moves.\n\nEach of the characters is 'A', 'B' or 'C' (without quote marks).\n\n## Output\n\nOutput the index of the cup under which the ball is: 1 if it is under the left cup, 2 if it is under the middle cup or 3 if it is under the right cup.\n\n## Examples\n\n### Example 1\n\n```input\nAB\n```\n\n```output\n3\n```\n\n### Example 2\n\n```input\nCBABCACCC\n```\n\n```output\n1\n```"
+    },
+    {
+     "day": 5,
+     "number": 2,
+     "paper_label": "Round 5",
+     "title": "Natrij",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "After an unsuccessful attempt at claiming power peacefully, Borko has decided to tear down Mirko's village hall, which was built for him out of cardboard by his loyal servants.\n\nFor this he will use Mirko's microprocessor (which was stolen from him by Borko's friend Zvonko), a bucket of water and a bag of sodium. He will enter the time of the \"explosion\" into the microprocessor, and it will drop the sodium in the water after the time is up.\n\nBorko knows the current time and when he wants the explosion. He is not very fond of arithmetic and Zvonko is currently playing with marbles in his back yard so he can't help him.\n\nWrite a program that calculates the time to the explosion (this is the time Borko will enter into the microprocessor). The time Borko wants is at least one second and at most 24 hours.\n\n## Input\n\nThe first line of input contains the current time in hh:mm:ss format (hours, minutes, seconds). The hours will be between 0 and 23 (inclusive) and the minutes and seconds between 0 and 59.\n\nThe second line contains the time of the explosion in the same format.\n\n## Output\n\nOutput the desired time on a single line, in the same format as the times in the input.\n\n## Examples\n\n### Example 1\n\n```input\n20:00:00\n04:00:00\n```\n\n```output\n08:00:00\n```\n\n### Example 2\n\n```input\n12:34:56\n14:36:22\n```\n\n```output\n02:01:26\n```"
+    },
+    {
+     "day": 5,
+     "number": 3,
+     "paper_label": "Round 5",
+     "title": "Tenis",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "After Borko's second plan of taking over the village fell through (because Mirko's brother Stanko drank all the water), young Zvonko decided to relax with sports. For this purpose he stocked up on carrot juice and peanuts, and dived onto the couch, ready to watch the next tennis match on television.\n\nWhile the two players are warming up, their statistics pop up on the screen. Zvonko noticed that the match history of the players contained invalid results. He had a brilliant idea where you write him a program that checks the validity of results, which he will then sell to the record keepers and enjoy a leisurely life.\n\nA tennis match consists of sets, each set consisting of games. The following rules apply:\n\n• A player wins a set if he has 6 or more games and at least two games more than his opponent.\n• Additionally, if the result is 6:6 in the first or second set (but not the third set), a single final game is played to determine the winner of the set (the tie-break game).\n• The match ends when either player has won 2 sets. That player is the winner.\n\nA match result is valid if a match could have been played by the above rules and ended in the result.\n\nAdditionally, if one of the players is Roger Federer (designated as \"federer\" in the input), then a result in which he has lost a set can't be valid (Zvonko knows Federer is from outer space).\n\nWrite a program that checks the validity of all matches between two players.\n\n## Input\n\nThe first line of input contains the names of the two players separated by a single space. Both names will be strings of at most 20 lowercase letters of the English alphabet. The names will be different.\n\nThe second line contains an integer $N$ ($1 \\le N \\le 50$), how many matches the two players have played.\n\nEach of the following $N$ lines contains the result of a single match, composed of the results of a number of sets separated by single spaces. Each match result will contain between 1 and 5 sets.\n\nA set is given in the format \"A:B\", where $A$ and $B$ are games won by each player. These numbers will be integers between 0 and 99 (inclusive).\n\n## Output\n\nFor each match, in the order they're given in the input, output \"da\" if the result is valid, or \"ne\" if it isn't.\n\n## Examples\n\n### Example 1\n\n```input\nsampras agassi\n6\n6:2 6:4\n3:6 7:5 2:6\n6:5 7:4\n7:6 7:6\n6:2 3:6\n6:2 1:6 6:8\n```\n\n```output\nda\nda\nne\nda\nne\nda\n```\n\n### Example 2\n\n```input\nfederer roddick\n1\n2:6 4:6\n```\n\n```output\nne\n```"
+    },
+    {
+     "day": 5,
+     "number": 4,
+     "paper_label": "Round 5",
+     "title": "Liga",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "While the players are resting between sets, the station puts on tedious commercials. Zvonko fires up the teletext feature on his TV set and is reviewing the latest scores and standings in the football league. Always sharp, he has come up with a new mathematical game.\n\nThe standings table contains five statistics for each team: the total number of games played, how many of those games the team won, drew and lost, and points earned. A team earns 3 points for every win and 1 point for every draw.\n\nZvonko noticed that the values of some fields can be determined from the others.\n\nWrite a program that takes in a table in which the values of some fields are unknown, and fills in the missing fields.\n\nThe data for different teams is not related. For example, it is possible that the table says all teams have won all their games (although that is not possible in a real league).\n\nEach team will have played at most 100 games (even though that can be one of the missing fields).\n\n## Input\n\nThe first line contains an integer $N$ ($1 \\le N \\le 1000$), the number of teams in the league.\n\nEach of the following $N$ lines contains the 5 fields for one team separated by single spaces, containing the 5 pieces of data as described in the problem statement. Each field contains an integer (at least 0), or the character '?' (question mark) if the value is not known.\n\nThe input will be consistent and there will be a unique way to determine the values of the missing fields.\n\n## Output\n\nOutput the table with the missing fields filled in.\n\n**Note**: For each test case, your program will receive a score linearly proportional to the number of correctly solved teams, rounded down. If your program exceeds the time limit or another error occurs, the score for that test case will be 0.\n\n## Examples\n\n### Example 1\n\n```input\n5\n27 21 3 3 66\n27 18 6 3 ?\n? 15 5 7 50\n? 14 7 5 ?\n? 14 ? 8 47\n```\n\n```output\n27 21 3 3 66\n27 18 6 3 60\n27 15 5 7 50\n26 14 7 5 49\n27 14 5 8 47\n```"
+    },
+    {
+     "day": 5,
+     "number": 5,
+     "paper_label": "Round 5",
+     "title": "Ivana",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Even though she saw Zvonko steal Mirko's microprocessor in the second task, Mirko's sister Ivana did not tell Mirko because she likes Zvonko. She suggested to him that they go see a movie together so that she would \"forget\" about the incident.\n\nZvonko does not care much for girls because they take away precious time he usually spends practicing his math-fu. He suggested that the two of them play a game and, if Ivana wins, they will go see a movie together. Ivana agreed, being good at jump rope and she sometimes even kicks a football around with her two brothers.\n\nZvonko laid $N$ positive integers in a circle on the floor and explained the rules:\n\n• The first player takes any number.\n• The second player takes either of the two numbers adjacent to the one the first player took.\n• The next player takes a number adjacent to any of the numbers taken so far, and so on until they run out of numbers. The player to take more odd numbers (not divisible by 2) wins.\n\nZvonko plays optimally; he always looks for a strategy that leads to certain victory or a draw. Zvonko does not know how well Ivana plays. Being a true cavalier, he let Ivana have the first move.\n\nBut Ivana only cares about sitting next to Zvonko in front of the big screen so she seeks help playing.\n\nWrite a program that finds how many different first moves Ivana can make, so that she has a chance of winning afterwards.\n\n## Input\n\nThe first line of input contains an integer $N$ ($1 \\le N \\le 100$), how many numbers there are in the circle.\n\nThe second line contains $N$ integers separated by single spaces. All numbers will be between 1 and 1000 (inclusive). No two numbers will be the same.\n\n## Output\n\nOutput the desired number on a single line.\n\n## Examples\n\n### Example 1\n\n```input\n3\n3 1 5\n```\n\n```output\n3\n```\n\n### Example 2\n\n```input\n4\n1 2 3 4\n```\n\n```output\n2\n```\n\n### Example 3\n\n```input\n8\n4 10 5 2 9 8 1 7\n```\n\n```output\n5\n```\n\n**First example**: Whichever number Ivana takes first, she'll end up with two odd numbers, and Zvonko will have gotten only one.\n\n**Second example**: If Ivana takes one of the even numbers, Zvonko will take one of the odd numbers and ensure a draw. If she takes an odd number, Zvonko will have to take an even number and then lose because Ivana can take the other odd number."
+    },
+    {
+     "day": 5,
+     "number": 6,
+     "paper_label": "Round 5",
+     "title": "Dvaput",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Ivana won the bet (Zvonko hadn't foreseen this and suspects that it is due to outside interference) and now Zvonko is waiting for her at the movies. While he is waiting, he is observing messages on a screen above him.\n\nAs Ivana is running late, Zvonko has been looking at the screen for a while and noticed that some messages appeared on the screen more than once. Naturally, he's been writing down all messages on a piece of paper. He wants to know the length of the longest string that appeared at least twice (appears in two different positions on the paper).\n\n## Input\n\nThe first line of input contains an integer $L$ ($1 \\le L \\le 200\\,000$), the length of the string Zvonko wrote down.\n\nThe second line contains a string of $L$ lowercase letter of the English alphabet.\n\n## Output\n\nOutput the length of the longest string that appears twice on a single line. If there is no such string, output zero.\n\n## Examples\n\n### Example 1\n\n```input\n11\nsabcabcfabc\n```\n\n```output\n3\n```\n\n### Example 2\n\n```input\n18\ntrutrutiktiktappop\n```\n\n```output\n4\n```\n\n### Example 3\n\n```input\n6\nabcdef\n```\n\n```output\n0\n```"
+    },
+    {
+     "day": 6,
+     "number": 1,
+     "paper_label": "Round 6",
+     "title": "Prase",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "$N$ children are eating lunch at the table. Children take turns in taking food from the table.\n\nSome of the children haven't yet been taught proper manners so they jump at the food without giving the others a chance. If at any point a child takes a piece of food, and that child **had already taken more food than the other children all together** (not including the new piece of food), then the mother will warn that child to behave.\n\nYou will be given the order in which the children take food. Write a program that calculates how many times the mother has to warn the children.\n\n## Input\n\nThe first line of input contains an integer $N$ ($1 \\le N \\le 100$), how many pieces of food the children take.\n\nEach of the following $N$ lines contains the name of a child that took one piece of food. The names will be strings of at most 20 lowercase letters of the English alphabet.\n\n## Output\n\nOutput the number of warnings on a single line.\n\n## Examples\n\n### Example 1\n\n```input\n4\nmirko\nstanko\nstanko\nstanko\n```\n\n```output\n1\n```\n\n### Example 2\n\n```input\n17\na\nb\nb\na\na\na\nc\na\nb\nb\nc\nb\nb\nb\nb\nb\nb\n```\n\n```output\n4\n```"
+    },
+    {
+     "day": 6,
+     "number": 2,
+     "paper_label": "Round 6",
+     "title": "Magija",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "The well-known magician Al'Dimi Kartimi needs a program to help him design the back side of his cards.\n\nAl'Dimi first draws the upper left quarter of the card, mirrors it horizontally onto the upper right quarter and then vertically mirrors the entire upper half onto the lower half.\n\nAfter the mirroring, Al'Dimi also adds a small error (changes the appearance of one square) to help him determine which card it is (to cheat, if you will).\n\nHelp Al'Dimi by writing a program that, given the design of the upper left quarter and the location of the error, draws the entire back side.\n\nHere are three examples of Al'Dimi's cards (the error is shaded gray):\n\nhttps://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/coci-2006-6-2-fig1.png\n\n## Input\n\nThe first line of input contains two integers, $R$ and $C$ ($1 \\le R, C \\le 50$), the number of rows and columns in the upper left quarter of the card.\n\nEach of the $R$ following lines contains $C$ characters '.' or '#', the design of the upper left quarter.\n\nThe next line contains two integers, $A$ and $B$ ($1 \\le A \\le 2R$, $1 \\le B \\le 2C$), the row and column of the error.\n\n## Output\n\nOutput $2R$ rows, each containing $2C$ characters, the design of the back side.\n\n## Examples\n\n### Example 1\n\n```input\n2 2\n#.\n.#\n3 3\n```\n\n```output\n#..#\n.##.\n.#..\n#..#\n```\n\n### Example 2\n\n```input\n3 3\n###\n###\n###\n1 4\n```\n\n```output\n###.##\n######\n######\n######\n######\n######\n```\n\n### Example 3\n\n```input\n5 4\n#.#.\n#.##\n#.##\n....\n.#.#\n10 5\n```\n\n```output\n#.#..#.#\n#.####.#\n#.####.#\n........\n.#.##.#.\n.#.##.#.\n........\n#.####.#\n#.####.#\n#.#.##.#\n```"
+    },
+    {
+     "day": 6,
+     "number": 3,
+     "paper_label": "Round 6",
+     "title": "Maraton",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Albert, Barbara, Casper, Dinko, Eustahije are starting a marathon game of tic-tac-toe, played on an $N \\times N$ board.\n\nInitially, all squares on the board are empty and players take turns writing the first letter of their name into any of the empty squares (because the players are elite, no two players have the same first letter).\n\nThe game ends when some player **places 3 of his or her letters consecutively** in a row, column or diagonally. That player is declared the winner.\n\nWrite a program that, given the state of the board, determines if the game is over and who won if it is.\n\n## Input\n\nThe first line of input contains the integer $N$ ($1 \\le N \\le 30$), the size of the board.\n\nThe following $N$ lines contain $N$ characters each. The characters will be uppercase letters of the English alphabet or '.' (if the square is empty).\n\nThe input data will be such that there is at most one winner.\n\n## Output\n\nIf the game is over, output the first letter of the winner's name. If not, output \"ongoing\" (even if the board is full).\n\n## Examples\n\n### Example 1\n\n```input\n3\nXOC\nXOC\nX..\n```\n\n```output\nX\n```\n\n### Example 2\n\n```input\n4\n....\n..A.\nAAB.\n.B.B\n```\n\n```output\nongoing\n```\n\n### Example 3\n\n```input\n3\nABB\nAAA\nBBA\n```\n\n```output\nA\n```"
+    },
+    {
+     "day": 6,
+     "number": 4,
+     "paper_label": "Round 6",
+     "title": "Kamen",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "For nearly two weeks now, Domeniko has been lying in his bed because his friend Nedjeljko accidently threw a large rock on his left foot. As Domeniko has already solved the tasks from all Croatian national competitions since 1998, he has to find a new way to kill time.\n\nDomeniko's new game is played on an $R \\times C$ board. Initially every square is either empty or blocked by a wall. Domeniko throws a rock into the board by putting it in the topmost row of a column and then letting gravity do the rest.\n\nGravity works as follows:\n\n• If the square under the rock is a wall or if the rock is in the bottom row of a column, then the rock remains there.\n• If the square under the rock is empty, then the rock moves to that square.\n• If the square under the rock contains another rock, then the falling rock may slide sideways:\n◦ If the squares left and left-down of the rock are empty, then the rock slides one square left.\n◦ If the rock doesn't slide left and the squares to the right and right-down are empty, then the rock slides one square right.\n◦ Otherwise, the rock remains there and never moves again.\n\nDomeniko will never throw another rock while the previous rock hasn't settled down.\n\nWrite a program that draws the board after Domeniko throws all his rocks into the board, if we know the columns that Domeniko threw his rocks into, in order.\n\n**Note:** Domeniko will never throw a rock into column in which the top row isn't empty.\n\n## Input\n\nThe first line contains integers $R$ and $C$ ($1 \\le R \\le 30\\,000$, $1 \\le C \\le 30$), the size of the board.\n\nEach of the following $R$ lines contains $C$ characters, the initial layout of the board. A '.' represents an empty field, while the uppercase letter 'X' is a square blocked by a wall.\n\nThe next line contains an integer $N$ ($1 \\le N \\le 100\\,000$), the number of rocks Domeniko throws.\n\nEach of the following $N$ lines contains an integer between 1 and $C$, the column into which Domeniko throws a rock (the leftmost column is column 1).\n\n**Note:** In 60% of the test cases, $R$ will be no more than 30.\n\n## Output\n\nOutput $R$ lines, each containing $C$ characters, the final layout of the board. Rocks should be presented with an uppercase letter 'O'.\n\n## Examples\n\n### Example 1\n\n```input\n5 4\n....\n....\nX...\n....\n....\n4\n1\n1\n1\n1\n```\n\n```output\n....\nO...\nX...\n....\nOOO.\n```\n\n### Example 2\n\n```input\n7 6\n......\n......\n...XX.\n......\n......\n.XX...\n......\n6\n1\n4\n4\n6\n4\n4\n```\n\n```output\n......\n...O..\n...XX.\n......\n.OO...\n.XX...\nO..O.O\n```\n\nIn the first example, all rocks are thrown in the first column. The first rock stops on the wall. The second rock falls on the first, slides right and stops at the bottom of the second column. The third rock falls on the first then on the second rock, slides left and rests at the bottom of the first column. The fourth rock falls on the first then on the second, then slides right."
+    },
+    {
+     "day": 6,
+     "number": 5,
+     "paper_label": "Round 6",
+     "title": "V",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Zvonko is playing with digits again, even though his mother has warned him that he is doing too much math and should go outside to play with his friends.\n\nIn his latest game, Zvonko looks for **multiples** of an integer $X$, **composed only of certain digits**. A multiple of $X$ is any number divisible by $X$.\n\nIn order to ruin Zvonko's fun, his mother decided to get a program that solves the problem. Write a program that calculates how many multiples of $X$ are between $A$ and $B$ (inclusive), such that, when written in decimal, they contain only certain allowed digits.\n\n## Input\n\nThe first line of input contains three integers $X$, $A$ and $B$ ($1 \\le X < 10^{11}$, $1 \\le A \\le B < 10^{11}$).\n\nThe second line contains the allowed digits. The digits will be given with no spaces, sorted in increasing order and without duplicates.\n\n## Output\n\nOutput the number of multiples Zvonko can make on a single line.\n\n## Examples\n\n### Example 1\n\n```input\n2 1 20\n0123456789\n```\n\n```output\n10\n```\n\n### Example 2\n\n```input\n6 100 9294\n23689\n```\n\n```output\n111\n```\n\n### Example 3\n\n```input\n5 4395 9999999999\n12346789\n```\n\n```output\n0\n```"
+    },
+    {
+     "day": 6,
+     "number": 6,
+     "paper_label": "Round 6",
+     "title": "Prostor",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "32 MB",
+     "problem": "A long time ago in a three-dimensional space far away, a tribe of rectangles lived happily. The rectangles lived a spiritual life, parallel with one of the coordinate planes.\n\nOne day, a cuboid walked into their small world, riding steadily on an icosahedron, showing off its sharp corners and positive volume. The rectangles watched in awe and dreamed of being cuboids. Nothing would ever be the same from that day on. The rectangles started comparing each other by area, perimeter and even by the ratio of the lengths of their sides.\n\nSoon the first conflict ensued over the ownership of shared points. In time, **each pair of rectangles sharing at least one point** (including those merely touching each other) got into a conflict and became enemies.\n\nIt is up to you to restore peace in the community, by meeting with every pair of rectangles in conflict. Write a program that finds **how many such pairs** there are.\n\n## Input\n\nThe first line of input contains the integer $N$ ($1 \\le N \\le 100\\,000$), the number of rectangles.\n\nEach of the following $N$ lines contains 6 integers separated by single spaces. The first three numbers represent the coordinates of one corner of the rectangle, the other three are the coordinates of the opposite corner.\n\nThe coordinates are integers between 1 and 999 (inclusive).\n\nEach rectangle is parallel to one of the coordinate planes, meaning that in exactly one of the three dimensions, the two corresponding coordinates will be equal.\n\n## Output\n\nOutput the total number of rectangles in conflict on a single line.\n\n## Examples\n\n### Example 1\n\n```input\n3\n1 1 1 1 3 3\n1 3 3 1 6 6\n1 4 4 1 5 5\n```\n\n```output\n2\n```\n\n### Example 2\n\n```input\n3\n15 10 10 15 20 20\n10 15 10 20 15 20\n10 10 15 20 20 15\n```\n\n```output\n3\n```\n\n### Example 3\n\n```input\n5\n4 4 5 4 3 2\n5 3 2 4 3 1\n5 4 3 1 1 3\n1 4 3 1 5 4\n5 5 4 5 4 2\n```\n\n```output\n4\n```"
     }
    ]
   },
