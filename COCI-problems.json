@@ -5,6 +5,186 @@
    "year": 2009,
    "problems": [
     {
+     "day": 1,
+     "number": 1,
+     "paper_label": "Round 1",
+     "title": "Note",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "C major scale consists of 8 tones: c d e f g a h C. For this task we number the notes using numbers 1 through 8. The scale can be played **ascending**, from 1 to 8, **descending**, from 8 to 1, or **mixed**. Write a program that, given the sequence of notes, determines wether the scale was played **ascending**, **descending** or **mixed**.\n\n## Input\n\nFirst and only line of input will contain 8 integers, from 1 to 8 inclusive. Each integer will appear exactley once in the input.\n\n## Output\n\nIn the first and only line of input print \"descending\" if the scale was played **descending**, \"ascending\" if the scale was played **ascending** and \"mixed\" if the scale was played **mixed**.\n\n## Examples\n\n### Example 1\n\n```input\n1 2 3 4 5 6 7 8\n```\n\n```output\nascending\n```\n\n### Example 2\n\n```input\n8 7 6 5 4 3 2 1\n```\n\n```output\ndescending\n```\n\n### Example 3\n\n```input\n8 1 7 2 6 3 5 4\n```\n\n```output\nmixed\n```"
+    },
+    {
+     "day": 1,
+     "number": 2,
+     "paper_label": "Round 1",
+     "title": "Domino",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Dominoes are gaming pieces used in numerous tile games. Each doimno piece contains two *marks*. Each mark consists of a number of *spots* (possibly zero). The number of spots depends on the *set* size. Each mark in a size $N$ domino set can contain between 0 and $N$ spots, inclusive. Two tiles are considered identical if their marks have the same number of spots, irregardles of reading order. For example tile with 2 and 8 spot marks is identical to the tile having 8 and 2 spot marks. A proper domino set contains no duplicate tiles. A **complete** set of size $N$ contains all posible tiles with $N$ or less spots and no duplicate tiles. For example, the complete set of size 2 contains 6 tiles:\n\nhttps://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/coci-2009-1-2-fig1.png\n\nWrite a program that will determine the total number of spots on all tiles of a complete size $N$ set.\n\n## Input\n\nThe first and only line of input contains a single integer, $N$ ($1 \\le N \\le 1000$), the size of the complete set.\n\n## Output\n\nThe first and only line of output should contain a single integer, total number of spots in a complete size $N$ set.\n\n## Examples\n\n### Example 1\n\n```input\n2\n```\n\n```output\n12\n```\n\n### Example 2\n\n```input\n3\n```\n\n```output\n30\n```\n\n### Example 3\n\n```input\n15\n```\n\n```output\n2040\n```\n\n**Second sample description:** Size 3 set contains tiles: [0|0], [0|1], [0|2], [0|3], [1|1], [1|2], [1|3], [2|2], [2|3] and [3|3]."
+    },
+    {
+     "day": 1,
+     "number": 3,
+     "paper_label": "Round 1",
+     "title": "Dobra",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Lea runs into a lot of words in her life. A lot of them she finds unpleasant. To compensate for that she started making up plesant words. Lea makes up new words by writing a nice looking string of characters on a piece of paper. She than erases a few of the most nasty looking characters and replaces them with underscores '_'. After that she tries to replace the underscores with more acceptable characters trying to form a plesant word.\n\nLea considers words plesant if they do not contain 3 sequential vowels, 3 sequential consonants and contain at least one letter 'L'.\n\nIn Croatian vowels are letters **A**, **E**, **I**, **O**, **U only**. All other lettters are consonants.\n\n## Input\n\nThe first and only line of input contains a string of characters, at most **100**. The string contains only of **uppercase english letters** and characters '_'. There will be at most **10** characters '_'.\n\n## Output\n\nThe first and only line of output should cotain a single integer - the total number of plesant words that can be formed by substituing underscores with uppercase letters of the english alphabet.\n\n**Warning:** Use 64 bit number formats. *long long* in C/C++, *int64* in Pascal.\n\n## Examples\n\n### Example 1\n\n```input\nL_V\n```\n\n```output\n5\n```\n\n### Example 2\n\n```input\nV__K\n```\n\n```output\n10\n```\n\n### Example 3\n\n```input\nJA_BU_K_A\n```\n\n```output\n485\n```"
+    },
+    {
+     "day": 1,
+     "number": 4,
+     "paper_label": "Round 1",
+     "title": "Mali",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Mirko and Slavko are playing a new game. Again. Slavko starts each round by giving Mirko two numbers $A$ and $B$, both smaller than 100. Mirko then has to slove the following task for Slavko: how to pair all given $A$ numbers with all given $B$ numbes so that the **maximal sum of such pairs is as small as possible**.\n\nIn other words, if during previous rounds Slavko gave numbers $a_1, a_2, a_3 \\ldots a_n$ and $b_1, b_2, b_3 \\ldots b_n$, determine $n$ pairings $(a_i, b_j)$ such that each number in $A$ sequence is used in exactley one pairing, and each number in $B$ sequenct is used in exactely one pairing and the maximum of all sums $a_i + b_j$ is minimal.\n\n## Input\n\nThe first line of input contains a single integer $N$ ($1 \\le N \\le 100000$), number of rounds.\n\nNext $N$ lines contain two integers $A$ and $B$ ($1 \\le A, B \\le 100$), numbers given by Slavko in that round.\n\n## Output\n\nOutput consists of $N$ lines, one for each round. Each line should contain the smallest maximal sum for that round.\n\n## Scoring\n\nTest cases worth 50% of total points have $N \\le 200$.\n\n## Examples\n\n### Example 1\n\n```input\n3\n2 8\n3 1\n1 4\n```\n\n```output\n10\n10\n9\n```\n\n### Example 2\n\n```input\n3\n1 1\n2 2\n3 3\n```\n\n```output\n2\n3\n4\n```"
+    },
+    {
+     "day": 1,
+     "number": 5,
+     "paper_label": "Round 1",
+     "title": "Genijalac",
+     "task_type": "batch",
+     "time_limit": "5 seconds",
+     "memory_limit": "32 MB",
+     "problem": "Mirko is a genius. But the purpose of his inventions is not always obvious. His latest invention, the Shuffle-o-matic 3175, is one of those. The Shuffle-o-matic is used in a very special way. First Mirko places $N$ paper cards, with numbers 1 to $N$ printed on them, on the Shuffle-o-matic working surface. Then he inputs the **shuffle sequence** in the special input console and hits the go button. The machine than reads the paper cards and outputs the read sequence of numbers on its output tape. It than shuffles the cards according to the shuffle sequence. After that it reads the newly obtaind sequence and writes it onto a new line on its output tape. Then it procedes to shuffle the cards again **acording to the same shuffle sequence**, scans and writes the output to the tape. The machine does this until it runs out of tape.\n\nAfter experimenting with the machine Mirko decided to rest a bit on the floor. There he noticed a piece of output tape. The piece is neatly cut just before the $A$-th output row nad just after the $B$-th output row. It is also missing the first $C$ number and the last $D$ numbers in all rows.\n\nHe now wonders how many rows on that piece of paper have the property that **all numbers in the row, that are still on the paper, are in the exact same spot they were before all the shuffling began.**\n\n## Input\n\nThe first line of input contains integers $N$, $A$, $B$, $C$ and $D$ in that order($1 \\le N \\le 500\\,000$, $A \\le B \\le 10^{12}$, $0 \\le C, D \\le N$, $C + D < N$).\n\nThe second line contains the shuffle sequence. The sequence is given as a permutation of numbers 1 to $N$. If the $k$-th number in the shuffle sequence is $x$, after each shuffle the $k$-th element in the resulting sequence is the $x$-th element in the previous sequence.\n\n## Output\n\nIn the first and only line of input print the number of rows that have the property Mirko is looking for.\n\n## Scoring\n\nTest cases worth 40% total points have $A, B, C, D, N \\le 2000$.\n\n## Examples\n\n### Example 1\n\n```input\n4 1 5 0 1\n1 3 4 2\n```\n\n```output\n2\n```\n\n### Example 2\n\n```input\n7 3 8 1 2\n2 3 1 6 4 7 5\n```\n\n```output\n0\n```\n\n### Example 3\n\n```input\n6 2 11 3 0\n6 3 5 4 2 1\n```\n\n```output\n1\n```\n\nhttps://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/coci-2009-1-5-fig1.png"
+    },
+    {
+     "day": 1,
+     "number": 6,
+     "paper_label": "Round 1",
+     "title": "Aladin",
+     "task_type": "batch",
+     "time_limit": "8 seconds",
+     "memory_limit": "64 MB",
+     "problem": "Aladin was walking down the path one day when he found the strangest thing. $N$ empty boxes right next to a weird alien machine. After a bit of fumbling around he got the machine to do something. The machine now accepts 4 integers $L$, $R$, $A$ and $B$. After that hitting the big red glowing button labeled \"NE DIRAJ\" causes the machine to go crazy and follow the next routine:\n\n• Set the number of stones in the box labeled $L$ to $A$ modulo $B$.\n• It procedes to fly to the box labeled $L+1$, and set the number of stones there to $(2 \\cdot A) \\bmod B$.\n• It procedes to fly to the box labeled $L+2$, and set the number of stones there to $(3 \\cdot A) \\bmod B$.\n• Generaly, it visits each box labeled between $L$ and $R$, and set the number of stones there to $((X - L + 1) \\cdot A) \\bmod B$. where $X$ is the box label.\n• After it visits the box labeled $R$. It settles down for further instructions.\n\nDuring the game Aladin wonders what is the total number of stones in some range of boxes.\n\nWrite a program that simulates the device and answers Aladins questions.\n\n## Input\n\nThe first line contains two integers $N$ i $Q$ ($1 \\le N \\le 1\\,000\\,000\\,000$) ($1 \\le Q \\le 50\\,000$), number of boxes and number of queries.\n\nThe next $Q$ lines contain information about the simulation.\n\nIf the line starts with 1, than it follows the format \"1 L R A B\" ($1 \\le L \\le R \\le N$) ($1 \\le A, B \\le 1\\,000\\,000$), meaning that Aladin keyed in numbers $L$, $R$, $A$ and $B$ in the device and allowed the device to do its job.\n\nIf the line starts with 2, than it follows the format \"2 L R\" ($1 \\le L \\le R \\le N$). Meaning that Aladin wonders how many stones in total are ther stones are in boxes labeled $L$ to $R$ (inclusive).\n\n## Output\n\nFor each query beginning with 2 output the answer to that particular query. Queries should be processed in the order they are given in the input.\n\n## Scoring\n\nTest cases worth 30% total points have $N$ and $Q \\le 1000$.\n\nTest cases worth 70% total points have $Q \\le 1000$.\n\n## Examples\n\n### Example 1\n\n```input\n6 3\n2 1 6\n1 1 5 1 2\n2 1 6\n```\n\n```output\n0\n3\n```\n\n### Example 2\n\n```input\n4 5\n1 1 4 3 4\n2 1 1\n2 2 2\n2 3 3\n2 4 4\n```\n\n```output\n3\n2\n1\n0\n```\n\n### Example 3\n\n```input\n4 4\n1 1 4 7 9\n2 1 4\n1 1 4 1 1\n2 1 4\n```\n\n```output\n16\n0\n```\n\n**First sample description:** The boxes start containing $\\{0, 0, 0, 0, 0, 0\\}$, 0 stones in total.\n\nAfter that the device sets the stones to $\\{1 \\bmod 2, 2 \\bmod 2, 3 \\bmod 2, 4 \\bmod 2, 5 \\bmod 2, 0\\} = \\{1,0,1,0,1,0\\}$, or 3 stones in total."
+    },
+    {
+     "day": 2,
+     "number": 1,
+     "paper_label": "Round 2",
+     "title": "Faktor",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Impact factor of a scientific journal is a measure reflecting the average number of citations to articles published in science journals. For this task we are using a simplified formula for calculating the impact factor:\n\n$$\\frac{\\text{Total sum of all citations articles published in the journal recived}}{\\text{Total number of articles published}}$$\n\n**Rounding is always preformed up.** For example the impact factor of the “Journal for ore research and time wasting” that published 38 articles quoted 894 times is 894 / 38 = 23.53 rounding up to 24.\n\nYou are the editor of one scientific journal. You know how much article you are going to publish and the owners are pushing you to reach a specific impact factor. You are wondering how many scientists you will have to bribe to cite your article to meet the owners demands. Since money is tight you want to bribe the **minimal** amount of scientists.\n\n## Input\n\nFirst and only line of input will contain 2 integers, $A$ ($1 \\le A \\le 100$), number of articles you plan to publish and $I$ ($1 \\le I \\le 100$) impact factor the owners require.\n\n## Output\n\nFirst and only line of output should contain one integer, the **minimal** number of scientists you need to bribe.\n\n## Examples\n\n### Example 1\n\n```input\n38 24\n```\n\n```output\n875\n```\n\n### Example 2\n\n```input\n1 100\n```\n\n```output\n100\n```\n\n### Example 3\n\n```input\n10 10\n```\n\n```output\n91\n```"
+    },
+    {
+     "day": 2,
+     "number": 2,
+     "paper_label": "Round 2",
+     "title": "Rimski",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Using roman numerals the numbers 1, 2, 3, 4, 5, 6, 7, 8, 9 are written as 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'. Numbers 10, 20, 30, 40, 50, 60, 70, 80, 90 are written as 'X', 'XX', 'XXX', 'XL', 'L', 'LX', 'LXX', 'LXXX', 'XC'.\n\nAny number smaller than 100 can be written by converting tens and ones separately and concatenating the results. So, for example, the number 48 would be written as XLVIII, XL for 40 and VIII for 8.\n\nGiven a number written in roman numerals, rearrange it's characters so that you create the smallest possible number, written in roman numerals.\n\n## Input\n\nThe first and only line of input contains one integer $B$ ($1 \\le B < 100$), written using roman numerals.\n\n## Output\n\nThe first and only line of output should contain a rearrangement of input characters so that it represents the smallest possible number, written in roman numerals.\n\n## Examples\n\n### Example 1\n\n```input\nVII\n```\n\n```output\nVII\n```\n\n### Example 2\n\n```input\nVI\n```\n\n```output\nIV\n```\n\n### Example 3\n\n```input\nIII\n```\n\n```output\nIII\n```"
+    },
+    {
+     "day": 2,
+     "number": 3,
+     "paper_label": "Round 2",
+     "title": "Kutevi",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "One day Mirko was cleaning up his room and found a straightedge and a compass. He went to the school the next day and challenged his friend Slavko to a geometric construction battle. Mirko knows how to construct some angles using the straightedge and compass and knows how to subtract and add any two angels he constructs. Slavko now shouts random angles and Mirko must draw them as fast as possible.\n\nYou are observing this battle and would like to know if Mirko can construct the angles Slavko shouts at all.\n\n## Input\n\nThe first line of input contains two integers, $N$ ($1 \\le N \\le 10$), number of angles Mirko knows how to construct initially and $K$ ($1 \\le K \\le 10$), number of angles Slavko selected.\n\nThe second line of input contains $N$ integers, all smaller than 360, the angles Mirko knows how to construct initially.\n\nThe third line contains $K$ integers, all smaller than 360, the angles Slavko selected.\n\n## Output\n\nOutput consist of $K$ lines, one for each angle Slavko selected. The $i$-th line should contain \"`YES`\" if Mirko can construct the $i$-th angle, and \"`NO`\" otherwise.\n\n## Examples\n\n### Example 1\n\n```input\n2 1\n30 70\n40\n```\n\n```output\nYES\n```\n\n### Example 2\n\n```input\n1 1\n100\n60\n```\n\n```output\nYES\n```\n\n### Example 3\n\n```input\n3 2\n10 20 30\n5 70\n```\n\n```output\nNO\nYES\n```\n\n**First example description:**\n\nhttps://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/coci-2009-2-3-fig1.png\n\nSubtracting $30^\\circ$ from $70^\\circ$ yields $70^\\circ - 30^\\circ = 40^\\circ$.\n\n**Second example description:**\n\nAdding $100^\\circ$ 15 times yields $1500^\\circ$, also known as $60^\\circ$."
+    },
+    {
+     "day": 2,
+     "number": 4,
+     "paper_label": "Round 2",
+     "title": "Vuk",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Vjekoslav the Wolf is running away from a bunch of blood hungry hunters. The hunters are smart and hide behind trees. Vjekoslav knows this, but doesn't know which trees. He would like to run to his comfortable, civilized cottage (as opposed to the hunters quite uncivilized den, yes I am rooting for the Wolf here) staying as far away as possible from any trees.\n\nThe forest can be represented as a $N$ by $M$ gird. Let us mark empty meadow patches with '.', patches with a tree in the middle with '+', Vjekoslav's current position with 'V' and the position of his cottage with 'J'. Vjekoslav can run from his current patch to any other patch north, east, south or west from him, **even if it contains a tree**.\n\nIf Vjekoslav is standing in $R$-th row and $C$-th column on the grid and there is a tree in the $A$-th row and $B$-th column then the distance between Vjekoslav and that tree is:\n\n$$|R-A| + |C-B|$$\n\nHelp Vjekoslav find the best route to his cottage. The best route is any route that maximizes the minimal distance between Vjekoslav and all trees at any given moment.\n\n**Note that Vjekoslav's cottage doesn't occupy the entire patch so that patch must also be included in the route.**\n\n## Input\n\nThe first line of input contains integers $N$ and $M$ ($1 \\le N, M \\le 500$), grid dimensions.\n\nThe next $N$ lines contain $M$ characters each: '**.**', '**+**', 'V', 'J'.\n\nInput will contain exactly one character 'V' and 'J' and at least one character '+'.\n\n## Output\n\nOutput a single integer, the minimal distance from a tree in the optimal route.\n\n## Examples\n\n### Example 1\n\n```input\n4 4\n+...\n....\n....\nV..J\n```\n\n```output\n3\n```\n\n### Example 2\n\n```input\n4 5\n.....\n.+++.\n.+.+.\nV+.J+\n```\n\n```output\n0\n```"
+    },
+    {
+     "day": 2,
+     "number": 5,
+     "paper_label": "Round 2",
+     "title": "Poslozi",
+     "task_type": "batch",
+     "time_limit": "1.5 seconds",
+     "memory_limit": "32 MB",
+     "problem": "“Arrange” is a planetary popular Flash game. In “Arrange” the player is given a permutation of numbers 1 to $N$ and a list of allowed swaps. He then has to perform a sequence of swaps that transforms the initial permutation back to the ordered sequence $1,2,3,4,5 \\ldots N$.\n\nIn order to break the high score list, you need to perform the minimal amount of swaps possible. You can't do that, but you can write a program that does it for you!\n\n## Input\n\nThe first line of input contains two integers, $N$ ($1 \\le N \\le 12$), the length of the initial sequence and $M$ ($1 \\le M \\le N \\cdot (N - 1) / 2$) number of allowed swaps.\n\nThe second line of input contains a permutation of number 1 to $N$.\n\nThe next $M$ lines contain descriptions of allowed swaps. If the line contains numbers $A$ and $B$ you are allowed to swap the $A$-th number with the $B$-th number. The input will never contain two identical swaps.\n\n**Note:** the test data shall be such that the solution, not necessarily unique, will always exist.\n\n## Output\n\nIn the first line of input print the minimal number of swaps, $X$.\n\nIn the next $X$ lines print the required swaps, in order. In each line print the index of the swap performed. Swaps are numbered increasingly as they appear in the input, starting from 1.\n\n## Examples\n\n### Example 1\n\n```input\n2 1\n2 1\n1 2\n```\n\n```output\n1\n1\n```\n\n### Example 2\n\n```input\n3 2\n2 1 3\n1 3\n2 3\n```\n\n```output\n3\n2\n1\n2\n```\n\n### Example 3\n\n```input\n5 5\n1 2 3 4 5\n1 5\n2 5\n1 4\n1 1\n3 5\n```\n\n```output\n0\n```"
+    },
+    {
+     "day": 2,
+     "number": 6,
+     "paper_label": "Round 2",
+     "title": "Pasijans",
+     "task_type": "batch",
+     "time_limit": "6 seconds",
+     "memory_limit": "128 MB",
+     "problem": "Pasijans, patience, or solitaire is the name for a group of single player card games. One new such game, so new it has no name, is played with cards sporting random integers as values. The game starts by shuffling all cards and distributing them in $N$ sequences, not necessarily of equal length.\n\nDuring each turn, the player can remove the first card in any sequence and place it at the end of the “Solution sequence”. The card that was second in the selected sequence now becomes the first and the turn ends. Of course once the card is in the “Solution sequence” it cannot be removed, replaced or altered in any way. So don't even try.\n\nThe game ends when all cards are in the “Solution sequence”. The object of the game is to construct the best possible “Solution sequence”. One sequence is better than the other if for the first cards they differ, lets call them $X$ and $Y$, the value on the card $X$ is smaller than the value on the card $Y$.\n\nWrite a program that finds the best possible “Solution sequence”.\n\n## Input\n\nThe first line contains one integer $N$ ($1 \\le N \\le 1000$), number of starting sequences.\n\nNext $N$ lines contain description of input sequences. Each line starts with an integer $L$ ($1 \\le L \\le 1000$), length of the sequence. It's followed by $L$ integers, smaller than 100.000.000.\n\n## Output\n\nOne line containing $\\sum L$ numbers, the best possible “Solution sequence” obtainable.\n\n## Examples\n\n### Example 1\n\n```input\n3\n1 2\n1 100\n1 1\n```\n\n```output\n1 2 100\n```\n\n### Example 2\n\n```input\n2\n5 10 20 30 40 50\n2 28 27\n```\n\n```output\n10 20 28 27 30 40 50\n```\n\n### Example 3\n\n```input\n2\n3 5 1 2\n3 5 1 1\n```\n\n```output\n5 1 1 5 1 2\n```"
+    },
+    {
+     "day": 3,
+     "number": 1,
+     "paper_label": "Round 3",
+     "title": "Filip",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Mirko has a younger brother, Filip, who just started going to school and is having trouble with numbers. To help him get the hang for number scale, his teacher writes two three digit numbers. She asks Filip to compare those numbers, but instead of interpreting them with the leftmost most significant digit, he needs to interpret them the other way around, with the most significant digit being the rightmost one. He than has to tell the teacher the larger of the two numbers.\n\nWrite a program that will check Filips answers.\n\n## Input\n\nThe first and only line of input contains two three digit numbers, $A$ and $B$. $A$ and $B$ will not be equal and will not contain any zeroes.\n\n## Output\n\nFirst and only line of output should contain the larger of the numbers in the input, compared as described in the task. **The number should be written reversed, to display to Filip how he should read it.**\n\n## Examples\n\n### Example 1\n\n```input\n734 893\n```\n\n```output\n437\n```\n\n### Example 2\n\n```input\n221 231\n```\n\n```output\n132\n```\n\n### Example 3\n\n```input\n839 237\n```\n\n```output\n938\n```"
+    },
+    {
+     "day": 3,
+     "number": 2,
+     "paper_label": "Round 3",
+     "title": "Slatkisi",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Mirko buys a lot of candy in the candy shop. He cannot always pay the exact ammount so the shopkeeper and he have an agreement. He tells the shopkeeper the smallest bill he has, and she rounds his ammount to the nearest number he can pay. For example, if the smallest bill Mirko has is a hundred bill, and he wants to buy 150 Kunas of candy, the shopkeeper rounds his ammount to 200 Kunas. If he wants to buy 149 Kunas of candy, the shopkeeper rounds his ammount to 100 Kunas.\n\nLately, Mirko suspects the shoopkeeper is trying to cheat him. He asked you to help him. Write a program that will help him.\n\nHis mother only gives Mirko 1, 10, 100, 1 000, ... , 1 000 000 000 Kuna bills. He never has bills that are not powers of 10. **The bills he does have, he has in large ammounts.**\n\n## Input\n\nThe first and only line of input contains two integers, $C$ ($0 \\le C \\le 1\\,000\\,000\\,000$), the price of candy Mirko is going to buy, and $K$ ($0 \\le K \\le 9$), number of zeros on the **smallest** bill Mirko has.\n\n## Output\n\nThe first and only line of output should contain one integer, $C$ rounded to the nearest amount Mirko can pay.\n\n## Examples\n\n### Example 1\n\n```input\n184 1\n```\n\n```output\n180\n```\n\n### Example 2\n\n```input\n123450995 1\n```\n\n```output\n123451000\n```\n\n### Example 3\n\n```input\n182 2\n```\n\n```output\n200\n```"
+    },
+    {
+     "day": 3,
+     "number": 3,
+     "paper_label": "Round 3",
+     "title": "Sort",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Mirko is a great code breaker. He knows any cipher in the world can be broken by frequency analysis. He has completely the wrong idea what frequency analysis is, however.\n\nHe intercepted an enemy message. The message consists of $N$ numbers, smaller than or equal to $C$ Mirko belives freqency analysis consists of sorting this sequence so that more frequent numbers appear before less frequent ones.\n\nFormally, the sequence must be sorted so that given any two numbers $X$ and $Y$, $X$ appears before $Y$ if the number of times $X$ appears in the original sequence is larger than the number of time $Y$ does. If the number of appearances is equal, the number whoes **value** appears sooner in the input should appear sooner in the sorted sequence.\n\nHelp Mirko by creating a \"frequency sorter\".\n\n## Input\n\nFirst line of input contains two integers, $N$ ($1 \\le N \\le 1\\,000$), length of message, and $C$ ($1 \\le C \\le 1\\,000\\,000\\,000$), the number from task description.\n\nNext line contains $N$ integers smaller than or equal to $C$, message itself.\n\n## Output\n\nFirst and only line of output should contain $N$ numbers, the sorted sequence.\n\n## Examples\n\n### Example 1\n\n```input\n5 2\n2 1 2 1 2\n```\n\n```output\n2 2 2 1 1\n```\n\n### Example 2\n\n```input\n9 3\n1 3 3 3 2 2 2 1 1\n```\n\n```output\n1 1 1 3 3 3 2 2 2\n```\n\n### Example 3\n\n```input\n9 77\n11 33 11 77 54 11 25 25 33\n```\n\n```output\n11 11 11 33 33 25 25 77 54\n```"
+    },
+    {
+     "day": 3,
+     "number": 4,
+     "paper_label": "Round 3",
+     "title": "Razgovori",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Mirkos village has only one long street stretching from east to west with $M$ houses. Each house has a unique house number, starting with 1 and ending with $M$.\n\nRecent storm took out most phone lines so the mayor financed construction of a new one. Mirko is interested in the popularity of this new phone network, so he infiltrated its construction and placed special detectors on some points.\n\nDetector detects **any** phone call made between two houses, as long as one of them is **eastward** and the other **westward** from the point the detector is installed.\n\nAt the end of the first month, Mirko removed all detectors and now wonders what is the **smallest number** of phone calls that could have been made during that month.\n\n## Input\n\nThe first line of input contains two integers $N$ ($1 \\le N \\le 100\\,000$), number of detectors, and $M$ ($N < M \\le 1\\,000\\,000\\,000$), number of houses in the village.\n\nNext $N$ lines contains two numbers each: $P_i$ ($1 \\le P_i < M$), and $C_i$ ($1 \\le C_i \\le 1\\,000\\,000\\,000$), the position and total number of phone calls detected by detector numbered $i$. We say that a detector is on position $P_i$ if and only if he is between houses numbered $P_i$ and $P_i+1$.\n\n**There will never be more than one detector on the same position.**\n\n## Output\n\nOutput a single integer, the minimal number of phone calls made.\n\n## Grading\n\nIn test cases worth 50% points $N$ and $C$ will be smaller than $1\\,000$.\n\n## Examples\n\n### Example 1\n\n```input\n3 4\n3 1\n2 2\n1 1\n```\n\n```output\n2\n```\n\n### Example 2\n\n```input\n2 3\n1 23\n2 17\n```\n\n```output\n23\n```\n\n### Example 3\n\n```input\n3 9\n7 2\n8 3\n3 4\n```\n\n```output\n5\n```"
+    },
+    {
+     "day": 3,
+     "number": 5,
+     "paper_label": "Round 3",
+     "title": "Patuljci",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Snow White and the $N$ dwarfs live in the forest. While the dwarfs mine away Snow White hangs around social networks.\n\nEach morning the dwarfs form a long line and go whistling away to the mine. Snow White runs around them and snaps pictures to upload onto her favorite social network.\n\nWhen dwarfs enter the mine, Snow White goes back to their house and goes through the pictures, selecting pretty ones. Each dwarf has a colored cap, and there are $C$ different colors. A picture is pretty if more than half caps on it are of the same color. In other words, if there are $K$ dwarfs on the picture, it is pretty if strictly more than $K / 2$ dwarfs have same colored caps.\n\nWrite a program that will check for a set of $M$ pictures if they are pretty, and what color is dominating if they are.\n\n## Input\n\nFirst line contains two integers $N$ and $C$ ($3 \\le N \\le 300\\,000$, $1 \\le C \\le 10\\,000$) number of dwarfs and number of colors.\n\nSecond line contains $N$ integers between 1 and $C$ (inclusive), colors of dwarves hats, ordered the way they formed the line that morning.\n\nThird line contains $M$ ($1 \\le M \\le 10\\,000$), number of pictures.\n\nNext $M$ lines contain two integers $A$ and $B$ ($1 \\le A \\le B \\le N$). Each line describes one picture. On it there are all dwarves starting from $A$-th all the way to the $B$-th.\n\n## Output\n\nOutput $M$ lines. For each picture output “no” if Snow White doesn't think the picture is pretty, and “yes $X$”, where $X$ is the color dominating on the picture, if she does.\n\n## Grading\n\nIn test cases worth 30% points, $M$ will be smaller than 10.\n\nIn test cases worth aditional 30% points, $C$ will be smaller than 10.\n\n## Examples\n\n### Example 1\n\n```input\n10 3\n1 2 1 2 1 2 3 2 3 3\n8\n1 2\n1 3\n1 4\n1 5\n2 5\n2 6\n6 9\n7 10\n```\n\n```output\nno\nyes 1\nno\nyes 1\nno\nyes 2\nno\nyes 3\n```"
+    },
+    {
+     "day": 3,
+     "number": 6,
+     "paper_label": "Round 3",
+     "title": "Planete",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "European Space Agency has $N$ telescopes observing distant planets. The classified $M$ different types of events. They noticed that every day on each planet there is **exactly one** type of event. They measure events in days because they discovered each event lasts at least one day, and at most 365 days. Events last only complete number of days, they never last fractional part of day. Each event of the same type lasts exactly the same number of days every time it occurs, **regardless of the planet it occurs on**.\n\nAfter many years of observation they want to analyze data. The telescopes logged all observations, but unfortunately they forgot to write down the year the observations took place! Each telescope entry consists of start date, end date and number of each type of events observed. Given all observations on all planets, calculate the duration of each type of event. Note that the telescopes are super precise and they start working exactly when the event starts and end when an event ends, not necessarily the same one.\n\n**Note: for this task, each year has exactely 365 days.**\n\n## Input\n\nFirst line contains integers $N$ and $M$ ($1 \\le N, M \\le 200$) number of telescopes and number of event types. Next $N$ lines contain $M+4$ numbers each:\n\n„$D_1D_1$ $M_1M_1$ $D_2D_2$ $M_2M_2$ $F_1$ $F_2$ ... $F_M$“\n\nWhere $D_1D_1$ $M_1M_1$ ($01 \\le DD \\le 31$, $01 \\le MM \\le 12$) are start date, $D_2D_2$ $M_2M_2$ end date, and $F_i$ ($0 \\le F_i \\le 200$) number of times event type $I$ was observed.\n\n## Output\n\nOne line containing $M$ numbers, durations of event types. If more than one solution exists, output any one. If no solution exists, output “-1”.\n\n## Examples\n\n### Example 1\n\n```input\n1 1\n26 02 03 03 1\n```\n\n```output\n5\n```\n\n### Example 2\n\n```input\n1 1\n26 02 03 03 2\n```\n\n```output\n185\n```\n\n### Example 3\n\n```input\n3 3\n22 03 01 10 9 10 10\n05 05 16 12 1 7 10\n20 06 15 01 4 9 10\n```\n\n```output\n102\n204\n125\n```\n\n**First sample description:** Telescope observed one type 1 event between 26. February and 3. March. The only possible explanation is that type 1 events last 5 days."
+    },
+    {
      "day": 6,
      "number": 1,
      "paper_label": "Round 6",
