@@ -2,6 +2,131 @@
  "competition": "Croatian Open Competition in Informatics (COCI)",
  "years": [
   {
+   "year": 2011,
+   "problems": [
+    {
+     "day": 1,
+     "number": 1,
+     "paper_label": "Round 1",
+     "title": "Jabuke",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Mirko has recently discovered an old video game. The screen of this game is divided into $N$ columns. At the bottom of the screen, there is an $M$-columns-wide boat ($M < N$). The player can move this boat left or right during the game, but the boat must remain completely within the screen at all times. The boat initially occupies the **leftmost $M$** columns.\n\nApples are being dropped from the top of the screen. Each apple starts its fall at the top of one of the $N$ columns, falling straight down until it reaches the bottom of the screen. The next apple starts its fall just after the current one has reached the bottom.\n\nAn apple is said to be picked up if the boat is placed so that it occupies the column down which the apple is falling when it reaches the bottom. The goal of the game is to pick up all of the apples, in a way that **minimizes the distance** that the boat must travel.\n\n## Input\n\nThe first line of input contains two space separated integers $N$ and $M$ ($1 \\le M < N \\le 10$).\n\nThe second line of input contains an integer $J$ ($1 \\le J \\le 20$), the number of falling apples.\n\nThe following $J$ lines contain the column positions of those apples, in the order in which they will fall.\n\n## Output\n\nThe only line of output must contain the minimal distance that the boat must travel in order to pick up all the apples.\n\n## Examples\n\n### Example 1\n\n```input\n5 1\n3\n1\n5\n3\n```\n\n```output\n6\n```\n\n### Example 2\n\n```input\n5 2\n3\n1\n5\n3\n```\n\n```output\n4\n```"
+    },
+    {
+     "day": 1,
+     "number": 2,
+     "paper_label": "Round 1",
+     "title": "Matrix",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "As we all know, we live inside the **matrix** that is divided into $N$ rows and $N$ columns. An integer is written into each one of the $N \\times N$ cells of the matrix. In order to leave the matrix, we must find the **most beautiful square** (square-shaped sub-matrix) contained in the matrix.\n\nIf we denote by $A$ the sum of all integers on the main diagonal of some square, and by $B$ the sum of the other diagonal, then **the beauty** of that square is $A - B$.\n\n**Note:** The main diagonal of a square is the diagonal that runs from the top left corner to the bottom right corner.\n\n## Input\n\nThe first line of input contains the positive integer $N$ ($2 \\le N \\le 400$), the size of the matrix.\n\nThe following $N$ lines each contain $N$ integers in the range $[-1000, 1000]$, the elements of the matrix.\n\n## Output\n\nThe only line of output must contain the maximum beauty of a square found in the matrix.\n\n## Examples\n\n### Example 1\n\n```input\n2\n1 -2\n4 5\n```\n\n```output\n4\n```\n\n### Example 2\n\n```input\n3\n1 2 3\n4 5 6\n7 8 9\n```\n\n```output\n0\n```\n\n### Example 3\n\n```input\n3\n-3 4 5\n7 9 -2\n1 0 -6\n```\n\n```output\n5\n```"
+    },
+    {
+     "day": 1,
+     "number": 3,
+     "paper_label": "Round 1",
+     "title": "X3",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Mirko has recently been visited by **extraterrestrials** from planet **X3**, where everyone's name is a positive integer. **All residents** of the planet **know each other**. Two X3-ians calculate the strength of their friendship by converting their names to binary, aligning them one under the other, and writing a digit in each column: 0 if the two binary digits in that column are equal, 1 if they differ. The binary result is then converted back to the decimal system.\n\nFor example, the friendship value of 19 and 10 equals 25:\n\n$$\\begin{array}{ccc} 1\\,0\\,0\\,1\\,1 & = & 19 \\\\ 0\\,1\\,0\\,1\\,0 & = & 10 \\\\ \\hline 1\\,1\\,0\\,0\\,1 & = & 25 \\end{array}$$\n\nThe **value of a planet** in the Universe is defined as the sum of all friendship values. Mirko has asked you to help him compute the value of planet X3!\n\n## Input\n\nThe first line of input contains the positive integer $N$ (the number of residents of planet X3, $1 \\le N \\le 1\\,000\\,000$). The next $N$ lines contain the names of residents - positive integers smaller than $1\\,000\\,000$, one per line.\n\n## Output\n\nThe only line of output must contain the value of planet X3.\n\n## Examples\n\n### Example 1\n\n```input\n2\n19\n10\n```\n\n```output\n25\n```\n\n### Example 2\n\n```input\n3\n7\n3\n5\n```\n\n```output\n12\n```\n\n### Example 3\n\n```input\n5\n9\n13\n1\n9\n6\n```\n\n```output\n84\n```\n\n**Second sample description:** The friendship value of residents 1 and 2 equals 4, for residents 1 and 3 it equals 2, and for residents 2 and 3 it equals 6. The solution is $4 + 2 + 6 = 12$."
+    },
+    {
+     "day": 1,
+     "number": 4,
+     "paper_label": "Round 1",
+     "title": "Ples",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "There are $N$ boys and $N$ girls at a dance party. We have measured their heights. Each boy will only dance with a girl and each girl will only dance with a boy. Everyone will dance with at most one partner.\n\nEach boy either wants to dance with a girl who is taller than him or with a girl who is shorter than him. Analogously, each girl either wants to dance with a boy who is taller than her or with a boy who is shorter than her. Boys and girls who are equally tall never want to dance with each other.\n\nRespecting everyone's wishes, determine the maximum number of dancing pairs that can be achieved.\n\n## Input\n\nThe first line of input contains the positive integer $N$ ($1 \\le N \\le 100\\,000$).\n\nThe second line of input contains $N$ integers whose absolute values are between 1500 and 2500, inclusive. Their absolute values represent the height of each of the boys in millimetres. Positive height values indicate boys who want to dance with girls taller than themselves, while negative height values indicate boys who want to dance with girls shorter than themselves.\n\nThe third line of input contains $N$ integers whose absolute values are between 1500 and 2500, inclusive. Their absolute values represent the height of each of the girls in millimetres. Positive height values indicate girls who want to dance with boys taller than themselves, while negative height values indicate girls who want to dance with boys shorter than themselves.\n\n## Output\n\nThe only line of output must contain the maximum number of dancing pairs.\n\n## Examples\n\n### Example 1\n\n```input\n1\n-1800\n1800\n```\n\n```output\n0\n```\n\n### Example 2\n\n```input\n1\n1700\n-1800\n```\n\n```output\n1\n```\n\n### Example 3\n\n```input\n2\n-1800 -2200\n1900 1700\n```\n\n```output\n2\n```"
+    },
+    {
+     "day": 1,
+     "number": 5,
+     "paper_label": "Round 1",
+     "title": "Sort",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Consider the following sorting algorithm:\n\n```pseudocode\nreverse-sort(sequence a)\n    while (a is not in nondecreasing order)\n        partition a into the minimum number of slopes\n        for every slope with length greater than one\n            reverse(slope)\n```\n\nA slope is defined as a decreasing consecutive subsequence of **a**. The reverse procedure will reverse the order of the elements in a slope.\n\nYou are given a permutation of the first $N$ natural numbers whose slopes all have even length when partitioned for the first time. Determine the total number of times reverse is called to reverse-sort the given permutation.\n\n## Input\n\nThe first line of input contains the positive integer $N$ ($2 \\le N \\le 100\\,000$).\n\nThe second line of input contains a permutation of the first $N$ natural numbers that needs to be sorted.\n\n## Output\n\nThe only line of output must contain the number of times that reverse is called.\n\n## Examples\n\n### Example 1\n\n```input\n2\n2 1\n```\n\n```output\n1\n```\n\n### Example 2\n\n```input\n4\n4 3 2 1\n```\n\n```output\n1\n```\n\n### Example 3\n\n```input\n4\n3 1 4 2\n```\n\n```output\n3\n```"
+    },
+    {
+     "day": 1,
+     "number": 6,
+     "paper_label": "Round 1",
+     "title": "Skakac",
+     "task_type": "batch",
+     "time_limit": "1.5 second",
+     "memory_limit": "64 MB",
+     "problem": "Mirko and Slavko are playing the popular new game known as The Knight. Mirko places a knight chess piece on an $N \\times N$ chessboard and, with Slavko blindfolded, makes **exactly $T$** moves, one per second. After that, Slavko must guess the final position of the knight in order to win.\n\nThe chessboard in this game is unusual in that each square is blocked part of the time. More precisely, each square is labelled by a positive integer. A square labelled by number $K$ is **clear** only during seconds $0, K, 2K, 3K$ etc; it is **blocked** at all other times. The knight can, of course, occupy a square only while the square is clear.\n\nThe game begins in second 0. In each second Mirko **must make** a move (selecting one of 8 possible L-shaped moves, two squares in one direction and one square in the other, as per standard chess rules), provided that the destination square is **not blocked during the next second**. Help Slavko by writing a program to calculate all possible squares that the knight can possibly occupy after $T$ moves.\n\n## Input\n\nThe first line of input contains two positive integers, $N$ ($3 \\le N \\le 30$), the size of the chessboard, and $T$ ($1 \\le T \\le 1\\,000\\,000$), the number of moves that Mirko will make.\n\nThe second line of input contains two positive integers $X$ and $Y$ ($1 \\le X, Y \\le N$), the row and column indices of the knight's starting square selected by Mirko.\n\nThe next $N$ lines each contain $N$ positive integers less than $10^{9}$ (one billion), the values of $K$ for the corresponding chessboard squares.\n\n## Output\n\nThe first line of output must contain the nonnegative integer $M$, the number of squares that the knight can possibly occupy after $T$ moves.\n\nThe next $M$ lines must contain indices of those squares, sorted by increasing row index, with cells in the same row sorted by increasing column index.\n\n## Scoring\n\nIn test cases worth **40%** of total points, the number of moves $T$ will be less than $50\\,000$.\n\n## Examples\n\n### Example 1\n\n```input\n3 2\n1 1\n1 3 2\n2 3 2\n3 1 1\n```\n\n```output\n2\n1 1\n1 3\n```\n\n### Example 2\n\n```input\n5 6\n2 3\n4 5 3 2 3\n1 3 4 3 1\n3 4 1 3 2\n4 4 2 1 3\n4 6 4 9 2\n```\n\n```output\n5\n1 4\n2 1\n2 5\n4 5\n5 2\n```\n\n### Example 3\n\n```input\n3 3\n2 2\n3 6 4\n2 2 5\n1 3 7\n```\n\n```output\n0\n```\n\n**First sample description:** The state of the chessboard in each second is shown below. Clear cells are denoted by '.', blocked cells by '#', and possible locations of the knight by 'K'.\n\n```grid\n0th second   1st second   2nd second\n\n   K..          .##          K#K\n   ...          ###          .#.\n   ...          #K.          #..\n```"
+    },
+    {
+     "day": 2,
+     "number": 1,
+     "paper_label": "Round 2",
+     "title": "Najboljih 5",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "The Croatian version of this contest has the following rules: “*Each round of the contest consists of 8 tasks with different point values. Every contestant may solve any of the tasks they choose. However, the contestant's final score will be the sum of points earned on any 5 tasks such that this sum is maximized.*”\n\nSince the organizers were busy coming up with interesting problems for the contest (and translating them), they've simply forgotten to solve the problem of determining the points scored by each contestant. Now they are kindly asking you to do it for them.\n\nWrite a program that, given the number of points earned by a contestant on each task, determines the total amount of points scored by that contestant, as well as the sorted list of the 5 problems counting towards that score. No contestant will ever score the same amount of points on two different problems.\n\n## Input\n\nInput consists of 8 lines. Each line of input contains a single positive integer $X$ ($0 \\le X \\le 150$), where the number $X$ in row $i$ denotes the number of points earned by the contestant on problem $i$. All 8 numbers $X$ will be distinct.\n\n## Output\n\nThe first line of output must contain the total amount of points scored by the contestant.\n\nThe second line of output must contain indices of the 5 problems counting towards the total score, **sorted in ascending order**, separated by single spaces. Problem indices are positive integers from 1 to 8, inclusive.\n\n## Scoring\n\nIf only the first line of output (the total amount of points) is correct, the solution will be awarded **40% of points** on that test case (even if the second line of output is not present).\n\n## Examples\n\n### Example 1\n\n```input\n20\n30\n50\n48\n33\n66\n0\n64\n```\n\n```output\n261\n3 4 5 6 8\n```\n\n### Example 2\n\n```input\n20\n0\n50\n80\n77\n110\n56\n48\n```\n\n```output\n373\n3 4 5 6 7\n```\n\n### Example 3\n\n```input\n20\n30\n50\n80\n110\n11\n0\n85\n```\n\n```output\n355\n2 3 4 5 8\n```"
+    },
+    {
+     "day": 2,
+     "number": 2,
+     "paper_label": "Round 2",
+     "title": "Okret",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Mirko has been learning to drive, but he still **cannot make a U-turn in a narrow street**. That's why he has decided to go practice in a town where U-turns are forbidden everywhere. This prohibition can be marked by the following sign:\n\nhttps://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/coci-2011-2-2-fig1.png\n\nMirko has soon figured out that his ideal town must not contain dead-end streets, since it is impossible to exit such a street without a U-turn (let us assume that Mirko cannot drive in reverse either). Write a program to analyse a town map and determine whether the town is suitable for Mirko (i.e. whether the town has any dead-end streets).\n\nThe town map is a table with $R \\times C$ cells, where each cell is a building segment (denoted by X) or a road surface (denoted by a dot). From a road surface cell, Mirko can move to any of the surrounding four cells (up, down, left, or right), provided that it is also a road surface (i.e. not a building).\n\nFormally, we will determine that a town is free of dead-end streets if, starting from any road surface cell and going in any of the possible directions, we can return to the starting cell without making a 180 degrees turn (changing our direction to the opposite one).\n\n## Input\n\nThe first line of input contains the positive integers $R$ and $C$ ($3 \\le R, C \\le 10$), the dimensions of the town.\n\nEach of the next $R$ lines contains $C$ characters, with each character either “X” or “.”. These $R \\times C$ characters represent the town map as described in the text above. At least two cells will be road surfaces, and all road surfaces will be connected (i.e. mutually reachable).\n\n## Output\n\nThe first and only line of output must contain 0 if the town is free of dead-end streets, otherwise it must contain 1.\n\n## Examples\n\n### Example 1\n\n```input\n4 3\nXXX\nX.X\nX.X\nXXX\n```\n\n```output\n1\n```\n\n### Example 2\n\n```input\n5 5\nXX.XX\nX...X\n.....\nX...X\nXX.XX\n```\n\n```output\n1\n```\n\n### Example 3\n\n```input\n3 9\n...XXX...\n.X.....X.\n...XXX...\n```\n\n```output\n0\n```"
+    },
+    {
+     "day": 2,
+     "number": 3,
+     "paper_label": "Round 2",
+     "title": "Zadaća",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Mirko has received a homework assignment to compute the **greatest common divisor** of the two positive integers $A$ and $B$. Since the numbers are quite large, the teacher provided him with $N$ smaller integers whose product is $A$, and $M$ integers with product $B$.\n\nMirko would like to verify his result, so he has asked you to write a program to solve his problem.\n\nIf the result is more than 9 digits long, output only the **last 9** digits.\n\n## Input\n\nThe first line of input contains the positive integer $N$ ($1 \\le N \\le 1000$).\n\nThe second line of input contains $N$ space-separated positive integers less than $1\\,000\\,000\\,000$, whose product is the number $A$.\n\nThe third line of input contains the positive integer $M$ ($1 \\le M \\le 1000$).\n\nThe fourth line of input contains $M$ space-separated positive integers less than $1\\,000\\,000\\,000$, whose product is the number $B$.\n\n## Output\n\nThe first and only line of output must contain the greatest common divisor of numbers $A$ and $B$. If the result is more than 9 digits long, output only the last (least significant) 9 digits.\n\n## Examples\n\n### Example 1\n\n```input\n3\n2 3 5\n2\n4 5\n```\n\n```output\n10\n```\n\n### Example 2\n\n```input\n4\n6 2 3 4\n1\n1\n```\n\n```output\n1\n```\n\n### Example 3\n\n```input\n3\n358572 83391967 82\n3\n50229961 1091444 8863\n```\n\n```output\n000012028\n```\n\n**First sample description:** The greatest common divisor of numbers $A = 30$ and $B = 20$ equals 10."
+    },
+    {
+     "day": 2,
+     "number": 4,
+     "paper_label": "Round 2",
+     "title": "Kompići",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "After successfully solving his math homework from the previous task, Mirko has become bored, so he has made a list of $N$ large integers. On the list there are some pairs of numbers that he likes, and some pairs he doesn't like.\n\nMirko has named the pairs that he likes **pals**. Two numbers are **pals** if they have **at least one digit in common** (not necessarily in the same position).\n\nHelp Mirko count how many pairs of numbers in his list are pals.\n\n## Input\n\nThe first line of input contains the positive integer $N$ ($1 \\le N \\le 1\\,000\\,000$).\n\nEach of the next $N$ lines contains a positive integer from the range $[1, 10^{18}]$, a number from Mirko's list. No two numbers in the list will be equal.\n\n## Output\n\nThe first and only line of output must contain the number of pairs that are pals.\n\n## Examples\n\n### Example 1\n\n```input\n3\n4\n20\n44\n```\n\n```output\n1\n```\n\n### Example 2\n\n```input\n4\n32\n51\n123\n282\n```\n\n```output\n4\n```"
+    },
+    {
+     "day": 2,
+     "number": 5,
+     "paper_label": "Round 2",
+     "title": "Funkcija",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "128 MB",
+     "problem": "Mirko has written the following function:\n\n```C++\nint fun() {\n  int ret = 0;\n  for (int a = X1; a <= Y1; ++a)\n    for (int b = X2; b <= Y2; ++b)\n      ...\n        for (int <N-th> = XN; <N-th> <= YN; ++<N-th>)\n          ret = (ret + 1) % 1000000007;\n  return ret;\n}\n```\n\n```Pascal\nfunction fun: longint;\nvar\n  ret: longint;\n  a, b, ... , y, z: longint;\nbegin\n  ret := 0;\n  for a := X1 to Y1 do\n    for b := X2 to Y2 do\n      ...\n        for <N-th> := XN to YN do\n          ret := (ret + 1) mod 1000000007;\n  fun := ret;\nend;\n```\n\n*<N-th>* denotes the $N^{\\text{th}}$ lowercase letter of the English alphabet. Each $X_i$ and $Y_i$ denotes either a positive integer less than or equal to $100\\,000$ or a name of a variable that some outer loop iterates over. For example, $X_3$ can be either a, b, or an integer literal. At least one of $X_i$ and $Y_i$ will be an integer literal (i.e. not a variable name) for every $i$.\n\nCompute the return value of the function.\n\n## Input\n\nThe first line of input contains the positive integer $N$ ($1 \\le N \\le 26$).\n\nFor the next $N$ lines, the $i^{\\text{th}}$ line contains $X_i$ and $Y_i$, separated with a space. If $X_i$ and $Y_i$ are both integer literals, then $X_i \\le Y_i$.\n\n## Output\n\nThe first and only line of output must contain the return value of the function.\n\n## Examples\n\n### Example 1\n\n```input\n2\n1 2\na 3\n```\n\n```output\n5\n```\n\n### Example 2\n\n```input\n3\n2 3\n1 2\n1 a\n```\n\n```output\n10\n```\n\n### Example 3\n\n```input\n3\n1 2\na 3\n1 b\n```\n\n```output\n11\n```"
+    },
+    {
+     "day": 2,
+     "number": 6,
+     "paper_label": "Round 2",
+     "title": "Raspored",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "128 MB",
+     "problem": "Mirko's pizza place is the best one in town. It is so good that all town residents eat pizza for lunch every day. Mirko's delivery service is so fast that the delivery time is negligible. The problem is baking the pizzas, since all residents have their own favourite topping combination, so baking pizzas for two different residents doesn't always take the same amount of time. Mirko only has one small baking oven with a capacity of a single pizza at a time, so good scheduling is extremely important and must be determined **before the day starts**.\n\nFor each of the $N$ town residents (denoted by numbers from 1 to $N$) we know the baking duration for their favourite pizza ($T_i$), as well as the moment in the day when they plan on having lunch ($L_i$). If a resident receives their pizza $K$ moments before the planned lunch time, Mirko is rewarded with a tip of $K$ kunas¹. On the other hand, if the pizza is delivered $K$ moments late (after the planned lunch time), Mirko must pay the resident $K$ kunas (because of his timely delivery insurance policy). If the pizza is delivered precisely on time, Mirko won't get a tip, but he doesn't have to pay anything either.\n\nMirko would like to know the **maximum total tip** (including all insurance payouts as negative tips) that can be earned in a day if pizzas are baked in an optimal order. Notice that Mirko can earn a negative total tip (if he has to pay out more insurance than the amount of tips he receives).\n\nSince residents sometimes change their favourite pizza toppings, as well as their preferred lunch time, Mirko's schedule must be adapted in order to keep earning optimal tip amounts. Write a program to compute the maximum total tip for the beginning requirements, as well as after each change.\n\n***Note:*** In this town, the day starts at the moment $t = 0$ and lasts much longer than the time needed to bake pizzas for all residents. The schedule, including the adaptations, must be determined before the day starts.\n\n## Input\n\nThe first line of input contains two positive integers $N$ and $C$, the number of residents and the number of pizza requirement changes, respectively.\n\nEach of the next $N$ lines contains two positive integers: $L_i$, the moment when resident $i$ plans on having lunch, and $T_i$, the time needed to bake the pizza for resident $i$.\n\nEach of the next $C$ lines contains three positive integers: $R$ (the index of a resident), $L$ (the new moment when resident $R$ plans on having lunch), and $T$ (the time needed to bake resident $R$'s new favourite pizza).\n\n***Constraints:***\n\n$1 \\le N, C \\le 200\\,000$,\n\n$0 \\le L_i, L \\le 100\\,000$,\n\n$1 \\le T_i, T \\le 100\\,000$,\n\n$1 \\le R \\le N$.\n\n## Output\n\nThe first line of output must contain the maximum total tip for the beginning requirements of the residents.\n\nFor each of the $C$ changes, the output must contain an additional line of output containing the new maximum total tip value after the change.\n\n## Scoring\n\nIn test cases worth 50% of points, the following constraint holds: $1 \\le T_i, T \\le 1000$.\n\n## Examples\n\n### Example 1\n\n```input\n3 2\n10 2\n6 5\n4 3\n1 6 1\n3 0 10\n```\n\n```output\n3\n2\n-11\n```\n\n### Example 2\n\n```input\n4 2\n3 2\n0 3\n4 3\n4 1\n3 0 4\n1 4 5\n```\n\n```output\n-8\n-13\n-18\n```\n\n### Example 3\n\n```input\n6 7\n17 5\n26 4\n5 5\n12 4\n8 1\n18 2\n3 31 3\n4 11 5\n4 19 3\n5 23 2\n6 15 1\n5 19 1\n3 10 4\n```\n\n```output\n27\n59\n56\n69\n78\n81\n82\n58\n```\n\n**First sample description:** The optimal pizza baking schedule is (1, 3, 2). That way, the first pizza will be finished at the moment $t = 2$, the third one at $t = 5$, and the second one at $t = 10$. The first pizza will be delivered 8 moments early (8 kunas tip), the second one will be 1 moment late (-1 kuna), and the third one will be 4 moments late (-4 kunas), so the total tip is 3 kunas. When the first resident changes requirements, the optimal schedule remains unchanged, while the tips change to 5, 0, and -3, respectively. After the second requirement change, the optimal schedule is (1, 2, 3), while the tips are 5, 0, and -16, respectively.\n\n¹ Kuna - Croatian currency. 1 kuna = 100 lipa(s); 1 € = about 7.5 kuna(s). Come to Croatia! :)"
+    }
+   ]
+  },
+  {
    "year": 2012,
    "problems": [
     {
