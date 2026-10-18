@@ -2,6 +2,191 @@
  "competition": "Croatian Open Competition in Informatics (COCI)",
  "years": [
   {
+   "year": 2008,
+   "problems": [
+    {
+     "day": 1,
+     "number": 1,
+     "paper_label": "Round 1",
+     "title": "Skocimis",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Three kangaroos are playing in the desert. They are playing on a number line, each occupying a different integer. In a single move, one of the outer kangaroos jumps into the space between the other two. At no point may two kangaroos occupy the same position.\n\nHelp them play as long as possible.\n\n## Input\n\nThree integers $A$, $B$ and $C$ ($0 < A < B < C < 100$), the initial positions of the kangaroos.\n\n## Output\n\nOutput the largest number of moves the kangaroos can make.\n\n## Examples\n\n### Example 1\n\n```input\n2 3 5\n```\n\n```output\n1\n```\n\n### Example 2\n\n```input\n3 5 9\n```\n\n```output\n3\n```"
+    },
+    {
+     "day": 1,
+     "number": 2,
+     "paper_label": "Round 1",
+     "title": "Ptice",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Adrian, Bruno and Goran wanted to join the bird lovers' club. However, they did not know that all applicants must pass an entrance exam. The exam consists of $N$ questions, each with three possible answers: A, B and C.\n\nUnfortunately, they couldn't tell a bird from a whale so they are trying to guess the correct answers. Each of the three boys has a theory of what set of answers will work best:\n\nAdrian claims that the best sequence is: A, B, C, A, B, C, A, B, C, A, B, C ...\n\nBruno is convinced that this is better: B, A, B, C, B, A, B, C, B, A, B, C ...\n\nGoran laughs at them and will use this sequence: C, C, A, A, B, B, C, C, A, A, B, B ...\n\nWrite a program that, given the correct answers to the exam, determines who of the three was right – **whose sequence contains the most correct answers**.\n\n## Input\n\nThe first line contains an integer $N$ ($1 \\le N \\le 100$), the number of questions on the exam.\n\nThe second line contains a string of $N$ letters 'A', 'B' and 'C'. These are, in order, the correct answers to the questions in the exam.\n\n## Output\n\nOn the first line, output $M$, the largest number of correct answers one of the three boys gets.\n\nAfter that, output the names of the boys (in alphabetical order) whose sequences result in $M$ correct answers.\n\n## Examples\n\n### Example 1\n\n```input\n5\nBAACC\n```\n\n```output\n3\nBruno\n```\n\n### Example 2\n\n```input\n9\nAAAABBBBB\n```\n\n```output\n4\nAdrian\nBruno\nGoran\n```"
+    },
+    {
+     "day": 1,
+     "number": 3,
+     "paper_label": "Round 1",
+     "title": "Mravojed",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Archeologists recently found the remains of Greco-Roman architecture. The location can be modeled as a grid of $R \\cdot C$ square cells. For each of the cells, archeologists have determined if some building was there or if the cell has always been empty.\n\nAfter examining the artifacts in detail, they concluded that the location contains **two buildings** from different periods in time, and that the **floor plans of both buildings are of square shape**.\n\nBecause the buildings were from different periods in time, it is possible that their floor plans overlap. Determine the possible location and size (length of the side of the square occupied by the floor plan) for each building.\n\n## Input\n\nThe first line contains two integers $R$ ($1 \\le R \\le 100$) and $C$ ($1 \\le C \\le 100$), the size of the location.\n\nEach of the next $R$ lines contains a strong of $C$ characters '.' (dot) or 'x' (lowercase letter). The character '.' means that nothing was found in that cell, while 'x' indicates that there was a building there.\n\n## Output\n\nFor each of the two buildings, output on a single line the row and column of its upper left corner, and the size of the building.\n\n**Note**: The test data will guarantee that a solution always exists, although it may not necessarily be unique.\n\n## Examples\n\n### Example 1\n\n```input\n3 3\nxx.\nxxx\n...\n```\n\n```output\n1 1 2\n2 3 1\n```\n\n### Example 2\n\n```input\n4 6\nxx....\nxx.xxx\n...xxx\n...xxx\n```\n\n```output\n1 1 2\n2 4 3\n```\n\n### Example 3\n\n```input\n5 5\n.....\nxxx..\nxxxx.\nxxxx.\n.xxx.\n```\n\n```output\n2 1 3\n3 2 3\n```"
+    },
+    {
+     "day": 1,
+     "number": 4,
+     "paper_label": "Round 1",
+     "title": "Jez",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Luka found a very unusual game board in his attic. Surprisingly, it consists of $R \\cdot C$ square cells. The rows are numbered $0$ to $R-1$ top to bottom and the columns $0$ to $C-1$ left to right.\n\nWhat makes the board unusual is the way in which the cells are coloured. Each cell is either grey or white:\n\n• white, if the row and column numbers of the cell, when represented in binary, have at least one digit 1 in the same position. For example, the cell $(4, 5)$ would be white.\n• grey, otherwise. For example, the cell $(2, 5)$ would be grey.\n\nThe following image shows a board of size $10 \\cdot 10$.\n\nhttps://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/coci-2008-1-4-fig1.png\n\nLuka's hedgehog likes walking on this unusual board and does it in an unusual way. The hedgehog starts his walk in the cell $(0, 0)$ and continues in the zig-zag pattern as in the second image above. While the hedgehog is walking, Luka counts **how many grey squares** it visited.\n\nAfter visiting $K$ squares, the hedgehog gets tired and falls asleep. Luka then goes to bed too, happy that he was able count the grey squares.\n\nKnowing the dimensions of the board and the number $K$ beforehand, however, it is possible to write a program that calculates the result faster. This is your task.\n\n## Input\n\nThe first line contains two integers $R$ ($1 \\le R \\le 1\\,000\\,000$) and $C$ ($1 \\le C \\le 1\\,000\\,000$), the dimensions of the board.\n\nThe second line contains the integer $K$ ($1 \\le K \\le R \\cdot C$), the total number of squares the hedgehog visits. Note that this number may not fit in a 32-bit integer.\n\n## Output\n\nOutput the number of grey cells the hedgehog visits.\n\n## Grading\n\nIn test cases worth 50% of points, $K$ will be less than $1\\,000\\,000$.\n\n## Examples\n\n### Example 1\n\n```input\n10 10\n6\n```\n\n```output\n5\n```\n\n### Example 2\n\n```input\n3 5\n11\n```\n\n```output\n8\n```\n\n### Example 3\n\n```input\n10 10\n100\n```\n\n```output\n51\n```"
+    },
+    {
+     "day": 1,
+     "number": 5,
+     "paper_label": "Round 1",
+     "title": "Skakavac",
+     "task_type": "batch",
+     "time_limit": "4 seconds",
+     "memory_limit": "35 MB",
+     "problem": "A grasshopper is in a flower field. The field contains $N \\cdot N$ flowers arranged in $N$ rows and $N$ columns. For each flower in the field, we know how many petals it has.\n\nThe grasshopper is initially on the flower in row $R$ and column $C$. Its goal is to visit as many flowers as possible while obeying these rules:\n\n• 1. It can only jump into an adjacent row or column. If it jumps into the adjacent row, it must jump at least two columns, and if it jumps into the adjacent column, it must jump at least two rows. In other words, it can jump from flower $(r_1, c_1)$ to flower $(r_2, c_2)$ if:\n◦ $|r_1-r_2| = 1$ and $|c_1-c_2| > 1$ or\n◦ $|c_1-c_2| = 1$ and $|r_1-r_2| > 1$\n• 2. The number of petals on the next flower must be strictly larger than the number of petals on the previous flower.\n\nWrite a program that calculates the largest number of flowers the grasshopper can visit.\n\n## Input\n\nThe first line contains the integer $N$ ($1 \\le N \\le 1500$), the size of the field.\n\nThe second line contains integers $R$ ($1 \\le R \\le N$) and $C$ ($1 \\le C \\le N$), the grasshopper's initial position.\n\nThe next $N$ lines contain $N$ positive integers separated by spaces, each less than $1\\,000\\,000$, the numbers of petals on the flowers.\n\n## Output\n\nOutput a single integer – the largest number of flowers the grasshopper can visit.\n\n## Grading\n\nIn test data worth 50% of points, $N$ will be at most $100$.\n\nIn test data worth 80% of points, $N$ will be at most $1000$.\n\n## Examples\n\n### Example 1\n\n```input\n4\n1 1\n1 2 3 4\n2 3 4 5\n3 4 5 6\n4 5 6 7\n```\n\n```output\n4\n```\n\n### Example 2\n\n```input\n5\n3 3\n20 16 25 17 12\n11 13 13 30 17\n15 29 10 26 11\n27 19 14 24 22\n23 21 28 18 13\n```\n\n```output\n21\n```"
+    },
+    {
+     "day": 1,
+     "number": 6,
+     "paper_label": "Round 1",
+     "title": "Krtica",
+     "task_type": "batch",
+     "time_limit": "3 seconds",
+     "memory_limit": "128 MB",
+     "problem": "Moles are tidy and hard-working animals. Our mole likes to keep its underground residence in utmost order, so that everyone living there knows where to find things.\n\nTo achieve this, the mole connected rooms with tunnels so that there is a single unique way to get from one room to any other room. The distance between two rooms is the number of halls passed on the way from one to the other.\n\nDespite all the effort, some of the mole's guests are complaining that it takes too long to walk between certain pairs of rooms.\n\nThe mole decided to reconstruct her residence, closing one tunnel and opening a new one, so that the **distance between the farthest two rooms** is the **smallest possible**, but so that it is still possible to reach every room from every other room.\n\nWrite a program which determines the distance between the farthest two rooms after reconstruction, which tunnel to close and which to open.\n\n## Input\n\nThe first line contains an integer $N$ ($1 \\le N \\le 300\\,000$), the number of rooms. The rooms are numbered $1$ to $N$.\n\nEach of the next $N-1$ lines contains two integers, the numbers of rooms a tunnel connects.\n\n## Output\n\nOutput on separate lines, in order:\n\n• The distance between the two farthest rooms after reconstruction.\n• A pair of integers representing a previously existing tunnel, which should be closed.\n• A pair of integers, the rooms between which a new tunnel should be opened.\n\n**Note**: The solution will not necessarily be unique. Output any reconstruction plan which achieves the smallest distance between the farthest two rooms.\n\n## Grading\n\nIn test cases worth 40% of points, $N$ will be less than $30$.\n\nIn test cases worth 70% of points, $N$ will be less than $3000$.\n\nAdditionally, if the first line of your output is correct and the other two are missing or incorrect, you will receive about 70% of the value of that test case.\n\n## Examples\n\n### Example 1\n\n```input\n4\n1 2\n2 3\n3 4\n```\n\n```output\n2\n3 4\n4 2\n```\n\n### Example 2\n\n```input\n7\n1 3\n2 3\n2 7\n4 3\n7 5\n3 6\n```\n\n```output\n3\n2 3\n7 3\n```"
+    },
+    {
+     "day": 2,
+     "number": 1,
+     "paper_label": "Round 2",
+     "title": "Kornislav",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Kornislav the turtle never has anything interesting to do. Since he's going to live for three hundred years, he keeps trying to find way to kill time. This weekend he started playing \"enclose the largest rectangle\".\n\nTo start with, Kornislav needs four positive integers. He tries to enclose a rectangle by moving in one direction, then turning 90 degrees, then walking in the new direction etc. Kornislav makes a total of three 90-degree turns and walks four segments.\n\nWhen walking in some direction, the number of steps he takes must be equal to one of the four chosen integers and each integer must be used exactly once. Depending on the order in which Kornislav uses the integers, his walk will make various shapes, some of which don't contain enclosed rectangles.\n\nWrite a program that calculates the largest rectangle the turtle can enclose with its walk.\n\n## Input\n\nThe first line contains four positive integers $A$, $B$, $C$ and $D$ ($0 < A, B, C, D < 100$), the four chosen integers.\n\n## Output\n\nOutput the largest area.\n\n## Examples\n\n### Example 1\n\n```input\n1 2 3 4\n```\n\n```output\n3\n```\n\n### Example 2\n\n```input\n4 4 3 4\n```\n\n```output\n12\n```\n\nIn the first example, one possible way for Kornislav to enclose a rectangle of area 3:\n\n• Make 4 steps forward;\n• Turn right;\n• Make 1 step forward;\n• Turn right;\n• Make 3 steps forward;\n• Turn right;\n• Make 2 steps forward."
+    },
+    {
+     "day": 2,
+     "number": 2,
+     "paper_label": "Round 2",
+     "title": "Reseto",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "The sieve of Eratosthenes is a famous algorithm to find all prime numbers up to $N$. The algorithm is:\n\n• 1. Write down all integers between $2$ and $N$, inclusive.\n• 2. Find the **smallest** number not already crossed out and call it $P$; $P$ is prime.\n• 3. Cross out $P$ and all its multiples that **aren't already crossed out**.\n• 4. If not all numbers have been crossed out, go to step 2.\n\nWrite a program that, given $N$ and $K$, find the $K$-th integer to be crossed out.\n\n## Input\n\nThe integers $N$ and $K$ ($2 \\le K < N \\le 1000$).\n\n## Output\n\nOutput the $K$-th number to be crossed out.\n\n## Examples\n\n### Example 1\n\n```input\n7 3\n```\n\n```output\n6\n```\n\n### Example 2\n\n```input\n15 12\n```\n\n```output\n7\n```\n\n### Example 3\n\n```input\n10 7\n```\n\n```output\n9\n```\n\nIn the third example, we cross out, in order, the numbers 2, 4, 6, 8, 10, 3, 9, 5 and 7. The seventh number is 9."
+    },
+    {
+     "day": 2,
+     "number": 3,
+     "paper_label": "Round 2",
+     "title": "Perket",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "\"Perket\" is a widely known and delicious meal. For perket to be what it is, cooks must carefully choose the ingredients to get the fullest taste possible while keeping the meal traditional.\n\nYou have $N$ ingredients at your disposal. For each we know its sourness $S$ and bitterness $B$. When using multiple ingredients, the total sourness is the **product** of sourness amounts of all ingredients, while the total bitterness is the **sum** of bitterness amounts of all ingredients.\n\nAs everyone knows, perket is supposed to be neither sour nor bitter; we want to choose the ingredients so that the absolute difference between sourness and bitterness is the smallest.\n\nAlso, it is necessary to use at least one ingredient; you can't serve water as the main course.\n\n## Input\n\nThe first line contains the integer $N$ ($1 \\le N \\le 10$), the number of ingredients at our disposal.\n\nEach of the next $N$ lines contains two integers separated by a space, the sourness and bitterness of each ingredient.\n\nThe input data will be such that, if we make a meal with all ingredients, both the sourness and bitterness will be less than $1\\,000\\,000\\,000$.\n\n## Output\n\nOutput the smallest possible difference between sourness and bitterness.\n\n## Examples\n\n### Example 1\n\n```input\n1\n3 10\n```\n\n```output\n7\n```\n\n### Example 2\n\n```input\n2\n3 8\n5 8\n```\n\n```output\n1\n```\n\n### Example 3\n\n```input\n4\n1 7\n2 6\n3 8\n4 9\n```\n\n```output\n1\n```\n\nIn the third example, we choose the last three ingredients. The total sourness is then $2 \\cdot 3 \\cdot 4=24$ and bitterness is $6+8+9=23$. The difference is 1."
+    },
+    {
+     "day": 2,
+     "number": 4,
+     "paper_label": "Round 2",
+     "title": "Svada",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "The local zoo has acquired a large open garden in which animals may freely move as in their natural habitats and entertain visitors with their usual shenanigans.\n\nThe most popular animals are monkeys. With their climbing and jumping and other skills, they delight old and young visitors alike.\n\nOne species of monkey has specialized in climbing tall trees and picking off coconuts. Another species has specialized in breaking them open.\n\nThere are $N$ monkeys of the first type (numbered $1$ through $N$) and $M$ monkeys of the second type (numbered $1$ through $M$).\n\nMonkey $k$ of the first type takes $A_k$ seconds to find a good spot on the tree, after which it picks off its first coconut. After that the monkey produces a new coconut every $B_k$ seconds.\n\nMonkey $k$ of the second type takes $C_k$ seconds to find a good tool for opening the coconuts, after which it opens its first coconut. After that the monkey opens another coconut every $D_k$ seconds.\n\nUnfortunately, the second type of monkey is extremely aggressive so the two types may not be in the garden at the same time. Therefore, zoo keepers will chase away the first type of monkeys as soon as they have picked off all the coconuts. Similarly, if monkeys of the same type stay too long after opening all the coconuts, fights will ensue. Because of that, zoo keepers will send them away as soon as they have opened all the coconuts.\n\nThe zoo keepers first arrive immediately after all coconuts have been picked, and again immediately after the monkeys open them all. The time needed for monkeys to enter or leave the garden is also negligibly small.\n\nTomislav especially likes the second type of monkey, but can never guess when to arrive in order to see them. Help him calculate the time when the second type arrives if he knows the **total time that monkeys spent** in the garden, but **does not know the number of coconuts** in the garden.\n\n## Input\n\nThe first line contains the integer $T$ ($1 \\le T \\le 1\\,000\\,000\\,000$), the total time that monkeys spent in the garden, in seconds.\n\nThe next line contains the integer $N$ ($1 \\le N \\le 100$), the number of monkeys of the first type.\n\nEach of the following $N$ lines contains two integers $A_k$ and $B_k$ ($1 \\le A_k, B_k \\le 1\\,000\\,000\\,000$), how fast monkey $k$ of the first type is.\n\nThe next line contains the integer $M$ ($1 \\le M \\le 100$), the number of monkeys of the second type.\n\nEach of the following $M$ lines contains two integers $C_k$ and $D_k$ ($1 \\le C_k, D_k \\le 1\\,000\\,000\\,000$), how fast monkey $k$ of the second type is.\n\n## Output\n\nOutput the number of seconds between the arrival of the first type of monkeys and the arrival of the second type.\n\n## Examples\n\n### Example 1\n\n```input\n12\n1\n3 1\n1\n5 1\n```\n\n```output\n5\n```\n\n### Example 2\n\n```input\n20\n2\n3 2\n1 3\n3\n3 1\n4 1\n5 1\n```\n\n```output\n13\n```\n\nIn the first example, it turns out there are three coconuts in the garden:\n\n• The monkey of the first type picks off the first coconut 3 seconds after the garden was opened.\n• The monkey picks off the second coconut 4 seconds after the garden is opened.\n• The monkey picks off the third coconut 5 seconds after the garden is opened.\n• Zoo keepers come in and escort the monkey out. The monkey of the second type arrives. The output is 5 because this is when Tomislav wants to arrive.\n• The monkey of the second type opens the first coconut 10 seconds after the garden was opened.\n• The monkey opens the second coconut 11 seconds after the garden was opened.\n• The monkey opens the third coconut 12 seconds after the garden was opened.\n• Zoo keepers come in and escort the monkey out."
+    },
+    {
+     "day": 2,
+     "number": 5,
+     "paper_label": "Round 2",
+     "title": "Setnja",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "In an infinite binary tree:\n\n• Each node has exactly two children – a left and a right child.\n• If a node is labeled with the integer $X$, then its left child is labeled $2 \\cdot X$ and its right child $2 \\cdot X+1$.\n• The root of the tree is labeled 1.\n\nA **walk** on the binary tree starts in the root. Each step in the walk is either a jump onto the left child, onto the right child, or pause for rest (stay in the same node).\n\nA walk is described with a string of letters 'L', 'R' and 'P':\n\n• 'L' represents a jump to the left child;\n• 'R' represents a jump to the right child;\n• 'P' represents a pause.\n\nThe **value** of the walk is the label of the node we end up on. For example, the value of the walk LR is 5, while the value of the walk RPP is 3.\n\nA **set** of walks is described by a string of characters 'L', 'R', 'P' and `'*'`. Each `'*'` can be any of the three moves; the set of walks contains all walks matching the pattern.\n\nFor example, the set `L*R` contains the walks LLR, LRR and LPR. The set `**` contains the walks LL, LR, LP, RL, RR, RP, PL, PR and PP.\n\nFinally, the **value of a set** of walks is the sum of values of all walks in the set.\n\nCalculate the value of the given set of walks.\n\n## Input\n\nA string describing the set. Only characters 'L', 'R', 'P' and `'*'` will appear and there will be at most $10000$ of them.\n\n## Output\n\nOutput the value of the set.\n\n## Scoring\n\nIn test data worth 30% points, there will be no characters `'*'`.\n\nIn test data worth 50% points, there will be at most three characters `'*'`.\n\n## Examples\n\n### Example 1\n\n```input\nP*P\n```\n\n```output\n6\n```\n\n### Example 2\n\n```input\nL*R\n```\n\n```output\n25\n```\n\n### Example 3\n\n```input\n**\n```\n\n```output\n33\n```\n\n### Example 4\n\n```input\nLLLLLRRRRRLLLLLRRRRRLLLLLRRRRRLLLLL\n```\n\n```output\n35400942560\n```"
+    },
+    {
+     "day": 2,
+     "number": 6,
+     "paper_label": "Round 2",
+     "title": "Cavli",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "32 MB",
+     "problem": "Mirko found a wooden board and $N$ nails in his attic. Mirko hammered the nails into the board as fast as possible. The board can be modeled by a coordinate plane and the nails as points in it. No two nails have the same $x$ or the same $y$ coordinate.\n\nIn order to keep having fun, Mirko stole his sister's elastic hair band, spread it over all nails and then let go. The elastic, naturally, tightened around the nails.\n\nMirko then repeats these steps while there are at least three nails in the board:\n\n• 1. Write down the area of the shape enclosed by the hair band.\n• 2. Picks the leftmost, rightmost, topmost or bottommost nail in the board.\n• 3. Remove the chosen nail from the board; the elastic tightens again around the remaining nails.\n\nWrite a program that calculates the numbers written in step 1 of each iteration, if we know the nail Mirko picks in step 2 of each iteration.\n\n## Input\n\nThe first line contains the integer $N$ ($3 \\le N \\le 300\\,000$), the number of nails.\n\nEach of the following $N$ lines contains two integers separated by a space, the coordinates of a nail. All coordinates will be between $1$ and $1\\,000\\,000\\,000$. No two nails will share the same $x$ or $y$ coordinate.\n\nThe next line contains $N-2$ letters 'L', 'R', 'U' or 'D'. The letters represent the nails Mirko picked in order:\n\n• 'L' for the leftmost nail (smallest $x$ coordinate),\n• 'R' for the rightmost nail (largest $x$ coordinate),\n• 'U' for the topmost nail (largest $y$ coordinate),\n• 'D' for the bottommost nail (smallest $y$ coordinate).\n\n## Output\n\nOutput $N-2$ numbers, each on a separate line. The numbers are, in order, the areas that Mirko wrote down. Output numbers with one digit after the decimal point.\n\n## Scoring\n\nIn test cases worth 50% points, $N$ will be less than $1000$.\n\n## Examples\n\n### Example 1\n\n```input\n5\n1 4\n2 2\n4 1\n3 5\n5 3\nLUR\n```\n\n```output\n9.0\n6.5\n2.5\n```\n\n### Example 2\n\n```input\n8\n1 6\n2 4\n3 1\n4 2\n5 7\n6 5\n7 9\n8 3\nURDLUU\n```\n\n```output\n34.0\n24.0\n16.5\n14.0\n9.5\n5.0\n```\n\nThe images below illustrate the state before each of the 6 steps in the second example.\n\nhttps://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/coci-2008-2-6-fig1.png"
+    },
+    {
+     "day": 3,
+     "number": 1,
+     "paper_label": "Round 3",
+     "title": "Pet",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "In the popular show \"Dinner for Five\", five contestants compete in preparing culinary delights. Every evening one of them makes dinner and each of other four then grades it on a scale from 1 to 5.\n\nThe number of points a contestant gets is equal to the sum of grades they got. The winner of the show is of course the contestant that gets the most points.\n\nWrite a program that determines the winner and how many points they got.\n\n## Input\n\nFive lines, each containing 4 integers, the grades a contestant got.\n\nThe contestants are numbered 1 to 5 in the order in which their grades were given.\n\nThe input data will guarantee that the solution is unique.\n\n## Output\n\nOutput on a single line the winner's number and their points, separated by a space.\n\n## Examples\n\n### Example 1\n\n```input\n5 4 4 5\n5 4 4 4\n5 5 4 4\n5 5 5 4\n4 4 4 5\n```\n\n```output\n4 19\n```\n\n### Example 2\n\n```input\n4 4 3 3\n5 4 3 5\n5 5 2 4\n5 5 5 1\n4 4 4 4\n```\n\n```output\n2 17\n```"
+    },
+    {
+     "day": 3,
+     "number": 2,
+     "paper_label": "Round 3",
+     "title": "Kemija",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "Luka is fooling around in chemistry class again! Instead of balancing equations he is writing coded sentences on a piece of paper. Luka modifies every word in a sentence by adding, after each vowel (letters 'a', 'e', 'i', 'o' and 'u'), the letter 'p' and then that same vowel again.\n\nFor example, the word \"kemija\" becomes \"kepemipijapa\" and the word \"paprika\" becomes \"papapripikapa\". The teacher took Luka's paper with the coded sentences and wants to decode them.\n\nWrite a program that decodes Luka's sentence.\n\n## Input\n\nThe coded sentence will be given on a single line. The sentence consists only of lowercase letters of the English alphabet and spaces. The words will be separated by exactly one space and there will be no leading or trailing spaces. The total number of character will be at most 100.\n\n## Output\n\nOutput the decoded sentence on a single line.\n\n## Examples\n\n### Example 1\n\n```input\nzepelepenapa papapripikapa\n```\n\n```output\nzelena paprika\n```\n\n### Example 2\n\n```input\nbapas jepe doposapadnapa opovapa kepemipijapa\n```\n\n```output\nbas je dosadna ova kemija\n```"
+    },
+    {
+     "day": 3,
+     "number": 3,
+     "paper_label": "Round 3",
+     "title": "Cross",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "In the game of Sudoku, the objective is to place integers between 1 and 9 (inclusive) into a 9x9 grid so that each row, each column, and each of the nine 3x3 boxes contains all nine numbers. The starting board is partially filled in so that it is possible to logically deduce the values of the other cells. Sudoku puzzles range in difficulty, and complex analysis methods are required to solve the hardest puzzles. In this problem, however, you will implement one of the simplest methods, cross-hatching.\n\nIn cross-hatching, we select one of the nine numbers and, for each of its occurrences in the grid, cross out the corresponding row, column and 3x3 box. Now look for any 3x3 boxes where there is only one possible placement for the number and place it there.\n\nThe first image below shows a very sparsely filled in Sudoku grid. However, even in this grid it is possible to deduce using cross-hatching that the number in the top left cell is 4, as illustrated in the second image.\n\nhttps://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/coci-2008-3-3-fig1.png\n\nYou will be given a partially filled-in grid. Your task is to repeatedly apply the cross-hatching method for different numbers until no more deductions can be made about any number.\n\nThe initial placement of the numbers in the grid may be invalid. It is also possible that there will be no available cell for a number in a 3x3 box. In both cases, you are to report an error.\n\n## Input\n\nInput will consist of 9 lines, each containing exactly 9 characters. Each character will either be a digit between 1 and 9, or a period ('.') denoting an empty cell.\n\n## Output\n\nIf the input is valid and there is no contradiction while solving, you should output the grid in the same format it was given in, with cells filled in if their value can be deduced using cross-hatching. Otherwise, output \"ERROR\" (quotes for clarity).\n\n## Examples\n\n### Example 1\n\n```input\n..9......\n.....4...\n.......4.\n.........\n.4.......\n.........\n.........\n.........\n.........\n```\n\n```output\n4.9......\n.....4...\n.......4.\n.........\n.4.......\n.........\n.........\n.........\n.........\n```\n\n### Example 2\n\n```input\n...1...6.\n18...9...\n..7.642..\n2.9..6.5.\n.43...72.\n.6.3..9.1\n..265.1..\n...2...97\n.5...3...\n```\n\n```output\n524137869\n186529473\n397864215\n219476358\n843915726\n765382941\n972658134\n638241597\n451793682\n```\n\n### Example 3\n\n```input\n1........\n..1......\n.......1.\n.........\n.........\n.........\n.........\n.........\n.........\n```\n\n```output\nERROR\n```\n\n### Example 4\n\n```input\n........2\n....1....\n1........\n......1..\n.........\n.........\n.........\n.......1.\n.........\n```\n\n```output\nERROR\n```"
+    },
+    {
+     "day": 3,
+     "number": 4,
+     "paper_label": "Round 3",
+     "title": "Matrica",
+     "task_type": "batch",
+     "time_limit": "0.2 seconds",
+     "memory_limit": "32 MB",
+     "problem": "A matrix is a rectangular table of letters. A square matrix is a matrix with an equal number of rows and columns. A square matrix $M$ is called **symmetric** if its letters are symmetric with respect to the main diagonal ($M_{ij} = M_{ji}$ for all pairs of $i$ and $j$).\n\nThe following figure shows two symmetric matrices and one which is not symmetric:\n\n```grid\nAAB      AAA\nACC      ABA\nBCC      AAA\n```\n\nTwo symmetric matrices.\n\n```grid\nABCD     AAB\nABCD     ACA\nABCD     DAA\nABCD\n```\n\nTwo matrices that are not symmetric.\n\nGiven a collection of available letters, you are to output a **subset of columns** in the **lexicographically smallest symmetric** matrix which can be composed using **all** the letters.\n\nIf no such matrix exists, output \"IMPOSSIBLE\".\n\nTo determine if matrix $A$ is lexicographically smaller than matrix $B$, consider their elements in row-major order (as if you concatenated all rows to form a long string). If the first element in which the matrices differ is smaller in $A$, then $A$ is lexicographically smaller than $B$.\n\n## Input\n\nThe first line of input contains two integers $N$ ($1 \\le N \\le 30000$) and $K$ ($1 \\le K \\le 26$). $N$ is the dimension of the matrix, while $K$ is the number of distinct letters that will appear.\n\nEach of the following $K$ lines contains an uppercase letter and a positive integer, separated by a space. The integer denotes how many corresponding letters are to be used. For example, if a line says \"A 3\", then the letter A must appear three times in the output matrix.\n\nThe total number of letters will be exactly $N^2$. No letter will appear more than once in the input.\n\nThe next line contains an integer $P$ ($1 \\le P \\le 50$), the number of columns that must be output.\n\nThe last line contains $P$ integers, the indices of columns that must be output. The indices will be between $1$ and $N$ inclusive, given in increasing order and without duplicates.\n\n## Output\n\nIf it is possible to compose a symmetric matrix from the given collection of letters, output the required columns on $N$ lines, each containing $P$ character, without spaces. Otherwise, output \"IMPOSSIBLE\" (quotes for clarity).\n\n## Scoring\n\nIn test cases worth 60% of points, $N$ will be at most $300$.\n\nIn test cases worth 80% of points, $N$ will be at most $3000$.\n\n## Examples\n\n### Example 1\n\n```input\n3 3\nA 3\nB 2\nC 4\n3\n1 2 3\n```\n\n```output\nAAB\nACC\nBCC\n```\n\n### Example 2\n\n```input\n4 4\nA 4\nB 4\nC 4\nD 4\n4\n1 2 3 4\n```\n\n```output\nAABB\nAACC\nBCDD\nBCDD\n```\n\n### Example 3\n\n```input\n4 5\nE 4\nA 3\nB 3\nC 3\nD 3\n2\n2 4\n```\n\n```output\nAC\nBE\nDE\nED\n```\n\n### Example 4\n\n```input\n4 6\nF 1\nE 3\nA 3\nB 3\nC 3\nD 3\n4\n1 2 3 4\n```\n\n```output\nIMPOSSIBLE\n```"
+    },
+    {
+     "day": 3,
+     "number": 5,
+     "paper_label": "Round 3",
+     "title": "BST",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "memory_limit": "32 MB",
+     "problem": "A binary search tree is a tree in which every node has **at most** two children nodes (a left and a right child). Each node has an integer written inside it. If the number $X$ is written inside a node, then the numbers in its left subtree are less than $X$ and the numbers in its right subtree are greater than $X$.\n\nYou will be given a sequence of integers between $1$ and $N$ (inclusive) such that each number appears in the sequence exactly once. You are to create a binary search tree from the sequence, putting the first number in the root node and inserting every other number in order. In other words, run `insert(X, root)` for every other number:\n\n```procedure\ninsert( number X, node N )\n    increase the counter C by 1\n    if X is less than the number in node N\n        if N has no left child\n            create a new node with the number X and set it to be the left child of node N\n        else\n            insert(X, left child of node N)\n    else (X is greater than the number in node N)\n        if N has no right child\n            create a new node with the number X and set it to be the right child of node N\n        else\n            insert(X, right child of node N)\n```\n\nWrite a program that calculates the value of the counter $C$ after every number is inserted. The counter is initially 0.\n\n## Input\n\nThe first line contains the integer $N$ ($1 \\le N \\le 300\\,000$), the length of the sequence.\n\nThe remaining $N$ lines contain the numbers in the sequence, integers in the interval $[1, N]$. The numbers will be distinct.\n\n## Output\n\nOutput $N$ integers each on its own line, the values of the counter $C$ after each number is inserted into the tree.\n\n## Scoring\n\nIn test cases worth 50% of points, $N$ will be at most $1000$.\n\n## Examples\n\n### Example 1\n\n```input\n4\n1\n2\n3\n4\n```\n\n```output\n0\n1\n3\n6\n```\n\n### Example 2\n\n```input\n5\n3\n2\n4\n1\n5\n```\n\n```output\n0\n1\n2\n4\n6\n```\n\n### Example 3\n\n```input\n8\n3\n5\n1\n6\n8\n7\n2\n4\n```\n\n```output\n0\n1\n2\n4\n7\n11\n13\n15\n```"
+    },
+    {
+     "day": 3,
+     "number": 6,
+     "paper_label": "Round 3",
+     "title": "Najkraci",
+     "task_type": "batch",
+     "time_limit": "5 seconds",
+     "memory_limit": "32 MB",
+     "problem": "A road network in a country consists of $N$ cities and $M$ one-way roads. The cities are numbered $1$ through $N$. For each road we know the origin and destination cities, as well as its length.\n\nWe say that the road $F$ is a **continuation** of road $E$ if the destination city of road $E$ is the same as the origin city of road $F$. A **path** from city $A$ to city $B$ is a sequence of road such that origin of the first road is city $A$, each other road is a continuation of the one before it, and the destination of the last road is city $B$. The length of the path is the sum of lengths of all roads in it.\n\nA path from $A$ to $B$ is a **shortest** path if there is no other path from $A$ to $B$ that is shorter in length.\n\nYour task is to, for each road, output **how many different** shortest paths containing that road, modulo $1\\,000\\,000\\,007$.\n\n## Input\n\nThe first line contains two integers $N$ and $M$ ($1 \\le N \\le 1500$, $1 \\le M \\le 5000$), the number of cities and roads.\n\nEach of the following $M$ lines contains three positive integers $O$, $D$ and $L$. These represent a one-way road from city $O$ to city $D$ of length $L$. The numbers $O$ and $D$ will be different and $L$ will be at most $10000$.\n\n## Output\n\nOutput $M$ integers each on its own line – for each road, the number of different shortest paths containing it, modulo $1\\,000\\,000\\,007$. The order of these numbers should match the order of roads in the input.\n\n## Scoring\n\nIn test cases worth 30% of points, $N$ will be at most $15$ and $M$ will be at most $30$.\n\nIn test cases worth 60% of points, $N$ will be at most $300$ and $M$ will be at most $1000$.\n\n## Examples\n\n### Example 1\n\n```input\n4 3\n1 2 5\n2 3 5\n3 4 5\n```\n\n```output\n3\n4\n3\n```\n\n### Example 2\n\n```input\n4 4\n1 2 5\n2 3 5\n3 4 5\n1 4 8\n```\n\n```output\n2\n3\n2\n1\n```\n\n### Example 3\n\n```input\n5 8\n1 2 20\n1 3 2\n2 3 2\n4 2 3\n4 2 3\n3 4 5\n4 3 5\n5 4 20\n```\n\n```output\n0\n4\n6\n6\n6\n7\n2\n6\n```"
+    }
+   ]
+  },
+  {
    "year": 2009,
    "problems": [
     {
