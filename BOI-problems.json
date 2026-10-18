@@ -2,6 +2,59 @@
  "competition": "Baltic Olympiad in Informatics (BOI)",
  "years": [
   {
+   "year": 2016,
+   "problems": [
+    {
+     "day": 1,
+     "number": 1,
+     "paper_label": "Day 1",
+     "title": "Bosses",
+     "task_type": "batch",
+     "problem": "A company of $n$ employees is due for a restructuring. In the resulting hierarchy, represented as a rooted tree, every node will be the boss of its children.\n\nEach employee has a list of bosses they will accept. In addition, all employees must be assigned a salary. The salary must be a positive integer, and the salary of each boss must be larger than the sum of salaries of their immediate subordinates.\n\nYour task is to structure the company so that all above conditions hold, and the sum of all the salaries is as small as possible.\n\n## Input\n\nThe first input line contains an integer $n$: the number of employees. The employees are numbered $1, 2, \\ldots, n$.\n\nAfter this, the input contains $n$ lines that describe the preferences of the employees. The $i$th such line contains an integer $k_i$, followed by a list of $k_i$ integers. The list consists of all employees that the $i$th employee accepts as their boss.\n\n## Output\n\nYou should output the lowest total salary among all valid restructurings. You can assume that at least one solution exists.\n\n## Example\n\n```input\n4\n1 4\n3 1 3 4\n2 1 2\n1 3\n```\n\n```output\n8\n```\n\n## Subtasks\n\n• Subtask 1 (22 points): $2 \\le n \\le 10$; $\\sum_{i=1}^{n} k_i \\le 20$\n• Subtask 2 (45 points): $2 \\le n \\le 100$; $\\sum_{i=1}^{n} k_i \\le 200$\n• Subtask 3 (33 points): $2 \\le n \\le 5000$; $\\sum_{i=1}^{n} k_i \\le 10000$"
+    },
+    {
+     "day": 1,
+     "number": 2,
+     "paper_label": "Day 1",
+     "title": "Park",
+     "task_type": "batch",
+     "problem": "In the capital of Byteland, there is a fenced park whose area is a rectangle. The trees and the visitors in the park are represented as circles.\n\nThere are four entrances in the park, one in each corner (1 = bottom-left, 2 = bottom-right, 3 = top-right, 4 = top-left). The visitors can enter and exit the park only through the entrances.\n\nVisitors can enter and exit the park when they touch both sides of a corner of the corresponding entrance. Visitors can move freely in the park, but they cannot overlap any of the trees or the fence.\n\nYour task is to calculate for each visitor, given the entrance they will enter the park, through which entrances they can exit the park.\n\n## Input\n\nThe first input line contains two integers $n$ and $m$: the number of trees in the park and the number of visitors.\n\nThe second input line contains two integers $w$ and $h$: the width and the height of the park area. The bottom-left corner is $(0, 0)$, and the top-right corner is $(w, h)$.\n\nAfter this, there are $n$ lines that describe the trees. Each line contains three integers $x$, $y$ and $r$: the center of the tree is $(x, y)$ and its radius is $r$. The trees do not overlap each other or the fence.\n\nFinally, there are $m$ lines that describe the visitors. Each line contains two integers $r$ and $e$: the radius of the visitor and the entrance they will enter the park.\n\nIn addition, no tree overlaps a square area of $2k \\times 2k$ in each corner, where $k$ is the radius of the largest visitor.\n\n## Output\n\nYou should output for each visitor a single line containing the entrances through which they can exit the park, in sorted order without spaces in between.\n\n## Notes\n\nTwo objects touch if they have one common point. Two objects overlap if they have more than one common point.\n\n## Example\n\n```input\n5 3\n16 11\n11 8 1\n6 10 1\n7 3 2\n10 4 1\n15 5 1\n1 1\n2 2\n2 1\n```\n\n```output\n1234\n2\n14\n```\n\nThe following figure shows the entrance areas and possible routes for each visitor:\n\nhttps://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/boi-2016-1-2-fig1.png\n\n## Subtasks\n\nIn all subtasks $4k < w, h \\le 10^{9}$ where $k$ is the radius of the largest visitor.\n\n• Subtask 1 (27 points): $1 \\le n \\le 2000$; $m = 1$\n• Subtask 2 (31 points): $1 \\le n \\le 200$; $1 \\le m \\le 10^{5}$\n• Subtask 3 (42 points): $1 \\le n \\le 2000$; $1 \\le m \\le 10^{5}$"
+    },
+    {
+     "day": 1,
+     "number": 3,
+     "paper_label": "Day 1",
+     "title": "Spiral",
+     "task_type": "batch",
+     "problem": "A grid of size $(2n+1) \\times (2n+1)$ has been constructed as follows. Number $1$ has been placed in the center square, number $2$ has been placed to the right of it, and the following numbers have been placed along the spiral counterclockwise.\n\nYour task is to calculate answers for $q$ queries where the sum of numbers in an rectangular region in the grid is requested (modulo $10^{9} + 7$). For example, in the following grid $n = 2$ and the sum of numbers in the gray region is $74$:\n\nhttps://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/boi-2016-1-3-fig1.png\n\n## Input\n\nThe first input line contains two integers $n$ and $q$: the size of the grid and the number of queries.\n\nAfter this, there are $q$ lines, each containing four integers $x_1$, $y_1$, $x_2$ and $y_2$ ($-n \\le x_1 \\le x_2 \\le n$, $-n \\le y_1 \\le y_2 \\le n$). This means that you should calculate the sum of numbers in a rectangular region with corners $(x_1, y_1)$ and $(x_2, y_2)$.\n\n## Output\n\nYou should output the answer for each query (modulo $10^{9} + 7$).\n\n## Example\n\n```input\n2 3\n0 -2 1 1\n-1 0 1 0\n1 2 1 2\n```\n\n```output\n74\n9\n14\n```\n\n## Subtasks\n\nIn all subtasks $1 \\le q \\le 100$.\n\n• Subtask 1 (12 points): $1 \\le n \\le 1000$\n• Subtask 2 (15 points): $1 \\le n \\le 10^{9}$; $x_1 = x_2$ and $y_1 = y_2$\n• Subtask 3 (17 points): $1 \\le n \\le 10^{5}$\n• Subtask 4 (31 points): $1 \\le n \\le 10^{9}$; $x_1 = y_1 = 1$\n• Subtask 5 (25 points): $1 \\le n \\le 10^{9}$"
+    },
+    {
+     "day": 2,
+     "number": 1,
+     "paper_label": "Day 2",
+     "title": "Cities",
+     "task_type": "batch",
+     "problem": "There are $n$ cities in Byteland, and $k$ of them are important cities frequently visited by the king of Byteland.\n\nThere are also $m$ roads in the country, each of them connecting two cities. Unfortunately, the condition of the roads is so bad that the king cannot drive through them at full speed with his sports car.\n\nFor each road, the cost for renovating it is known. Your task is to choose which roads will be renovated so that all $k$ important cities are connected with renovated roads, and the total cost is as low as possible.\n\n## Input\n\nThe first input line contains three integers $n$, $k$ and $m$: the number of cities, the number of important cities and the number of roads. The cities are numbered $1, 2, \\ldots, n$. The second input line contains $k$ integers: the important cities.\n\nFinally, the input contains $m$ lines that describe the roads. Each line contains three integers $a$, $b$ and $c$, meaning that there is a bidirectional road between cities $a$ and $b$, and the renovation cost for the road is $c$.\n\nYou may assume that there is a route between any two cities.\n\n## Output\n\nYou should output the minimum total cost for renovating the roads so that the king can travel between all important cities with his sports car.\n\n## Example\n\n```input\n4 3 6\n1 3 4\n1 2 4\n1 3 9\n1 4 6\n2 3 2\n2 4 5\n3 4 8\n```\n\n```output\n11\n```\n\n## Subtasks\n\nIn all subtasks $1 \\le c \\le 10^{9}$ and $n \\ge k$.\n\n• Subtask 1 (22 points): $2 \\le k \\le 5$; $n \\le 20$; $1 \\le m \\le 40$\n• Subtask 2 (14 points): $2 \\le k \\le 3$; $n \\le 10^{5}$; $1 \\le m \\le 2 \\cdot 10^{5}$\n• Subtask 3 (15 points): $2 \\le k \\le 4$; $n \\le 1000$; $1 \\le m \\le 2000$\n• Subtask 4 (23 points): $k = 4$; $n \\le 10^{5}$; $1 \\le m \\le 2 \\cdot 10^{5}$\n• Subtask 5 (26 points): $k = 5$; $n \\le 10^{5}$; $1 \\le m \\le 2 \\cdot 10^{5}$"
+    },
+    {
+     "day": 2,
+     "number": 2,
+     "paper_label": "Day 2",
+     "title": "Maze",
+     "task_type": "output-only",
+     "problem": "Uolevi has developed a game where the player collects coins in a maze. At the moment, the problem is that the game is too easy. Could you design some challenging mazes for the game?\n\nEach maze is a rectangular grid that consists of floors (`.`) and walls (`#`). One of the cells is a base (`x`), and some cells can contain coins (`o`). The player begins in the base, and can move left, right, up and down. The task of the player is to collect all coins in the maze and then return to the base.\n\nThe difficulty of a maze is the length of the shortest path that begins in the base, collects all coins and returns to the base.\n\n## Input\n\nThe input begins with an integer $t$: the number of mazes. After this, $t$ lines follow. Each such line contains three integers $n$, $m$ and $k$. This means that the size of the maze must be $n \\times m$ cells and there must be exactly $k$ coins.\n\n## Output\n\nThe output should contain $t$ maze descriptions, separated by empty lines, in the same order as in the input. Each maze must be solvable.\n\n## Example\n\n```input\n2\n3 3 1\n4 7 2\n```\n\n```output\n###\n#.x\n#o#\n\n.o.####\n.#..x.#\n...##.#\n###o...\n```\n\nThe difficulty of the first maze is 4, and the difficulty of the second maze is 18.\n\n## Submission\n\nThis is an output only task and there is only one input file (`maze.in`). You can download the input file here. You have to submit an output file (`maze.out`) that contains all the mazes specified in the input file.\n\n## Grading\n\nFor each maze, your score is $\\max(0, 100 - 3(d - x))$ where $x$ is the difficulty of your maze and $d$ is the difficulty of the most challenging maze found by the jury. Your total score for the task is the average of all scores rounded down to an integer."
+    },
+    {
+     "day": 2,
+     "number": 3,
+     "paper_label": "Day 2",
+     "title": "Swap",
+     "task_type": "batch",
+     "problem": "You are given a sequence of $n$ numbers $x_1, x_2, \\ldots, x_n$. Each number $1, 2, \\ldots, n$ appears exactly once in the sequence.\n\nYou can modify the sequence using swaps. There are $n - 1$ consecutive turns numbered $k = 2, 3, \\ldots, n$. On turn $k$ you can either swap values $x_k$ and $x_{\\lfloor k/2 \\rfloor}$ in the sequence or do nothing.\n\nSequence $a_1, a_2, \\ldots, a_n$ is lexicographically smaller than sequence $b_1, b_2, \\ldots, b_n$ if there exists an index $j$ ($1 \\le j \\le n$) such that $a_k = b_k$ for all $k < j$ and $a_j < b_j$.\n\nWhat is the lexicographically minimal sequence you can obtain?\n\n## Input\n\nThe first input line contains an integer $n$.\n\nThe second input line contains $n$ integers: the numbers in the sequence.\n\n## Output\n\nYou should output $n$ integers: the lexicographically minimal sequence.\n\n## Example\n\n```input\n5\n3 4 2 5 1\n```\n\n```output\n2 1 3 4 5\n```\n\n## Subtasks\n\n• Subtask 1 (10 points): $1 \\le n \\le 20$\n• Subtask 2 (11 points): $1 \\le n \\le 40$\n• Subtask 3 (27 points): $1 \\le n \\le 1000$\n• Subtask 4 (20 points): $1 \\le n \\le 5 \\cdot 10^{4}$\n• Subtask 5 (32 points): $1 \\le n \\le 2 \\cdot 10^{5}$"
+    }
+   ]
+  },
+  {
    "year": 2017,
    "problems": [
     {
