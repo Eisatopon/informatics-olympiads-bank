@@ -2,6 +2,251 @@
  "competition": "USA Computing Olympiad (USACO)",
  "years": [
   {
+   "year": 2016,
+   "problems": [
+    {
+     "day": 1,
+     "number": 1,
+     "paper_label": "December Contest, Bronze",
+     "title": "Square Pasture",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "256 MB",
+     "problem": "Farmer John has decided to update his farm to simplify its geometry. Previously, his cows grazed in two rectangular fenced-in pastures. Farmer John would like to replace these with a single square fenced-in pasture of minimum size that still covers all the regions of his farm that were previously enclosed by the former two fences.\n\nPlease help Farmer John figure out the minimum area he needs to make his new square pasture so that if he places it appropriately, it can still cover all the area formerly covered by the two older rectangular pastures. The square pasture should have its sides parallel to the x and y axes.\n\n## Input format (file square.in)\n\nThe first line in the input file specifies one of the original rectangular pastures with four space-separated integers $x_1$ $y_1$ $x_2$ $y_2$, each in the range $0 \\ldots 10$. The lower-left corner of the pasture is at the point $(x_1, y_1)$, and the upper-right corner is at the point $(x_2, y_2)$, where $x_2 > x_1$ and $y_2 > y_1$.\n\nThe second line of input has the same 4-integer format as the first line, and specifies the second original rectangular pasture. This pasture will not overlap or touch the first pasture.\n\n## Output format (file square.out)\n\nThe output should consist of one line containing the minimum area required of a square pasture that would cover all the regions originally enclosed by the two rectangular pastures.\n\n### Sample Input\n\n```input\n6 6 8 8\n1 8 4 9\n```\n\n### Sample Output\n\n```output\n49\n```\n\nIn the example above, the first original rectangle has corners $(6,6)$ and $(8,8)$. The second has corners at $(1,8)$ and $(4,9)$. By drawing a square fence of side length 7 with corners $(1,6)$ and $(8,13)$, the original areas can still be enclosed; moreover, this is the best possible, since it is impossible to enclose the original areas with a square of side length only 6. Note that there are several different possible valid placements for the square of side length 7, as it could have been shifted vertically a bit.\n\n*Problem credits: Brian Dean*"
+    },
+    {
+     "day": 1,
+     "number": 2,
+     "paper_label": "December Contest, Bronze",
+     "title": "Block Game",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "256 MB",
+     "problem": "Farmer John is trying to teach his cows to read by giving them a set of $N$ spelling boards typically used with preschoolers ($1 \\leq N \\leq 100$). Each board has a word and an image on each side. For example, one side might have the word 'cat' along with a picture of a cat, and the other side might have the word 'dog' along with a picture of a dog. When the boards are lying on the ground, $N$ words are therefore shown. By flipping over some of the boards, a different set of $N$ words can be exposed.\n\nTo help the cows with their spelling, Farmer John wants to fashion a number of wooden blocks, each embossed with a single letter of the alphabet. He wants to make sufficiently many blocks of each letter so that no matter which set of $N$ words is exposed on the upward-facing boards, the cows will be able to spell all of these words using the blocks. For example, if $N=3$ and the words 'box', 'cat', and 'car' were facing upward, the cows would need at least one 'b' block, one 'o' block, one 'x' block, two 'c' blocks, two 'a' blocks, one 't' block, and one 'r' block.\n\nPlease help the Farmer John determine the minimum number of blocks for each letter of the alphabet that he needs to provide, so that irrespective of which face of each board is showing, the cows can spell all $N$ visible words.\n\n## Input format (file blocks.in)\n\nLine 1 contains the integer $N$.\n\nThe next $N$ lines each contain 2 words separated by a space, giving the two words on opposite sides of a board. Each word is a string of at most 10 lowercase letters.\n\n## Output format (file blocks.out)\n\nPlease output 26 lines. The first output line should contain a number specifying the number of copies of 'a' blocks needed. The next line should specify the number of 'b' blocks needed, and so on.\n\n### Sample Input\n\n```input\n3\nfox box\ndog cat\ncar bus\n```\n\n### Sample Output\n\n```output\n2\n2\n2\n1\n0\n1\n1\n0\n0\n0\n0\n0\n0\n0\n2\n0\n0\n1\n1\n1\n1\n0\n0\n1\n0\n0\n```\n\nIn this example, there are $N = 3$ boards, giving $2^3 = 8$ possibilities for the set of upward-facing words:\n\n```text\nfox dog car\nfox dog bus\nfox cat car\nfox cat bus\nbox dog car\nbox dog bus\nbox cat car\nbox cat bus\n```\n\nWe need enough blocks for each letter of the alphabet so that we can spell all three words, irrespective of which of these eight scenarios occurs.\n\n*Problem credits: Viktoriia Schwartz*"
+    },
+    {
+     "day": 1,
+     "number": 3,
+     "paper_label": "December Contest, Bronze",
+     "title": "The Cow-Signal",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "256 MB",
+     "problem": "Bessie and her cow friends are playing as their favorite cow superheroes. Of course, everyone knows that any self-respecting superhero needs a signal to call them to action. Bessie has drawn a special signal on a sheet of $M \\times N$ paper ($1 \\leq M \\leq 10, 1 \\leq N \\leq 10$), but this is too small, much too small! Bessie wants to amplify the signal so it is exactly $K$ times bigger ($1 \\leq K \\leq 10$) in each direction.\n\nThe signal will consist only of the '.' and 'X' characters.\n\n## Input format (file cowsignal.in)\n\nThe first line of input contains $M$, $N$, and $K$, separated by spaces.\n\nThe next $M$ lines each contain a length-$N$ string, collectively describing the picture of the signal.\n\n## Output format (file cowsignal.out)\n\nYou should output $KM$ lines, each with $KN$ characters, giving a picture of the enlarged signal.\n\n### Sample Input\n\n```input\n5 4 2\nXXX.\nX..X\nXXX.\nX..X\nXXX.\n```\n\n### Sample Output\n\n```output\nXXXXXX..\nXXXXXX..\nXX....XX\nXX....XX\nXXXXXX..\nXXXXXX..\nXX....XX\nXX....XX\nXXXXXX..\nXXXXXX..\n```\n\n*Problem credits: Nathan Pinsker*"
+    },
+    {
+     "day": 2,
+     "number": 1,
+     "paper_label": "December Contest, Silver",
+     "title": "Counting Haybales",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "256 MB",
+     "problem": "Farmer John has just arranged his $N$ haybales ($1 \\leq N \\leq 100,000$) at various points along the one-dimensional road running across his farm. To make sure they are spaced out appropriately, please help him answer $Q$ queries ($1 \\leq Q \\leq 100,000$), each asking for the number of haybales within a specific interval along the road.\n\n## Input format (file haybales.in)\n\nThe first line contains $N$ and $Q$.\n\nThe next line contains $N$ distinct integers, each in the range $0 \\ldots 1,000,000,000$, indicating that there is a haybale at each of those locations.\n\nEach of the next $Q$ lines contains two integers $A$ and $B$ ($0 \\leq A \\leq B \\leq 1,000,000,000$) giving a query for the number of haybales between $A$ and $B$, inclusive.\n\n## Output format (file haybales.out)\n\nYou should write $Q$ lines of output. For each query, output the number of haybales in its respective interval.\n\n### Sample Input\n\n```input\n4 6\n3 2 7 5\n2 3\n2 4\n2 5\n2 7\n4 6\n8 10\n```\n\n### Sample Output\n\n```output\n2\n2\n3\n4\n1\n0\n```\n\n*Problem credits: Nick Wu*"
+    },
+    {
+     "day": 2,
+     "number": 2,
+     "paper_label": "December Contest, Silver",
+     "title": "Cities and States",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "256 MB",
+     "problem": "To keep his cows intellectually stimulated, Farmer John has placed a large map of the USA on the wall of his barn. Since the cows spend many hours in the barn staring at this map, they start to notice several curious patterns. For example, the cities of Flint, MI and Miami, FL share a very special relationship: the first two letters of \"Flint\" give the state code (\"FL\") for Miami, and the first two letters of \"Miami\" give the state code (\"MI\") for Flint.\n\nLet us say that two cities are a \"special pair\" if they satisfy this property and come from different states. The cows are wondering how many special pairs of cities exist. Please help them solve this amusing geographical puzzle!\n\n## Input format (file citystate.in)\n\nThe first line of input contains $N$ ($1 \\leq N \\leq 200,000$), the number of cities on the map.\n\nThe next $N$ lines each contain two strings: the name of a city (a string of at least 2 and at most 10 uppercase letters), and its two-letter state code (a string of 2 uppercase letters). Note that the state code may be something like ZQ, which is not an actual USA state. Multiple cities with the same name can exist, but they will be in different states.\n\n## Output format (file citystate.out)\n\nPlease output the number of special pairs of cities.\n\n### Sample Input\n\n```input\n6\nMIAMI FL\nDALLAS TX\nFLINT MI\nCLEMSON SC\nBOSTON MA\nORLANDO FL\n```\n\n### Sample Output\n\n```output\n1\n```\n\n*Problem credits: Brian Dean*"
+    },
+    {
+     "day": 2,
+     "number": 3,
+     "paper_label": "December Contest, Silver",
+     "title": "Moocast",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "256 MB",
+     "problem": "Farmer John's $N$ cows ($1 \\leq N \\leq 200$) want to organize an emergency \"moo-cast\" system for broadcasting important messages among themselves.\n\nInstead of mooing at each-other over long distances, the cows decide to equip themselves with walkie-talkies, one for each cow. These walkie-talkies each have a limited transmission radius -- a walkie-talkie of power $P$ can only transmit to other cows up to a distance of $P$ away (note that cow A might be able to transmit to cow B even if cow B cannot transmit back, due to cow A's power being larger than that of cow B). Fortunately, cows can relay messages to one-another along a path consisting of several hops, so it is not necessary for every cow to be able to transmit directly to every other cow.\n\nDue to the asymmetrical nature of the walkie-talkie transmission, broadcasts from some cows may be more effective than from other cows in their ability to reach large numbers of recipients (taking relaying into account). Please help the cows determine the maximum number of cows that can be reached by a broadcast originating from a single cow.\n\n## Input format (file moocast.in)\n\nThe first line of input contains $N$.\n\nThe next $N$ lines each contain the $x$ and $y$ coordinates of a single cow ( integers in the range $0 \\ldots 25,000$) followed by $p$, the power of the walkie-talkie held by this cow.\n\n## Output format (file moocast.out)\n\nWrite a single line of output containing the maximum number of cows a broadcast from a single cow can reach. The originating cow is included in this number.\n\n### Sample Input\n\n```input\n4\n1 3 5\n5 4 3\n7 2 1\n6 1 1\n```\n\n### Sample Output\n\n```output\n3\n```\n\nIn the example above, a broadcast from cow 1 can reach 3 total cows, including cow 1.\n\n*Problem credits: Brian Dean*"
+    },
+    {
+     "day": 3,
+     "number": 1,
+     "paper_label": "December Contest, Gold",
+     "title": "Moocast",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "256 MB",
+     "problem": "Farmer John's $N$ cows ($1 \\leq N \\leq 1000$) want to organize an emergency \"moo-cast\" system for broadcasting important messages among themselves.\n\nInstead of mooing at each-other over long distances, the cows decide to equip themselves with walkie-talkies, one for each cow. These walkie-talkies each have a limited transmission radius, but cows can relay messages to one-another along a path consisting of several hops, so it is not necessary for every cow to be able to transmit directly to every other cow.\n\nThe cows need to decide how much money to spend on their walkie-talkies. If they spend \\$X, they will each get a walkie-talkie capable of transmitting up to a distance of $\\sqrt{X}$. That is, the squared distance between two cows must be at most $X$ for them to be able to communicate.\n\nPlease help the cows determine the minimum integer value of $X$ such that a broadcast from any cow will ultimately be able to reach every other cow.\n\n## Input format (file moocast.in)\n\nThe first line of input contains $N$.\n\nThe next $N$ lines each contain the $x$ and $y$ coordinates of a single cow. These are both integers in the range $0 \\ldots 25,000$.\n\n## Output format (file moocast.out)\n\nWrite a single line of output containing the integer $X$ giving the minimum amount the cows must spend on walkie-talkies.\n\n### Sample Input\n\n```input\n4\n1 3\n5 4\n7 2\n6 1\n```\n\n### Sample Output\n\n```output\n17\n```\n\n*Problem credits: Richard Peng*"
+    },
+    {
+     "day": 3,
+     "number": 2,
+     "paper_label": "December Contest, Gold",
+     "title": "Cow Checklist",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "256 MB",
+     "problem": "Every day, Farmer John walks through his pasture to check on the well-being of each of his cows. On his farm he has two breeds of cows, Holsteins and Guernseys. His $H$ Holsteins are conveniently numbered $1 \\ldots H$, and his $G$ Guernseys are conveniently numbered $1 \\ldots G$ ($1 \\leq H \\leq 1000, 1 \\leq G \\leq 1000$). Each cow is located at a point in the 2D plane (not necessarily distinct).\n\nFarmer John starts his tour at Holstein 1, and ends at Holstein $H$. He wants to visit each cow along the way, and for convenience in maintaining his checklist of cows visited so far, he wants to visit the Holsteins and Guernseys in the order in which they are numbered. In the sequence of all $H+G$ cows he visits, the Holsteins numbered $1 \\ldots H$ should appear as a (not necessarily contiguous) subsequence, and likewise for the Guernseys. Otherwise stated, the sequence of all $H+G$ cows should be formed by interleaving the list of Holsteins numbered $1 \\ldots H$ with the list of Guernseys numbered $1 \\ldots G$.\n\nWhen FJ moves from one cow to another cow traveling a distance of $D$, he expends $D^2$ energy. Please help him determine the minimum amount of energy required to visit all his cows according to a tour as described above.\n\n## Input format (file checklist.in)\n\nThe first line of input contains $H$ and $G$, separated by a space.\n\nThe next $H$ lines contain the $x$ and $y$ coordinates of the $H$ Holsteins, and the next $G$ lines after that contain coordinates of the Guernseys. Each coordinate is an integer in the range $0 \\ldots 1000$.\n\n## Output format (file checklist.out)\n\nWrite a single line of output, giving the minimum energy required for FJ's tour of all the cows.\n\n### Sample Input\n\n```input\n3 2\n0 0\n1 0\n2 0\n0 3\n1 3\n```\n\n### Sample Output\n\n```output\n20\n```\n\n*Problem credits: Brian Dean*"
+    },
+    {
+     "day": 3,
+     "number": 3,
+     "paper_label": "December Contest, Gold",
+     "title": "Lasers and Mirrors",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "256 MB",
+     "problem": "For some reason, Farmer John's cows always seem to be running laser light shows.\n\nFor their latest show, the cows have procured a large powerful laser -- so large, in fact, that they cannot seem to move it easily from the location where it was delivered. They would like to somehow send the light from the laser to the barn on the other side of FJ's property. Both the laser and the barn can be considered to be located at points in the 2D plane on a map of FJ's farm. The cows plan to point the laser so that it sends a beam of light out either horizontally or vertically (i.e., aligned with the x or y axes). They will then bounce this beam off a number of mirrors to direct it to the barn.\n\nOn the farm there are $N$ fence posts ($1 \\leq N \\leq 100,000$) located at distinct 2D points (also distinct from the laser and the barn) at which the cows can mount mirrors. The cows can choose not to mount a mirror on a fence post, in which case the laser would simply pass straight over the top of the post without changing direction. If the cows do mount a mirror on a fence post, they align it diagonally like / or \\ so that it will re-direct a horizontal beam of light in a vertical direction or vice versa.\n\nPlease compute the minimum possible number of mirrors the cows need to use in order to re-direct the laser to the barn.\n\n## Input format (file lasers.in)\n\nThe first line of input contains 5 space-separated integers: $N, x_L, y_L, x_B, y_B$, where $(x_L, y_L)$ is the location of the laser and $(x_B, y_B)$ is the location of the barn. All coordinates are between $0$ and $1,000,000,000$.\n\nThe next $N$ lines each contain the $x$ and $y$ locations of a fence post, both integers in the range $0 \\ldots 1,000,000,000$.\n\n## Output format (file lasers.out)\n\nPlease output the minimum number of mirrors needed to direct the laser to the barn, or -1 if this is impossible to do.\n\n### Sample Input\n\n```input\n4 0 0 7 2\n3 2\n0 2\n1 6\n3 0\n```\n\n### Sample Output\n\n```output\n1\n```\n\n*Problem credits: Brian Dean*"
+    },
+    {
+     "day": 4,
+     "number": 1,
+     "paper_label": "December Contest, Platinum",
+     "title": "Lots of Triangles",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "256 MB",
+     "problem": "Farmer John is thinking of selling some of his land to earn a bit of extra income. His property contains $n$ trees ($3 \\leq N \\leq 300$), each described by a point in the 2D plane, no three of which are collinear. FJ is thinking about selling triangular lots of land defined by having trees at their vertices; there are of course $L = \\binom{N}{3}$ such lots he can consider, based on all possible triples of trees on his property.\n\nA triangular lot has value $v$ if it contains exactly $v$ trees in its interior (the trees on the corners do not count, and note that there are no trees on the boundaries since no three trees are collinear). For every $v = 0 \\ldots N-3$, please help FJ determine how many of his $L$ potential lots have value $v$.\n\n## Input format (file triangles.in)\n\nThe first line of input contains $N$.\n\nThe following $N$ lines contain the $x$ and $y$ coordinates of a single tree; these are both integers in the range $0 \\ldots 1,000,000$.\n\n## Output format (file triangles.out)\n\nOutput $N-2$ lines, where output line $i$ contains a count of the number of lots having value $i-1$.\n\n### Sample Input\n\n```input\n7\n3 6\n17 15\n13 15\n6 12\n9 1\n2 7\n10 19\n```\n\n### Sample Output\n\n```output\n28\n6\n1\n0\n0\n```\n\n*Problem credits: Lewin Gan*"
+    },
+    {
+     "day": 4,
+     "number": 2,
+     "paper_label": "December Contest, Platinum",
+     "title": "Team Building",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "256 MB",
+     "problem": "Every year, Farmer John brings his $N$ cows to compete for \"best in show\" at the state fair. His arch-rival, Farmer Paul, brings his $M$ cows to compete as well ($1 \\leq N \\leq 1000, 1 \\leq M \\leq 1000$).\n\nEach of the $N + M$ cows at the event receive an individual integer score. However, the final competition this year will be determined based on teams of $K$ cows ($1 \\leq K \\leq 10$), as follows: Farmer John and Farmer Paul both select teams of $K$ of their respective cows to compete. The cows on these two teams are then paired off: the highest-scoring cow on FJ's team is paired with the highest-scoring cow on FP's team, the second-highest-scoring cow on FJ's team is paired with the second-highest-scoring cow on FP's team, and so on. FJ wins if in each of these pairs, his cow has the higher score.\n\nPlease help FJ count the number of different ways he and FP can choose their teams such that FJ will win the contest. That is, each distinct pair (set of $K$ cows for FJ, set of $K$ cows for FP) where FJ wins should be counted. Print your answer modulo 1,000,000,009.\n\n## Input format (file team.in)\n\nThe first line of input contains $N$, $M$, and $K$. The value of $K$ will be no larger than $N$ or $M$.\n\nThe next line contains the $N$ scores of FJ's cows.\n\nThe final line contains the $M$ scores of FP's cows.\n\n## Output format (file team.out)\n\nPrint the number of ways FJ and FP can pick teams such that FJ wins, modulo 1,000,000,009.\n\n### Sample Input\n\n```input\n10 10 3\n1 2 2 6 6 7 8 9 14 17\n1 3 8 10 10 16 16 18 19 19\n```\n\n### Sample Output\n\n```output\n382\n```\n\n*Problem credits: Brian Dean and William Luo*"
+    },
+    {
+     "day": 4,
+     "number": 3,
+     "paper_label": "December Contest, Platinum",
+     "title": "Robotic Cow Herd",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "256 MB",
+     "problem": "Bessie is hoping to fool Farmer John by building a herd of $K$ realistic robotic cows ($1 \\leq K \\leq 100,000$).\n\nIt turns out that building a robotic cow is somewhat complicated. There are $N$ ($1 \\leq n \\leq 100,000$) individual locations on the robot into which microcontrollers must be connected (so a single microcontroller must be connected at each location). For each of these locations, Bessie can select from a number of different models of microcontroller, each varying in cost.\n\nFor the herd of robotic cows to look convincing to Farmer John, no two robots should behave identically. Therefore, no two robots should have exactly the same set of microcontrollers. For any pair of robots, there should be at least one location at which the two robots use a different microcontroller model. It is guaranteed that there will always be enough different microcontroller models to satisfy this constraint.\n\nBessie wants to make her robotic herd as cheaply as possible. Help her determine the minimum possible cost to do this!\n\n## Input format (file roboherd.in)\n\nThe first line of input contains $N$ and $K$ separated by a space.\n\nThe following $N$ lines contain a description of the different microcontroller models available for each location. The $i$th such line starts with $M_i$ ($1 \\leq M_i \\leq 10$), giving the number of models available for location $i$. This is followed by $M_i$ space separated integers $P_{i,j}$ giving the costs of these different models ($1 \\le P_{i,j} \\le 100,000,000$).\n\n## Output format (file roboherd.out)\n\nOutput a single line, giving the minimum cost to construct $K$ robots.\n\n### Sample Input\n\n```input\n3 10\n4 1 5 3 10\n3 2 3 3\n5 1 3 4 6 6\n```\n\n### Sample Output\n\n```output\n61\n```\n\n*Problem credits: Richard Peng and Nathan Pinsker*"
+    },
+    {
+     "day": 5,
+     "number": 1,
+     "paper_label": "January Contest, Bronze",
+     "title": "Don't Be Last!",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "256 MB",
+     "problem": "Farmer John owns 7 dairy cows: Bessie, Elsie, Daisy, Gertie, Annabelle, Maggie, and Henrietta. He milks them every day and keeps detailed records on the amount of milk provided by each cow during each milking session. Not surprisingly, Farmer John highly prizes cows that provide large amounts of milk.\n\nCows, being lazy creatures, don't necessarily want to be responsible for producing too much milk. If it were up to them, they would each be perfectly content to be the lowest-producing cow in the entire herd. However, they keep hearing Farmer John mentioning the phrase \"farm to table\" with his human friends, and while they don't quite understand what this means, they have a suspicion that it actually may not be the best idea to be the cow producing the least amount of milk. Instead, they figure it's safer to be in the position of producing the second-smallest amount of milk in the herd. Please help the cows figure out which of them currently occupies this desirable position.\n\n## Input format (file notlast.in)\n\nThe input file for this task starts with a line containing the integer $N$ ($1 \\leq N \\leq 100$), giving the number of entries in Farmer John's milking log.\n\nEach of the $N$ following lines contains the name of a cow (one of the seven above) followed by a positive integer (at most 100), indicating the amount of milk produced by the cow during one of its milking sessions.\n\nAny cow that does not appear in the log at all is assumed to have produced no milk.\n\n## Output format (file notlast.out)\n\nOn a single line of output, please print the name of the cow that produces the second-smallest amount of milk. More precisely, if $M$ is the minimum total amount of milk produced by any cow, please output the name of the cow whose total production is minimal among all cows that produce more than $M$ units of milk. If several cows tie for this designation, or if no cow has this designation (i.e., if all cows have production equal to $M$), please output the word \"Tie\". Don't forget to add a newline character at the end of your line of output. Note that $M=0$ if one of the seven cows is completely absent from the milking log, since this cow would have produced no milk.\n\n### Sample Input\n\n```input\n10\nBessie 1\nMaggie 13\nElsie 3\nElsie 4\nHenrietta 4\nGertie 12\nDaisy 7\nAnnabelle 10\nBessie 6\nHenrietta 5\n```\n\n### Sample Output\n\n```output\nHenrietta\n```\n\nIn this example, Bessie, Elsie, and Daisy all tie for the minimum by each producing 7 units of milk. The next-largest production, 9 units, is due to Henrietta.\n\n*Problem credits: Brian Dean*"
+    },
+    {
+     "day": 5,
+     "number": 2,
+     "paper_label": "January Contest, Bronze",
+     "title": "Hoof, Paper, Scissors",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "256 MB",
+     "problem": "You have probably heard of the game \"Rock, Paper, Scissors\". The cows like to play a similar game they call \"Hoof, Paper, Scissors\".\n\nThe rules of \"Hoof, Paper, Scissors\" are simple. Two cows play against each-other. They both count to three and then each simultaneously makes a gesture that represents either a hoof, a piece of paper, or a pair of scissors. Hoof beats scissors (since a hoof can smash a pair of scissors), scissors beats paper (since scissors can cut paper), and paper beats hoof (since the hoof can get a papercut). For example, if the first cow makes a \"hoof\" gesture and the second a \"paper\" gesture, then the second cow wins. Of course, it is also possible to tie, if both cows make the same gesture.\n\nFarmer John watches in fascination as two of his cows play a series of $N$ games of \"Hoof, Paper, Scissors\" ($1 \\leq N \\leq 100$). Unfortunately, while he can see that the cows are making three distinct types of gestures, he can't tell which one represents \"hoof\", which one represents \"paper\" and which one represents \"scissors\" (to Farmer John's untrained eye, they all seem to be variations on \"hoof\"...)\n\nNot knowing the meaning of the three gestures, Farmer John assigns them numbers 1, 2, and 3. Perhaps gesture 1 stands for \"hoof\", or maybe it stands for \"paper\"; the meaning is not clear to him. Given the gestures made by both cows over all $N$ games, please help Farmer John determine the maximum possible number of games the first cow could have possibly won, given an appropriate mapping between numbers and their respective gestures.\n\n## Input format (file hps.in)\n\nThe first line of the input file contains $N$.\n\nEach of the remaining $N$ lines contain two integers (each 1, 2, or 3), describing a game from Farmer John's perspective.\n\n## Output format (file hps.out)\n\nPrint the maximum number of games the first of the two cows could possibly have won.\n\n### Sample Input\n\n```input\n5\n1 2\n2 2\n1 3\n1 1\n3 2\n```\n\n### Sample Output\n\n```output\n2\n```\n\nOne solution (of several) for this sample case is to have 1 represent \"scissors\", 2 represent \"hoof\", and 3 represent \"paper\". This assignment gives 2 victories to the first cow (\"1 3\" and \"3 2\"). No other assignment leads to more victories.\n\n*Problem credits: Brian Dean*"
+    },
+    {
+     "day": 5,
+     "number": 3,
+     "paper_label": "January Contest, Bronze",
+     "title": "Cow Tipping",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "256 MB",
+     "problem": "Farmer John occasionally has trouble with bored teenagers who visit his farm at night and tip over his cows. One morning, he wakes up to find it has happened again -- his $N^2$ cows began the night grazing in a perfect $N \\times N$ square grid arrangement ($1 \\leq N \\leq 10$), but he finds that some of them are now tipped over.\n\nFortunately, Farmer John has used parts from his tractor and forklift to build a glorious machine, the Cow-Untipperator 3000, that can flip over large groups of cows all at once, helping him put all his cows back on their feet as quickly as possible. He can apply the machine to any \"upper-left rectangle\" in his grid of cows -- a rectangular sub-grid that contains the upper-left cow. When he does so, the machine flips over every cow in this rectangle, placing tipped cows back on their feet, but unfortunately also tipping over cows that were already on their feet! In other words, the machine \"toggles\" the state of each cow in the rectangle.\n\nFarmer John figures that by applying his machine sufficiently many times to the appropriate collection of rectangles, he can eventually restore all the cows to their rightful, un-tipped states. Please help him determine the minimum number of applications of his machine needed to do this.\n\nNote that applying the machine to the same rectangle twice would be pointless, since this would have no net impact on the cows in the rectangle. Therefore, you should only consider applying the machine to each upper-left rectangle possibly only once.\n\n## Input format (file cowtip.in)\n\nThe first line of the input is the integer $N$.\n\nEach of the $N$ subsequent lines contains a string of $N$ characters, each either 0 (representing an up-tipped cow) or 1 (representing a tipped cow).\n\n## Output format (file cowtip.out)\n\nPlease output the minimum number of times Farmer John needs to apply the Cow-Untipperator 3000 to restore all his cows to their feet.\n\n### Sample Input\n\n```input\n3\n001\n111\n111\n```\n\n### Sample Output\n\n```output\n2\n```\n\nIn this example, if FJ applies his machine to the entire herd of cows (which is a valid upper-left rectangle), he will toggle their state to the following:\n\n```text\n110\n000\n000\n```\n\nAll that remains is to apply the machine to the upper-left rectangle containing the two 1s, and he is finished. In total, this is just 2 applications.\n\n*Problem credits: Nathan Pinsker*"
+    },
+    {
+     "day": 6,
+     "number": 1,
+     "paper_label": "January Contest, Silver",
+     "title": "Cow Dance Show",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "256 MB",
+     "problem": "After several months of rehearsal, the cows are just about ready to put on their annual dance performance; this year they are performing the famous bovine ballet \"Cowpelia\".\n\nThe only aspect of the show that remains to be determined is the size of the stage. A stage of size $K$ can support $K$ cows dancing simultaneously. The $N$ cows in the herd ($1 \\leq N \\leq 10,000$) are conveniently numbered $1 \\ldots N$ in the order in which they must appear in the dance. Each cow $i$ plans to dance for a specific duration of time $d(i)$. Initially, cows $1 \\ldots K$ appear on stage and start dancing. When the first of these cows completes her part, she leaves the stage and cow $K+1$ immediately starts dancing, and so on, so there are always $K$ cows dancing (until the end of the show, when we start to run out of cows). The show ends when the last cow completes her dancing part, at time $T$.\n\nClearly, the larger the value of $K$, the smaller the value of $T$. Since the show cannot last too long, you are given as input an upper bound $T_{max}$ specifying the largest possible value of $T$. Subject to this constraint, please determine the smallest possible value of $K$.\n\n## Input format (file cowdance.in)\n\nThe first line of input contains $N$ and $T_{max}$, where $T_{max}$ is an integer of value at most 1 million.\n\nThe next $N$ lines give the durations $d(1) \\ldots d(N)$ of the dancing parts for cows $1 \\ldots N$. Each $d(i)$ value is an integer in the range $1 \\ldots 100,000$.\n\nIt is guaranteed that if $K=N$, the show will finish in time.\n\n## Output format (file cowdance.out)\n\nPrint out the smallest possible value of $K$ such that the dance performance will take no more than $T_{max}$ units of time.\n\n### Sample Input\n\n```input\n5 8\n4\n7\n8\n6\n4\n```\n\n### Sample Output\n\n```output\n4\n```\n\n*Problem credits: Delphine and Brian Dean*"
+    },
+    {
+     "day": 6,
+     "number": 2,
+     "paper_label": "January Contest, Silver",
+     "title": "Hoof, Paper, Scissors",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "256 MB",
+     "problem": "You have probably heard of the game \"Rock, Paper, Scissors\". The cows like to play a similar game they call \"Hoof, Paper, Scissors\".\n\nThe rules of \"Hoof, Paper, Scissors\" are simple. Two cows play against each-other. They both count to three and then each simultaneously makes a gesture that represents either a hoof, a piece of paper, or a pair of scissors. Hoof beats scissors (since a hoof can smash a pair of scissors), scissors beats paper (since scissors can cut paper), and paper beats hoof (since the hoof can get a papercut). For example, if the first cow makes a \"hoof\" gesture and the second a \"paper\" gesture, then the second cow wins. Of course, it is also possible to tie, if both cows make the same gesture.\n\nFarmer John wants to play against his prize cow, Bessie, at $N$ games of \"Hoof, Paper, Scissors\" ($1 \\leq N \\leq 100,000$). Bessie, being an expert at the game, can predict each of FJ's gestures before he makes it. Unfortunately, Bessie, being a cow, is also very lazy. As a result, she tends to play the same gesture multiple times in a row. In fact, she is only willing to switch gestures at most once over the entire set of games. For example, she might play \"hoof\" for the first $x$ games, then switch to \"paper\" for the remaining $N-x$ games.\n\nGiven the sequence of gestures FJ will be playing, please determine the maximum number of games that Bessie can win.\n\n## Input format (file hps.in)\n\nThe first line of the input file contains $N$.\n\nThe remaining $N$ lines contains FJ's gestures, each either H, P, or S.\n\n## Output format (file hps.out)\n\nPrint the maximum number of games Bessie can win, given that she can only change gestures at most once.\n\n### Sample Input\n\n```input\n5\nP\nP\nH\nP\nS\n```\n\n### Sample Output\n\n```output\n4\n```\n\n*Problem credits: Mark Chen and Brian Dean*"
+    },
+    {
+     "day": 6,
+     "number": 3,
+     "paper_label": "January Contest, Silver",
+     "title": "Secret Cow Code",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "256 MB",
+     "problem": "The cows are experimenting with secret codes, and have devised a method for creating an infinite-length string to be used as part of one of their codes.\n\nGiven a string $s$, let $F(s)$ be $s$ followed by $s$ \"rotated\" one character to the right (in a right rotation, the last character of $s$ rotates around and becomes the new first character). Given an initial string $s$, the cows build their infinite-length code string by repeatedly applying $F$; each step therefore doubles the length of the current string.\n\nGiven the initial string and an index $N$, please help the cows compute the character at the $N$th position within the infinite code string.\n\n## Input format (file cowcode.in)\n\nThe input consists of a single line containing a string followed by $N$. The string consists of at most 30 uppercase characters, and $N \\leq 10^{18}$.\n\nNote that $N$ may be too large to fit into a standard 32-bit integer, so you may want to use a 64-bit integer type (e.g., a \"long long\" in C/C++).\n\n## Output format (file cowcode.out)\n\nPlease output the $N$th character of the infinite code built from the initial string. The first character is $N=1$.\n\n### Sample Input\n\n```input\nCOW 8\n```\n\n### Sample Output\n\n```output\nC\n```\n\nIn this example, the initial string COW expands as follows:\n\n```text\nCOW -> COWWCO -> COWWCOOCOWWC\n                 12345678\n```\n\n*Problem credits: Brian Dean*"
+    },
+    {
+     "day": 7,
+     "number": 1,
+     "paper_label": "January Contest, Gold",
+     "title": "Balanced Photo",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "256 MB",
+     "problem": "Farmer John is arranging his $N$ cows in a line to take a photo ($1 \\leq N \\leq 100,000$). The height of the $i$th cow in sequence is $h_i$, and the heights of all cows are distinct.\n\nAs with all photographs of his cows, FJ wants this one to come out looking as nice as possible. He decides that cow $i$ looks \"unbalanced\" if $L_i$ and $R_i$ differ by more than factor of 2, where $L_i$ and $R_i$ are the number of cows taller than $i$ on her left and right, respectively. That is, $i$ is unbalanced if the larger of $L_i$ and $R_i$ is strictly more than twice the smaller of these two numbers. FJ is hoping that not too many of his cows are unbalanced.\n\nPlease help FJ compute the total number of unbalanced cows.\n\n## Input format (file bphoto.in)\n\nThe first line of input contains $N$. The next $N$ lines contain $h_1 \\ldots h_N$, each a nonnegative integer at most 1,000,000,000.\n\n## Output format (file bphoto.out)\n\nPlease output a count of the number of cows that are unbalanced.\n\n### Sample Input\n\n```input\n7\n34\n6\n23\n0\n5\n99\n2\n```\n\n### Sample Output\n\n```output\n3\n```\n\nIn this example, the cows of heights 34, 5, and 2 are unbalanced.\n\n*Problem credits: Brian Dean*"
+    },
+    {
+     "day": 7,
+     "number": 2,
+     "paper_label": "January Contest, Gold",
+     "title": "Hoof, Paper, Scissors",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "256 MB",
+     "problem": "You have probably heard of the game \"Rock, Paper, Scissors\". The cows like to play a similar game they call \"Hoof, Paper, Scissors\".\n\nThe rules of \"Hoof, Paper, Scissors\" are simple. Two cows play against each-other. They both count to three and then each simultaneously makes a gesture that represents either a hoof, a piece of paper, or a pair of scissors. Hoof beats scissors (since a hoof can smash a pair of scissors), scissors beats paper (since scissors can cut paper), and paper beats hoof (since the hoof can get a papercut). For example, if the first cow makes a \"hoof\" gesture and the second a \"paper\" gesture, then the second cow wins. Of course, it is also possible to tie, if both cows make the same gesture.\n\nFarmer John wants to play against his prize cow, Bessie, at $N$ games of \"Hoof, Paper, Scissors\" ($1 \\leq N \\leq 100,000$). Bessie, being an expert at the game, can predict each of FJ's gestures before he makes it. Unfortunately, Bessie, being a cow, is also very lazy. As a result, she tends to play the same gesture multiple times in a row. In fact, she is only willing to switch gestures at most $K$ times over the entire set of games ($0 \\leq K \\leq 20$). For example, if $K=2$, she might play \"hoof\" for the first few games, then switch to \"paper\" for a while, then finish the remaining games playing \"hoof\".\n\nGiven the sequence of gestures FJ will be playing, please determine the maximum number of games that Bessie can win.\n\n## Input format (file hps.in)\n\nThe first line of the input file contains $N$ and $K$.\n\nThe remaining $N$ lines contains FJ's gestures, each either H, P, or S.\n\n## Output format (file hps.out)\n\nPrint the maximum number of games Bessie can win, given that she can only change gestures at most $K$ times.\n\n### Sample Input\n\n```input\n5 1\nP\nP\nH\nP\nS\n```\n\n### Sample Output\n\n```output\n4\n```\n\n*Problem credits: Mark Chen and Brian Dean*"
+    },
+    {
+     "day": 7,
+     "number": 3,
+     "paper_label": "January Contest, Gold",
+     "title": "Cow Navigation",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "256 MB",
+     "problem": "Bessie has gotten herself stuck on the wrong side of Farmer John's barn again, and since her vision is so poor, she needs your help navigating across the barn.\n\nThe barn is described by an $N \\times N$ grid of square cells ($2 \\leq N \\leq 20$), some being empty and some containing impassable haybales. Bessie starts in the lower-left corner (cell 1,1) and wants to move to the upper-right corner (cell $N,N$). You can guide her by telling her a sequence of instructions, each of which is either \"forward\", \"turn left 90 degrees\", or \"turn right 90 degrees\". You want to issue the shortest sequence of instructions that will guide her to her destination. If you instruct Bessie to move off the grid (i.e., into the barn wall) or into a haybale, she will not move and will skip to the next command in your sequence.\n\nUnfortunately, Bessie doesn't know if she starts out facing up (towards cell 1,2) or right (towards cell 2,1). You need to give the shortest sequence of directions that will guide her to the goal regardless of which case is true. Once she reaches the goal she will ignore further commands.\n\n## Input format (file cownav.in)\n\nThe first line of input contains $N$.\n\nEach of the $N$ following lines contains a string of exactly $N$ characters, representing the barn. The first character of the last line is cell 1,1. The last character of the first line is cell N, N.\n\nEach character will either be an H to represent a haybale or an E to represent an empty square.\n\nIt is guaranteed that cells 1,1 and $N,N$ will be empty, and furthermore it is guaranteed that there is a path of empty squares from cell 1,1 to cell $N, N$.\n\n## Output format (file cownav.out)\n\nOn a single line of output, output the length of the shortest sequence of directions that will guide Bessie to the goal, irrespective whether she starts facing up or right.\n\n### Sample Input\n\n```input\n3\nEHE\nEEE\nEEE\n```\n\n### Sample Output\n\n```output\n9\n```\n\nIn this example, the instructions \"Forward, Right, Forward, Forward, Left, Forward, Left, Forward, Forward\" will guide Bessie to the destination irrespective of her starting orientation.\n\n*Problem credits: Brian Dean*"
+    },
+    {
+     "day": 8,
+     "number": 1,
+     "paper_label": "January Contest, Platinum",
+     "title": "Promotion Counting",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "256 MB",
+     "problem": "The cows have once again tried to form a startup company, failing to remember from past experience that cows make terrible managers!\n\nThe cows, conveniently numbered $1 \\ldots N$ ($1 \\leq N \\leq 100,000$), organize the company as a tree, with cow 1 as the president (the root of the tree). Each cow except the president has a single manager (its \"parent\" in the tree). Each cow $i$ has a distinct proficiency rating, $p(i)$, which describes how good she is at her job. If cow $i$ is an ancestor (e.g., a manager of a manager of a manager) of cow $j$, then we say $j$ is a subordinate of $i$.\n\nUnfortunately, the cows find that it is often the case that a manager has less proficiency than several of her subordinates, in which case the manager should consider promoting some of her subordinates. Your task is to help the cows figure out when this is happening. For each cow $i$ in the company, please count the number of subordinates $j$ where $p(j) > p(i)$.\n\n## Input format (file promote.in)\n\nThe first line of input contains $N$.\n\nThe next $N$ lines of input contain the proficiency ratings $p(1) \\ldots p(N)$ for the cows. Each is a distinct integer in the range $1 \\ldots 1,000,000,000$.\n\nThe next $N-1$ lines describe the manager (parent) for cows $2 \\ldots N$. Recall that cow 1 has no manager, being the president.\n\n## Output format (file promote.out)\n\nPlease print $N$ lines of output. The $i$th line of output should tell the number of subordinates of cow $i$ with higher proficiency than cow $i$.\n\n### Sample Input\n\n```input\n5\n804289384\n846930887\n681692778\n714636916\n957747794\n1\n1\n2\n3\n```\n\n### Sample Output\n\n```output\n2\n0\n1\n0\n0\n```\n\n*Problem credits: Karthik Nair*"
+    },
+    {
+     "day": 8,
+     "number": 2,
+     "paper_label": "January Contest, Platinum",
+     "title": "Building a Tall Barn",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "256 MB",
+     "problem": "Farmer John is building a brand new, $N$-story barn, with the help of his $K$ cows ($1 \\leq N \\leq K \\leq 10^{12}$ and $N \\leq 10^5$). To build it as quickly as possible, he needs your help to figure out how to allocate work among the cows.\n\nEach cow must be assigned to work on exactly one specific floor out of the $N$ total floors in the barn, and each floor must have at least one cow assigned to it. The $i$th floor requires $a_i$ units of total work, and each cow completes one unit of work per hour, so if $c$ cows work on floor $i$, it will be completed in $a_i / c$ units of time. For safety reasons, floor $i$ must be completed before construction can begin on floor $i+1$.\n\nPlease compute the minimum total time in which the barn can be completed, if the cows are allocated to work on floors in an optimal fashion. Output this number rounded to the nearest integer; it is guaranteed that the solution will be more than 0.1 from the boundary between two integers.\n\n## Input format (file tallbarn.in)\n\nThe first line of input contains $N$ and $K$.\n\nThe next $N$ lines contain $a_1 \\ldots a_N$, each a positive integer of size at most $10^{12}$.\n\n## Output format (file tallbarn.out)\n\nPlease output the minimum time required to build the barn, rounded to the nearest integer.\n\n### Sample Input\n\n```input\n2 5\n10\n4\n```\n\n### Sample Output\n\n```output\n5\n```\n\n*Problem credits: Yang Liu*"
+    },
+    {
+     "day": 8,
+     "number": 3,
+     "paper_label": "January Contest, Platinum",
+     "title": "Subsequence Reversal",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "memory_limit": "256 MB",
+     "problem": "Farmer John is arranging his $N$ cows in a line to take a photo ($1 \\leq N \\leq 50$). The height of the $i$th cow in sequence is $a(i)$, and Farmer John thinks it would make for an aesthetically pleasing photo if the cow lineup has a large increasing subsequence of cows by height.\n\nTo recall, a subsequence is a subset $a(i_1), a(i_2), \\ldots, a(i_k)$ of elements from the cow sequence, found at some series of indices $i_1 < i_2 < \\ldots < i_k$. We say the subsequence is increasing if $a(i_1) \\leq a(i_2) \\leq \\ldots \\leq a(i_k)$.\n\nFJ would like there to be a long increasing subsequence within his ordering of the cows. In order to ensure this, he allows himself initially to choose any subsequence and reverse its elements.\n\nFor example, if we had the list\n\n```text\n1 6 2 3 4 3 5 3 4\n```\n\nWe can reverse the chosen elements\n\n```text\n1 6 2 3 4 3 5 3 4\n  ^         ^ ^ ^\n```\n\nto get\n\n```text\n1 4 2 3 4 3 3 5 6\n  ^         ^ ^ ^\n```\n\nObserve how the subsequence being reversed ends up using the same indices as it initially occupied, leaving the other elements unchanged.\n\nPlease find the maximum possible length of an increasing subsequence, given that you can choose to reverse an arbitrary subsequence once.\n\n## Input format (file subrev.in)\n\nThe first line of input contains $N$. The remaining $N$ lines contain $a(1) \\ldots a(N)$, each an integer in the range $1 \\ldots 50$.\n\n## Output format (file subrev.out)\n\nOutput the number of elements that can possibly form a longest increasing subsequence after reversing the contents of at most one subsequence.\n\n### Sample Input\n\n```input\n9\n1\n2\n3\n9\n5\n6\n8\n7\n4\n```\n\n### Sample Output\n\n```output\n9\n```\n\n*Problem credits: Lewin Gan*"
+    }
+   ]
+  },
+  {
    "year": 2017,
    "problems": [
     {
