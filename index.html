@@ -637,10 +637,10 @@ const BASE = './';
 // Figures are linked inside the statements with their published raw URL; a local copy shows its own images/.
 const RAW = 'https://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/';
 // Bump on every data change so browsers never mix old and new files.
-const DATA_VERSION = '20261019-joisc2017';
+const DATA_VERSION = '20261019-usaco2025';
 const FIRST = 1989, LAST = 2026;
 const REGIONS = [['europe', 'Europe'], ['asia', 'Asia'], ['americas', 'Americas'], ['africa', 'Africa'], ['oceania', 'Oceania'], ['world', 'World'], ['other', 'Other']];
-const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', coci: 'europe', joi: 'asia', joisc: 'asia' };
+const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', coci: 'europe', joi: 'asia', joisc: 'asia', usaco: 'americas' };
 const regionOf = key => REGION_OF[key] || 'other';
 const PAGE = 20;
 const STORAGE_KEY = 'eisatopon-informatics:set:v1';  // same origin as the other banks: keep the keys apart
@@ -651,6 +651,7 @@ const COUNTRIES = [
     { key: 'coci', name: 'Croatia — COCI', flag: '🇭🇷', file: 'COCI-problems.json', kind: 'years', scope: 'national', full: 'Croatian Open Competition in Informatics (the year is the start of the season, e.g. 2025 = season 2025/2026)' },
     { key: 'joi', name: 'Japan — JOI Final Round', flag: '🇯🇵', file: 'JOI-problems.json', kind: 'years', scope: 'national', full: 'Japanese Olympiad in Informatics, Final Round (the year is the year of the contest, e.g. 2025 = JOI 2024/2025)' },
     { key: 'joisc', name: 'Japan — JOI Spring Camp', flag: '🇯🇵', file: 'JOISC-problems.json', kind: 'years', scope: 'national', full: 'Japanese Olympiad in Informatics, Spring Training Camp (selection of the IOI team)' },
+    { key: 'usaco', name: 'USA — USACO', flag: '🇺🇸', file: 'USACO-problems.json', kind: 'years', scope: 'national', full: 'USA Computing Olympiad, online contests of the season in all divisions (Bronze, Silver, Gold, Platinum); the year is the start of the season, e.g. 2024 = season 2024/2025' },
     { key: 'egoi', name: 'EGOI', flag: '🇪🇺', file: 'EGOI-problems.json', kind: 'years', scope: 'international', full: "European Girls' Olympiad in Informatics" },
 ];
 COUNTRIES.sort((a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' }));
