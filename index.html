@@ -637,7 +637,7 @@ const BASE = './';
 // Figures are linked inside the statements with their published raw URL; a local copy shows its own images/.
 const RAW = 'https://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/';
 // Bump on every data change so browsers never mix old and new files.
-const DATA_VERSION = '20261019-usaco2022-r1-8';
+const DATA_VERSION = '20261019-usaco2022-r9-16';
 const FIRST = 1989, LAST = 2026;
 const REGIONS = [['europe', 'Europe'], ['asia', 'Asia'], ['americas', 'Americas'], ['africa', 'Africa'], ['oceania', 'Oceania'], ['world', 'World'], ['other', 'Other']];
 const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', coci: 'europe', joi: 'asia', joisc: 'asia', usaco: 'americas' };
@@ -809,7 +809,8 @@ const FIG_ONLY_RE = /^(https?:\/\/\S+?\.(?:png|jpe?g|gif|webp|svg))$/i;
 // Sample input/output and code are fenced blocks (```input … ```), shown monospaced exactly as printed and never typeset.
 const FENCE_RE = /^```([^`\n]*)\n([\s\S]*?)\n```[ \t]*$/gm;
 // Inline code `like_this()` (MathJax skips <code>); **bold** and *italic* emphasis as printed, outside code and math.
-const emphasis = s => s.replace(/\*\*([^*\n$]+)\*\*/g, '<b>$1</b>').replace(/(^|[\s(“"])\*([^*\s$][^*\n$]*?)\*(?=[\s.,;:!?)”"]|$)/g, '$1<i>$2</i>');
+// A literal asterisk is written \* in the transcriptions.
+const emphasis = s => s.replace(/\\\*/g, '\u0001').replace(/\*\*([^*\n$]+)\*\*/g, '<b>$1</b>').replace(/(^|[\s(“"])\*([^*\s$][^*\n$]*?)\*(?=[\s.,;:!?)”"]|$)/g, '$1<i>$2</i>').replace(/\u0001/g, '*');
 const inlineCode = x => x.split(/(`[^`\n]+`)/).map(s => /^`[^`\n]+`$/.test(s) ? `<code>${s.slice(1, -1)}</code>` : emphasis(s)).join('');
 function bodyHtml(text, record) {
     const local = typeof location !== 'undefined' && /^(localhost|127\.)/.test(location.hostname);
