@@ -66,6 +66,7 @@
 
     /* Competition -> colour (card edge, tags) */
     --ioi: #15803d; --ioi-ink: #0e5a2b; --ioi-tint: #dcf3e4;
+    --ejoi: #0369a1; --ejoi-ink: #024a72; --ejoi-tint: #ddeefa;
     --egoi: #0e7490; --egoi-ink: #0a4f62; --egoi-tint: #dcf1f6;
     --apio: #7c3aed; --apio-ink: #521fa8; --apio-tint: #eee5fd;
     --boi: #1d4ed8; --boi-ink: #14328f; --boi-tint: #e0e8fb;
@@ -79,6 +80,7 @@
     --icpc: #475569; --icpc-ink: #2f3946; --icpc-tint: #e5e9ee;
 }
 .f-ioi { --f: var(--ioi); --f-ink: var(--ioi-ink); --f-tint: var(--ioi-tint); }
+.f-ejoi { --f: var(--ejoi); --f-ink: var(--ejoi-ink); --f-tint: var(--ejoi-tint); }
 .f-egoi { --f: var(--egoi); --f-ink: var(--egoi-ink); --f-tint: var(--egoi-tint); }
 .f-apio { --f: var(--apio); --f-ink: var(--apio-ink); --f-tint: var(--apio-tint); }
 .f-boi { --f: var(--boi); --f-ink: var(--boi-ink); --f-tint: var(--boi-tint); }
@@ -637,10 +639,10 @@ const BASE = './';
 // Figures are linked inside the statements with their published raw URL; a local copy shows its own images/.
 const RAW = 'https://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/';
 // Bump on every data change so browsers never mix old and new files.
-const DATA_VERSION = '20261019-usaco2011-r17-23';
+const DATA_VERSION = '20261020-ejoi2021-2022';
 const FIRST = 1989, LAST = 2026;
 const REGIONS = [['europe', 'Europe'], ['asia', 'Asia'], ['americas', 'Americas'], ['africa', 'Africa'], ['oceania', 'Oceania'], ['world', 'World'], ['other', 'Other']];
-const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', coci: 'europe', joi: 'asia', joisc: 'asia', usaco: 'americas' };
+const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', coci: 'europe', joi: 'asia', joisc: 'asia', usaco: 'americas', ejoi: 'world' };
 const regionOf = key => REGION_OF[key] || 'other';
 const PAGE = 20;
 const STORAGE_KEY = 'eisatopon-informatics:set:v1';  // same origin as the other banks: keep the keys apart
@@ -653,6 +655,7 @@ const COUNTRIES = [
     { key: 'joisc', name: 'Japan — JOI Spring Camp', flag: '🇯🇵', file: 'JOISC-problems.json', kind: 'years', scope: 'national', full: 'Japanese Olympiad in Informatics, Spring Training Camp (selection of the IOI team)' },
     { key: 'usaco', name: 'USA — USACO', flag: '🇺🇸', file: 'USACO-problems.json', kind: 'years', scope: 'national', full: 'USA Computing Olympiad, online contests of the season in all divisions (Bronze, Silver, Gold, Platinum); the year is the start of the season, e.g. 2024 = season 2024/2025' },
     { key: 'egoi', name: 'EGOI', flag: '🇪🇺', file: 'EGOI-problems.json', kind: 'years', scope: 'international', full: "European Girls' Olympiad in Informatics" },
+    { key: 'ejoi', name: 'EJOI', flag: '🇪🇺', file: 'EJOI-problems.json', kind: 'years', scope: 'international', full: 'European Junior Olympiad in Informatics' },
 ];
 COUNTRIES.sort((a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' }));
 const CBY = Object.fromEntries(COUNTRIES.map(c => [c.key, c]));
