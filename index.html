@@ -67,6 +67,7 @@
     /* Competition -> colour (card edge, tags) */
     --ioi: #15803d; --ioi-ink: #0e5a2b; --ioi-tint: #dcf3e4;
     --ejoi: #0369a1; --ejoi-ink: #024a72; --ejoi-tint: #ddeefa;
+    --izho: #0891b2; --izho-ink: #05617a; --izho-tint: #ddf3f8;
     --egoi: #0e7490; --egoi-ink: #0a4f62; --egoi-tint: #dcf1f6;
     --apio: #7c3aed; --apio-ink: #521fa8; --apio-tint: #eee5fd;
     --boi: #1d4ed8; --boi-ink: #14328f; --boi-tint: #e0e8fb;
@@ -82,6 +83,7 @@
 }
 .f-ioi { --f: var(--ioi); --f-ink: var(--ioi-ink); --f-tint: var(--ioi-tint); }
 .f-ejoi { --f: var(--ejoi); --f-ink: var(--ejoi-ink); --f-tint: var(--ejoi-tint); }
+.f-izho { --f: var(--izho); --f-ink: var(--izho-ink); --f-tint: var(--izho-tint); }
 .f-egoi { --f: var(--egoi); --f-ink: var(--egoi-ink); --f-tint: var(--egoi-tint); }
 .f-apio { --f: var(--apio); --f-ink: var(--apio-ink); --f-tint: var(--apio-tint); }
 .f-boi { --f: var(--boi); --f-ink: var(--boi-ink); --f-tint: var(--boi-tint); }
@@ -645,10 +647,10 @@ const BASE = './';
 // Figures are linked inside the statements with their published raw URL; a local copy shows its own images/.
 const RAW = 'https://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/';
 // Bump on every data change so browsers never mix old and new files.
-const DATA_VERSION = '20261021-ccc2024-2026';
+const DATA_VERSION = '20261021-izho2014-2016';
 const FIRST = 1989, LAST = 2026;
 const REGIONS = [['europe', 'Europe'], ['asia', 'Asia'], ['americas', 'Americas'], ['africa', 'Africa'], ['oceania', 'Oceania'], ['world', 'World'], ['other', 'Other']];
-const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', coci: 'europe', joi: 'asia', joisc: 'asia', joiopen: 'asia', usaco: 'americas', ccc: 'americas', ejoi: 'world', neerc: 'europe' };
+const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', coci: 'europe', joi: 'asia', joisc: 'asia', joiopen: 'asia', usaco: 'americas', ccc: 'americas', ejoi: 'world', neerc: 'europe', izho: 'world' };
 const regionOf = key => REGION_OF[key] || 'other';
 const PAGE = 20;
 const STORAGE_KEY = 'eisatopon-informatics:set:v1';  // same origin as the other banks: keep the keys apart
@@ -663,6 +665,7 @@ const COUNTRIES = [
     { key: 'joiopen', name: 'Japan — JOI Open Contest', flag: '🇯🇵', file: 'JOIOPEN-problems.json', kind: 'years', scope: 'national', full: 'JOI Open Contest, the IOI-style open contest of the Japanese Olympiad in Informatics' },
     { key: 'usaco', name: 'USA — USACO', flag: '🇺🇸', file: 'USACO-problems.json', kind: 'years', scope: 'national', full: 'USA Computing Olympiad, online contests of the season in all divisions (Bronze, Silver, Gold, Platinum); the year is the start of the season, e.g. 2024 = season 2024/2025' },
     { key: 'egoi', name: 'EGOI', flag: '🇪🇺', file: 'EGOI-problems.json', kind: 'years', scope: 'international', full: "European Girls' Olympiad in Informatics" },
+    { key: 'izho', name: 'IZhO', flag: '🇰🇿', file: 'IZHO-problems.json', kind: 'years', scope: 'international', full: 'International Zhautykov Olympiad, Computer Science (Almaty, Kazakhstan)' },
     { key: 'neerc', name: 'ICPC NERC', flag: '🎓', file: 'NEERC-problems.json', kind: 'years', scope: 'undergraduate', full: 'ICPC Northern Eurasia Finals (NERC; until 2018 the Northeastern European Regional Contest, NEERC), the university contest; the year is the year of the contest (held in December)' },
     { key: 'ejoi', name: 'EJOI', flag: '🇪🇺', file: 'EJOI-problems.json', kind: 'years', scope: 'international', full: 'European Junior Olympiad in Informatics' },
 ];
