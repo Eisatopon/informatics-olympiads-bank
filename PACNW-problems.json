@@ -1,0 +1,249 @@
+{
+ "competition": "ICPC Pacific Northwest Regional Contest (Division 1)",
+ "years": [
+  {
+   "year": 2018,
+   "problems": [
+    {
+     "day": 1,
+     "number": 1,
+     "paper_label": "Division 1",
+     "title": "Exam",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "problem": "Your friend and you took a true/false exam of $n$ questions. You know your answers, your friend's answers, and that your friend got $k$ questions correct.\n\nCompute the maximum number of questions you could have gotten correctly.\n\n## Input\n\nThe first line of input contains a single integer $k$.\n\nThe second line contains a string of $n$ ($1 \\le n \\le 1000$) characters, the answers you wrote down. Each letter is either a '`T`' or an '`F`'.\n\nThe third line contains a string of $n$ characters, the answers your friend wrote down. Each letter is either a '`T`' or an '`F`'.\n\nThe input will satisfy $0 \\le k \\le n$.\n\n## Output\n\nPrint, on one line, the maximum number of questions you could have gotten correctly.\n\n## Sample Input and Output\n\n### Sample Input 1\n\n```input\n3\nFTFFF\nTFTTT\n```\n\n### Sample Output 1\n\n```output\n2\n```\n\n### Sample Input 2\n\n```input\n6\nTTFTFFTFTF\nTTTTFFTTTT\n```\n\n### Sample Output 2\n\n```output\n9\n```"
+    },
+    {
+     "day": 1,
+     "number": 2,
+     "paper_label": "Division 1",
+     "title": "Coprime Integers",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "problem": "Given intervals $[a, b]$ and $[c, d]$, count the number of pairs of coprime integers $(x, y)$ such that $a \\le x \\le b$ and $c \\le y \\le d$.\n\nTwo numbers are coprime if their greatest common divisor is 1. A divisor of a number is a positive integer that evenly divides that number.\n\n## Input\n\nThe input consists of a single line containing space-separated integers $a$, $b$, $c$, and $d$ ($1 \\le a \\le b \\le 10^{7}$, $1 \\le c \\le d \\le 10^{7}$).\n\n## Output\n\nPrint the result as a single integer on one line.\n\n## Sample Input and Output\n\n### Sample Input 1\n\n```input\n1 5 1 5\n```\n\n### Sample Output 1\n\n```output\n19\n```\n\n### Sample Input 2\n\n```input\n12 12 1 12\n```\n\n### Sample Output 2\n\n```output\n4\n```\n\n### Sample Input 3\n\n```input\n1 100 1 100\n```\n\n### Sample Output 3\n\n```output\n6087\n```"
+    },
+    {
+     "day": 1,
+     "number": 3,
+     "paper_label": "Division 1",
+     "title": "Contest Setting",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "problem": "A group of contest writers have written $n$ problems and want to use $k$ of them in an upcoming contest. Each problem has a *difficulty level*. A contest is valid if all of its $k$ problems have different difficulty levels.\n\nCompute how many distinct valid contests the contest writers can produce. Two contests are distinct if and only if there exists some problem present in one contest but not present in the other.\n\nPrint the result modulo $998{,}244{,}353$.\n\n## Input\n\nThe first line of input contains two space-separated integers $n$ and $k$ ($1 \\le k \\le n \\le 1000$).\n\nThe next line contains $n$ space-separated integers representing the difficulty levels. The difficulty levels are between $1$ and $10^{9}$ (inclusive).\n\n## Output\n\nPrint the number of distinct contests possible, modulo $998{,}244{,}353$.\n\n## Sample Input and Output\n\n### Sample Input 1\n\n```input\n5 2\n1 2 3 4 5\n```\n\n### Sample Output 1\n\n```output\n10\n```\n\n### Sample Input 2\n\n```input\n5 2\n1 1 1 2 2\n```\n\n### Sample Output 2\n\n```output\n6\n```\n\n### Sample Input 3\n\n```input\n12 5\n3 1 4 1 5 9 2 6 5 3 5 8\n```\n\n### Sample Output 3\n\n```output\n316\n```"
+    },
+    {
+     "day": 1,
+     "number": 4,
+     "paper_label": "Division 1",
+     "title": "Count The Bits",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "problem": "Given an integer $k$ and a number of bits $b$ ($1 \\le b \\le 128$), calculate the total number of 1 bits in the binary representations of multiples of $k$ between $0$ and $2^{b} - 1$ (inclusive), modulo $1{,}000{,}000{,}009$.\n\n## Input\n\nThe input will consist of two integers $k$ and $b$ on a single line, with $1 \\le k \\le 1000$ and $1 \\le b \\le 128$.\n\n## Output\n\nWrite your result as an integer on a single line.\n\n## Sample Input and Output\n\n### Sample Input 1\n\n```input\n1 4\n```\n\n### Sample Output 1\n\n```output\n32\n```\n\n### Sample Input 2\n\n```input\n10 5\n```\n\n### Sample Output 2\n\n```output\n8\n```\n\n### Sample Input 3\n\n```input\n100 7\n```\n\n### Sample Output 3\n\n```output\n3\n```\n\n### Sample Input 4\n\n```input\n3 28\n```\n\n### Sample Output 4\n\n```output\n252698795\n```\n\n### Sample Input 5\n\n```input\n11 128\n```\n\n### Sample Output 5\n\n```output\n856188165\n```\n\n### Sample Input 6\n\n```input\n1 26\n```\n\n### Sample Output 6\n\n```output\n872415232\n```\n\n### Sample Input 7\n\n```input\n876 128\n```\n\n### Sample Output 7\n\n```output\n530649653\n```"
+    },
+    {
+     "day": 1,
+     "number": 5,
+     "paper_label": "Division 1",
+     "title": "Cops And Robbers",
+     "task_type": "batch",
+     "time_limit": "5 seconds",
+     "problem": "The First Universal Bank of Denview has just been robbed! You want to catch the robbers before they leave the state of Calirado.\n\nThe state of Calirado is a perfect grid of size $m$-by-$n$. The robbers will try to escape by going from grid square to grid square (only through edges, not corners) until they reach the border of the state.\n\nYou can barricade some grid squares to stop the robbers from using them. However, depending on the terrain, different grid squares may cost different amount of money, and some grid squares may not be barricaded at all!\n\nFind the cheapest set of grid squares to barricade that guarantees no escape for the robbers.\n\n## Input\n\nThe first line of input contains three space-separated integers $n$, $m$, and $c$ ($1 \\le n, m \\le 30$, and $1 \\le c \\le 26$), where $n$ and $m$ are the dimensions of the grid, and $c$ is the number of types of terrain in Calirado.\n\nEach of the next $m$ lines contains $n$ letters each, representing the grid.\n\n• Character '`B`' indicates the First Universal Bank of Denview; it is where the robbers currently are.\n• Characters '`a`' through '`z`' represent the different types of terrain. Only the first $c$ alphabets will appear in the grid.\n• A dot ('`.`') represents a grid square that cannot be barricaded.\n\nIt is guaranteed that the grid will contain exactly one `B` character.\n\nFinally, the last line of the input contains $c$ space-separated integers between $1$ and $100{,}000$ (inclusive), representing the cost of barricading a single grid square of type '`a`', '`b`', and so on.\n\n## Output\n\nPrint, on one line, the minimum total cost of barricading plan that guarantees no exit for the robbers.\n\nIf there is no way to prevent the robbers from escaping, print `-1` instead.\n\nIn the first example, the minimum cost is to barricade the central three squares on each side for a total cost of 12.\n\nIn the second example, since the bank is on the border, and we cannot barricade the bank, there is no way to prevent the robbers from escaping the state.\n\n## Sample Input and Output\n\n### Sample Input 1\n\n```input\n5 5 1\naaaaa\na...a\na.B.a\na...a\naaaaa\n1\n```\n\n### Sample Output 1\n\n```output\n12\n```\n\n### Sample Input 2\n\n```input\n2 2 1\naB\naa\n1\n```\n\n### Sample Output 2\n\n```output\n-1\n```"
+    },
+    {
+     "day": 1,
+     "number": 6,
+     "paper_label": "Division 1",
+     "title": "Rectangles",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "problem": "You are given several axis-aligned rectangles. Compute the sum of the area of the regions that are covered by an odd number of rectangles.\n\n## Input\n\nThe first line of input contains a single integer $n$ ($1 \\le n \\le 10^{5}$), representing the number of rectangles.\n\nEach of the next $n$ lines contains four space-separated integers $x_1$, $y_1$, $x_2$, and $y_2$, each between $0$ and $10^{9}$, describing the coordinates of a rectangle.\n\n## Output\n\nPrint, on one line, the total area covered by an odd number of rectangles as an exact integer.\n\n## Sample Input and Output\n\n### Sample Input 1\n\n```input\n2\n0 0 4 4\n1 1 3 3\n```\n\n### Sample Output 1\n\n```output\n12\n```\n\n### Sample Input 2\n\n```input\n4\n0 0 10 10\n1 1 11 11\n2 2 12 12\n3 3 13 13\n```\n\n### Sample Output 2\n\n```output\n72\n```"
+    },
+    {
+     "day": 1,
+     "number": 7,
+     "paper_label": "Division 1",
+     "title": "Goat on a Rope",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "problem": "You have a house, which you model as an axis-aligned rectangle with corners at $(x_1, y_1)$ and $(x_2, y_2)$.\n\nYou also have a goat, which you want to tie to a fence post located at $(x, y)$, with a rope of length $l$. The goat can reach anywhere within a distance $l$ from the fence post.\n\nFind the largest value of $l$ so that the goat cannot reach your house.\n\n## Input\n\nInput consists of a single line with six space-separated integers $x$, $y$, $x_1$, $y_1$, $x_2$, and $y_2$. All the values are guaranteed to be between $-1000$ and $1000$ (inclusive).\n\nIt is guaranteed that $x_1 < y_1$ and $x_2 < y_2$, and that $(x, y)$ lies strictly outside the axis-aligned rectangle with corners at $(x_1, y_1)$ and $(x_2, y_2)$.\n\n## Output\n\nPrint, on one line, the maximum value of $l$, rounded and displayed to exactly three decimal places.\n\n## Sample Input and Output\n\n### Sample Input 1\n\n```input\n7 4 0 0 5 4\n```\n\n### Sample Output 1\n\n```output\n2.000\n```\n\n### Sample Input 2\n\n```input\n6 0 0 2 7 6\n```\n\n### Sample Output 2\n\n```output\n2.000\n```\n\n### Sample Input 3\n\n```input\n4 8 7 8 9 9\n```\n\n### Sample Output 3\n\n```output\n3.000\n```"
+    },
+    {
+     "day": 1,
+     "number": 8,
+     "paper_label": "Division 1",
+     "title": "Repeating Goldbachs",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "problem": "The Goldbach Conjecture states that any even number $x \\ge 4$ can be expressed as the sum of two primes. It can be verified that the conjecture is true for all $x \\le 10^{6}$.\n\nDefine a *Goldbach step* as taking $x$ ($4 \\le x \\le 10^{6}$), finding primes $p$ and $q$ (with $p \\le q$) that sum to $x$, and replacing $x$ with $q - p$. If there are multiple pairs of primes which sum to $x$, we take the pair with the largest difference. That difference must be even and less than $x$. Therefore, we can repeat more Goldbach steps, until we can reach a number less than $4$.\n\nGiven $x$, find how many Goldbach steps it takes until reaching a number less than $4$.\n\n## Input\n\nThe input will consist of a single integer $x$ ($4 \\le x \\le 10^{6}$).\n\n## Output\n\nPrint, on a single line, the number of Goldbach steps it takes to reach a number less than $4$.\n\n## Sample Input and Output\n\n### Sample Input 1\n\n```input\n20\n```\n\n### Sample Output 1\n\n```output\n3\n```\n\n### Sample Input 2\n\n```input\n30\n```\n\n### Sample Output 2\n\n```output\n4\n```\n\n### Sample Input 3\n\n```input\n40\n```\n\n### Sample Output 3\n\n```output\n5\n```\n\n### Sample Input 4\n\n```input\n50\n```\n\n### Sample Output 4\n\n```output\n6\n```\n\n### Sample Input 5\n\n```input\n60\n```\n\n### Sample Output 5\n\n```output\n7\n```\n\n### Sample Input 6\n\n```input\n70\n```\n\n### Sample Output 6\n\n```output\n8\n```"
+    },
+    {
+     "day": 1,
+     "number": 9,
+     "paper_label": "Division 1",
+     "title": "Inversions",
+     "task_type": "batch",
+     "time_limit": "5 seconds",
+     "problem": "You are given a sequence $p = (p_1, \\ldots, p_n)$ of $n$ integers between $1$ and $k$, inclusive. Some of the integers are not determined, but they must still be between $1$ and $k$.\n\nAn inversion is a pair of indices $(i, j)$ with $i < j$ and $p_i > p_j$.\n\nFind the maximum possible number of inversions in $p$ obtained by replacing the undetermined numbers with values between $1$ and $k$. Note that the numbers can be duplicated.\n\n## Input\n\nThe first line of input contains two space-separated integers $n$ and $k$ ($1 \\le n \\le 200{,}000$ and $1 \\le k \\le 100$). The next $n$ lines describe the sequence $p$, and each contains a single integer between $0$ and $k$, inclusive. The value $0$ represents an undetermined number.\n\n## Output\n\nPrint, on a single line, the maximum possible number of inversions.\n\n## Sample Input and Output\n\n### Sample Input 1\n\n```input\n6 9\n0\n8\n4\n3\n0\n0\n```\n\n### Sample Output 1\n\n```output\n15\n```\n\n### Sample Input 2\n\n```input\n10 9\n5\n2\n9\n0\n7\n4\n8\n7\n0\n0\n```\n\n### Sample Output 2\n\n```output\n28\n```\n\n### Sample Input 3\n\n```input\n10 9\n7\n4\n0\n0\n8\n5\n0\n0\n3\n1\n```\n\n### Sample Output 3\n\n```output\n36\n```"
+    },
+    {
+     "day": 1,
+     "number": 10,
+     "paper_label": "Division 1",
+     "title": "Time Limits",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "problem": "A contest setter wants to determine the time limits for a given problem. There are $n$ model solutions, and solution $k$ takes $t_k$ milliseconds to run on the test data. The contest setter wants the time limit to be an integer number of seconds, and wants the time limit to be at least $s$ times larger than the slowest model solution. Compute the minimum time limit the contest setter can set.\n\n## Input\n\nThe first line of input contains two space-separated integers $n$ and $s$ ($1 \\le n \\le 100$ and $1 \\le s \\le 20$).\n\nThe second line of input contains $n$ space-separated integers $t_1, \\ldots, t_n$ ($1 \\le t_k \\le 2000$ for all $k = 1, \\ldots, n$).\n\n## Output\n\nPrint, on one line, the minimum time limit (in seconds) as a single integer.\n\n## Sample Input and Output\n\n### Sample Input 1\n\n```input\n2 5\n200 250\n```\n\n### Sample Output 1\n\n```output\n2\n```\n\n### Sample Input 2\n\n```input\n3 4\n47 1032 1107\n```\n\n### Sample Output 2\n\n```output\n5\n```"
+    },
+    {
+     "day": 1,
+     "number": 11,
+     "paper_label": "Division 1",
+     "title": "Knockout",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "problem": "The solitaire game Knockout is played as follows. The digits from $1$ to $9$ are written down on a board, in order. In each turn, you throw a pair of six-sided dice. You sum the dice and cross out some set of digits that sum to the same total. If you cannot, the game ends and your score is the concatenation of the remaining digits. Otherwise, you throw the dice again and continue.\n\nThis game can be played to either minimize or maximize your score. Given a position of the game (what digits remain) and a roll of the dice, compute which digits you should remove and what your expected total score is for both minimizing and maximizing versions of the game.\n\n## Input\n\nThe input contains a single line with three space-separated integers. The first is the board state, containing some nonempty subset of the digits $1$ through $9$, in order. The next two integers are numbers between $1$ to $6$ (inclusive), representing the roll of the two dice.\n\n## Output\n\nOn the first line of output, print the digit(s) you should remove to minimize the expected score, followed by the expected score. On the second line of output, do the same for the maximizing version of Knockout.\n\nIf multiple digits are removed, list the digits in order with no space separating them. If you cannot remove digits to match the sum of the dice, print '`-1`' for your move instead.\n\nThe expected scores should be printed with exactly five digits after the decimal point.\n\n## Sample Input and Output\n\n### Sample Input 1\n\n```input\n1345 1 1\n```\n\n### Sample Output 1\n\n```output\n-1 1345.00000\n-1 1345.00000\n```\n\n### Sample Input 2\n\n```input\n12349 3 1\n```\n\n### Sample Output 2\n\n```output\n13 151.70370\n4 401.24546\n```"
+    },
+    {
+     "day": 1,
+     "number": 12,
+     "paper_label": "Division 1",
+     "title": "Liars",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "problem": "There are $n$ people in a circle, numbered from $1$ to $n$, each of whom always tells the truth or always lies.\n\nEach person $i$ makes a claim of the form: \"the number of truth-tellers in this circle is between $a_i$ and $b_i$, inclusive.\"\n\nCompute the maximum number of people who could be telling the truth.\n\n## Input\n\nThe first line contains a single integer $n$ ($1 \\le n \\le 10^{3}$). Each of the next $n$ lines contains two space-separated integers $a_i$ and $b_i$ ($0 \\le a_i \\le b_i \\le n$).\n\n## Output\n\nPrint, on a single line, the maximum number of people who could be telling the truth. If the given set of statements is inconsistent, print `-1` instead.\n\n## Sample Input and Output\n\n### Sample Input 1\n\n```input\n3\n1 1\n2 3\n2 2\n```\n\n### Sample Output 1\n\n```output\n2\n```\n\n### Sample Input 2\n\n```input\n8\n0 1\n1 7\n4 8\n3 7\n1 2\n4 5\n3 7\n1 8\n```\n\n### Sample Output 2\n\n```output\n-1\n```"
+    },
+    {
+     "day": 1,
+     "number": 13,
+     "paper_label": "Division 1",
+     "title": "Mobilization",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "problem": "In some strategy games you are required to mobilize an army. There are $n$ troops to choose from, each of which has a unit cost $c_i$, health $h_i$, and potency $p_i$. You can acquire any combination of the troop types (even fractional units), such that the total cost is no more than $C$. The *efficacy* of the army is equal to its total health value, multiplied by its total potency. What is the greatest efficacy you can achieve given the troops available?\n\nYou may assume that there are always sufficient troops to buy as many as you want (subject to the total cost constraint).\n\n## Input\n\nThe first of input consists of two space-separated integers $n$ and $C$ ($1 \\le n \\le 30{,}000$ and $1 \\le C \\le 100{,}000$).\n\nEach of the next $n$ lines starts with an integer $c_i$ ($1 \\le c_i \\le 100{,}000$), followed by two decimal values $h_i$ and $p_i$ ($0.0 \\le h_i, p_i \\le 1.0$). The numbers are space-separated.\n\n## Output\n\nPrint, on a single line, the greatest possible efficacy, with exactly two digits after the decimal point.\n\n## Sample Input and Output\n\n### Sample Input 1\n\n```input\n4 100000\n300 1 0.02\n500 0.2 1\n250 0.3 0.1\n1000 1 0.1\n```\n\n### Sample Output 1\n\n```output\n19436.05\n```\n\n### Sample Input 2\n\n```input\n2 100\n1 0.1 1\n1 1 0.1\n```\n\n### Sample Output 2\n\n```output\n3025.00\n```"
+    }
+   ]
+  },
+  {
+   "year": 2019,
+   "problems": [
+    {
+     "day": 1,
+     "number": 1,
+     "paper_label": "Division 1",
+     "title": "Radio Prize",
+     "task_type": "batch",
+     "time_limit": "3 seconds",
+     "problem": "All boring tree-shaped lands are alike, while all exciting tree-shaped lands are exciting in their own special ways. What makes Treeland more exciting than the other tree-shaped lands are the raddest radio hosts in the local area: Root and Leaf. Every morning on FM 32.33 (repeating of course), Root and Leaf of The Full Depth Morning Show serve up the hottest celebrity gossip and traffic updates.\n\nThe region of Treeland is made of $n$ cities, connected by $n - 1$ roads such that between every pair of cities there is exactly one simple path. The $i$th road connects cities $u_i$ and $v_i$, and has a toll of $w_i$.\n\nTo reward their loyal listeners, The Full Depth Morning Show is giving away a number of travel packages! Root and Leaf will choose $n - 1$ lucky residents from the city that sends them the most fan mail. Each of those residents then gets a distinct ticket to a different city in Treeland.\n\nEach city in Treeland has its own tax on prizes: $t_i$. Let $d_{u,v}$ be the sum of the tolls on each road on the only simple path from city $u$ to $v$. For a trip from city $u$ to city $v$, the cost of that trip is then $(t_u + t_v) d_{u,v}$.\n\nhttps://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/pacnw-2019-1-1-fig1.png\n\nFigure A.1: The map of Treeland corresponding to the first sample input.\n\nThe shock jocks haven't quite thought through how much their prize is worth. They need to prepare a report to the radio executives, to summarize the expected costs. For each city that could win the prize, what is the total cost of purchasing all the tickets?\n\n## Input\n\nThe first line of input is a single integer $n$ ($1 \\le n \\le 100\\,000$). The next line has $n$ space-separated integers $t_i$ ($1 \\le t_i \\le 1\\,000$), the tax in each city. The following $n - 1$ lines each have 3 integers, $u_i, v_i, w_i$, meaning the $i$th road connects cities $u_i$ and $v_i$ ($1 \\le u_i, v_i \\le n$), with a toll of $w_i$ ($1 \\le w_i \\le 1\\,000$).\n\n## Output\n\nOutput $n$ lines. On the $i$th line, output a single integer: the cost of purchasing tickets if city $i$ wins the contest.\n\n### Sample Input 1\n\n```input\n5\n2 5 3 4 1\n1 2 2\n2 4 5\n4 3 3\n5 2 6\n```\n\n### Sample Output 1\n\n```output\n130\n159\n191\n163\n171\n```\n\n### Sample Input 2\n\n```input\n6\n4 3 3 4 3 3\n1 3 2\n2 1 1\n1 4 6\n4 5 6\n6 4 2\n```\n\n### Sample Output 2\n\n```output\n209\n206\n232\n209\n336\n232\n```"
+    },
+    {
+     "day": 1,
+     "number": 2,
+     "paper_label": "Division 1",
+     "title": "Perfect Flush",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "problem": "You are given a list of integers $x_1, x_2, \\ldots, x_n$ and a number $k$. It is guaranteed that each $i$ from $1$ to $k$ appears in the list at least once.\n\nFind the lexicographically smallest subsequence of $x$ that contains each integer from $1$ to $k$ exactly once.\n\n## Input\n\nThe first line will contain two integers $n$ and $k$, with $1 \\le k \\le n \\le 200\\,000$. The following $n$ lines will each contain an integer $x_i$ with $1 \\le x_i \\le k$.\n\n## Output\n\nWrite out on one line, separated by spaces, the lexicographically smallest subsequence of $x$ that has each integer from $1$ to $k$ exactly once.\n\n## Examples\n\n### Sample Input 1\n\n```input\n6 3\n3\n2\n1\n3\n1\n3\n```\n\n### Sample Output 1\n\n```output\n2 1 3\n```\n\n### Sample Input 2\n\n```input\n10 5\n5\n4\n3\n2\n1\n4\n1\n1\n5\n5\n```\n\n### Sample Output 2\n\n```output\n3 2 1 4 5\n```"
+    },
+    {
+     "day": 1,
+     "number": 3,
+     "paper_label": "Division 1",
+     "title": "Coloring Contention",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "problem": "https://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/images/pacnw-2019-1-3-fig1.png\n\nAlice and Bob are playing a game on a simple connected graph with $N$ nodes and $M$ edges.\n\nAlice colors each edge in the graph red or blue.\n\nA path is a sequence of edges where each pair of consecutive edges have a node in common. If the first edge in the pair is of a different color than the second edge, then that is a \"color change.\"\n\nAfter Alice colors the graph, Bob chooses a path that begins at node $1$ and ends at node $N$. He can choose any path on the graph, but he wants to minimize the number of color changes in the path. Alice wants to choose an edge coloring to maximize the number of color changes Bob must make. What is the maximum number of color changes she can force Bob to make, regardless of which path he chooses?\n\n## Input\n\nThe first line contains two integer values $N$ and $M$ with $2 \\le N \\le 100\\,000$ and $1 \\le M \\le 100\\,000$. The next $M$ lines contain two integers $a_i$ and $b_i$ indicating an undirected edge between nodes $a_i$ and $b_i$ ($1 \\le a_i, b_i \\le N$, $a_i \\ne b_i$).\n\nAll edges in the graph are unique.\n\n## Output\n\nOutput the maximum number of color changes Alice can force Bob to make on his route from node $1$ to node $N$.\n\n### Sample Input 1\n\n```input\n3 3\n1 3\n1 2\n2 3\n```\n\n### Sample Output 1\n\n```output\n0\n```\n\n### Sample Input 2\n\n```input\n7 8\n1 2\n1 3\n2 4\n3 4\n4 5\n4 6\n5 7\n6 7\n```\n\n### Sample Output 2\n\n```output\n3\n```"
+    },
+    {
+     "day": 1,
+     "number": 4,
+     "paper_label": "Division 1",
+     "title": "Dividing by Two",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "problem": "You are given two integers, $A$ and $B$. You want to transform $A$ to $B$ by performing a sequence of operations. You can only perform the following operations:\n\n• Divide $A$ by two, but only if $A$ is even.\n• Add one to $A$.\n\nWhat is the minimum number of operations you need to transform $A$ into $B$?\n\n## Input\n\nThe input will be a single line containing two integers $A$ and $B$ with $1 \\le A, B \\le 10^{9}$.\n\n## Output\n\nOn a single line write the minimum number of operations required as an integer.\n\n## Examples\n\n### Sample Input 1\n\n```input\n103 27\n```\n\n### Sample Output 1\n\n```output\n4\n```\n\n### Sample Input 2\n\n```input\n3 8\n```\n\n### Sample Output 2\n\n```output\n5\n```"
+    },
+    {
+     "day": 1,
+     "number": 5,
+     "paper_label": "Division 1",
+     "title": "Rainbow Strings",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "problem": "Define a string to be a *rainbow string* if every letter in the string is distinct. An empty string is also considered a *rainbow string*.\n\nGiven a string of lowercase letters, compute the number of different subsequences which are *rainbow strings*. Two subsequences are different if an index is included in one subsequence but not the other, even if the resulting strings are identical.\n\nIn the first example, there are $8$ subsequences. The only subsequences that aren't rainbow strings are `aa` and `aab`. The remaining $6$ subsequences are rainbow strings.\n\n## Input\n\nThe input will consist of a single line with a single string consisting solely of lowercase letters. The length of the string is between $1$ and $100\\,000$ (inclusive).\n\n## Output\n\nWrite on a single line the number of rainbow sequences, modulo the prime $11\\,092\\,019$.\n\n## Examples\n\n### Sample Input 1\n\n```input\naab\n```\n\n### Sample Output 1\n\n```output\n6\n```\n\n### Sample Input 2\n\n```input\nicpcprogrammingcontest\n```\n\n### Sample Output 2\n\n```output\n209952\n```"
+    },
+    {
+     "day": 1,
+     "number": 6,
+     "paper_label": "Division 1",
+     "title": "Carny Magician",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "problem": "Charles and Ada are watching a magician shuffling a deck of thirteen numbered cards, which were originally ordered. The magician spreads the cards out on the table.\n\nAda exclaims, \"Odd; ten of the cards are in their original locations!\"\n\nCharles thinks for a moment, and says, \"Not only that, but it is the forty-second such ordering!\"\n\nCan you figure out the order of the cards? Formally, the magician's cards can be considered as a permutation $p_1, p_2, \\ldots, p_n$, that contains each number from $1$ to $n$ exactly once. The number of fixed points is the number of indices $i$ such that $p_i = i$.\n\nGiven three numbers $n$, $m$, and $k$, find the $k$th lexicographically smallest permutation of size $n$ that has exactly $m$ fixed points.\n\n## Input\n\nThe input will be a single line containing the three integers $n$, $m$, and $k$, with $0 \\le m \\le n$, $1 \\le n \\le 50$, and $1 \\le k \\le 10^{18}$.\n\n## Output\n\nOn a single line, write the permutation as a sequence of $n$ space-separated integers. If there are fewer than $k$ permutation satisfying the conditions, then print `-1` on a single line.\n\n## Examples\n\n### Sample Input 1\n\n```input\n3 1 1\n```\n\n### Sample Output 1\n\n```output\n1 3 2\n```\n\n### Sample Input 2\n\n```input\n3 2 1\n```\n\n### Sample Output 2\n\n```output\n-1\n```\n\n### Sample Input 3\n\n```input\n5 3 7\n```\n\n### Sample Output 3\n\n```output\n2 1 3 4 5\n```"
+    },
+    {
+     "day": 1,
+     "number": 7,
+     "paper_label": "Division 1",
+     "title": "Glow, Little Pixel, Glow",
+     "task_type": "batch",
+     "time_limit": "2 seconds",
+     "problem": "An LCD panel is composed of a grid of pixels, spaced 1 alu (\"arbitrary length unit\") apart both horizontally and vertically. Wires run along each row and each column, intersecting at the pixels. Wires are numbered beginning with 1 and proceeding up to a panel-dependent maximum. The vertical wire numbered 1 lies along the left edge of the panel, and the horizontal wire numbered 1 lies along the bottom edge of the panel.\n\nA pixel will activate, turning dark, when a current is present along both the vertical and horizontal wire passing through that pixel.\n\nFor a period of time, we will send pulses of current down selected wires. The current flows down the wires at a speed of one alu per atu (\"arbitrary time unit\"). The pulses themselves have a length measured in atus. A pixel activates when current is passing through both intersecting wires at the same time. If the leading edge of a pulse on one wire reaches the intersection at the exact same time that the trailing edge of a pulse on the other wire leaves that intersection, the pixel is not activated.\n\nAll pulses in vertical wires start from the bottom of the grid. All pulses in horizontal wires start from the left of the grid. At most one pulse will travel along any one wire.\n\nGiven the schedule of pulses to be sent through the wires, determine how many pixels will have been activated by the time all pulses have exited the top and right of the grid.\n\n## Input\n\nThe first line will contain $n$, the number of current pulses, with $1 \\le n \\le 200\\,000$.\n\nFollowing this will be $n$ lines, each describing a single pulse. Each such line will contain four elements, separated from one another by a single space:\n\n• A single character that is either '`h`' or '`v`', indicating the horizontal/vertical direction of the pulse.\n• An integer $t$, $1 \\le t \\le 200\\,000$, denoting the starting time of the pulse. The starting time is considered to be the moment when the leading edge of a vertical [horizontal] pulse crosses horizontal [vertical] wire #1.\n• An integer $m$, $1 \\le m \\le 200\\,000$, denoting the length of the pulse.\n• An integer $a$, $1 \\le a \\le 100\\,000$, denoting the wire number (horizontal or vertical) along which the pulse will travel.\n\n## Output\n\nPrint on a single line the number of pixels that will have activated by the time the last pulse of current has left the grid.\n\n## Examples\n\n### Sample Input 1\n\n```input\n4\nh 1 4 1\nv 2 4 2\nh 10 2 2\nv 11 2 3\n```\n\n### Sample Output 1\n\n```output\n2\n```\n\n### Sample Input 2\n\n```input\n4\nh 1 10 1\nh 5 10 2\nv 1 10 1\nv 5 10 3\n```\n\n### Sample Output 2\n\n```output\n4\n```\n\n### Sample Input 3\n\n```input\n7\nv 1 3 1\nv 1 15 2\nh 4 5 1\nh 5 5 2\nh 6 5 3\nh 7 5 4\nh 8 5 5\n```\n\n### Sample Output 3\n\n```output\n5\n```"
+    },
+    {
+     "day": 1,
+     "number": 8,
+     "paper_label": "Division 1",
+     "title": "Pivoting Points",
+     "task_type": "batch",
+     "time_limit": "10 seconds",
+     "problem": "Consider a set of points $P$ in the plane such that no 3 points are collinear. We construct a \"windmill\" as follows:\n\nChoose a point $p$ in $P$ and a starting direction such that the line through $p$ in that direction does not intersect any other points in $P$. Draw that line.\n\nSlowly rotate the line clockwise like a windmill about the point $p$ as its pivot until the line intersects another point $p'$ in $P$. Designate that point $p'$ to be the new pivot (call this \"promoting\" the point $p'$), and then continue the rotation.\n\nContinue this process until the line has rotated a full 360 degrees, returning to its original direction (it can be shown that the line will also return to its original position after a 360 degree rotation).\n\nDuring this process, a given point can be promoted multiple times. Considering all possible starting pivots and orientations, find the maximum number of times that a single point can be promoted during a single 360 degree rotation of a line.\n\n## Input\n\nThe first line of the input will be a single integer $n$ with $2 \\le n \\le 2000$. Following this will be $n$ lines, each with two integers $x_i$ and $y_i$ with $-10\\,000 \\le x_i, y_i \\le 10\\,000$.\n\n## Output\n\nOn one line, write an integer with the largest number of times any particular point can be a pivot when an arbitrary starting line does a full rotation as described above.\n\n## Examples\n\n### Sample Input 1\n\n```input\n3\n-1 0\n1 0\n0 2\n```\n\n### Sample Output 1\n\n```output\n2\n```\n\n### Sample Input 2\n\n```input\n6\n0 0\n5 0\n0 5\n5 5\n1 2\n4 2\n```\n\n### Sample Output 2\n\n```output\n3\n```"
+    },
+    {
+     "day": 1,
+     "number": 9,
+     "paper_label": "Division 1",
+     "title": "Error Correction",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "problem": "You are given $W$, a set of $N$ words that are anagrams of each other. There are no duplicate letters in any word. A set of words $S \\subseteq W$ is called \"swap-free\" if there is no way to turn a word $x \\in S$ into another word $y \\in S$ by swapping only a single pair of (not necessarily adjacent) letters in $x$. Find the size of the largest swap-free set $S$ chosen from the given set $W$.\n\n## Input\n\nThe first line of input contains an integer $N$ ($1 \\le N \\le 500$). Following that are $N$ lines each with a single word. Every word contains only lowercase English letters and no duplicate letters. All $N$ words are unique, have at least one letter, and every word is an anagram of every other word.\n\n## Output\n\nOutput the size of the largest swap-free set.\n\n### Sample Input 1\n\n```input\n6\nabc\nacb\ncab\ncba\nbac\nbca\n```\n\n### Sample Output 1\n\n```output\n3\n```\n\n### Sample Input 2\n\n```input\n11\nalerts\nalters\nartels\nestral\nlaster\nratels\nsalter\nslater\nstaler\nstelar\ntalers\n```\n\n### Sample Output 2\n\n```output\n8\n```\n\n### Sample Input 3\n\n```input\n6\nates\neast\neats\netas\nsate\nteas\n```\n\n### Sample Output 3\n\n```output\n4\n```"
+    },
+    {
+     "day": 1,
+     "number": 10,
+     "paper_label": "Division 1",
+     "title": "Interstellar Travel",
+     "task_type": "batch",
+     "time_limit": "5 seconds",
+     "problem": "You are planning to travel in interstellar space in the hope of finding habitable planets. You have already identified $N$ stars that can recharge your spaceship via its solar panels. The only work left is to decide the orientation of the spaceship that maximizes the distance it can travel.\n\nSpace is modeled as a 2D plane, with the Earth at the origin. The spaceship can be launched from the Earth in a straight line, in any direction. Star $i$ can provide enough energy to travel $T_i$ distance if the spaceship is launched at an angle of $a_i$ with the $x$-axis. If the angle is not perfectly aligned, then the spaceship gets less energy. Specifically, if the launch direction makes an angle of $a$ with the $x$-axis, then it gets enough energy to travel distance of\n\n$$\\max(0, T_i - s_i \\cdot \\operatorname{dist}(a_i, a))$$\n\nfrom star $i$, where $\\operatorname{dist}(a, b)$ is the minimum radians needed to go from angle $a$ to $b$. The distance that the spaceship can travel is simply the sum of the distances that each star contributes. Find the maximum distance $T$ that the starship can travel.\n\n## Input\n\nThe first line contains the value $N$, $1 \\le N \\le 10^{5}$. Following this are $N$ lines each containing three real numbers $T_i$, $s_i$, and $a_i$, with $0 < T_i \\le 1\\,000$, $0 \\le s_i \\le 100$, and $0 \\le a_i < 2\\pi$. All real numbers in the input have at most 6 digits after the decimal point.\n\n## Output\n\nOn a single line output the maximum distance the spacecraft can travel. Your answer is considered correct if it has an absolute or relative error of at most $10^{-6}$.\n\n## Examples\n\n### Sample Input 1\n\n```input\n2\n100 1 1\n100 1 1.5\n```\n\n### Sample Output 1\n\n```output\n199.500000\n```\n\n### Sample Input 2\n\n```input\n4\n100 1 0.5\n200 1 1\n100 0.5 1.5\n10 2 3\n```\n\n### Sample Output 2\n\n```output\n405.500000\n```"
+    },
+    {
+     "day": 1,
+     "number": 11,
+     "paper_label": "Division 1",
+     "title": "Computer Cache",
+     "task_type": "batch",
+     "time_limit": "5 seconds",
+     "problem": "Your computer has a cache consisting of $n$ different addresses, indexed from $1$ to $n$. Each address can contain a single byte. The $i^{\\text{th}}$ byte is denoted as $a_i$. Initially all cache bytes start off with the value zero. Formally, the cache can be modeled by a byte array of length $n$ that is initially all zeros.\n\nYou have $m$ different pieces of data you want to store. The $i^{\\text{th}}$ piece of data is a byte array $x_i$ of length $s_i$.\n\nYou are going to do $q$ different operations on your computer. There are three types of operations:\n\n• **1 i p** Load data $i$ starting at position $p$ in the cache. Formally, this means set $a_p = x_{i,1}, a_{p+1} = x_{i,2}, \\ldots, a_{p+s_i-1} = x_{i,s_i}$, where $x_{i,k}$ represents the $k$th byte of the array $x_i$. This overwrites any previously stored value in the cache. It is guaranteed that this is a valid operation (e.g. $s_i + p - 1 \\le n$). It is possible for multiple versions of some data to be loaded in multiple positions at once.\n• **2 p** Print the byte that is stored in address $p$.\n• **3 i l r** Increment the $l^{\\text{th}}$ through $r^{\\text{th}}$ bytes in the $i^{\\text{th}}$ piece of data, modulo 256. Formally, this means to set $x_{i,k} = (x_{i,k} + 1) \\bmod 256$ for $l \\le k \\le r$. This does not affect values that are already loaded in the cache and only affects future loads.\n\n## Input\n\nThe first line of input consists of three numbers $n$, $m$, and $q$.\n\nThe following $m$ lines consist of descriptions of the data, one per line. The following $q$ lines consist of descriptions of operations, one per line.\n\nIt is guaranteed there is at least one type 2 print query operation in the input. Additionally:\n\n$$\\begin{array}{c} 1 \\le n, m, q \\le 5 \\times 10^{5} \\\\ \\sum_i s_i \\le 5 \\times 10^{5} \\\\ s_i \\ge 1 \\\\ 0 \\le x_{i,j} \\le 255 \\end{array}$$\n\n## Output\n\nYour program must output the results for each type 2 operation, one integer value per line.\n\n## Explanation\n\n```text\n2 1      Nothing has been put into the cache, so print 0\n1 2 2    The cache is now [0, 1, 2, 1, 3]\n1 1 1    The cache is now [255, 0, 15, 1, 3]\n2 1      Print the first value of the cache which is 255\n2 4      Print the fourth value of the cache which is 1\n3 1 1 2  The first piece of data becomes [0, 1, 15]. The cache is still [255, 0, 15, 1, 3]\n2 1      Print the first value of the cache which is 255.\n1 1 2    The cache becomes [255, 0, 1, 15, 3].\n2 2      Print the second value of the cache which is 0.\n2 5      Print the fifth value of the cache which is 3.\n```\n\n### Sample Input 1\n\n```input\n5 2 10\n3 255 0 15\n4 1 2 1 3\n2 1\n1 2 2\n1 1 1\n2 1\n2 4\n3 1 1 2\n2 1\n1 1 2\n2 2\n2 5\n```\n\n### Sample Output 1\n\n```output\n0\n255\n1\n255\n0\n3\n```"
+    },
+    {
+     "day": 1,
+     "number": 12,
+     "paper_label": "Division 1",
+     "title": "Carry Cam Failure",
+     "task_type": "batch",
+     "time_limit": "1 second",
+     "problem": "\"Drat!\" cursed Charles. \"This stupid carry bar is not working in my Engine! I just tried to calculate the square of a number, but it's wrong; all of the carries are lost.\"\n\n\"Hmm,\" mused Ada, \"arithmetic without carries! I wonder if I can figure out what your original input was, based on the result I see on the Engine.\"\n\n*Carryless addition*, denoted by $\\oplus$, is the same as normal addition, except any carries are ignored (in base 10). Thus, $37 \\oplus 48$ is $75$, not $85$.\n\n*Carryless multiplication*, denoted by $\\otimes$, is performed using the schoolboy algorithm for multiplication, column by column, but the intermediate additions are calculated using *carryless addition*. More formally, Let $a_m a_{m-1} \\ldots a_1 a_0$ be the digits of $a$, where $a_0$ is its least significant digit. Similarly define $b_n b_{n-1} \\ldots b_1 b_0$ be the digits of $b$. The digits of $c = a \\otimes b$ are given by the following equation:\n\n$$c_k = a_0 b_k \\oplus a_1 b_{k-1} \\oplus \\cdots \\oplus a_{k-1} b_1 \\oplus a_k b_0,$$\n\nwhere any $a_i$ or $b_j$ is considered zero if $i > m$ or $j > n$. For example, $9 \\otimes 1\\,234$ is $9\\,876$, $90 \\otimes 1\\,234$ is $98\\,760$, and $99 \\otimes 1\\,234$ is $97\\,536$.\n\nGiven $N$, find the smallest positive integer $a$ such that $a \\otimes a = N$.\n\n## Input\n\nThe input consists of a single line with an integer $N$, with at most 25 digits and no leading zeros.\n\n## Output\n\nPrint, on a single line, the least positive number $a$ such that $a \\otimes a = N$. If there is no such $a$, print '`-1`' instead.\n\n## Examples\n\n### Sample Input 1\n\n```input\n6\n```\n\n### Sample Output 1\n\n```output\n4\n```\n\n### Sample Input 2\n\n```input\n149\n```\n\n### Sample Output 2\n\n```output\n17\n```\n\n### Sample Input 3\n\n```input\n123476544\n```\n\n### Sample Output 3\n\n```output\n11112\n```\n\n### Sample Input 4\n\n```input\n15\n```\n\n### Sample Output 4\n\n```output\n-1\n```"
+    },
+    {
+     "day": 1,
+     "number": 13,
+     "paper_label": "Division 1",
+     "title": "Maze Connect",
+     "task_type": "batch",
+     "time_limit": "5 seconds",
+     "problem": "Given an orthogonal maze rotated 45 degrees and drawn with forward and backward slash characters (see below), determine the minimum number of walls that need to be removed to ensure it is possible to escape outside of the maze from every square of the (possibly disconnected) maze.\n\n```text\n/\\\n\\/\n```\n\nThis maze has only a single square fully enclosed. Removing any wall will connect it to the outside.\n\n```text\n/\\..\n\\.\\.\n.\\/\\\n..\\/\n```\n\nThis maze has two enclosed areas. Two walls need to be removed to connect all squares to the outside.\n\n## Input\n\nThe first line has two numbers, $R$ and $C$, giving the number of rows and columns in the maze's input description. Following this will be $R$ lines each with $C$ characters, consisting only of the characters '`/`', '`\\`', and '`.`'. Both $R$ and $C$ are in the range $1 \\ldots 1\\,000$.\n\nDefine an odd (even) square as one where the sum of the $x$ and $y$ coordinates is odd (even). Either all forward slashes will be in the odd squares and all backslashes in the even squares, or vice versa.\n\n## Output\n\nOutput on a single line an integer indicating how many walls need to be removed so escape is possible from every square in the maze.\n\n## Examples\n\n### Sample Input 1\n\n```input\n2 2\n/\\\n\\/\n```\n\n### Sample Output 1\n\n```output\n1\n```\n\n### Sample Input 2\n\n```input\n4 4\n/\\..\n\\.\\.\n.\\/\\\n..\\/\n```\n\n### Sample Output 2\n\n```output\n2\n```\n\n### Sample Input 3\n\n```input\n2 2\n\\/\n/\\\n```\n\n### Sample Output 3\n\n```output\n0\n```\n\n### Sample Input 4\n\n```input\n8 20\n/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\\n\\../\\.\\/./././\\/\\/\\/\n/./\\.././\\/\\.\\/\\/\\/\\\n\\/\\/\\.\\/\\/./\\/..\\../\n/\\/./\\/\\/./..\\/\\/..\\\n\\.\\.././\\.\\/\\/./\\.\\/\n/.../\\../..\\/./.../\\\n\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\n```\n\n### Sample Output 4\n\n```output\n26\n```"
+    }
+   ]
+  }
+ ]
+}
