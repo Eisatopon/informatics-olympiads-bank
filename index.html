@@ -99,6 +99,7 @@
 .f-neerc { --f: var(--icpc); --f-ink: var(--icpc-ink); --f-tint: var(--icpc-tint); }
 .f-nwerc { --f: var(--icpc); --f-ink: var(--icpc-ink); --f-tint: var(--icpc-tint); }
 .f-bapc { --f: var(--icpc); --f-ink: var(--icpc-ink); --f-tint: var(--icpc-tint); }
+.f-ncpc { --f: var(--icpc); --f-ink: var(--icpc-ink); --f-tint: var(--icpc-tint); }
 .f-icpc { --f: var(--icpc); --f-ink: var(--icpc-ink); --f-tint: var(--icpc-tint); }
 
 /* ==========================================================
@@ -649,10 +650,10 @@ const BASE = './';
 // Figures are linked inside the statements with their published raw URL; a local copy shows its own images/.
 const RAW = 'https://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/';
 // Bump on every data change so browsers never mix old and new files.
-const DATA_VERSION = '20261022-bapc2016';
+const DATA_VERSION = '20261022-ncpc2022-2023';
 const FIRST = 1989, LAST = 2026;
 const REGIONS = [['europe', 'Europe'], ['asia', 'Asia'], ['americas', 'Americas'], ['africa', 'Africa'], ['oceania', 'Oceania'], ['world', 'World'], ['other', 'Other']];
-const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', coci: 'europe', joi: 'asia', joisc: 'asia', joiopen: 'asia', usaco: 'americas', ccc: 'americas', ejoi: 'world', neerc: 'europe', izho: 'world', nwerc: 'europe', bapc: 'europe' };
+const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', coci: 'europe', joi: 'asia', joisc: 'asia', joiopen: 'asia', usaco: 'americas', ccc: 'americas', ejoi: 'world', neerc: 'europe', izho: 'world', nwerc: 'europe', bapc: 'europe', ncpc: 'europe' };
 const regionOf = key => REGION_OF[key] || 'other';
 const PAGE = 20;
 const STORAGE_KEY = 'eisatopon-informatics:set:v1';  // same origin as the other banks: keep the keys apart
@@ -671,6 +672,7 @@ const COUNTRIES = [
     { key: 'neerc', name: 'ICPC NERC', flag: '🎓', file: 'NEERC-problems.json', kind: 'years', scope: 'undergraduate', full: 'ICPC Northern Eurasia Finals (NERC; until 2018 the Northeastern European Regional Contest, NEERC), the university contest; the year is the year of the contest (held in December)' },
     { key: 'nwerc', name: 'ICPC NWERC', flag: '🎓', file: 'NWERC-problems.json', kind: 'years', scope: 'undergraduate', full: 'ICPC Northwestern Europe Regional Contest; statements © the NWERC juries, licensed CC BY-SA' },
     { key: 'bapc', name: 'BAPC', flag: '🎓', file: 'BAPC-problems.json', kind: 'years', scope: 'undergraduate', full: 'Benelux Algorithm Programming Contest; statements © the BAPC juries, licensed CC BY-SA' },
+    { key: 'ncpc', name: 'NCPC', flag: '🎓', file: 'NCPC-problems.json', kind: 'years', scope: 'undergraduate', full: 'Nordic Collegiate Programming Contest (ICPC)' },
     { key: 'ejoi', name: 'EJOI', flag: '🇪🇺', file: 'EJOI-problems.json', kind: 'years', scope: 'international', full: 'European Junior Olympiad in Informatics' },
 ];
 COUNTRIES.sort((a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' }));
