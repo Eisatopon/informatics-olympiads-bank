@@ -103,6 +103,7 @@
 .f-gcpc { --f: var(--icpc); --f-ink: var(--icpc-ink); --f-tint: var(--icpc-tint); }
 .f-pacnw { --f: var(--icpc); --f-ink: var(--icpc-ink); --f-tint: var(--icpc-tint); }
 .f-ecna { --f: var(--icpc); --f-ink: var(--icpc-ink); --f-tint: var(--icpc-tint); }
+.f-swerc { --f: var(--icpc); --f-ink: var(--icpc-ink); --f-tint: var(--icpc-tint); }
 .f-icpc { --f: var(--icpc); --f-ink: var(--icpc-ink); --f-tint: var(--icpc-tint); }
 
 /* ==========================================================
@@ -653,10 +654,10 @@ const BASE = './';
 // Figures are linked inside the statements with their published raw URL; a local copy shows its own images/.
 const RAW = 'https://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/';
 // Bump on every data change so browsers never mix old and new files.
-const DATA_VERSION = '20261022-ecna2000-2012';
+const DATA_VERSION = '20261027-swerc2017-2018';
 const FIRST = 1989, LAST = 2026;
 const REGIONS = [['europe', 'Europe'], ['asia', 'Asia'], ['americas', 'Americas'], ['africa', 'Africa'], ['oceania', 'Oceania'], ['world', 'World'], ['other', 'Other']];
-const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', coci: 'europe', joi: 'asia', joisc: 'asia', joiopen: 'asia', usaco: 'americas', ccc: 'americas', ejoi: 'world', neerc: 'europe', izho: 'world', nwerc: 'europe', bapc: 'europe', ncpc: 'europe', gcpc: 'europe', pacnw: 'americas', ecna: 'americas' };
+const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', coci: 'europe', joi: 'asia', joisc: 'asia', joiopen: 'asia', usaco: 'americas', ccc: 'americas', ejoi: 'world', neerc: 'europe', izho: 'world', nwerc: 'europe', bapc: 'europe', ncpc: 'europe', gcpc: 'europe', pacnw: 'americas', ecna: 'americas', swerc: 'europe' };
 const regionOf = key => REGION_OF[key] || 'other';
 const PAGE = 20;
 const STORAGE_KEY = 'eisatopon-informatics:set:v1';  // same origin as the other banks: keep the keys apart
@@ -679,6 +680,7 @@ const COUNTRIES = [
     { key: 'gcpc', name: 'GCPC', flag: '🎓', file: 'GCPC-problems.json', kind: 'years', scope: 'undergraduate', full: 'German Collegiate Programming Contest' },
     { key: 'pacnw', name: 'ICPC Pacific Northwest', flag: '🎓', file: 'PACNW-problems.json', kind: 'years', scope: 'undergraduate', full: 'ICPC Pacific Northwest Regional Contest, Division 1 (the year is the season start, e.g. 2022 = the regional held in spring 2023)' },
     { key: 'ecna', name: 'ICPC East Central NA', flag: '🎓', file: 'ECNA-problems.json', kind: 'years', scope: 'undergraduate', full: 'ICPC East Central North America Regional Contest (the year is the season start, e.g. 2020 = 2020/21)' },
+    { key: 'swerc', name: 'ICPC SWERC', flag: '🎓', file: 'SWERC-problems.json', kind: 'years', scope: 'undergraduate', full: 'ICPC Southwestern Europe Regional Contest (the year is the season start, e.g. 2021 = 2021/22); statements © the SWERC juries, licensed CC BY-SA where stated' },
     { key: 'ejoi', name: 'EJOI', flag: '🇪🇺', file: 'EJOI-problems.json', kind: 'years', scope: 'international', full: 'European Junior Olympiad in Informatics' },
 ];
 COUNTRIES.sort((a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' }));
