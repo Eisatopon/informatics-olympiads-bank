@@ -665,7 +665,7 @@ const BASE = './';
 // Figures are linked inside the statements with their published raw URL; a local copy shows its own images/.
 const RAW = 'https://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/';
 // Bump on every data change so browsers never mix old and new files.
-const DATA_VERSION = '20261028-share';
+const DATA_VERSION = '20261028-share2';
 const FIRST = 1989, LAST = 2026;
 const REGIONS = [['europe', 'Europe'], ['asia', 'Asia'], ['americas', 'Americas'], ['africa', 'Africa'], ['oceania', 'Oceania'], ['world', 'World'], ['other', 'Other']];
 const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', coci: 'europe', joi: 'asia', joisc: 'asia', joiopen: 'asia', usaco: 'americas', ccc: 'americas', ejoi: 'world', neerc: 'europe', izho: 'world', nwerc: 'europe', bapc: 'europe', ncpc: 'europe', gcpc: 'europe', pacnw: 'americas', ecna: 'americas', swerc: 'europe', cerc: 'europe', ctuopen: 'europe' };
@@ -2301,7 +2301,8 @@ async function problemImage(p) {
     document.body.appendChild(node);
     try {
         await typeset(node);
-        await Promise.all([...node.querySelectorAll('img')].map(img => img.complete ? 0 : new Promise(r => { img.onload = img.onerror = r; })));
+        // The card is off screen, so lazy figures would never load: load them now (at most 8 s each).
+        await Promise.all([...node.querySelectorAll('img')].map(img => { img.loading = 'eager'; return img.complete ? 0 : new Promise(r => { const t = setTimeout(r, 8000); img.addEventListener('load', () => { clearTimeout(t); img.style.width = Math.round(img.naturalWidth / 2) + 'px'; r(); }, {once: true}); img.addEventListener('error', () => { clearTimeout(t); r(); }, {once: true}); }); }));
         return await lib.toBlob(node, {pixelRatio: 2, backgroundColor: '#ffffff', fontEmbedCSS: await shareFonts(), style: {position: 'static', left: '0'}});
     } finally { node.remove(); }
 }
