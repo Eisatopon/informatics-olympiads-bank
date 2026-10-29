@@ -309,7 +309,7 @@ svg.i { width: 1em; height: 1em; flex: none; stroke: currentColor; fill: none; s
 .share-card .sc-link { color: #161b22; font-weight: 600; }
 .share-card .sc-qr { flex: none; width: 84px; height: 84px; }
 .share-card .sc-qr svg { display: block; width: 84px; height: 84px; }
-.p-credit { margin: 10px 0 0; max-width: 74ch; font: 400 .82rem/1.5 var(--sans); color: var(--muted, #57606a); border-left: 3px solid var(--f-tint, #d0d7de); padding-left: 10px; }
+.p-credit { margin: 8px 0 0; font: 400 .74rem/1.4 var(--sans); color: var(--muted, #57606a); }
 .ai-note { margin: 6px 4px 2px; font-size: .75rem; color: var(--muted); }
 .ai-copy { margin-top: 6px; border-top: 1px solid var(--line); font-size: .8rem; color: var(--muted); }
 .p-id { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
@@ -669,7 +669,7 @@ const BASE = './';
 // Figures are linked inside the statements with their published raw URL; a local copy shows its own images/.
 const RAW = 'https://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/';
 // Bump on every data change so browsers never mix old and new files.
-const DATA_VERSION = '20261028-credit';
+const DATA_VERSION = '20261029-credit-min';
 const FIRST = 1989, LAST = 2026;
 const REGIONS = [['europe', 'Europe'], ['asia', 'Asia'], ['americas', 'Americas'], ['africa', 'Africa'], ['oceania', 'Oceania'], ['world', 'World'], ['other', 'Other']];
 const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', coci: 'europe', joi: 'asia', joisc: 'asia', joiopen: 'asia', usaco: 'americas', ccc: 'americas', ejoi: 'world', neerc: 'europe', izho: 'world', nwerc: 'europe', bapc: 'europe', ncpc: 'europe', gcpc: 'europe', pacnw: 'americas', ecna: 'americas', swerc: 'europe', cerc: 'europe', ctuopen: 'europe' };
@@ -1657,27 +1657,27 @@ function safeSourceUrl(value) {
     try { const url = new URL(value); return /^https?:$/.test(url.protocol) ? url.href : null; }
     catch (e) { return null; }
 }
-/* Per-task source and rights lines (shown on cards, in print, in Ask AI prompts and in shared copies). */
+/* Per-task rights line, kept short (shown on cards, in print, in Ask AI prompts and in shared copies). */
 const ORGANISERS = {
-    ioi: ['the International Olympiad in Informatics (IOI)', 'IOI'],
-    egoi: ["the European Girls' Olympiad in Informatics (EGOI)", 'EGOI'],
+    ioi: ['the International Olympiad in Informatics (IOI)', 'IOI organisers'],
+    egoi: ["the European Girls' Olympiad in Informatics (EGOI)", 'EGOI organisers'],
     boi: ['the Baltic Olympiad in Informatics (BOI) and its host organisers', 'BOI organisers'],
     coci: ['HSIN, the Croatian Informatics Society (COCI)', 'HSIN'],
-    joi: ['the Japanese Committee for the International Olympiad in Informatics (JOI)', 'JOI'],
-    joisc: ['the Japanese Committee for the International Olympiad in Informatics (JOI)', 'JOI'],
-    joiopen: ['the Japanese Committee for the International Olympiad in Informatics (JOI)', 'JOI'],
+    joi: ['the Japanese Committee for the International Olympiad in Informatics (JOI)', 'Japanese Committee for IOI (JOI)'],
+    joisc: ['the Japanese Committee for the International Olympiad in Informatics (JOI)', 'Japanese Committee for IOI (JOI)'],
+    joiopen: ['the Japanese Committee for the International Olympiad in Informatics (JOI)', 'Japanese Committee for IOI (JOI)'],
     usaco: ['the USA Computing Olympiad (USACO)', 'USACO'],
     ejoi: ['the European Junior Olympiad in Informatics (EJOI) and its host organisers', 'EJOI organisers'],
     izho: ['the International Zhautykov Olympiad (IZhO) organisers', 'IZhO organisers'],
     neerc: ['the ICPC Northern Eurasia (NERC/NEERC) jury', 'NEERC jury'],
     ccc: ['the Centre for Education in Mathematics and Computing (CEMC), University of Waterloo', 'CEMC, University of Waterloo', 'licensed CC BY-NC 4.0'],
-    nwerc: ['the NWERC jury (ICPC Northwestern Europe)', 'NWERC jury', 'licensed CC BY-SA 4.0 where stated in the set'],
+    nwerc: ['the NWERC jury (ICPC Northwestern Europe)', 'NWERC jury', 'licensed CC BY-SA 4.0 where stated'],
     bapc: ['the BAPC jury', 'BAPC jury', 'licensed CC BY-SA 4.0'],
     ncpc: ['the NCPC jury (Nordic Collegiate Programming Contest)', 'NCPC jury'],
     gcpc: ['the GCPC jury (German Collegiate Programming Contest)', 'GCPC jury'],
     pacnw: ['the ICPC Pacific Northwest Region', 'ICPC Pacific Northwest Region'],
     ecna: ['the ICPC East Central North America Region', 'ICPC East Central North America Region'],
-    swerc: ['the SWERC jury (ICPC Southwestern Europe)', 'SWERC jury', 'licensed CC BY-SA 4.0 where stated in the set'],
+    swerc: ['the SWERC jury (ICPC Southwestern Europe)', 'SWERC jury', 'licensed CC BY-SA 4.0 where stated'],
     cerc: ['the CERC organisers (ICPC Central Europe)', 'CERC organisers'],
     ctuopen: ['the Czech Technical University in Prague (CTU Open Contest)', 'CTU in Prague']
 };
@@ -1685,13 +1685,11 @@ const CERC_HOSTS = y => y >= 2021 ? 'University of Ljubljana' : y >= 2012 && y <
 function organiserOf(key, year) {
     const o = ORGANISERS[key];
     if (!o) return null;
-    return key === 'cerc' && year ? [`the CERC organisers (${CERC_HOSTS(year)})`, o[1], o[2]] : o;
+    return key === 'cerc' && year ? [`the CERC organisers (${CERC_HOSTS(year)})`, `CERC ${year} organisers (${CERC_HOSTS(year)})`, o[2]] : o;
 }
 function creditText(p) {
-    const c = CBY[p.country], o = organiserOf(p.country, p.year);
-    if (!c || !o) return '';
-    const where = `${c.name} ${p.year}${p.paperLabel ? `, ${p.paperLabel}` : p.day ? `, Day ${p.day}` : ''}, task ${p.num}${p.title ? ` “${p.title}”` : ''}`;
-    return `Source: ${where}. Original organiser: ${o[0]}. © ${o[1]}${o[2] ? ` (${o[2]})` : ''}. Retyped from the official English statement; statement only (no solutions or test data). Not affiliated with, endorsed by or supported by ${o[0]}.`;
+    const o = organiserOf(p.country, p.year);
+    return o ? `© ${o[1]}${o[2] ? ` · ${o[2].replace(/^licensed /, '')}` : ''}` : '';
 }
 function creditHtml(p) { const t = creditText(p); return t ? `<p class="p-credit">${esc(t)}</p>` : ''; }
 function provenanceHtml(p, print = false) {
