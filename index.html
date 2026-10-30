@@ -106,6 +106,7 @@
 .f-swerc { --f: var(--icpc); --f-ink: var(--icpc-ink); --f-tint: var(--icpc-tint); }
 .f-cerc { --f: var(--icpc); --f-ink: var(--icpc-ink); --f-tint: var(--icpc-tint); }
 .f-ctuopen { --f: var(--icpc); --f-ink: var(--icpc-ink); --f-tint: var(--icpc-tint); }
+.f-cypan { --f: var(--icpc); --f-ink: var(--icpc-ink); --f-tint: var(--icpc-tint); }
 .f-icpc { --f: var(--icpc); --f-ink: var(--icpc-ink); --f-tint: var(--icpc-tint); }
 
 /* ==========================================================
@@ -311,6 +312,12 @@ svg.i { width: 1em; height: 1em; flex: none; stroke: currentColor; fill: none; s
 .share-card .sc-qr svg { display: block; width: 84px; height: 84px; }
 .p-credit { margin: 0 0 10px; font: .74rem/1.45 var(--sans); color: var(--muted); }
 .yr-credit { margin-left: auto; font: .72rem/1.4 var(--sans); color: var(--muted); }
+.lang-sw { display: inline-flex; gap: 4px; margin: 0 0 8px; }
+.lang-sw .btn { min-width: 40px; }
+body:not(.lang-el) .lang-sw [data-lang="en"], body.lang-el .lang-sw [data-lang="el"] { background: var(--accent); color: #fff; border-color: var(--accent); }
+.st-el { display: none; }
+body.lang-el .st-el { display: block; }
+body.lang-el .st-en { display: none; }
 .ai-note { margin: 6px 4px 2px; font-size: .75rem; color: var(--muted); }
 .ai-copy { margin-top: 6px; border-top: 1px solid var(--line); font-size: .8rem; color: var(--muted); }
 .p-id { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
@@ -670,10 +677,10 @@ const BASE = './';
 // Figures are linked inside the statements with their published raw URL; a local copy shows its own images/.
 const RAW = 'https://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/';
 // Bump on every data change so browsers never mix old and new files.
-const DATA_VERSION = '20261030-credit-once';
+const DATA_VERSION = '20261030-cypan2021-2022';
 const FIRST = 1989, LAST = 2026;
 const REGIONS = [['europe', 'Europe'], ['asia', 'Asia'], ['americas', 'Americas'], ['africa', 'Africa'], ['oceania', 'Oceania'], ['world', 'World'], ['other', 'Other']];
-const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', coci: 'europe', joi: 'asia', joisc: 'asia', joiopen: 'asia', usaco: 'americas', ccc: 'americas', ejoi: 'world', neerc: 'europe', izho: 'world', nwerc: 'europe', bapc: 'europe', ncpc: 'europe', gcpc: 'europe', pacnw: 'americas', ecna: 'americas', swerc: 'europe', cerc: 'europe', ctuopen: 'europe' };
+const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', coci: 'europe', joi: 'asia', joisc: 'asia', joiopen: 'asia', usaco: 'americas', ccc: 'americas', ejoi: 'world', neerc: 'europe', izho: 'world', nwerc: 'europe', bapc: 'europe', ncpc: 'europe', gcpc: 'europe', pacnw: 'americas', ecna: 'americas', swerc: 'europe', cerc: 'europe', ctuopen: 'europe', cypan: 'europe' };
 const regionOf = key => REGION_OF[key] || 'other';
 const PAGE = 20;
 const STORAGE_KEY = 'eisatopon-informatics:set:v1';  // same origin as the other banks: keep the keys apart
@@ -699,17 +706,19 @@ const COUNTRIES = [
     { key: 'swerc', name: 'ICPC SWERC', flag: '🎓', file: 'SWERC-problems.json', kind: 'years', scope: 'undergraduate', full: 'ICPC Southwestern Europe Regional Contest (the year is the season start, e.g. 2021 = 2021/22); statements © the SWERC juries, licensed CC BY-SA where stated' },
     { key: 'cerc', name: 'ICPC CERC', flag: '🎓', file: 'CERC-problems.json', kind: 'years', scope: 'undergraduate', full: 'ICPC Central Europe Regional Contest' },
     { key: 'ctuopen', name: 'CTU Open', flag: '🎓', file: 'CTUOPEN-problems.json', kind: 'years', scope: 'undergraduate', full: 'CTU Open Contest, Czech Technical University in Prague' },
+    { key: 'cypan', name: 'Cyprus – Pancyprian Exams', flag: '🇨🇾', file: 'CYPAN-problems.json', kind: 'years', scope: 'entrance', full: 'Cyprus Pancyprian university-entrance examinations, Computer Science (Πληροφορική, code 15); Greek original with an English translation (EN / ΕΛ)' },
     { key: 'ejoi', name: 'EJOI', flag: '🇪🇺', file: 'EJOI-problems.json', kind: 'years', scope: 'international', full: 'European Junior Olympiad in Informatics' },
 ];
 COUNTRIES.sort((a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' }));
 const CBY = Object.fromEntries(COUNTRIES.map(c => [c.key, c]));
 /* Sections of the grid, as in the math bank; a section without collections yet says what is coming. */
-const TABS = [['national', 'National'], ['regional', 'Regional'], ['international', 'International'], ['undergraduate', 'Undergraduate']];
+const TABS = [['national', 'National'], ['regional', 'Regional'], ['international', 'International'], ['undergraduate', 'Undergraduate'], ['entrance', 'Entrance Exams']];
 const COMING = {
     national: 'National olympiads in informatics (USACO finals and camp, Japan JOI, Croatia COCI, Poland POI, Russia, Greece ΠΔΠ and more) are being prepared.',
     regional: 'Regional olympiads in informatics (BOI, CEOI, APIO, BkOI and more) are being prepared.',
     international: 'International olympiads in informatics (IOI, EGOI, IZhO informatics and more) are being prepared.',
-    undergraduate: 'More university programming contests are being prepared.'
+    undergraduate: 'More university programming contests are being prepared.',
+    entrance: 'University entrance examinations in informatics are being prepared.'
 };
 const comingHtml = tab => `<p class="mx-nomatch mx-coming">${esc(COMING[tab] || 'This section is being prepared.')}</p>`;
 const scopeOf = c => c.scope || 'national';
@@ -914,8 +923,8 @@ function classifyStatement(text) {
     return topics.length ? topics.slice(0, 3) : ['Unclassified'];
 }
 // Task types as printed with the statement; batch is the classic read-input / write-output task.
-const TASK_TYPES = ['batch', 'interactive', 'output-only', 'communication'];
-const TASK_TYPE_LABEL = {batch: 'Batch', interactive: 'Interactive', 'output-only': 'Output-only', communication: 'Communication'};
+const TASK_TYPES = ['batch', 'interactive', 'output-only', 'communication', 'written'];
+const TASK_TYPE_LABEL = {batch: 'Batch', interactive: 'Interactive', 'output-only': 'Output-only', communication: 'Communication', written: 'Written exam'};
 function topicFields(text, category, uid) {
     const reviewed = typeof topicOverrides !== 'undefined' && topicOverrides[uid];
     const topics = category ? [category] : sameStatement(reviewed, text) ? reviewed.topics : classifyStatement(text);
@@ -938,7 +947,7 @@ function normalizeYears(country, raw) {
                 paperLabel: p.paper_label || (tests && day ? 'Test ' + day : null), figureAlt: p.figure_alt || null,
                 title: p.title || null, taskType: TASK_TYPES.includes(p.task_type) ? p.task_type : null,
                 timeLimit: p.time_limit || null, memoryLimit: p.memory_limit || null,
-                ...topicFields(p.problem, p.category, `${country.key}.${y.year}.${day ?? 0}.${num}`), text: String(p.problem || '')
+                ...topicFields(p.problem, p.category, `${country.key}.${y.year}.${day ?? 0}.${num}`), text: String(p.problem || ''), textEl: p.problem_el ? String(p.problem_el) : null
             });
         });
     });
@@ -1572,7 +1581,7 @@ function scoped() {
 }
 function matchesQuery(p) {
     if (!state.q) return true;
-    const hay = `${p.title || ''} ${p.taskType || ''} ${p.text} ${p.year} ${p.num} ${CBY[p.country].name}`.toLowerCase();
+    const hay = `${p.title || ''} ${p.taskType || ''} ${p.text} ${p.textEl || ''} ${p.year} ${p.num} ${CBY[p.country].name}`.toLowerCase();
     return state.q.toLowerCase().split(/\s+/).filter(Boolean).every(t => hay.includes(t));
 }
 const matchesDay = p => state.day === 'all' || String(p.day) === state.day;
@@ -1680,7 +1689,8 @@ const ORGANISERS = {
     ecna: ['the ICPC East Central North America Region', 'ICPC East Central North America Region'],
     swerc: ['the SWERC jury (ICPC Southwestern Europe)', 'SWERC jury', 'licensed CC BY-SA 4.0 where stated'],
     cerc: ['the CERC organisers (ICPC Central Europe)', 'CERC organisers'],
-    ctuopen: ['the Czech Technical University in Prague (CTU Open Contest)', 'CTU in Prague']
+    ctuopen: ['the Czech Technical University in Prague (CTU Open Contest)', 'CTU in Prague'],
+    cypan: ['the Examinations Service of the Cyprus Ministry of Education', 'the Cyprus Ministry of Education (Examinations Service)']
 };
 const CERC_HOSTS = y => y >= 2021 ? 'University of Ljubljana' : y >= 2012 && y <= 2014 ? 'Jagiellonian University in Kraków' : 'Czech Technical University in Prague';
 function organiserOf(key, year) {
@@ -1856,7 +1866,7 @@ function problemHtml(p) {
             </button>
             </div>
         </div>
-        <div class="statement">${bodyHtml(p.text, p)}</div>
+        ${p.textEl ? `<div class="lang-sw" role="group" aria-label="Language of the statement"><button type="button" class="btn btn-sm" data-lang="en">EN</button><button type="button" class="btn btn-sm" data-lang="el">ΕΛ</button></div><div class="statement st-en">${bodyHtml(p.text, p)}</div><div class="statement st-el" lang="el">${bodyHtml(p.textEl, p)}</div>` : `<div class="statement">${bodyHtml(p.text, p)}</div>`}
         ${provenanceHtml(p)}
         ${dnaHtml(p)}
     </article>`;
@@ -2138,6 +2148,7 @@ function aiPrompt(p, request) {
     const label = `${c.name} ${p.year}${p.paperLabel ? `, ${p.paperLabel}` : p.day ? `, Day ${p.day}` : ''}, task ${p.num}${p.title ? ` “${p.title}”` : ''}`;
     const limits = limitsText(p);
     const figure = /https?:\/\/\S+\.(?:png|jpe?g|gif|webp)\b/i.test(p.text);
+    if (!request && p.taskType === 'written') request = 'Answer the following written examination question in computer science (university entrance exam), part by part, with clear explanations. Where code is asked for, write it in the language and style the question uses (for C++, the standard the paper allows), and trace programs step by step where the question asks for their output.';
     return `${request || 'Solve the following informatics olympiad task. Explain the key observations and the algorithm step by step, justify why it is correct, and analyse its time and memory complexity against the constraints and limits. Then give a complete, clean C++17 implementation that follows the required input/output format or function interface exactly (for interactive or communication tasks, respect the protocol and the query limits). If only some subtasks can be solved, say which ones your solution covers.'}\n\n${label}${limits ? `\n(${limits[0].toUpperCase() + limits.slice(1)})` : ''}\n\n${p.text}${typeof creditText === 'function' && creditText(p) ? `\n\n(${creditText(p)})` : ''}` +
         (figure ? '\n\nThe statement includes figure links. Inspect the figures before using them. If you cannot access them, ask me to upload the images; do not guess their contents.' : '');
 }
@@ -2406,6 +2417,11 @@ function focusProblem() {
 }
 
 
+// Bilingual rows (Panhellenic / Pancyprian entrance exams): EN / ΕΛ switch, remembered per visitor.
+function setLang(l) {
+    document.body.classList.toggle('lang-el', l === 'el');
+    try { localStorage.setItem('inob-lang', l); } catch (e) {}
+}
 /* ---------- Link to the current view ----------
    ?c=<row key>&y=<year>&d=<day>&t=<topic>&q=<search> reopens exactly this selection. */
 function viewQuery() {
@@ -2552,6 +2568,7 @@ document.addEventListener('click', e => {
         return;
     }
 
+    if (t.dataset.lang) { setLang(t.dataset.lang); return; }
     if (t.dataset.share) { shareAction(t.dataset.share, t.dataset.shareUid); if (currentMenu) currentMenu.open = false; return; }
     if (t.dataset.aiProvider) { setAiProvider(t.dataset.aiProvider); return; }
     if (t.dataset.askAi) {
@@ -2626,6 +2643,7 @@ function centerPick() {
 }
 
 async function init() {
+    try { if (localStorage.getItem('inob-lang') === 'el') document.body.classList.add('lang-el'); } catch (e) {}
     $('#yr').textContent = new Date().getFullYear();
     $('#statRows').textContent = COUNTRIES.length;
     $('#statYears').textContent = `${FIRST}–${LAST}`;
