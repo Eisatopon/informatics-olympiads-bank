@@ -134,7 +134,7 @@ svg.i { width: 1em; height: 1em; flex: none; stroke: currentColor; fill: none; s
    ========================================================== */
 .hero { background: var(--ink); color: #fff; overflow: hidden; }
 /* Until the grid is built (init), keep what it pushes down invisible, so nothing jumps on phones. */
-.booting .hero > .wrap:last-child, .booting #main, .booting .footer, .booting #statUpdated { visibility: hidden; }
+.booting .hero > .wrap:last-child, .booting #main, .booting .footer, .booting .praise, .booting #statUpdated { visibility: hidden; }
 .brandbar { padding-top: 18px; padding-bottom: 4px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 .subjects { display: flex; gap: 8px; flex-wrap: wrap; }
 .subj { display: inline-flex; align-items: center; gap: 7px; padding: 7px 13px; border: 1px solid rgba(255,255,255,.28); border-radius: 999px; color: #fff; text-decoration: none; font-size: .88rem; font-weight: 600; background: rgba(255,255,255,.06); transition: background .15s, border-color .15s; }
@@ -319,13 +319,21 @@ body:not(.lang-el) .lang-sw [data-lang="en"], body.lang-el .lang-sw [data-lang="
 .st-el { display: none; }
 body.lang-el .st-el { display: block; }
 body.lang-el .st-en { display: none; }
-.praise { padding: 28px 0 8px; }
-.praise h2 { margin: 0 0 10px; font: 700 .8rem/1.2 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
-.praise blockquote { margin: 0 0 14px; max-width: 70ch; padding-left: 14px; border-left: 3px solid var(--line-strong); }
-.praise blockquote p { margin: 0 0 6px; font: italic 400 1rem/1.55 var(--serif); color: var(--ink); }
-.praise blockquote footer { font: 400 .85rem/1.4 var(--sans); color: var(--muted); }
-.praise-fact, .praise-note { margin: 12px 0 0; font: 400 .85rem/1.4 var(--sans); color: var(--muted); }
-.praise-note { font-size: .78rem; }
+.praise { --star: var(--accent-text, #4ade80); background: var(--ink); color: #fff; padding: 44px 0 36px; margin-top: 48px; }
+.praise h2 { margin: 0 0 22px; font: 800 1.6rem/1.15 var(--serif); color: #fff; }
+.praise h2::before { content: "★ "; color: var(--star); }
+.praise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+.praise blockquote { position: relative; margin: 0; padding: 26px 22px 18px; background: #fff; color: var(--ink); border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,.25); display: flex; flex-direction: column; justify-content: space-between; }
+.praise blockquote::before { content: "\201C"; position: absolute; top: -18px; left: 16px; font: 700 4.2rem/1 var(--serif); color: var(--star); }
+.praise blockquote p { margin: 0 0 16px; font: italic 400 1.08rem/1.55 var(--serif); }
+.praise blockquote footer { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font: 400 .85rem/1.35 var(--sans); color: var(--muted); border-top: 1px solid var(--line); padding-top: 12px; }
+.praise blockquote footer b { color: var(--ink); font-weight: 700; }
+.praise .on { margin-left: auto; padding: 3px 10px; border-radius: 999px; background: var(--ink); color: #fff; font-weight: 600; text-decoration: none; white-space: nowrap; }
+.praise .on:hover { background: var(--accent); }
+.praise-fact { display: inline-block; margin: 22px 0 0; padding: 8px 14px; border: 1px solid rgba(255,255,255,.25); border-radius: 999px; font: 600 .9rem/1.3 var(--sans); }
+.praise-fact a { color: var(--star); }
+.praise-note { margin: 12px 0 0; font: 400 .78rem/1.4 var(--sans); color: #9fb0bf; }
+.praise + .footer { margin-top: 0; }
 .ai-note { margin: 6px 4px 2px; font-size: .75rem; color: var(--muted); }
 .ai-copy { margin-top: 6px; border-top: 1px solid var(--line); font-size: .8rem; color: var(--muted); }
 .p-id { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
@@ -488,7 +496,7 @@ dialog p { color: var(--muted); font-size: .92rem; }
 @page { margin: 18mm 16mm; }
 @media print {
     body { background: #fff; }
-    .skip, .hero, .layout, .footer, dialog, noscript { display: none !important; }
+    .skip, .hero, .layout, .praise, .footer, dialog, noscript { display: none !important; }
     .ps-item { break-inside: avoid; page-break-inside: avoid; }
     .ps-head { break-after: avoid; }
     .ps-body .fig { break-inside: avoid; }
@@ -633,15 +641,17 @@ dialog p { color: var(--muted); font-size: .92rem; }
 <section class="praise" aria-labelledby="praiseTitle">
     <div class="wrap">
         <h2 id="praiseTitle">What people say</h2>
-        <blockquote>
-            <p>“I think it's great for budding mathematicians that you're compiling this resource.”</p>
-            <footer>— Jim Propp, mathematician, UMass Lowell · on <a href="https://eisatopon.github.io/national-olympiads-bank/">Pythagoras</a></footer>
-        </blockquote>
-        <blockquote>
-            <p>“This is quite a collection of problems from many different olympiads. Hipparchus will definitely be useful for our students for the next year's olympiad.”</p>
-            <footer>— Loa Hellsing, Project Leader, Swedish Astronomical Olympiad · on <a href="https://eisatopon.github.io/astronomy-olympiads-bank/">Hipparchus</a></footer>
-        </blockquote>
-        <p class="praise-fact"><a href="https://eisatopon.github.io/astronomy-olympiads-bank/">Hipparchus</a> is listed by the IOAA among its <a href="https://ioaastrophysics.org/resources/other-resources" target="_blank" rel="noopener">Other Resources</a>.</p>
+        <div class="praise-grid">
+            <blockquote>
+                <p>I think it's great for budding mathematicians that you're compiling this resource.</p>
+                <footer><span><b>Jim Propp</b><br>mathematician, UMass Lowell</span><a class="on" href="https://eisatopon.github.io/national-olympiads-bank/">on Pythagoras</a></footer>
+            </blockquote>
+            <blockquote>
+                <p>This is quite a collection of problems from many different olympiads. Hipparchus will definitely be useful for our students for the next year's olympiad.</p>
+                <footer><span><b>Loa Hellsing</b><br>Project Leader, Swedish Astronomical Olympiad</span><a class="on" href="https://eisatopon.github.io/astronomy-olympiads-bank/">on Hipparchus</a></footer>
+            </blockquote>
+        </div>
+        <p class="praise-fact">🏅 Hipparchus is listed by the IOAA among its <a href="https://ioaastrophysics.org/resources/other-resources" target="_blank" rel="noopener">Other Resources</a></p>
         <p class="praise-note">Personal words shared with permission; not official endorsements.</p>
     </div>
 </section>
@@ -700,7 +710,7 @@ const BASE = './';
 // Figures are linked inside the statements with their published raw URL; a local copy shows its own images/.
 const RAW = 'https://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/';
 // Bump on every data change so browsers never mix old and new files.
-const DATA_VERSION = '20261103-nogithub';
+const DATA_VERSION = '20261103-praise3';
 const FIRST = 1989, LAST = 2026;
 const REGIONS = [['europe', 'Europe'], ['asia', 'Asia'], ['americas', 'Americas'], ['africa', 'Africa'], ['oceania', 'Oceania'], ['world', 'World'], ['other', 'Other']];
 const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', coci: 'europe', joi: 'asia', joisc: 'asia', joiopen: 'asia', usaco: 'americas', ccc: 'americas', ejoi: 'world', neerc: 'europe', izho: 'world', nwerc: 'europe', bapc: 'europe', ncpc: 'europe', gcpc: 'europe', pacnw: 'americas', ecna: 'americas', swerc: 'europe', cerc: 'europe', ctuopen: 'europe', cypan: 'europe', grpan: 'europe' };
