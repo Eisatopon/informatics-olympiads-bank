@@ -710,7 +710,7 @@ const BASE = './';
 // Figures are linked inside the statements with their published raw URL; a local copy shows its own images/.
 const RAW = 'https://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/';
 // Bump on every data change so browsers never mix old and new files.
-const DATA_VERSION = '20261103-praise3';
+const DATA_VERSION = '20261103-texexport';
 const FIRST = 1989, LAST = 2026;
 const REGIONS = [['europe', 'Europe'], ['asia', 'Asia'], ['americas', 'Americas'], ['africa', 'Africa'], ['oceania', 'Oceania'], ['world', 'World'], ['other', 'Other']];
 const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', coci: 'europe', joi: 'asia', joisc: 'asia', joiopen: 'asia', usaco: 'americas', ccc: 'americas', ejoi: 'world', neerc: 'europe', izho: 'world', nwerc: 'europe', bapc: 'europe', ncpc: 'europe', gcpc: 'europe', pacnw: 'americas', ecna: 'americas', swerc: 'europe', cerc: 'europe', ctuopen: 'europe', cypan: 'europe', grpan: 'europe' };
@@ -1691,6 +1691,7 @@ function headHtml(count) {
         <div class="res-actions">
             ${filtersOn() ? '<button type="button" class="btn btn-sm btn-quiet" data-clear-filters>Clear filters</button>' : ''}
             ${wide || filtersOn() ? '<button type="button" class="btn btn-sm btn-quiet" data-copy-view>Copy link to this view</button>' : ''}
+            ${count && (state.country || filtersOn()) ? `<button type="button" class="btn btn-sm" data-export-view title="Download every task of this view as a LaTeX (.tex) file">Export LaTeX (${count})</button>` : ''}
             ${wide ? `<button type="button" class="btn btn-sm" data-all-scope>${state.tab === 'national' ? 'All countries, all years' : 'All competitions, all years'}</button>` : ''}
             ${count && count <= 60 ? `<button type="button" class="btn btn-sm" data-add-all>${ICON.plus} Add all (${count})</button>` : ''}
         </div>
@@ -2457,6 +2458,116 @@ function setLang(l) {
     document.body.classList.toggle('lang-el', l === 'el');
     try { localStorage.setItem('inob-lang', l); } catch (e) {}
 }
+/* ---------- Export the current view as LaTeX ----------
+   One .tex file with every task of the view (all years, current filters): statements with formulas,
+   input/output and code blocks in verbatim, figures by file name (or their web address), and the source line. */
+const TEX_MATH_RE = /\\\$|\$\$[\s\S]*?\$\$|\$(?:\\.|[^$\\])+\$|\\\([\s\S]*?\\\)|\\\[[\s\S]*?\\\]/g;
+function texText(x) {
+    return String(x)
+        .replace(/\\(?![$*])/g, '\\textbackslash{}').replace(/\\\*/g, '*')
+        .replace(/\\?[&%#_${}]/g, m => m.length === 2 && m[0] === '\\' && m[1] === '$' ? m : '\\' + m.slice(-1))
+        .replace(/\\textbackslash\\\{\\\}/g, '\\textbackslash{}')
+        .replace(/\^/g, '\\^{}').replace(/~/g, '\\textasciitilde{}')
+        .replace(/</g, '\\textless{}').replace(/>/g, '\\textgreater{}');
+}
+function texInline(x) {
+    // **bold** and *italic* as in the statements; everything else escaped.
+    return texText(x).replace(/\*\*([^*\n]+)\*\*/g, '\\textbf{$1}').replace(/(^|[\s(“"])\*([^*\s][^*\n]*?)\*(?=[\s.,;:!?)”"]|$)/g, '$1\\textit{$2}');
+}
+function texProse(s) {
+    // Inline `code` first (it may hold $ or #), then formulas in the rest.
+    return String(s).split(/(`[^`\n]+`)/).map((part, i) => {
+        if (i % 2) return `\\texttt{${texText(part.slice(1, -1))}}`;
+        let out = '', last = 0;
+        for (const m of part.matchAll(TEX_MATH_RE)) {
+            out += texInline(part.slice(last, m.index));
+            // A line break followed by "[" would be read as \\[length] by LaTeX.
+            const math = m[0].replace(/\\\\(\s*)\[/g, '\\\\{}$1[');
+            out += m[0] === '\\$' ? m[0] : math.startsWith('$$') ? `\\[${math.slice(2, -2)}\\]` : math;
+            last = m.index + m[0].length;
+        }
+        return out + texInline(part.slice(last));
+    }).join('').replace(/^[•◦▪] +/gm, '\\textbullet{} ');
+}
+function texStatement(text) {
+    const figs = [];
+    const s = String(text).replace(IMG_RE, (m, url, ext) => { figs.push(`${url}.${ext}`); return `\u0000FIG${figs.length - 1}\u0000`; }).trim();
+    const parts = s.split(/^```([^`\n]*)\n([\s\S]*?)\n```[ \t]*$/m);
+    let out = '';
+    for (let i = 0; i < parts.length; i += 3) {
+        out += parts[i].split(/\n\s*\n/).map(x => x.trim()).filter(Boolean).map(x => {
+            // A heading line (## Input) starts a run-in paragraph heading; the rest of the block follows it.
+            const h = /^#{2,4} +(.+)(?:\n([\s\S]*))?$/.exec(x);
+            return h ? `\\paragraph*{${texProse(h[1])}}${h[2] ? '\n' + texProse(h[2]) : ''}` : texProse(x);
+        }).join('\n\n');
+        if (i + 2 < parts.length) {
+            const label = parts[i + 1].trim();
+            out += `\n\n${label ? `{\\small\\sffamily ${texText(label)}}\\par\\nopagebreak\n` : ''}\\begin{verbatim}\n${parts[i + 2]}\n\\end{verbatim}\n\n`;
+        }
+    }
+    return out.replace(/\u0000FIG(\d+)\u0000/g, (m, k) => {
+        const u = figs[+k], name = u.split('/').pop();
+        return `\n\n\\begin{center}\\IfFileExists{${name}}{\\includegraphics[width=0.6\\linewidth]{${name}}}{\\url{${u}}}\\end{center}\n\n`;
+    }).replace(/\n{3,}/g, '\n\n').trim();
+}
+// Characters that pdfLaTeX cannot typeset from UTF-8 input: declared only when the set uses them.
+const TEX_CHARS = (() => {
+    const m = {'−': '\\ensuremath{-}', ' ': '\\quad{}', ' ': '\\,', ' ': '\\,', '₹': 'Rs.', '，': ',', '：': ':',
+        '●': '\\ensuremath{\\bullet}', '○': '\\ensuremath{\\circ}', '□': '\\ensuremath{\\square}', '◇': '\\ensuremath{\\diamond}',
+        '▲': '\\ensuremath{\\blacktriangle}', '△': '\\ensuremath{\\triangle}', '♡': '\\ensuremath{\\heartsuit}', '♣': '\\ensuremath{\\clubsuit}',
+        '✲': '\\ensuremath{\\ast}', '≤': '\\ensuremath{\\le}', '≥': '\\ensuremath{\\ge}', '≠': '\\ensuremath{\\ne}', '∞': '\\ensuremath{\\infty}',
+        '→': '\\ensuremath{\\to}', '∈': '\\ensuremath{\\in}', '√': '\\ensuremath{\\surd}', '∠': '\\ensuremath{\\angle}', '⋅': '\\ensuremath{\\cdot}'};
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').forEach((c, i) => { m[String.fromCharCode(0x24b6 + i)] = `(${c})`; });
+    const lower = 'alpha beta gamma delta varepsilon zeta eta theta iota kappa lambda mu nu xi o pi rho varsigma sigma tau upsilon varphi chi psi omega'.split(' ');
+    lower.forEach((n, i) => { m[String.fromCharCode(0x3b1 + i)] = n === 'o' ? '\\ensuremath{o}' : `\\ensuremath{\\${n}}`; });
+    const upper = 'A B Gamma Delta E Z H Theta I K Lambda M N Xi O Pi P - Sigma T Upsilon Phi X Psi Omega'.split(' ');
+    upper.forEach((n, i) => { if (n !== '-') m[String.fromCharCode(0x391 + i)] = n.length > 1 ? `\\ensuremath{\\${n}}` : `\\ensuremath{\\mathrm{${n}}}`; });
+    return m;
+})();
+function texCharDecls(tex) {
+    const seen = new Set([...tex].filter(c => c.codePointAt(0) > 0x17f && !'–—‘’“”…•€™'.includes(c)));
+    const hex = c => c.codePointAt(0).toString(16).toUpperCase().padStart(4, '0');
+    return seen.size ? `\\ifPDFTeX\n${[...seen].map(c => `\\DeclareUnicodeCharacter{${hex(c)}}{${TEX_CHARS[c] || `[U+${hex(c)}]`}}`).join('\n')}\n\\fi` : '';
+}
+function buildTex(items, title, viewExport = true) {
+    const head = String.raw`% Exported from Antikythera – World Informatics Olympiads Bank
+% https://eisatopon.github.io/informatics-olympiads-bank/
+% Compiles with XeLaTeX or LuaLaTeX (and with pdfLaTeX for English-only tasks). Figures: put the PNG files
+% next to this file, otherwise their web address is printed instead.
+\documentclass[11pt,a4paper]{article}
+\usepackage{iftex}
+\ifPDFTeX\usepackage[utf8]{inputenc}\usepackage[T1]{fontenc}\else\usepackage{fontspec}\fi
+\usepackage{amsmath,amssymb,graphicx}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage[hidelinks]{hyperref}
+\providecommand{\lt}{<}\providecommand{\gt}{>}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\pagestyle{plain}
+\begin{document}
+`;
+    const body = items.map((p, i) => {
+        const src = `${CBY[p.country].name} ${p.year}${p.paperLabel ? `, ${p.paperLabel}` : p.day ? `, Day ${p.day}` : ''}, Task ${p.num}`;
+        const meta = [p.taskType ? (TASK_TYPE_LABEL[p.taskType] || p.taskType) : '', p.timeLimit ? `time limit ${p.timeLimit}` : '', p.memoryLimit ? `memory limit ${p.memoryLimit}` : ''].filter(Boolean).join(' · ');
+        const credit = typeof creditText === 'function' ? creditText(p) : '';
+        return `\\subsection*{Task ${i + 1}${p.title ? `: ${texText(p.title)}` : ''}}\n{\\small\\itshape ${texText(src)}${credit ? ` · ${texText(credit)}` : ''}}\\par\n` +
+            (meta ? `{\\small ${texText(meta)}}\\par\n` : '') + texStatement(p.text) + '\n';
+    }).join('\n');
+    const doc = `\\begin{center}{\\Large\\bfseries ${texText(title)}}\\end{center}\n\n` + body;
+    const decls = texCharDecls(doc);
+    const extra = (doc.includes('\\cancel') ? '\\IfFileExists{cancel.sty}{\\usepackage{cancel}}{}\n\\providecommand{\\cancel}[1]{\\not{#1}}\n' : '') + (decls ? decls + '\n' : '');
+    return head.replace('\\begin{document}', extra + '\\begin{document}') + doc + '\n\\end{document}\n';
+}
+function exportTex(items, title, viewExport = true) {
+    if (!items.length) return;
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([buildTex(items, title, viewExport)], {type: 'application/x-tex;charset=utf-8'}));
+    a.download = (title.normalize('NFKD').replace(/[^\w-]+/g, '-').replace(/^-+|-+$/g, '').toLowerCase() || 'task-set') + '.tex';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    say('LaTeX file downloaded.');
+}
+
 /* ---------- Link to the current view ----------
    ?c=<row key>&y=<year>&d=<day>&t=<topic>&q=<search> reopens exactly this selection. */
 function viewQuery() {
@@ -2592,6 +2703,12 @@ document.addEventListener('click', e => {
     if (t.hasAttribute('data-clear-filters')) { state.day = 'all'; state.type = 'all'; state.topic = 'all'; state.q = ''; $('#q').value = ''; limit = PAGE; pendingCountries().length ? refresh() : renderResults(); return; }
     if (t.hasAttribute('data-all-scope')) { setScope(null, null); return; }
     if (t.hasAttribute('data-copy-view')) { copyView(); return; }
+    if (t.hasAttribute('data-export-view')) {
+        const [title] = scopeTitle();
+        const topic = state.topic !== 'all' ? ` – ${state.topic}` : '';
+        exportTex(shownUids.map(u => byUid.get(u)).filter(Boolean), title.replace(/^[^\p{L}\p{N}]+/u, '') + topic, true);
+        return;
+    }
     if (t.hasAttribute('data-retry')) { failed.clear(); refresh(); return; }
     if (t.hasAttribute('data-more')) {
         limit += PAGE;
