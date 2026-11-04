@@ -83,6 +83,7 @@
 }
 .f-ioi { --f: var(--ioi); --f-ink: var(--ioi-ink); --f-tint: var(--ioi-tint); }
 .f-ejoi { --f: var(--ejoi); --f-ink: var(--ejoi-ink); --f-tint: var(--ejoi-tint); }
+.f-info1cup { --f: var(--ejoi); --f-ink: var(--ejoi-ink); --f-tint: var(--ejoi-tint); }
 .f-izho { --f: var(--izho); --f-ink: var(--izho-ink); --f-tint: var(--izho-tint); }
 .f-egoi { --f: var(--egoi); --f-ink: var(--egoi-ink); --f-tint: var(--egoi-tint); }
 .f-apio { --f: var(--apio); --f-ink: var(--apio-ink); --f-tint: var(--apio-tint); }
@@ -711,10 +712,10 @@ const BASE = './';
 // Figures are linked inside the statements with their published raw URL; a local copy shows its own images/.
 const RAW = 'https://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/';
 // Bump on every data change so browsers never mix old and new files.
-const DATA_VERSION = '20261104-orig-lang';
+const DATA_VERSION = '20261104-info1cup2017-2021';
 const FIRST = 1989, LAST = 2026;
 const REGIONS = [['europe', 'Europe'], ['asia', 'Asia'], ['americas', 'Americas'], ['africa', 'Africa'], ['oceania', 'Oceania'], ['world', 'World'], ['other', 'Other']];
-const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', coci: 'europe', joi: 'asia', sgnoi: 'asia', joisc: 'asia', joiopen: 'asia', usaco: 'americas', ccc: 'americas', cco: 'americas', ejoi: 'world', neerc: 'europe', izho: 'world', nwerc: 'europe', bapc: 'europe', ncpc: 'europe', gcpc: 'europe', pacnw: 'americas', ecna: 'americas', swerc: 'europe', cerc: 'europe', ctuopen: 'europe', cypan: 'europe', grpan: 'europe' };
+const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', coci: 'europe', joi: 'asia', sgnoi: 'asia', joisc: 'asia', joiopen: 'asia', usaco: 'americas', ccc: 'americas', cco: 'americas', ejoi: 'world', info1cup: 'world', neerc: 'europe', izho: 'world', nwerc: 'europe', bapc: 'europe', ncpc: 'europe', gcpc: 'europe', pacnw: 'americas', ecna: 'americas', swerc: 'europe', cerc: 'europe', ctuopen: 'europe', cypan: 'europe', grpan: 'europe' };
 const regionOf = key => REGION_OF[key] || 'other';
 const PAGE = 20;
 const STORAGE_KEY = 'eisatopon-informatics:set:v1';  // same origin as the other banks: keep the keys apart
@@ -745,6 +746,7 @@ const COUNTRIES = [
     { key: 'cypan', name: 'Cyprus – Pancyprian Exams', flag: '🇨🇾', file: 'CYPAN-problems.json', kind: 'years', scope: 'entrance', full: 'Cyprus Pancyprian university-entrance examinations, Computer Science (Πληροφορική, code 15); Greek original with an English translation (EN / ΕΛ)' },
     { key: 'grpan', name: 'Greece – Panhellenic Exams', flag: '🇬🇷', file: 'GRPAN-problems.json', kind: 'years', scope: 'entrance', full: 'Greek Panhellenic university-entrance examinations, Computer Science (Πληροφορική, General Lyceum), June and September papers; Greek original with an English translation (EN / ΕΛ)' },
     { key: 'ejoi', name: 'EJOI', flag: '🇪🇺', file: 'EJOI-problems.json', kind: 'years', scope: 'international', full: 'European Junior Olympiad in Informatics' },
+    { key: 'info1cup', name: 'InfO(1) Cup', flag: '🌐', file: 'INFO1CUP-problems.json', kind: 'years', scope: 'international', full: 'InfO(1) Cup, international informatics contest organised in Romania' },
 ];
 COUNTRIES.sort((a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' }));
 const CBY = Object.fromEntries(COUNTRIES.map(c => [c.key, c]));
@@ -1721,6 +1723,7 @@ const ORGANISERS = {
     ccc: ['the Centre for Education in Mathematics and Computing (CEMC), University of Waterloo', 'CEMC, University of Waterloo', 'licensed CC BY-NC 4.0'],
     cco: ['the Centre for Education in Mathematics and Computing (CEMC), University of Waterloo', 'CEMC, University of Waterloo', 'licensed CC BY-NC 4.0'],
     sgnoi: ['the Singapore NOI committee', 'Singapore NOI committee'],
+    info1cup: ['the InfO(1) Cup organisers (Romania)', 'InfO(1) Cup organisers'],
     nwerc: ['the NWERC jury (ICPC Northwestern Europe)', 'NWERC jury', 'licensed CC BY-SA 4.0 where stated'],
     bapc: ['the BAPC jury', 'BAPC jury', 'licensed CC BY-SA 4.0'],
     ncpc: ['the NCPC jury (Nordic Collegiate Programming Contest)', 'NCPC jury'],
