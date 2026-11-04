@@ -740,7 +740,7 @@ const BASE = './';
 // Figures are linked inside the statements with their published raw URL; a local copy shows its own images/.
 const RAW = 'https://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/';
 // Bump on every data change so browsers never mix old and new files.
-const DATA_VERSION = '20261104-potd-fixed';
+const DATA_VERSION = '20261104-home-order';
 const FIRST = 1989, LAST = 2026;
 const REGIONS = [['europe', 'Europe'], ['asia', 'Asia'], ['americas', 'Americas'], ['africa', 'Africa'], ['oceania', 'Oceania'], ['world', 'World'], ['other', 'Other']];
 const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', coci: 'europe', joi: 'asia', sgnoi: 'asia', noiph: 'asia', joisc: 'asia', joiopen: 'asia', usaco: 'americas', ccc: 'americas', cco: 'americas', ejoi: 'world', info1cup: 'world', neerc: 'europe', izho: 'world', nwerc: 'europe', bapc: 'europe', ncpc: 'europe', gcpc: 'europe', pacnw: 'americas', ecna: 'americas', swerc: 'europe', cerc: 'europe', ctuopen: 'europe', cypan: 'europe', grpan: 'europe' };
@@ -1109,10 +1109,18 @@ function browseTotal() {
     if (!manifest || state.country || state.year !== null || filtersOn()) return 0;
     return tabTotal(state.tab);
 }
-// The list is ordered by year (newest first), then by collection name, exactly as COUNTRIES.
+// Home list: the collections of a year come in a daily order (the same for everyone that day),
+// so the same competition does not always come first. FNV-1a over the key, seeded with the day.
+function dayRank(key) {
+    let h = (2166136261 ^ Math.floor(Date.now() / 864e5)) >>> 0;
+    for (let i = 0; i < key.length; i++) { h ^= key.charCodeAt(i); h = Math.imul(h, 16777619) >>> 0; }
+    return h;
+}
+const browseRows = () => tabRows().slice().sort((a, b) => dayRank(a.key) - dayRank(b.key));
+// The list is ordered by year (newest first), then by collection in the daily order.
 // Returns the last (year, collection index) needed to fill the first `limit` results.
 function browseCutoff() {
-    const rows = tabRows();
+    const rows = browseRows();
     let sum = 0;
     for (let y = LAST; y >= FIRST; y--) {
         for (let i = 0; i < rows.length; i++) {
@@ -1644,7 +1652,7 @@ function scoped() {
     const keys = state.country ? [state.country] : tabRows().map(c => c.key);
     let list = keys.flatMap(k => cache.get(k) || []);
     if (state.year !== null) list = list.filter(p => p.year === state.year);
-    else if (browseTotal()) { const [cy, ci] = browseCutoff(); const idx = Object.fromEntries(tabRows().map((c, i) => [c.key, i])); list = list.filter(p => p.year > cy || (p.year === cy && idx[p.country] <= ci)); }
+    else if (browseTotal()) { const [cy, ci] = browseCutoff(); const idx = Object.fromEntries(browseRows().map((c, i) => [c.key, i])); list = list.filter(p => p.year > cy || (p.year === cy && idx[p.country] <= ci)); }
     return list;
 }
 function matchesQuery(p) {
@@ -1659,6 +1667,7 @@ const filtersOn = () => state.day !== 'all' || state.type !== 'all' || state.top
 
 function compare(a, b) {
     if (a.year !== b.year) return b.year - a.year;
+    if (a.country !== b.country && browseTotal()) return dayRank(a.country) - dayRank(b.country);
     if (a.country !== b.country) return CBY[a.country].name.localeCompare(CBY[b.country].name, 'en', { sensitivity: 'base' });
     if ((a.day || 0) !== (b.day || 0)) return (a.day || 0) - (b.day || 0);
     return (parseFloat(a.num) || 0) - (parseFloat(b.num) || 0);
@@ -1956,7 +1965,8 @@ function neededCountries() {
     if (state.year !== null) return all.filter(k => has(k, y => y === state.year));
     if (filtersOn()) return all;
     const [cy, ci] = browseCutoff();
-    return all.filter((k, i) => !manifestYears(k) || has(k, y => y > cy || (y === cy && i <= ci)));
+    const idx = Object.fromEntries(browseRows().map((c, i) => [c.key, i]));
+    return all.filter(k => !manifestYears(k) || has(k, y => y > cy || (y === cy && idx[k] <= ci)));
 }
 function pendingCountries() { return neededCountries().filter(k => !cache.has(k) && !failed.has(k)); }
 function progressText() {
