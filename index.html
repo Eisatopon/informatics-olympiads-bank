@@ -92,6 +92,7 @@
 .f-usaco { --f: var(--usaco); --f-ink: var(--usaco-ink); --f-tint: var(--usaco-tint); }
 .f-joi { --f: var(--joi); --f-ink: var(--joi-ink); --f-tint: var(--joi-tint); }
 .f-sgnoi { --f: var(--joi); --f-ink: var(--joi-ink); --f-tint: var(--joi-tint); }
+.f-noiph { --f: var(--joi); --f-ink: var(--joi-ink); --f-tint: var(--joi-tint); }
 .f-joiopen { --f: var(--joisc); --f-ink: var(--joisc-ink); --f-tint: var(--joisc-tint); }
 .f-joisc { --f: var(--joisc); --f-ink: var(--joisc-ink); --f-tint: var(--joisc-tint); }
 .f-ccc { --f: var(--ccc); --f-ink: var(--ccc-ink); --f-tint: var(--ccc-tint); }
@@ -712,10 +713,10 @@ const BASE = './';
 // Figures are linked inside the statements with their published raw URL; a local copy shows its own images/.
 const RAW = 'https://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/';
 // Bump on every data change so browsers never mix old and new files.
-const DATA_VERSION = '20261104-info1cup2022-2026';
+const DATA_VERSION = '20261104-noiph2025-2026';
 const FIRST = 1989, LAST = 2026;
 const REGIONS = [['europe', 'Europe'], ['asia', 'Asia'], ['americas', 'Americas'], ['africa', 'Africa'], ['oceania', 'Oceania'], ['world', 'World'], ['other', 'Other']];
-const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', coci: 'europe', joi: 'asia', sgnoi: 'asia', joisc: 'asia', joiopen: 'asia', usaco: 'americas', ccc: 'americas', cco: 'americas', ejoi: 'world', info1cup: 'world', neerc: 'europe', izho: 'world', nwerc: 'europe', bapc: 'europe', ncpc: 'europe', gcpc: 'europe', pacnw: 'americas', ecna: 'americas', swerc: 'europe', cerc: 'europe', ctuopen: 'europe', cypan: 'europe', grpan: 'europe' };
+const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', coci: 'europe', joi: 'asia', sgnoi: 'asia', noiph: 'asia', joisc: 'asia', joiopen: 'asia', usaco: 'americas', ccc: 'americas', cco: 'americas', ejoi: 'world', info1cup: 'world', neerc: 'europe', izho: 'world', nwerc: 'europe', bapc: 'europe', ncpc: 'europe', gcpc: 'europe', pacnw: 'americas', ecna: 'americas', swerc: 'europe', cerc: 'europe', ctuopen: 'europe', cypan: 'europe', grpan: 'europe' };
 const regionOf = key => REGION_OF[key] || 'other';
 const PAGE = 20;
 const STORAGE_KEY = 'eisatopon-informatics:set:v1';  // same origin as the other banks: keep the keys apart
@@ -728,6 +729,7 @@ const COUNTRIES = [
     { key: 'coci', name: 'Croatia — COCI', flag: '🇭🇷', file: 'COCI-problems.json', kind: 'years', scope: 'national', full: 'Croatian Open Competition in Informatics (the year is the start of the season, e.g. 2025 = season 2025/2026)' },
     { key: 'joi', name: 'Japan — JOI Final Round', flag: '🇯🇵', file: 'JOI-problems.json', kind: 'years', scope: 'national', full: 'Japanese Olympiad in Informatics, Final Round (the year is the year of the contest, e.g. 2025 = JOI 2024/2025)' },
     { key: 'sgnoi', name: 'Singapore — NOI', flag: '🇸🇬', file: 'SGNOI-problems.json', kind: 'years', scope: 'national', full: 'Singapore National Olympiad in Informatics: final, preliminary and qualification rounds' },
+    { key: 'noiph', name: 'Philippines — NOI.PH', flag: '🇵🇭', file: 'NOIPH-problems.json', kind: 'years', scope: 'national', full: 'National Olympiad in Informatics Philippines: elimination and final rounds' },
     { key: 'joisc', name: 'Japan — JOI Spring Camp', flag: '🇯🇵', file: 'JOISC-problems.json', kind: 'years', scope: 'national', full: 'Japanese Olympiad in Informatics, Spring Training Camp (selection of the IOI team)' },
     { key: 'joiopen', name: 'Japan — JOI Open Contest', flag: '🇯🇵', file: 'JOIOPEN-problems.json', kind: 'years', scope: 'national', full: 'JOI Open Contest, the IOI-style open contest of the Japanese Olympiad in Informatics' },
     { key: 'usaco', name: 'USA — USACO', flag: '🇺🇸', file: 'USACO-problems.json', kind: 'years', scope: 'national', full: 'USA Computing Olympiad, online contests of the season in all divisions (Bronze, Silver, Gold, Platinum); the year is the start of the season, e.g. 2024 = season 2024/2025' },
@@ -1724,6 +1726,7 @@ const ORGANISERS = {
     cco: ['the Centre for Education in Mathematics and Computing (CEMC), University of Waterloo', 'CEMC, University of Waterloo', 'licensed CC BY-NC 4.0'],
     sgnoi: ['the Singapore NOI committee', 'Singapore NOI committee'],
     info1cup: ['the InfO(1) Cup organisers (Romania)', 'InfO(1) Cup organisers'],
+    noiph: ['NOI.PH (National Olympiad in Informatics Philippines)', 'NOI.PH'],
     nwerc: ['the NWERC jury (ICPC Northwestern Europe)', 'NWERC jury', 'licensed CC BY-SA 4.0 where stated'],
     bapc: ['the BAPC jury', 'BAPC jury', 'licensed CC BY-SA 4.0'],
     ncpc: ['the NCPC jury (Nordic Collegiate Programming Contest)', 'NCPC jury'],
