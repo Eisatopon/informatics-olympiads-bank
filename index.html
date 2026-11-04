@@ -338,6 +338,14 @@ body.lang-el .st-en { display: none; }
 .praise-fact a { color: var(--star); }
 .praise-note { margin: 12px 0 0; font: 400 .78rem/1.4 var(--sans); color: #9fb0bf; }
 .praise + .footer { margin-top: 0; }
+.linkish { background: none; border: 0; padding: 0; font: inherit; color: inherit; text-decoration: underline; cursor: pointer; }
+.wn-dlg { max-width: 640px; width: calc(100% - 32px); border: 0; border-radius: 12px; padding: 18px 20px; }
+.wn-dlg::backdrop { background: rgba(0,0,0,.45); }
+.wn-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.wn-head h2 { margin: 0; font: 800 1.3rem/1.2 var(--serif); }
+.wn-list { list-style: none; padding: 0; margin: 12px 0 0; max-height: 65vh; overflow: auto; }
+.wn-list li { padding: 8px 0; border-top: 1px solid var(--line, #e5e7eb); font-size: .92rem; line-height: 1.45; }
+.wn-date { display: inline-block; min-width: 92px; color: var(--muted); font-size: .8rem; }
 .ai-note { margin: 6px 4px 2px; font-size: .75rem; color: var(--muted); }
 .ai-copy { margin-top: 6px; border-top: 1px solid var(--line); font-size: .8rem; color: var(--muted); }
 .p-id { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
@@ -537,7 +545,7 @@ dialog p { color: var(--muted); font-size: .92rem; }
             <div class="stat"><b id="statTotal">—</b><span>tasks</span></div>
             <div class="stat"><b id="statRows">—</b><span>competitions</span></div>
             <div class="stat"><b id="statYears">—</b><span>years</span></div>
-            <p class="updated" id="statUpdated"></p>
+            <p class="updated"><span id="statUpdated"></span> · <button type="button" class="linkish" data-whats-new>What's new</button></p>
         </div>
     </div>
 
@@ -713,7 +721,7 @@ const BASE = './';
 // Figures are linked inside the statements with their published raw URL; a local copy shows its own images/.
 const RAW = 'https://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/';
 // Bump on every data change so browsers never mix old and new files.
-const DATA_VERSION = '20261104-noiph2023';
+const DATA_VERSION = '20261104-copy-tex-news';
 const FIRST = 1989, LAST = 2026;
 const REGIONS = [['europe', 'Europe'], ['asia', 'Asia'], ['americas', 'Americas'], ['africa', 'Africa'], ['oceania', 'Oceania'], ['world', 'World'], ['other', 'Other']];
 const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', coci: 'europe', joi: 'asia', sgnoi: 'asia', noiph: 'asia', joisc: 'asia', joiopen: 'asia', usaco: 'americas', ccc: 'americas', cco: 'americas', ejoi: 'world', info1cup: 'world', neerc: 'europe', izho: 'world', nwerc: 'europe', bapc: 'europe', ncpc: 'europe', gcpc: 'europe', pacnw: 'americas', ecna: 'americas', swerc: 'europe', cerc: 'europe', ctuopen: 'europe', cypan: 'europe', grpan: 'europe' };
@@ -1698,6 +1706,7 @@ function headHtml(count) {
         <div class="res-actions">
             ${filtersOn() ? '<button type="button" class="btn btn-sm btn-quiet" data-clear-filters>Clear filters</button>' : ''}
             ${wide || filtersOn() ? '<button type="button" class="btn btn-sm btn-quiet" data-copy-view>Copy link to this view</button>' : ''}
+            ${count && (state.country || filtersOn()) ? `<button type="button" class="btn btn-sm" data-copy-tex title="Copy the LaTeX of every task of this view to the clipboard">Copy LaTeX (${count})</button>` : ''}
             ${count && (state.country || filtersOn()) ? `<button type="button" class="btn btn-sm" data-export-view title="Download every task of this view as a LaTeX (.tex) file">Export LaTeX (${count})</button>` : ''}
             ${wide ? `<button type="button" class="btn btn-sm" data-all-scope>${state.tab === 'national' ? 'All countries, all years' : 'All competitions, all years'}</button>` : ''}
             ${count && count <= 60 ? `<button type="button" class="btn btn-sm" data-add-all>${ICON.plus} Add all (${count})</button>` : ''}
@@ -2579,6 +2588,26 @@ function exportTex(items, title, viewExport = true) {
     say('LaTeX file downloaded.');
 }
 
+/* "What's new": the latest additions (metadata/runtime/whats-new.json), each linking to its row. */
+function showWhatsNew() {
+    let dlg = document.getElementById('whatsNew');
+    if (!dlg) {
+        dlg = document.createElement('dialog'); dlg.id = 'whatsNew'; dlg.className = 'wn-dlg';
+        dlg.innerHTML = '<div class="wn-head"><h2>What\'s new</h2><button type="button" class="btn btn-sm btn-quiet" data-wn-close>Close</button></div><ul class="wn-list"><li>Loading…</li></ul>';
+        dlg.addEventListener('click', e => { if (e.target === dlg || e.target.closest('[data-wn-close]')) dlg.close(); });
+        document.body.appendChild(dlg);
+        fetch('./metadata/runtime/whats-new.json?v=' + DATA_VERSION, {cache: 'no-cache'}).then(r => r.json()).then(data => {
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+            const fmt = iso => { const d = new Date(iso + 'T00:00:00Z'); return `${d.getUTCDate()} ${months[d.getUTCMonth()]} ${d.getUTCFullYear()}`; };
+            dlg.querySelector('.wn-list').innerHTML = (data.entries || []).slice(0, 40).map(e => {
+                const c = CBY[e.key];
+                const link = c ? `?s=${scopeOf(c)}&c=${encodeURIComponent(e.key)}` : '';
+                return `<li><span class="wn-date">${fmt(e.date)}</span> ${c ? `<a href="${link}">${c.flag} ${esc(e.text)}</a>` : esc(e.text)}</li>`;
+            }).join('');
+        }).catch(() => { dlg.querySelector('.wn-list').innerHTML = '<li>Could not load the list.</li>'; });
+    }
+    dlg.showModal();
+}
 /* ---------- Link to the current view ----------
    ?c=<row key>&y=<year>&d=<day>&t=<topic>&q=<search> reopens exactly this selection. */
 function viewQuery() {
@@ -2714,6 +2743,14 @@ document.addEventListener('click', e => {
     if (t.hasAttribute('data-clear-filters')) { state.day = 'all'; state.type = 'all'; state.topic = 'all'; state.q = ''; $('#q').value = ''; limit = PAGE; pendingCountries().length ? refresh() : renderResults(); return; }
     if (t.hasAttribute('data-all-scope')) { setScope(null, null); return; }
     if (t.hasAttribute('data-copy-view')) { copyView(); return; }
+    if (t.hasAttribute('data-copy-tex')) {
+        const [title] = scopeTitle();
+        const topic = state.topic !== 'all' ? ` – ${state.topic}` : '';
+        const items = shownUids.map(u => byUid.get(u)).filter(Boolean);
+        if (items.length) copyText(buildTex(items, title.replace(/^[^\p{L}\p{N}]+/u, '') + topic, true), `LaTeX of ${items.length} task${items.length === 1 ? '' : 's'} copied.`);
+        return;
+    }
+    if (t.hasAttribute('data-whats-new')) { showWhatsNew(); return; }
     if (t.hasAttribute('data-export-view')) {
         const [title] = scopeTitle();
         const topic = state.topic !== 'all' ? ` – ${state.topic}` : '';
