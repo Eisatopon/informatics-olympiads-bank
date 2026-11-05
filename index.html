@@ -745,7 +745,7 @@ const BASE = './';
 // Figures are linked inside the statements with their published raw URL; a local copy shows its own images/.
 const RAW = 'https://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/';
 // Bump on every data change so browsers never mix old and new files.
-const DATA_VERSION = '20261105-authors-joiopen';
+const DATA_VERSION = '20261105-overleaf';
 const FIRST = 1989, LAST = 2026;
 const REGIONS = [['europe', 'Europe'], ['asia', 'Asia'], ['americas', 'Americas'], ['africa', 'Africa'], ['oceania', 'Oceania'], ['world', 'World'], ['other', 'Other']];
 const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', coci: 'europe', joi: 'asia', sgnoi: 'asia', noiph: 'asia', joisc: 'asia', joiopen: 'asia', usaco: 'americas', ccc: 'americas', cco: 'americas', ejoi: 'world', info1cup: 'world', neerc: 'europe', izho: 'world', nwerc: 'europe', bapc: 'europe', ncpc: 'europe', gcpc: 'europe', pacnw: 'americas', ecna: 'americas', swerc: 'europe', cerc: 'europe', ctuopen: 'europe', cypan: 'europe', grpan: 'europe' };
@@ -1739,6 +1739,8 @@ function headHtml(count) {
         <div class="res-actions">
             ${filtersOn() ? '<button type="button" class="btn btn-sm btn-quiet" data-clear-filters>Clear filters</button>' : ''}
             ${wide || filtersOn() ? '<button type="button" class="btn btn-sm btn-quiet" data-copy-view>Copy link to this view</button>' : ''}
+            ${count && (state.country || filtersOn()) && shownUids.some(u => byUid.get(u)?.textEl) ? `<select class="btn btn-sm" data-tex-lang aria-label="Language of the LaTeX"><option value="en"${texLang() === 'en' ? ' selected' : ''}>LaTeX in English</option><option value="orig"${texLang() === 'orig' ? ' selected' : ''}>LaTeX in the original</option><option value="both"${texLang() === 'both' ? ' selected' : ''}>LaTeX in both</option></select>` : ''}
+            ${count && (state.country || filtersOn()) ? `<button type="button" class="btn btn-sm" data-overleaf title="Open every task of this view as a new Overleaf project">Open in Overleaf</button>` : ''}
             ${count && (state.country || filtersOn()) ? `<button type="button" class="btn btn-sm" data-copy-tex title="Copy the LaTeX of every task of this view to the clipboard">Copy LaTeX (${count})</button>` : ''}
             ${count && (state.country || filtersOn()) ? `<button type="button" class="btn btn-sm" data-export-view title="Download every task of this view as a LaTeX (.tex) file">Export LaTeX (${count})</button>` : ''}
             ${wide ? `<button type="button" class="btn btn-sm" data-all-scope>${state.tab === 'national' ? 'All countries, all years' : 'All competitions, all years'}</button>` : ''}
@@ -2643,6 +2645,20 @@ function texCharDecls(tex) {
     const hex = c => c.codePointAt(0).toString(16).toUpperCase().padStart(4, '0');
     return seen.size ? `\\ifPDFTeX\n${[...seen].map(c => `\\DeclareUnicodeCharacter{${hex(c)}}{${TEX_CHARS[c] || `[U+${hex(c)}]`}}`).join('\n')}\n\\fi` : '';
 }
+// Language of the LaTeX for bilingual tasks: 'en' (English), 'orig' (the original) or 'both'.
+function texLang() { try { const v = localStorage.getItem('inob-texlang'); return ['en', 'orig', 'both'].includes(v) ? v : 'en'; } catch (e) { return 'en'; } }
+const GREEK_RE = /[Ͱ-Ͽἀ-῿]/;
+// Greek letters inside formulas are set as text, so pdfLaTeX takes them from the Greek font.
+const greekMath = t => String(t).replace(TEX_MATH_RE, m => m.replace(/[Ͱ-Ͽἀ-῿]+/g, g => `\\text{${g}}`));
+function texProblem(p) {
+    const mode = p.textEl ? texLang() : 'en';
+    const lang = p.origLang || 'el', greek = lang === 'el';
+    const orig = () => { const body = texStatement(greek ? greekMath(p.textEl) : p.textEl); return body; };
+    if (mode === 'orig') return orig();
+    if (mode === 'both') return texStatement(p.text) + `\n\n\\medskip\\noindent{\\small\\itshape Original (${lang === 'el' ? 'Greek' : lang.toUpperCase()}):}\\par\n` + orig().replace(/\n*\\begin\{center\}\\IfFileExists[^\n]*\\end\{center\}\n*/g, '\n\n');
+    return texStatement(p.text);
+}
+const texUsesGreek = items => items.some(p => p.textEl && texLang() !== 'en' && (p.origLang || 'el') === 'el');
 function buildTex(items, title, viewExport = true) {
     const head = String.raw`% Exported from Antikythera – World Informatics Olympiads Bank
 % https://eisatopon.github.io/informatics-olympiads-bank/
@@ -2665,18 +2681,41 @@ function buildTex(items, title, viewExport = true) {
         const meta = [p.taskType ? (TASK_TYPE_LABEL[p.taskType] || p.taskType) : '', p.timeLimit ? `time limit ${p.timeLimit}` : '', p.memoryLimit ? `memory limit ${p.memoryLimit}` : ''].filter(Boolean).join(' · ');
         const credit = typeof creditText === 'function' ? creditText(p) : '';
         return `\\subsection*{Task ${i + 1}${p.title ? `: ${texText(p.title)}` : ''}}\n{\\small\\itshape ${texText(src)}${credit ? ` · ${texText(credit)}` : ''}}\\par\n` +
-            (meta ? `{\\small ${texText(meta)}}\\par\n` : '') + texStatement(p.text) + '\n';
+            (meta ? `{\\small ${texText(meta)}}\\par\n` : '') + texProblem(p) + '\n';
     }).join('\n');
     const doc = `\\begin{center}{\\Large\\bfseries ${texText(title)}}\\end{center}\n\n` + body;
-    const decls = texCharDecls(doc);
-    const extra = (doc.includes('\\cancel') ? '\\IfFileExists{cancel.sty}{\\usepackage{cancel}}{}\n\\providecommand{\\cancel}[1]{\\not{#1}}\n' : '') + (decls ? decls + '\n' : '');
+    const greek = texUsesGreek(items);
+    const decls = texCharDecls(greek ? doc.replace(/[\u0370-\u03ff\u1f00-\u1fff]/g, '') : doc);
+    const extra = (greek ? '% Greek letters in any font (textalpha), so Latin code and Greek prose can mix.\n\\ifPDFTeX\\usepackage[LGR,T1]{fontenc}\\usepackage{textalpha}\\fi\n' : '') + (doc.includes('\\cancel') ? '\\IfFileExists{cancel.sty}{\\usepackage{cancel}}{}\n\\providecommand{\\cancel}[1]{\\not{#1}}\n' : '') + (decls ? decls + '\n' : '');
     return head.replace('\\begin{document}', extra + '\\begin{document}') + doc + '\n\\end{document}\n';
+}
+// "Open in Overleaf": a hidden form posts the document (and the figures, by their public addresses) to Overleaf.
+function openOverleaf(items, title) {
+    if (!items.length) return;
+    const urls = [...new Set(items.flatMap(p => [...String(texLang() === 'en' ? p.text : p.text + (p.textEl || '')).matchAll(IMG_RE)].map(m => `${m[1]}.${m[2]}`)))];
+    let tex = buildTex(items, title, true);
+    const form = document.createElement('form');
+    form.method = 'POST'; form.action = 'https://www.overleaf.com/docs'; form.target = '_blank'; form.style.display = 'none';
+    const add = (name, value) => { const i = document.createElement('input'); i.type = 'hidden'; i.name = name; i.value = value; form.appendChild(i); };
+    if (urls.length) {
+        // Overleaf refuses encoded_snip together with snip_uri, so the .tex travels as a data: URI too.
+        tex = tex.replace(/^% The figures come in the same \.zip;[^\n]*$/m, '% The figures are files of this project.');
+        const bytes = new TextEncoder().encode(tex);
+        let bin = ''; for (let i = 0; i < bytes.length; i += 0x8000) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+        add('snip_uri[]', 'data:application/x-tex;base64,' + btoa(bin)); add('snip_name[]', 'main.tex');
+        urls.forEach(u => { add('snip_uri[]', u); add('snip_name[]', u.split('/').pop()); });
+        add('main_document', 'main.tex');
+    } else {
+        add('encoded_snip', encodeURIComponent(tex)); add('snip_name', 'main.tex');
+    }
+    add('engine', 'pdflatex');
+    document.body.appendChild(form); form.submit(); form.remove();
 }
 // "Copy LaTeX": only the list of tasks, ready to paste into an existing document (no preamble).
 function buildTexList(items) {
     return '\\begin{enumerate}\n' + items.map(p => {
         const src = `${CBY[p.country].name} ${p.year}${p.paperLabel ? `, ${p.paperLabel}` : p.day ? `, Day ${p.day}` : ''}, Task ${p.num}${p.title ? ` (${p.title})` : ''}`;
-        return `% ${src.replace(/\n/g, ' ')}\n\\item ${texStatement(p.text)}\n`;
+        return `% ${src.replace(/\n/g, ' ')}\n\\item ${texProblem(p)}\n`;
     }).join('\n') + '\\end{enumerate}\n';
 }
 function zipStore(files) {
@@ -2879,6 +2918,12 @@ document.addEventListener('click', e => {
     if (t.hasAttribute('data-clear-filters')) { state.day = 'all'; state.type = 'all'; state.topic = 'all'; state.q = ''; $('#q').value = ''; limit = PAGE; pendingCountries().length ? refresh() : renderResults(); return; }
     if (t.hasAttribute('data-all-scope')) { setScope(null, null); return; }
     if (t.hasAttribute('data-copy-view')) { copyView(); return; }
+    if (t.hasAttribute('data-overleaf')) {
+        const [title] = scopeTitle();
+        const topic = state.topic !== 'all' ? ` – ${state.topic}` : '';
+        openOverleaf(shownUids.map(u => byUid.get(u)).filter(Boolean), title.replace(/^[^\p{L}\p{N}]+/u, '') + topic);
+        return;
+    }
     if (t.hasAttribute('data-copy-tex')) {
         const [title] = scopeTitle();
         const topic = state.topic !== 'all' ? ` – ${state.topic}` : '';
@@ -2992,6 +3037,9 @@ function centerPick() {
     if (row && !row.classList.contains('mx-years')) scrollGridTo(row);
 }
 
+document.addEventListener('change', e => {
+    if (e.target.matches && e.target.matches('[data-tex-lang]')) { try { localStorage.setItem('inob-texlang', e.target.value); } catch (err) {} }
+});
 async function init() {
     try { if (localStorage.getItem('inob-lang') === 'el') document.body.classList.add('lang-el'); } catch (e) {}
     $('#yr').textContent = new Date().getFullYear();
