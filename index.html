@@ -359,6 +359,8 @@ body.lang-el .st-en { display: none; }
 .potd-topic { display: inline-block; margin-left: 6px; padding: 2px 9px; border-radius: 999px; background: var(--f-tint, #eef2f6); color: var(--f-ink, var(--ink)); font: 600 .75rem/1.5 var(--sans); }
 .potd-text { font-size: 1.12rem; line-height: 1.65; margin: 10px 0 14px; }
 .potd-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.potd-junior { --star: #fff; border-color: #1d6fb8; background: linear-gradient(135deg, #eef6fd, #ffffff 70%); }
+.potd-junior .potd-badge { background: #1d6fb8; }
 .potd-next { margin-left: auto; color: var(--muted); font: .85rem/1.3 var(--sans); }
 @media (max-width: 640px) { .potd { padding: 16px 14px 14px; border-radius: 12px; } .potd-text { font-size: 1.03rem; } .potd-next { margin-left: 0; width: 100%; } }
 .ai-note { margin: 6px 4px 2px; font-size: .75rem; color: var(--muted); }
@@ -745,7 +747,7 @@ const BASE = './';
 // Figures are linked inside the statements with their published raw URL; a local copy shows its own images/.
 const RAW = 'https://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/';
 // Bump on every data change so browsers never mix old and new files.
-const DATA_VERSION = '20261105-authors-cerc';
+const DATA_VERSION = '20261105-junior-potd';
 const FIRST = 1989, LAST = 2026;
 const REGIONS = [['europe', 'Europe'], ['asia', 'Asia'], ['americas', 'Americas'], ['africa', 'Africa'], ['oceania', 'Oceania'], ['world', 'World'], ['other', 'Other']];
 const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', coci: 'europe', joi: 'asia', sgnoi: 'asia', noiph: 'asia', joisc: 'asia', joiopen: 'asia', usaco: 'americas', ccc: 'americas', cco: 'americas', ejoi: 'world', info1cup: 'world', neerc: 'europe', izho: 'world', nwerc: 'europe', bapc: 'europe', ncpc: 'europe', gcpc: 'europe', pacnw: 'americas', ecna: 'americas', swerc: 'europe', cerc: 'europe', ctuopen: 'europe', cypan: 'europe', grpan: 'europe' };
@@ -1995,13 +1997,14 @@ function showCountryError(key) {
 
 /* Home page: "Problem of the day" and a daily selection from all the rows (metadata/runtime/daily.json),
    the same for every visitor on a given day; "Shuffle" draws another selection. */
-let dailyPool = null, dailySeed = null, dailyLoading = false;
+let dailyPool = null, juniorPool = [], dailySeed = null, dailyLoading = false;
 function isHome() { return !state.country && state.year === null && !filtersOn() && ['national', 'regional', 'international', 'undergraduate'].includes(state.tab); }
 function loadDaily() {
     if (dailyPool || dailyLoading) return;
     dailyLoading = true;
     fetch('./metadata/runtime/daily.json?v=' + DATA_VERSION, {cache: 'no-cache'}).then(r => r.json()).then(d => {
         dailyPool = (d.pool || []).filter(e => CBY[e.k]);
+        juniorPool = (d.junior || []).filter(e => CBY[e.k]);
         if (isHome()) renderResults();
     }).catch(() => {});
 }
@@ -2019,9 +2022,33 @@ function dailyCard(e) {
     const c = CBY[e.k];
     return `<article class="problem daily f-${e.k}"><div class="p-head"><div class="p-id"><span class="p-num">${esc(e.n)}</span><span class="p-meta">${c.flag} ${esc(c.name)} ${e.y}${e.pl ? `, ${esc(e.pl)}` : e.d ? `, Day ${e.d}` : ''}${e.ti ? ` — ${esc(e.ti)}` : ''}</span></div><div class="p-actions"><a class="btn btn-sm" href="?p=${encodeURIComponent(e.u)}">Open</a></div></div><div class="statement">${bodyHtml(String(e.t), {country: e.k})}</div></article>`;
 }
-function potdRecord() {
-    const e = dailyPicks(Math.floor(Date.now() / 864e5))[0];
+/* "Junior task of the day" (ages about 10-15): one task a day from the junior pool, the same for everyone. */
+function juniorPick(day = Math.floor(Date.now() / 864e5)) {
+    if (!juniorPool.length) return null;
+    let t = Math.imul((day >>> 0) ^ 0x9E3779B9, 0x85EBCA6B); t ^= t >>> 13; t = Math.imul(t, 0xC2B2AE35); t ^= t >>> 16;
+    return juniorPool[(t >>> 0) % juniorPool.length];
+}
+function potdRecord(which) {
+    const e = which === 'junior' ? juniorPick() : dailyPicks(Math.floor(Date.now() / 864e5))[0];
     return {uid: e.u, country: e.k, year: e.y, day: e.d, paperLabel: e.pl, num: e.n, title: e.ti || null, text: String(e.t)};
+}
+function potdCard(first, kind) {
+    const junior = kind === 'junior', attr = junior ? '="junior"' : '';
+    const now = Date.now(), left = 864e5 - now % 864e5, h = Math.floor(left / 36e5), m = Math.floor(left % 36e5 / 6e4);
+    const today = new Date(Math.floor(now / 864e5) * 864e5);
+    const MON = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const c = CBY[first.k], topic = (typeof topicFields === 'function' && topicFields(String(first.t), null, first.u).topic) || '';
+    return `<article class="problem potd${junior ? ' potd-junior' : ''} f-${first.k}">
+            <div class="potd-top"><span class="potd-badge">${junior ? '★ Junior task of the day' : '★ Task of the day'}</span>${junior ? '<span class="potd-date">Ages about 10–15</span>' : `<span class="potd-date">${today.getUTCDate()} ${MON[today.getUTCMonth()]} ${today.getUTCFullYear()}</span>`}</div>
+            <div class="potd-src">${c.flag} ${esc(c.name)} ${first.y}${first.pl ? `, ${esc(first.pl)}` : first.d ? `, Day ${first.d}` : ''} · Task ${esc(first.n)}${first.ti ? ` “${esc(first.ti)}”` : ''}${topic ? ` <span class="potd-topic">${esc(topic)}</span>` : ''}</div>
+            <div class="statement potd-text">${bodyHtml(String(first.t), {country: first.k})}</div>
+            <div class="potd-actions">
+                <a class="btn btn-primary btn-sm" href="?p=${encodeURIComponent(first.u)}">Open the task</a>
+                <button type="button" class="btn btn-sm" data-potd-hint${attr}>💡 Get a hint</button>
+                <button type="button" class="btn btn-sm" data-potd-share${attr}>Share</button>
+                <span class="potd-next">Next ${junior ? "one" : "task"} in ${h} h ${m} min</span>
+            </div>
+        </article>`;
 }
 function dailyHtml() {
     if (!isHome()) return '';
@@ -2029,23 +2056,10 @@ function dailyHtml() {
     if (!dailyPool.length) return '';
     // The task of the day is always the day's pick; Shuffle only redraws the selection below it.
     const [first, ...dayRest] = dailyPicks(Math.floor(Date.now() / 864e5));
-    const rest = dailySeed === null ? dayRest : dailyPicks(dailySeed).filter(e => e.k !== first.k).slice(0, 8);
-    const now = Date.now(), left = 864e5 - now % 864e5, h = Math.floor(left / 36e5), m = Math.floor(left % 36e5 / 6e4);
-    const today = new Date(Math.floor(now / 864e5) * 864e5);
-    const MON = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    const c = CBY[first.k], topic = (typeof topicFields === 'function' && topicFields(String(first.t), null, first.u).topic) || '';
+    const junior = juniorPick();
+    const rest = (dailySeed === null ? dayRest : dailyPicks(dailySeed).filter(e => e.k !== first.k).slice(0, 8)).filter(e => !junior || e.u !== junior.u);
     return `<section class="daily-box" aria-label="Task of the day">
-        <article class="problem potd f-${first.k}">
-            <div class="potd-top"><span class="potd-badge">★ Task of the day</span><span class="potd-date">${today.getUTCDate()} ${MON[today.getUTCMonth()]} ${today.getUTCFullYear()}</span></div>
-            <div class="potd-src">${c.flag} ${esc(c.name)} ${first.y}${first.pl ? `, ${esc(first.pl)}` : first.d ? `, Day ${first.d}` : ''} · Task ${esc(first.n)}${first.ti ? ` “${esc(first.ti)}”` : ''}${topic ? ` <span class="potd-topic">${esc(topic)}</span>` : ''}</div>
-            <div class="statement potd-text">${bodyHtml(String(first.t), {country: first.k})}</div>
-            <div class="potd-actions">
-                <a class="btn btn-primary btn-sm" href="?p=${encodeURIComponent(first.u)}">Open the task</a>
-                <button type="button" class="btn btn-sm" data-potd-hint>💡 Get a hint</button>
-                <button type="button" class="btn btn-sm" data-potd-share>Share</button>
-                <span class="potd-next">Next task in ${h} h ${m} min</span>
-            </div>
-        </article>
+${potdCard(first, 'main')}${junior ? potdCard(junior, 'junior') : ''}
         <div class="daily-head"><h3>Today's selection from around the world</h3><button type="button" class="btn btn-sm btn-quiet" data-daily-shuffle title="Show another selection">Shuffle</button></div>
         ${rest.map(dailyCard).join('')}
         <div class="daily-head"><h3>All tasks, newest first</h3></div>
@@ -2933,16 +2947,16 @@ document.addEventListener('click', e => {
     }
     if (t.hasAttribute('data-whats-new')) { showWhatsNew(); return; }
     if (t.hasAttribute('data-potd-hint') && dailyPool) {
-        const prompt = aiPrompt(potdRecord(), aiRequest('hint')), pr = AI_PROVIDERS[aiProvider()];
+        const prompt = aiPrompt(potdRecord(t.getAttribute('data-potd-hint')), aiRequest('hint')), pr = AI_PROVIDERS[aiProvider()];
         if (pr.paste) { copyText(prompt, `Prompt copied — paste it in ${pr.name}.`); window.open(pr.home, '_blank', 'noopener'); }
         else { const url = aiUrl(prompt); if (url.includes('?q=')) window.open(url, '_blank', 'noopener'); else copyText(prompt, 'Prompt copied — paste it in the AI chat.'); }
         return;
     }
     if (t.hasAttribute('data-potd-share') && dailyPool) {
-        const r = potdRecord(), url = SHARE_URL + encodeURIComponent(r.uid);
-        const label = `Task of the day: ${CBY[r.country].name} ${r.year}, Task ${r.num}`;
+        const jr = t.getAttribute('data-potd-share') === 'junior', r = potdRecord(jr ? 'junior' : ''), url = SHARE_URL + encodeURIComponent(r.uid);
+        const label = `${jr ? 'Junior task' : 'Task'} of the day: ${CBY[r.country].name} ${r.year}, Task ${r.num}`;
         if (navigator.share) navigator.share({title: label, text: label, url}).catch(() => {});
-        else copyText(url, 'Link to the task of the day copied.');
+        else copyText(url, `Link to the ${jr ? 'junior ' : ''}task of the day copied.`);
         return;
     }
     if (t.hasAttribute('data-daily-shuffle')) { dailySeed = Math.floor(Math.random() * 4294967296); renderResults(); return; }
