@@ -89,6 +89,7 @@
 .f-apio { --f: var(--apio); --f-ink: var(--apio-ink); --f-tint: var(--apio-tint); }
 .f-boi { --f: var(--boi); --f-ink: var(--boi-ink); --f-tint: var(--boi-tint); }
 .f-ceoi { --f: var(--ceoi); --f-ink: var(--ceoi-ink); --f-tint: var(--ceoi-tint); }
+.f-ceoi { --f: var(--ceoi); --f-ink: var(--ceoi-ink); --f-tint: var(--ceoi-tint); }
 .f-usaco { --f: var(--usaco); --f-ink: var(--usaco-ink); --f-tint: var(--usaco-tint); }
 .f-joi { --f: var(--joi); --f-ink: var(--joi-ink); --f-tint: var(--joi-tint); }
 .f-sgnoi { --f: var(--joi); --f-ink: var(--joi-ink); --f-tint: var(--joi-tint); }
@@ -749,16 +750,17 @@ const BASE = './';
 // Figures are linked inside the statements with their published raw URL; a local copy shows its own images/.
 const RAW = 'https://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/';
 // Bump on every data change so browsers never mix old and new files.
-const DATA_VERSION = '20261110-nzic';
+const DATA_VERSION = '20261110-ceoi';
 const FIRST = 1989, LAST = 2026;
 const REGIONS = [['europe', 'Europe'], ['asia', 'Asia'], ['americas', 'Americas'], ['africa', 'Africa'], ['oceania', 'Oceania'], ['world', 'World'], ['other', 'Other']];
-const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', coci: 'europe', joi: 'asia', sgnoi: 'asia', noiph: 'asia', nzic: 'oceania', joisc: 'asia', joiopen: 'asia', usaco: 'americas', ccc: 'americas', cco: 'americas', ejoi: 'world', info1cup: 'world', neerc: 'europe', izho: 'world', nwerc: 'europe', bapc: 'europe', ncpc: 'europe', gcpc: 'europe', pacnw: 'americas', ecna: 'americas', swerc: 'europe', cerc: 'europe', ctuopen: 'europe', cypan: 'europe', grpan: 'europe' };
+const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', ceoi: 'europe', coci: 'europe', joi: 'asia', sgnoi: 'asia', noiph: 'asia', nzic: 'oceania', joisc: 'asia', joiopen: 'asia', usaco: 'americas', ccc: 'americas', cco: 'americas', ejoi: 'world', info1cup: 'world', neerc: 'europe', izho: 'world', nwerc: 'europe', bapc: 'europe', ncpc: 'europe', gcpc: 'europe', pacnw: 'americas', ecna: 'americas', swerc: 'europe', cerc: 'europe', ctuopen: 'europe', cypan: 'europe', grpan: 'europe' };
 const regionOf = key => REGION_OF[key] || 'other';
 const PAGE = 20;
 const STORAGE_KEY = 'eisatopon-informatics:set:v1';  // same origin as the other banks: keep the keys apart
 
 const COUNTRIES = [
     { key: 'ioi', name: 'IOI', flag: '🌐', file: 'IOI-problems.json', kind: 'years', scope: 'international', full: 'International Olympiad in Informatics' },
+    { key: 'ceoi', name: 'CEOI', flag: '🏰', file: 'CEOI-problems.json', kind: 'years', scope: 'regional', full: 'Central European Olympiad in Informatics' },
     { key: 'boi', name: 'BOI', flag: '🌊', file: 'BOI-problems.json', kind: 'years', scope: 'regional', full: 'Baltic Olympiad in Informatics' },
     { key: 'ccc', name: 'Canada — CCC', flag: '🇨🇦', file: 'CCC-problems.json', kind: 'years', scope: 'national', full: 'Canadian Computing Competition (CEMC, University of Waterloo), Junior and Senior papers; statements under CC BY-NC 4.0' },
     { key: 'cco', name: 'Canada — CCO', flag: '🇨🇦', file: 'CCO-problems.json', kind: 'years', scope: 'national', full: 'Canadian Computing Olympiad (CEMC, University of Waterloo), Day 1 and Day 2; statements under CC BY-NC 4.0' },
@@ -1763,6 +1765,7 @@ const ORGANISERS = {
     ioi: ['the International Olympiad in Informatics (IOI)', 'IOI organisers'],
     egoi: ["the European Girls' Olympiad in Informatics (EGOI)", 'EGOI organisers'],
     boi: ['the Baltic Olympiad in Informatics (BOI) and its host organisers', 'BOI organisers'],
+    ceoi: ['the Central European Olympiad in Informatics (CEOI) and its host organisers', 'CEOI organisers'],
     coci: ['HSIN, the Croatian Informatics Society (COCI)', 'HSIN'],
     joi: ['the Japanese Committee for the International Olympiad in Informatics (JOI)', 'Japanese Committee for IOI (JOI)'],
     joisc: ['the Japanese Committee for the International Olympiad in Informatics (JOI)', 'Japanese Committee for IOI (JOI)'],
