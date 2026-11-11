@@ -103,6 +103,7 @@
 .f-poi { --f: var(--poi); --f-ink: var(--poi-ink); --f-tint: var(--poi-tint); }
 .f-gr { --f: var(--gr); --f-ink: var(--gr-ink); --f-tint: var(--gr-tint); }
 .f-neerc { --f: var(--icpc); --f-ink: var(--icpc-ink); --f-tint: var(--icpc-tint); }
+.f-icpcwf { --f: var(--icpc); --f-ink: var(--icpc-ink); --f-tint: var(--icpc-tint); }
 .f-nwerc { --f: var(--icpc); --f-ink: var(--icpc-ink); --f-tint: var(--icpc-tint); }
 .f-bapc { --f: var(--icpc); --f-ink: var(--icpc-ink); --f-tint: var(--icpc-tint); }
 .f-ncpc { --f: var(--icpc); --f-ink: var(--icpc-ink); --f-tint: var(--icpc-tint); }
@@ -750,10 +751,10 @@ const BASE = './';
 // Figures are linked inside the statements with their published raw URL; a local copy shows its own images/.
 const RAW = 'https://raw.githubusercontent.com/Eisatopon/informatics-olympiads-bank/main/';
 // Bump on every data change so browsers never mix old and new files.
-const DATA_VERSION = '20261110-ceoi-1994';
+const DATA_VERSION = '20261111-icpcwf';
 const FIRST = 1989, LAST = 2026;
 const REGIONS = [['europe', 'Europe'], ['asia', 'Asia'], ['americas', 'Americas'], ['africa', 'Africa'], ['oceania', 'Oceania'], ['world', 'World'], ['other', 'Other']];
-const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', ceoi: 'europe', coci: 'europe', joi: 'asia', sgnoi: 'asia', noiph: 'asia', nzic: 'oceania', joisc: 'asia', joiopen: 'asia', usaco: 'americas', ccc: 'americas', cco: 'americas', ejoi: 'world', info1cup: 'world', neerc: 'europe', izho: 'world', nwerc: 'europe', bapc: 'europe', ncpc: 'europe', gcpc: 'europe', pacnw: 'americas', ecna: 'americas', swerc: 'europe', cerc: 'europe', ctuopen: 'europe', cypan: 'europe', grpan: 'europe' };
+const REGION_OF = { ioi: 'world', egoi: 'world', boi: 'europe', ceoi: 'europe', coci: 'europe', joi: 'asia', sgnoi: 'asia', noiph: 'asia', nzic: 'oceania', joisc: 'asia', joiopen: 'asia', usaco: 'americas', ccc: 'americas', cco: 'americas', ejoi: 'world', info1cup: 'world', neerc: 'europe', icpcwf: 'world', izho: 'world', nwerc: 'europe', bapc: 'europe', ncpc: 'europe', gcpc: 'europe', pacnw: 'americas', ecna: 'americas', swerc: 'europe', cerc: 'europe', ctuopen: 'europe', cypan: 'europe', grpan: 'europe' };
 const regionOf = key => REGION_OF[key] || 'other';
 const PAGE = 20;
 const STORAGE_KEY = 'eisatopon-informatics:set:v1';  // same origin as the other banks: keep the keys apart
@@ -774,6 +775,7 @@ const COUNTRIES = [
     { key: 'usaco', name: 'USA — USACO', flag: '🇺🇸', file: 'USACO-problems.json', kind: 'years', scope: 'national', full: 'USA Computing Olympiad, online contests of the season in all divisions (Bronze, Silver, Gold, Platinum); the year is the start of the season, e.g. 2024 = season 2024/2025' },
     { key: 'egoi', name: 'EGOI', flag: '🇪🇺', file: 'EGOI-problems.json', kind: 'years', scope: 'international', full: "European Girls' Olympiad in Informatics" },
     { key: 'izho', name: 'IZhO', flag: '🇰🇿', file: 'IZHO-problems.json', kind: 'years', scope: 'international', full: 'International Zhautykov Olympiad, Computer Science (Almaty, Kazakhstan)' },
+    { key: 'icpcwf', name: 'ICPC World Finals', flag: '🎓', file: 'ICPCWF-problems.json', kind: 'years', scope: 'undergraduate', full: 'ICPC World Finals (International Collegiate Programming Contest); statements © ICPC Foundation' },
     { key: 'neerc', name: 'ICPC NERC', flag: '🎓', file: 'NEERC-problems.json', kind: 'years', scope: 'undergraduate', full: 'ICPC Northern Eurasia Finals (NERC; until 2018 the Northeastern European Regional Contest, NEERC), the university contest; the year is the year of the contest (held in December)' },
     { key: 'nwerc', name: 'ICPC NWERC', flag: '🎓', file: 'NWERC-problems.json', kind: 'years', scope: 'undergraduate', full: 'ICPC Northwestern Europe Regional Contest; statements © the NWERC juries, licensed CC BY-SA' },
     { key: 'bapc', name: 'BAPC', flag: '🎓', file: 'BAPC-problems.json', kind: 'years', scope: 'undergraduate', full: 'Benelux Algorithm Programming Contest; statements © the BAPC juries, licensed CC BY-SA' },
@@ -1774,6 +1776,7 @@ const ORGANISERS = {
     ejoi: ['the European Junior Olympiad in Informatics (EJOI) and its host organisers', 'EJOI organisers'],
     izho: ['the International Zhautykov Olympiad (IZhO) organisers', 'IZhO organisers'],
     neerc: ['the ICPC Northern Eurasia (NERC/NEERC) jury', 'NEERC jury'],
+    icpcwf: ['the ICPC Foundation (ICPC World Finals judges)', 'ICPC Foundation'],
     ccc: ['the Centre for Education in Mathematics and Computing (CEMC), University of Waterloo', 'CEMC, University of Waterloo', 'licensed CC BY-NC 4.0'],
     cco: ['the Centre for Education in Mathematics and Computing (CEMC), University of Waterloo', 'CEMC, University of Waterloo', 'licensed CC BY-NC 4.0'],
     sgnoi: ['the Singapore NOI committee', 'Singapore NOI committee'],
