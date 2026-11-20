@@ -2452,7 +2452,7 @@ async function copyAiPrompt() {
 /* ---------- Share one problem ----------
    Links go through the share worker (workers/share): its page carries the problem's title and statement
    for link previews and sends people on to ?p=<uid>. */
-const SHARE_URL = 'https://antikythera.sokkorom.workers.dev/p/';
+const SHARE_URL = 'https://antikythera.eisatopon.gr/p/';
 function problemLabel(p) {
     const c = CBY[p.country];
     return `${c.flag} ${c.name} ${p.year}${p.paperLabel ? `, ${p.paperLabel}` : p.day ? `, Day ${p.day}` : ''} – Problem ${p.num}`;
