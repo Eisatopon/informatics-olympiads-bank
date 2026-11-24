@@ -14,3 +14,7 @@ Without written permission from eisatopon.gr you may not download the collection
 Full terms: [Terms of use](https://antikythera.eisatopon.gr/terms.html).
 
 Sister projects: [World Mathematical Olympiads Bank](https://eisatopon.github.io/national-olympiads-bank/), [World Physics Olympiads Bank](https://eisatopon.github.io/physics-olympiads-bank/), [World Chemistry Olympiads Bank](https://eisatopon.github.io/chemistry-olympiads-bank/).
+
+## Support
+
+This is a free project. If you find it useful, you can support it at [ko-fi.com/olympiadproblems](https://ko-fi.com/olympiadproblems).
